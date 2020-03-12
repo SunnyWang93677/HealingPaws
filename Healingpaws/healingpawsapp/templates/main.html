@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healing Paws</title>
+    <style>
+
+
+
+
+        *{margin-top:0px;padding:0;border:5px;}
+        #index { margin-left:250px;line-height: 35px; list-style-type: none; background:#666;}/*设置盒子的行高，去掉标记，设置背景颜色*/
+        #index a {display: block; width:180px; text-align:center; }/*设置A标签为块元素不显示，宽度，居中*/
+        #index a:link { color:#666; text-decoration:none; } /* 设置未访问的链接样式*/
+        #index a:visited { color:#666;text-decoration:none; } /* 设置已访问的链接样式 */
+        #index a:hover { color:#FFF;text-decoration:none;font-weight:bold; }  /* 当有鼠标悬停在链接上的颜色 */
+        #index li { float: left; width: 180px; background:#CCC; }
+        #index li a:hover{ background:#999; }
+        #index li ul { line-height: 30px; list-style-type: none;text-align:left; left:-400em; width: 180px; position: absolute; }
+        #index li ul li{ float: left; width: 180px; background: #F6F6F6; }/*下拉菜单颜色*/
+        #index li ul a{ display: block; width: 180px;text-align:center; }
+        #index li ul a:link { color:#666; text-decoration:none; }
+        #index li ul a:visited { color:#666;text-decoration:none; }
+        #index li ul a:hover { color:#B6ACA3;text-decoration:none;font-weight:normal; background: #130f06; }
+        #index li:hover ul { center: auto; }
+        #index li.sfhover ul { left: auto; }
+        #content { clear: left; }
+
+    </style>
+
+
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script>
+        var cot=0;//设置一个计数器，初始值为0；作用是用来监听点击切换的时候哪一个图片应该隐藏或者显示
+        function nex(){
+         if(cot<=2){
+          $('.imgs img').eq(cot).animate({'margin-left':'-305px'},500);
+          cot++;
+         }
+        }
+        function pre(){
+         if(cot>0){
+          cot--;
+          $('.imgs img').eq(cot).animate({'margin-left':'0'},500);
+         }
+        }
+</script>
+
+    <script>
+    function menuFix() {
+        var obj = document.getElementById("index").getElementsByTagName("li");
+        for (var i=0; i<obj.length; i++) {
+        obj[i].onmouseover=function() {
+            this.className+=(this.className.length>0? " ": "") + "sfhover";
+        }
+        obj[i].onMouseDown=function() {
+            this.className+=(this.className.length>0? " ": "") + "sfhover";
+        }
+        obj[i].onMouseUp=function() {
+            this.className+=(this.className.length>0? " ": "") + "sfhover";
+        }
+        obj[i].onmouseout=function() {
+            this.className=this.className.replace(new RegExp("( ?|^)sfhover\\b"),
+        "");
+        }
+        }
+        }
+        window.onload=menuFix;
+
+
+</script>
+
+
+
+
+</head>
+
+    <body style="background-color: #B6ACA3"/>
+
+        <img src="static/logo.png" width="230" height="228" style="position:absolute; left:0px; top:-85px; "/>
+
+
+
+    <ul id="index">
+
+            <li><a href="about.html">About Us</a>
+                <ul>
+                     <li><a href="#">the doctor introduction</a></li>
+                    <li><a href="#">medical equipment</a></li></ul>
+            </li>
+
+            <li>
+			<a href="store.html">Store Inquiry</a>
+                <ul>
+                    <li><a href="#">Store List</a></li>
+                    <li><a href="#">Map Query</a></li>
+                </ul></li>
+
+
+            <li>
+            <a href="customer.html">Customer</a>
+                <ul>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Registered</a></li>
+                </ul>
+            </li>
+
+            <li>
+            <a href="{{ url_for('employee') }}">Employee</a>
+                <ul>
+                    <li><a href="{{ url_for('employee_login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('employee_register') }}">Registered</a></li>
+                </ul>
+            </li>
+		</ul>
+    <hr/>
+
+   <div style="width:900px;padding-top:100px;margin-left:250px;overflow:hidden"> <!-- 这个最外围的容器div宽度为900px，每张图宽为300px，所以只显示3张，剩下的图超出容器隐藏起来 -->
+  <div class="imgs" style="width:50000px;"><!--这个div的作用是让所有的图片都排在同一水平上，这样子切换的时候效果会更好-->
+       <img src="static/pic1.jpg" /><!--这里的图片换上到时候自己对应的图片-->
+       <img src="static/pic2.jpg" />
+       <img src="static/pic3.jpg" />
+  </div>
+  <div>
+   <div onclick="pre()" style="float:left;cursor:pointer;position: absolute; left: 100px;top:330px">LAST</div>
+   <div onclick="nex()" style="float:right;cursor:pointer;position: absolute; right: 100px;top:330px">NEXT</div>
+  </div>
+ </div>
+        <img src="static/tel.png" width="60" height="60"  style="position:absolute; left:1000px;top:2px"/>
+        <b><p style="position:absolute; left:1050px;top:25px">Tel:010-8093 5851 </p></b>
+<div>
+	<p align="center">Copyright &copy; 2020</p>
+</div>
+</body>
+</html>
