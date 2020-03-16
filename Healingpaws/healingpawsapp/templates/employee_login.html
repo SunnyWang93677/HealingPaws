@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_login.css') }}">
 </head>
 
 
 <body>
 
+    <div class="wrap">
+     <div class="sign-div">
+    <form class="" action="SignUp.html" method="post">
+        <h1 style="color: whitesmoke">Login</h1>
+        <input class="sign-text" type="text" placeholder="EmployeeID" >
+        <input class="sign-text" type="password" placeholder="password">
+        <input class="sign-btn" type="submit" value="Sign In">
+        <a href="{{ url_for('employee_register') }}">You didn't register?</a>
+    </form>
+          </div>
+         <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 
+    </div>
 </body>
 </html>
