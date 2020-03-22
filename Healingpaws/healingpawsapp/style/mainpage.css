@@ -1,0 +1,43 @@
+h1,h3,p,a,button{
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsofe YaHei", "WenQuanYi Micro Hei", sans-serif;
+    color: white;
+}
+/*body{*/
+/*    padding-top: 50px;*/
+/*}*/
+.onepage{
+    height: 750px;
+}
+.onepage-bg{
+    height: 750px;
+    width: 100%;
+    position: absolute;
+    /*background-position: center center;*/
+    backgroud-size: cover;
+}
+
+/*#onepagebg{*/
+/*    background-image: url("images/mainpage.jpg");*/
+/*}*/
+.headh1content{
+    margin-top: 150px;
+    line-height: 75px;
+}
+.headh2content{
+    margin-top: 200px;
+    line-height: 75px;
+}
+.title-text{
+    margin-left: 50px;
+}
+.headfontsize h1{
+    font-size: 40pt;
+    color: white;
+}
+#myCarousel .carousel-inner > .item > .img{
+
+    display: block;
+    width:100%;
+    height:100%;
+
+}
