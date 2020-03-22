@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_register.css') }}">
+</head>
+<body>
+
+
+    <div class="wrap">
+    <div class="container">
+
+        <h1 style="color: whitesmoke; margin-top: 15px; text-align: center;font-size: 40px">Register</h1>
+        <form>
+        <label><input class="text" type="text" placeholder="Your employee id"/></label>
+        <label><input class="text" type="text" placeholder="Your username"/></label>
+        <label><input class="text" type="password" placeholder="password" /></label>
+        <label><input class="text" type="password" placeholder="Please confirm your password" /></label>
+        <label><input class="text" type="email" placeholder="Please check your identification" /></label>
+            <input class="register-btn" type="submit" value="Register">
+            <a href="{{ url_for('employee_login') }}">Go and login</a>
+        </form>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
