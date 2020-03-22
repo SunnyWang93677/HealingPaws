@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/appointment.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/customer.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/employee.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/hospital.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/pet.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/qanda.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/surgery.ibd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hospital/treatment.ibd" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +21,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/healingpawsapp" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -74,6 +72,7 @@
       <workItem from="1584033737557" duration="396000" />
       <workItem from="1584778427146" duration="213000" />
       <workItem from="1584778797790" duration="864000" />
+      <workItem from="1584866922224" duration="1245000" />
     </task>
     <servers />
   </component>
