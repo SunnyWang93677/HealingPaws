@@ -6,7 +6,6 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
-#from healingpawsapp import routes, models
-from healingpawsapp import routes
+from healingpawsapp import routes, models
 
 
