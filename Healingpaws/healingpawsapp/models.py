@@ -1,4 +1,4 @@
-from Healingpaws import db
+from healingpawsapp import db
 from datetime import datetime
 
 
