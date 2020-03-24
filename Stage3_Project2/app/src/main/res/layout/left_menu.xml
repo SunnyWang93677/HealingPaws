@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
-                android:text="用户名"
+                android:text="Username"
                 android:textColor="@color/textColor"
                 android:textSize="25sp"
                 />
@@ -60,7 +60,7 @@
                 android:fontFamily="sans-serif-light"
                 android:paddingLeft="6dp"
                 android:paddingTop="10dp"
-                android:text="添加旅行账本"
+                android:text="Appointment"
                 android:textColor="@color/textColor"
                 android:textSize="20sp"/>
         </LinearLayout>
@@ -86,7 +86,7 @@
                 android:fontFamily="sans-serif-light"
                 android:paddingLeft="6dp"
                 android:paddingTop="10dp"
-                android:text="结算"
+                android:text="Records"
                 android:textColor="@color/textColor"
                 android:textSize="20sp"/>
         </LinearLayout>
@@ -112,7 +112,7 @@
                 android:fontFamily="sans-serif-light"
                 android:paddingLeft="6dp"
                 android:paddingTop="10dp"
-                android:text="我的账本集"
+                android:text="Setting"
                 android:textColor="@color/textColor"
                 android:textSize="20sp"/>
         </LinearLayout>
@@ -144,7 +144,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="40dp"
                 android:fontFamily="sans-serif-light"
-                android:text="退出登录"
+                android:text="Log Out"
                 android:textSize="20sp"
                 />
         </LinearLayout>
