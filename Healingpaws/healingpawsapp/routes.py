@@ -17,6 +17,10 @@ app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 def home():
     return 'hello word'
 
+@app.route('/index')
+def index():
+    return render_template('index.html',title='index')
+
 @app.route('/customer_login/',methods=['GET','POST'])
 def customer_login():
     if request.method == 'GET':
