@@ -15,3 +15,4 @@ class Config(object):
 
     PHOTO_UPLOAD_DIR = os.path.join(basedir, 'static/uploaded_PHOTO')
 
+

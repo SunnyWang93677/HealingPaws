@@ -13,7 +13,9 @@
      <div class="sign-div">
     <form class="" action="SignUp.html" method="post">
         <h1 style="color: whitesmoke">Login</h1>
-        <input class="sign-text" type="text" placeholder="EmployeeID" >
+        <label>
+            <input class="sign-text" type="text" placeholder="EmployeeID" >
+        </label>
         <input class="sign-text" type="password" placeholder="password">
         <input class="sign-btn" type="submit" value="Sign In">
         <a href="{{ url_for('employee_register') }}">You didn't register?</a>

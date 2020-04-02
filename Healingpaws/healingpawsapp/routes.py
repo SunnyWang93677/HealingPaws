@@ -13,7 +13,7 @@ import re
 app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 
 
-@app.route('/')
+
 @app.route('/home')
 def home():
     return 'hello word'
@@ -38,7 +38,8 @@ def customer_login():
         else:
             return 'phone does not exist or password is wrong!'
 
-@app.route('/employee_login/',methods=['GET','POST'])
+@app.route('/')
+@app.route('/employee_login',methods=['GET','POST'])
 def customer_login():
     if request.method == 'GET':
         return render_template('employee_login.html',title='employee_login')

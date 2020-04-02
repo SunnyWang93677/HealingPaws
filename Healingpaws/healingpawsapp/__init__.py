@@ -8,4 +8,3 @@ db = SQLAlchemy(app)
 
 from healingpawsapp import routes, models
 
-
