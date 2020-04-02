@@ -3,11 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -73,6 +82,10 @@
       <workItem from="1584778427146" duration="213000" />
       <workItem from="1584778797790" duration="864000" />
       <workItem from="1584866922224" duration="1245000" />
+      <workItem from="1585108623686" duration="15000" />
+      <workItem from="1585195095837" duration="709000" />
+      <workItem from="1585760431802" duration="507000" />
+      <workItem from="1585809035091" duration="5316000" />
     </task>
     <servers />
   </component>
@@ -96,10 +109,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="345" y="57" key="#SSH_Configurations/0.0.1536.824@0.0.1536.824" timestamp="1584034032973" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1584033748688">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1585760451841">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584033748688" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585760451841" />
     <state x="270" y="56" key="SettingsEditor" timestamp="1584033929734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

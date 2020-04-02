@@ -72,7 +72,7 @@ class Appointment(db.Model):
     app_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     app_time = db.Column(db.DateTime, index=True, default=datetime.now)
     discription = db.Column(db.String(128), index=True)
-    type = db.Column(db.Enum('0', '1'), index=True, server_default='0')
+    type = db.Column(db.Enum('0', '1'), index=True, server_default='1')
     # 0 stand for emergency, 1 stand for stander
     place = db.Column(db.String(64), db.ForeignKey('place'))
     city = db.Column(db.String(64), db.ForeignKey('city'))
