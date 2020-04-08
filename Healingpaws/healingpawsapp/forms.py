@@ -11,6 +11,17 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+class cus_SignupForm(FlaskForm):
+
+    cus_username = StringField('Username', validators=[DataRequired()])
+    cus_real_name = StringField('Real name', validators=[DataRequired()])
+    email = StringField('e-mail', validators=[DataRequired()])
+    phone = StringField('phone number', validators=[DataRequired()])
+    cus_password_hash= PasswordField('Password', validators=[DataRequired()])
+    cus_password_hash2= PasswordField('Repeat Password', validators=[DataRequired()])
+
+    submit = SubmitField('sign up')
+
 
 class AnswerForm(FlaskForm):
     answer = TextAreaField('Answer Field')
