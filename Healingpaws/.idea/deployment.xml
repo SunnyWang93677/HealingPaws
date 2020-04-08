@@ -5,7 +5,7 @@
       <paths name="healingpaws.top">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/ubuntu/PyCharm" local="$PROJECT_DIR$" web="http://healingpaws.top:1315" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

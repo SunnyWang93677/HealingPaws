@@ -12,12 +12,20 @@
     <div class="container">
 
         <h1 style="color: whitesmoke; margin-top: 15px; text-align: center;font-size: 40px">Register</h1>
-        <form>
-        <label><input class="text" type="text" placeholder="Your employee id"/></label>
-        <label><input class="text" type="text" placeholder="Your username"/></label>
-        <label><input class="text" type="password" placeholder="password" /></label>
-        <label><input class="text" type="password" placeholder="Please confirm your password" /></label>
-        <label><input class="text" type="email" placeholder="Please check your identification" /></label>
+        <form method="post">
+{#                    emp_username = request.form.get('emp_username')
+{#        emp_real_name = request.form.get('emp_real_name')
+{#        email = request.form.get('email')
+{#        phone = request.form.get('phone')
+{#        password = request.form.get('password')
+{#        password2 = request.form.get('password2')
+{#        title = request.form.get('title')#}
+
+        <label><input name="emp_username" class="text" type="text" placeholder="Your username"/></label>
+        <label><input name="emp_real_name" class="text" type="text" placeholder="Your real name"/></label>
+        <label><input name="password" class="text" type="password" placeholder="password" /></label>
+        <label><input name="password2" class="text" type="password" placeholder="Please confirm your password" /></label>
+        <label><input name="email" class="text" type="email" placeholder="Please check your identification" /></label>
             <input class="register-btn" type="submit" value="Register">
             <a href="{{ url_for('employee_login') }}">Go and login</a>
         </form>

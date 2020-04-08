@@ -6,19 +6,34 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_login.css') }}">
 </head>
 
-
 <body>
 
     <div class="wrap">
      <div class="sign-div">
-    <form class="" action="SignUp.html" method="post">
+    <form class="" action="" method="post">
         <h1 style="color: whitesmoke">Login</h1>
-        <label>
-            <input class="sign-text" type="text" placeholder="EmployeeID" >
-        </label>
-        <input class="sign-text" type="password" placeholder="password">
-        <input class="sign-btn" type="submit" value="Sign In">
-        <a href="{{ url_for('employee_register') }}">You didn't register?</a>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+
+			{% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+
+			{% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <button id="loginButton">Login</button>
+        <a href="{{ url_for('emp_register') }}">You didn't register?</a>
     </form>
           </div>
          <ul>

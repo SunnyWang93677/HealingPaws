@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="8ef8ddb2-f9b6-4f97-8f45-d9eb83b9f265" name="healingpaws.top" url="http://healingpaws.top:1315">
-        <fileTransfer rootFolder="/home/ubuntu/PyCharm" accessType="SFTP" host="healingpaws.top" port="22" sshConfig="root@healingpaws.top:22 (p)">
+        <fileTransfer rootFolder="/home/ubuntu/PyCharm/Healingpaws" accessType="SFTP" host="healingpaws.top" port="22" sshConfig="root@healingpaws.top:22 (p)">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
