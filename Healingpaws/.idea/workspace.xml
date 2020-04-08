@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/origin_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/formes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.py" beforeDir="false" afterPath="$PROJECT_DIR$/hello.py" afterDir="false" />
-    </list>
+    <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +117,7 @@
       <workItem from="1585809035091" duration="5316000" />
       <workItem from="1585838119709" duration="13575000" />
       <workItem from="1586273765777" duration="2667000" />
-      <workItem from="1586277095979" duration="10009000" />
+      <workItem from="1586277095979" duration="10480000" />
     </task>
     <servers />
   </component>
