@@ -17,9 +17,16 @@ app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 def home():
     return render_template('main.html')
 
-@app.route('/login')
-def login():
-    return 'haha'
+
+@app.route('/employee')
+def employee():
+    return render_template('employee.html')
+
+
+@app.route('/emp_homepage')
+def emp_homepage():
+    return 'hello word'
+
 
 @app.route('/employee_login', methods=['GET', 'POST'])
 def employee_login():
@@ -35,8 +42,8 @@ def employee_login():
             session["EMPID"] = employee_in_db.emp_id
             if form.remember_me:
                 session.permanent = True
-            flash("login success, your user id is :"+str(session["EMPID"]))
-            return redirect(url_for('login'))
+            flash("login success, your user name is :"+str(form.username))
+            return redirect('/emp_homepage')
         else:
             flash('your password is incorrect')
             return redirect(url_for('employee_login'))
@@ -62,18 +69,17 @@ def emp_register():
         else:
             if password != password2:
                 print('not match')
-                return 'password has not match'
+                flash('password has not match')
+                return redirect(url_for('emp_register'))
             else:
                 passw_hash = generate_password_hash(password)
                 employee = Employee(emp_username=emp_username, emp_password_hash=passw_hash, emp_real_name=emp_real_name,
                                     email=email, phone=phone)
                 db.session.add(employee)
                 db.session.commit()
-                return "register success"
+                flash("register success")
+                return redirect(url_for('employee_login'))
 
-@app.route('/employee')
-def employee():
-    return 'employee'
 
 @app.route('/index')
 def index():
@@ -81,7 +87,7 @@ def index():
 
 
 
-@app.route('/customer_login/', methods=['GET', 'POST'])
+@app.route('/customer_login', methods=['GET', 'POST'])
 def customer_login():
     if request.method == 'GET':
         return render_template('customer_login.html', title='customer_login')
@@ -98,7 +104,7 @@ def customer_login():
 
 
 
-@app.route('/cus_register/', methods=['GET', 'POST'])
+@app.route('/cus_register', methods=['GET', 'POST'])
 def cus_register():
     if request.method == 'GET':
         return render_template('cus_register.html', title='cus_register')
@@ -123,3 +129,21 @@ def cus_register():
                 db.session.commit()
                 return redirect(url_for('index'))
 
+
+def show_error(judge=False):
+    if judge:
+        return not session.get("EMPID")
+    return redirect('/emp_login')
+
+
+@app.route('/cus_mainpage',methods=['GET','POST'])
+def cus_mainpage():
+    if show_error(True):
+        return show_error()
+    if request.method == 'GET':
+        return render_template('customer-mainpage.html', title='cus_register')
+
+
+@app.route('/cus_appointment',methods=['GET','POST'])
+def cus_appointment():
+    return 'lalala'
