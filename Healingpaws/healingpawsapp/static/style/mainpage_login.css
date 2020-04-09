@@ -1,0 +1,77 @@
+h1,h3,p,a,button{
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsofe YaHei", "WenQuanYi Micro Hei", sans-serif;
+    color: white;
+}
+/*body{*/
+/*    padding-top: 50px;*/
+/*}*/
+.onepage{
+    height: 750px;
+}
+.onepage-bg{
+    height: 750px;
+    width: 100%;
+    position: absolute;
+    /*background-position: center center;*/
+    backgroud-size: cover;
+}
+
+/*#onepagebg{*/
+/*    background-image: url("images/mainpage.jpg");*/
+/*}*/
+.headh1content{
+    margin-top: 100px;
+    line-height: 75px;
+    margin-bottom: 50px;
+}
+.headh2content{
+    margin-top: 200px;
+    line-height: 75px;
+}
+.title-text{
+    margin-left: 50px;
+}
+.headfontsize h1{
+    font-size: 40pt;
+    color: white;
+}
+.twopage-courses{
+    float: left;
+    background: white;
+    padding: 0 2px 2px 0;
+    position: relative;
+    overflow: hidden;
+}
+.twopage-courses >a{
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+.twopage-courses img{
+    width: 90px;
+    margin-top: -20px;
+}
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.classicon h3{
+    margin-top: 120px;
+    color: white;
+}
+.classicon{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.classicon:hover{
+    background: #4cae4c;
+    opacity: 0.9;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+}
