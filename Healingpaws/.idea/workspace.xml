@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/images/appointment.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/images/q&amp;a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/mainpage_login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/myapp.db" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/myapp.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +31,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1Z2N7nKluIhBDPrmrgX6IQwyx1P" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,11 +56,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Healingpaws\HealingPaws\Healingpaws\healingpawsapp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\static" />
     </key>
   </component>
   <component name="RunManager" selected="Python.hello">
@@ -132,6 +143,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="70" key="#Deployment" timestamp="1586273867127">
