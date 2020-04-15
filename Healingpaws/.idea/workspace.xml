@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/images/appointment.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/images/q&amp;a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/mainpage_login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/db_tester.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/myapp.db" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/myapp.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +132,8 @@
       <workItem from="1586277095979" duration="10637000" />
       <workItem from="1586361393384" duration="4395000" />
       <workItem from="1586438308937" duration="9019000" />
+      <workItem from="1586509992840" duration="8646000" />
+      <workItem from="1586848720870" duration="16479000" />
     </task>
     <servers />
   </component>
@@ -148,10 +144,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="70" key="#Deployment" timestamp="1586273867127">
+    <state x="361" y="70" key="#Deployment" timestamp="1586528755352">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="70" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1586273867127" />
+    <state x="361" y="70" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1586528755352" />
     <state x="395" y="90" key="#Inspections" timestamp="1584778491238">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -180,22 +176,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586277823694" />
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1586410313569">
+    <state width="1493" height="139" key="GridCell.Tab.0.bottom" timestamp="1586934531216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586410313569" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1586410313569">
+    <state width="1493" height="139" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586934531216" />
+    <state width="1493" height="139" key="GridCell.Tab.0.center" timestamp="1586934531216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586410313569" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1586410313569">
+    <state width="1493" height="139" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586934531216" />
+    <state width="1493" height="139" key="GridCell.Tab.0.left" timestamp="1586934531216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586410313569" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1586410313569">
+    <state width="1493" height="139" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586934531216" />
+    <state width="1493" height="139" key="GridCell.Tab.0.right" timestamp="1586934531216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586410313569" />
+    <state width="1493" height="139" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586934531216" />
     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1586439999100">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -215,6 +211,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Healingpaws$Healingpaws.coverage" NAME="Healingpaws Coverage Results" MODIFIED="1586358275871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1586365541376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1586926716276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -11,7 +11,6 @@ import re
 app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 
 
-
 @app.route('/')
 @app.route('/home')
 def home():
@@ -86,28 +85,34 @@ def index():
     return render_template('index.html', title='index')
 
 
-
 @app.route('/customer_login', methods=['GET', 'POST'])
 def customer_login():
     if request.method == 'GET':
-        return render_template('customer_login.html', title='customer_login')
+        return render_template('customer-login.html', title='customer_login')
     else:
-        phone = request.form.get('phone')
+        phone = request.form.get('phonenumber')
         password = request.form.get('password')
-        customer = Customer.query.filter(Customer.email == phone, Customer.password_hash == password).first()
+        customer = Customer.query.filter(Customer.phone == phone).first()
         if customer:
-            session['cus_id'] = Customer.cus_id
-            session.permanent = True
-            return redirect(url_for('home'))
+            if check_password_hash(customer.cus_password_hash, password):
+                session['CUSID'] = Customer.cus_id
+                if request.form.get('remember') == 1:
+                    session.permanent = True
+                else:
+                    session.permanent = False
+                return redirect(url_for('customer_mainpage'),username = customer.cus_username)
+            else:
+                flash('Your password is incorrect, please try again')
+                return redirect(url_for('customer_login'))
         else:
-            return 'phone does not exist or password is wrong!'
-
+            flash('the user is not exist, please register first')
+            return redirect(url_for('customer_login'))
 
 
 @app.route('/cus_register', methods=['GET', 'POST'])
 def cus_register():
     if request.method == 'GET':
-        return render_template('cus_register.html', title='cus_register')
+        return render_template('customer-register.html', title='cus_register')
     else:
         cus_username = request.form.get('cus_username')
         cus_real_name = request.form.get('cus_real_name')
@@ -117,17 +122,20 @@ def cus_register():
         cus_password_2 = request.form.get('cus_password_hash2')
         customer = Customer.query.filter(Customer.cus_username == cus_username).first()
         if customer:
-            return 'This username has been registered'
+            flash('This username has been registered')
+            return redirect(url_for('cus_register'))
         else:
             if cus_password != cus_password_2:
-                return 'password has not match'
+                flash('password has not match')
+                return redirect(url_for('cus_register'))
             else:
-                customer = Customer(cus_username=cus_username, cus_password_hash=cus_password,
+                cus_password_hash = generate_password_hash(cus_password)
+                customer = Customer(cus_username=cus_username, cus_password_hash=cus_password_hash,
                                     cus_real_name=cus_real_name,
                                     email=email, phone=phone)
                 db.session.add(customer)
                 db.session.commit()
-                return redirect(url_for('index'))
+                return redirect(url_for('customer_login'))
 
 
 def show_error(judge=False):
@@ -136,7 +144,7 @@ def show_error(judge=False):
     return redirect('/emp_login')
 
 
-@app.route('/cus_mainpage',methods=['GET','POST'])
+@app.route('/cus_mainpage________',methods=['GET','POST'])
 def cus_mainpage():
     if show_error(True):
         return show_error()
@@ -144,6 +152,14 @@ def cus_mainpage():
         return render_template('customer-mainpage.html', title='cus_register')
 
 
-@app.route('/cus_appointment',methods=['GET','POST'])
+@app.route('/cus_appointment', methods=['GET','POST'])
 def cus_appointment():
-    return 'lalala'
+    return render_template('customer-appointment.html', title='cus_appointment')
+
+
+@app.route('/customer_mainpage', methods=['GET', 'POST'])
+def customer():
+    return render_template('customer-mainpage_login.html', title='cus_appointment')
+
+
+
