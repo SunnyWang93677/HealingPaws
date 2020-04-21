@@ -6,7 +6,7 @@ class Customer(db.Model):
     __tablename__ = 'Customer'
     cus_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     cus_username = db.Column(db.String(64), unique=True)
-    cus_real_name = db.Column(db.String)
+    cus_real_name = db.Column(db.String(64))
     email = db.Column(db.String(128), unique=True)
     cus_password_hash = db.Column(db.String(128))
     phone = db.Column(db.String(64), unique=True)
@@ -19,7 +19,7 @@ class Employee(db.Model):
     __tablename__ = 'Employee'
     emp_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     emp_username = db.Column(db.String(64), index=True, unique=True)
-    emp_real_name = db.Column(db.String, index=True)
+    emp_real_name = db.Column(db.String(64), index=True)
     email = db.Column(db.String(128), index=True, unique=True)
     emp_password_hash = db.Column(db.String(128), index=True)
     phone = db.Column(db.String(64), index=True, unique=True)
@@ -67,7 +67,7 @@ class Appointment(db.Model):
     app_status=db.relationship('AppointmentStatus', backref=db.backref('appoint_itself'), lazy="dynamic")#这行是我加哒
 
 class AppointmentStatus(db.Model):
-    __table__ = 'AppointmentStatus'
+    __tablename__ = 'AppointmentStatus'
     status_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     time = db.Column(db.DateTime, index=True, default=datetime.now)
     status = db.Column(db.Enum('0', '1', '2'), index=True, default='0')

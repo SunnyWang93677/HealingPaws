@@ -48,6 +48,9 @@ def employee_login():
             return redirect(url_for('employee_login'))
     return render_template('employee_login.html', title='Employee Login', form=form)
 
+@app.route('/version')
+def vveersion():
+    return '123'
 
 @app.route('/emp_register', methods=['GET', 'POST'])
 def emp_register():
