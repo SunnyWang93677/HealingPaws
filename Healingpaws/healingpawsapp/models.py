@@ -47,8 +47,8 @@ class Answer(db.Model):
     answer_time = db.Column(db.DateTime, index=True)
     emp_id = db.Column(db.Integer, db.ForeignKey('Employee.emp_id'))
     que_id = db.Column(db.Integer, db.ForeignKey('Question.que_id'))
-    employee = db.relationship('Employee', backref = db.backref('answers'), foreign_keys=[emp_id])
-    question = db.relationship('Question', backref = db.backref('answers'), foreign_keys=[que_id])
+    employee = db.relationship('Employee', backref = db.backref('emp_answers'), foreign_keys=[emp_id])
+    question = db.relationship('Question', backref = db.backref('qus_answers'), foreign_keys=[que_id])
 
 
 class Appointment(db.Model):
@@ -64,7 +64,7 @@ class Appointment(db.Model):
     hos_id = db.Column(db.Integer,db.ForeignKey('Place.hos_id'))
     pet_id = db.Column(db.Integer, db.ForeignKey('Pet.pet_id'))
 
-    app_status=db.relationship('AppointmentStatus', backref=db.backref('appoint_itself'), lazy="dynamic")#这行是我加哒
+    app_status=db.relationship('AppointmentStatus', backref=db.backref('app_status'), lazy="dynamic")#这行是我加哒
 
 class AppointmentStatus(db.Model):
     __tablename__ = 'AppointmentStatus'

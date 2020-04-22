@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +138,7 @@
       <workItem from="1587375680326" duration="201000" />
       <workItem from="1587478204453" duration="5303000" />
       <workItem from="1587487527987" duration="2424000" />
+      <workItem from="1587537087738" duration="4811000" />
     </task>
     <servers />
   </component>
