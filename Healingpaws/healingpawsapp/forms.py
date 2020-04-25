@@ -37,11 +37,14 @@ class PetForm(FlaskForm):
 	birthday = DateField('birthday', validators=[DataRequired()])
 	submit = SubmitField('Submit')
 
-class QuestionForm(FlaskForm):
-	body = StringField('Body', validators=[DataRequired()])
-	submit = SubmitField('Post')
+
 
 class AnswerForm(FlaskForm):
-	body = StringField('Body', validators=[DataRequired()])
 	questionid = StringField('Questionid', validators=[DataRequired()])
-	submit = SubmitField('answer')
+	answer = TextAreaField('Answer Field')
+	save = SubmitField('Save')
+
+
+class QuestionForm(FlaskForm):
+    question = TextAreaField('Question Field')
+    save = SubmitField('Save')

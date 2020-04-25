@@ -98,12 +98,12 @@ def customer_login():
         customer = Customer.query.filter(Customer.phone == phone).first()
         if customer:
             if check_password_hash(customer.cus_password_hash, password):
-                session['CUSID'] = Customer.cus_id
+                session['CUSID'] = customer.cus_id
                 if request.form.get('remember') == 1:
                     session.permanent = True
                 else:
                     session.permanent = False
-                return redirect(url_for('customer_mainpage'),username = customer.cus_username)
+                return redirect(url_for('customer_mainpage'))
             else:
                 flash('Your password is incorrect, please try again')
                 return redirect(url_for('customer_login'))
@@ -117,25 +117,26 @@ def cus_register():
     if request.method == 'GET':
         return render_template('customer-register.html', title='cus_register')
     else:
-        cus_username = request.form.get('cus_username')
+        cus_username = request.form.get('username')
         cus_real_name = request.form.get('cus_real_name')
         email = request.form.get('email')
-        phone = request.form.get('phone')
-        cus_password = request.form.get('cus_password_hash')
-        cus_password_2 = request.form.get('cus_password_hash2')
-        customer = Customer.query.filter(Customer.cus_username == cus_username).first()
-        if customer:
-            flash('This username has been registered')
+        phone = request.form.get('phonenumber')
+        cus_password = request.form.get('password1')
+        cus_password_2 = request.form.get('password2')
+        customer_db = Customer.query.filter(Customer.cus_username == cus_username).first()
+        if customer_db:
+            print('This username has been registered')
             return redirect(url_for('cus_register'))
         else:
             if cus_password != cus_password_2:
-                flash('password has not match')
+                print('password has not match')
                 return redirect(url_for('cus_register'))
             else:
                 cus_password_hash = generate_password_hash(cus_password)
                 customer = Customer(cus_username=cus_username, cus_password_hash=cus_password_hash,
                                     cus_real_name=cus_real_name,
                                     email=email, phone=phone)
+                print(customer)
                 db.session.add(customer)
                 db.session.commit()
                 return redirect(url_for('customer_login'))
@@ -145,6 +146,12 @@ def show_error(judge=False):
     if judge:
         return not session.get("EMPID")
     return redirect('/emp_login')
+
+
+def cus_show_error(judge=False):
+    if judge:
+        return not session.get('CUSID')
+    return redirect('/customer_login')
 
 
 @app.route('/cus_mainpage________',methods=['GET','POST'])
@@ -160,9 +167,18 @@ def cus_appointment():
     return render_template('customer-appointment.html', title='cus_appointment')
 
 
-@app.route('/customer_mainpage', methods=['GET', 'POST'])
+@app.route('/customer_mainpage',methods=['GET','POST'])
+def cus():
+    return 'helloword'
+
+
+@app.route('/customer_mainpage1', methods=['GET', 'POST'])
 def customer():
-    return render_template('customer-mainpage_login.html', title='cus_appointment')
+    if cus_show_error(True):
+        return show_error()
+    if request.method == 'GET':
+        username = Customer.query.filter(Customer.cus_id == session.get('CUSID'))
+        return render_template('customer-mainpage_login.html', title='Mainpage',username= username.cus_username)
 
 
 
