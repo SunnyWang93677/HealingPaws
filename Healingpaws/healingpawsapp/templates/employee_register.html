@@ -4,7 +4,138 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_register.css') }}">
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_register.css') }}">
+    <script src="{{ url_for('static', filename='js/js_er.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/js_alert.js') }}"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    alert("Register succesfully");
+  });
+});
+</script>
+
 </head>
+<body>
+
+<!-- LOAD PAGE -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+
+	<!-- BACK TO TOP SECTION -->
+	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+	<!-- HEADER -->
+    <div class="header header-1">
+		<!-- NAVBAR SECTION -->
+		<div class="navbar-main">
+			<div class="container">
+			    <nav id="navbar-example" class="navbar navbar-expand-lg">
+			        <a class="navbar-brand" href="employee_main.html">
+					</a>
+			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			            <ul class="navbar-nav">
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                </li>
+			                <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                </li>
+			            </ul>
+{#			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>#}
+{#                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>#}
+			        </div>
+			    </nav> <!-- -->
+
+			</div>
+		</div>
+
+    </div>
+
+</body>
+<body>
+    <div class="wrap2" style="background: rgba(240,171,60,0.6)">
+        <div class="container1" >
+{#        <div style="overflow:scroll">#}
+            <h1 style="color: whitesmoke;  text-align: center;font-size: 40px;margin-top:-3px;">Register</h1>
+            <form action="#" method="post">
+
+                 <td>
+                     <input class="text" type="text" id="username" placeholder="Your Username" value="" onblur="unameTest()"/>
+                     <span id="spanUnameId"></span>
+                 </td>
+                 <td>
+                     <input class="text" type="text" id="realname" placeholder="Your Realname" value="" onblur="unameTest2()"/>
+                     <span id="spanUnameId2"></span>
+                 </td>
+                <td>
+                     <input class="text" type="text" id="telphone" placeholder="Telphone Number" value="" onblur="unameTel()" />
+                     <span id="spanTel"></span>
+                 </td>
+                <td>
+                     <input class="text" type="password" id="pwdId" placeholder="password" value="" onblur="pwdTest()"/>
+                     <span id="spanPwdId"></span>
+                 </td>
+                <td>
+                     <input class="text" type="password" id="pwdId2" placeholder="Please confirm your password" value="" onblur="pwdTest2()"/>
+                     <span id="spanPwdId2"></span>
+                 </td>
+                <td>
+                     <input class="text" type="text" id="useremail" placeholder="Please enter your email address" value="" onblur="emails()"/>
+                     <span id="spanEmailSId"></span>
+                 </td>
+                <td>
+                     <input class="text" type="text" id="bossemail" placeholder="Please check your identification" value="" onblur="emailb()"/>
+                     <span id="spanEmailBId"></span>
+                 </td>
+                <input class="register-btn" type="submit" value="Register" >
+                <a href="{{ url_for('employee_login') }}">Go and login</a>
+            </form>
+{#        </div>#}
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+</body>
+{#style=" overflow:scroll"#}
+
+
+
+</html>
 <body>
 
 
