@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.stage3_project2">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="任意字符"
+        android:icon="@mipmap/ic_launcher"
+        android:label=""
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon, android:label, android:appComponentFactory">
+        <activity android:name=".Question.Emp_AnswerQuestion"></activity>
+        <activity android:name=".Login_Register.Emp_Register" />
+        <activity android:name=".Login_Register.Register" />
+        <activity android:name=".Appointment.Emp_OrderTreat" />
+        <activity android:name=".Emp_MainActivity" />
+        <activity android:name=".Pets.ViewPets" />
+        <activity android:name=".Pets.AddPets" />
+        <activity android:name=".Question.ViewQuestion" />
+        <activity android:name=".Question.AddQuestion" />
+        <activity android:name=".Appointment.AddAppointment" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Login_Register.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
