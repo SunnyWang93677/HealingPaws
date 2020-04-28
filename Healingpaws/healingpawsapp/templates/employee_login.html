@@ -10,9 +10,11 @@
 
     <div class="wrap">
      <div class="sign-div">
-    <form class="" action="" method="post">
+    <form class="" action="" method="post" >
+    {{ form.csrf_token }}
         <h1 style="color: whitesmoke">Login</h1>
         {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
         <p>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}
@@ -32,7 +34,9 @@
 
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit }}
         <button id="loginButton">Login</button>
+        {#  form.csrf_token  #}
         <a href="{{ url_for('emp_register') }}">You didn't register?</a>
     </form>
           </div>
