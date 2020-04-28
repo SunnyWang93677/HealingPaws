@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_login.css') }}">
@@ -66,19 +63,18 @@
     </div>
     <div class="wrapl"  style="background: rgba(240,171,60,0.6);height:100%;overflow: hidden;" >
      <div class="sign-div" style="height:100%">
-    <form class=""  method="post">
-        <h1 style="color: whitesmoke">Login</h1>
-        <input class="sign-text" type="email" placeholder="EmployeeEmail" >
-        <input class="sign-text" type="password" placeholder="password">
-        <td>
-{#            <a href="employee_main.html">#}
+        <form class=""  method="post">
+            <h1 style="color: whitesmoke">Login</h1>
+            <input class="sign-text" id='employee_lem' type="email" placeholder="EmployeeEmail" >
+            <input class="sign-text" id='employee_lp' type="password" placeholder="password">
+            <td>
                 <input class="sign-btn" type="button" value="Sign In" onclick=javascrtpt:window.location.href="{{ url_for('employee_main') }}">
 
-        </td>
+            </td>
 
-        <td>
-             <a href="{{ url_for('employee_register') }}">You didn't register?</a>
-        </td>
+            <td>
+                 <a href="{{ url_for('employee_register') }}">You didn't register?</a>
+            </td>
 
 
     </form>
@@ -98,6 +94,6 @@
 
     </div>
 
-    
+
 </body>
 </html>
