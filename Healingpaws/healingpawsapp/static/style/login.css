@@ -1,10 +1,10 @@
-body{
-    background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);
-    background-size: 110%;
-    font-size: 16px;
-}
+/*body{*/
+/*    background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+/*    background-size: 110%;*/
+/*    font-size: 16px;*/
+/*}*/
 .panel{
-    margin-top: 100px;
+    margin-top: 150px;
 }
 .form{
     background: rgba(255,255,255,0.2);

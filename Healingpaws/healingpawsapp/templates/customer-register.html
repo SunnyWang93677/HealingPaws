@@ -2,76 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign in</title>
-    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/style/register.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.min.js"></script>
+    <title>Sign up</title>
+    <!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
+
+    <!-- ==============================================
+    Custom Stylesheet
+    =============================================== -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <style>
+        body{
+            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            background-size: 110%;
+            padding-top: 50px;
+        }
+        h1{
+            color: black;
+            padding: 20px 15px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="style/register.css" />
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand">Healing Paws</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        Appointment
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="divider"></li>
-                        <li><a href="#">emergency</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">standard</a></li>
+<!-- LOAD PAGE -->
+<div class="animationload">
+    <div class="loader"></div>
+</div>
+<!-- BACK TO TOP SECTION -->
+<a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
+<div class="header header-1">
+    <div class="navbar-main">
+        <div class="container">
+            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav navbar-right ml-auto">
+                        <li class="nav-item dropdown dmenu">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="index.html">customer</a>
+                                <a class="dropdown-item" href="pets-shop.html">employee</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown dmenu">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Register
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="index.html">customer</a>
+                                <a class="dropdown-item" href="pets-shop.html">employee</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">English</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">中文</a>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
-            </ul>
-        </div>
 
+                </div>
+            </nav> <!-- -->
+
+        </div>
     </div>
-</nav>
+</div>
 <div class="container">
-    <div class="panel col-sm-offset-3 col-sm-6">
-        <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form" method="post">
+    <div class="panel offset-sm-3 col-sm-6">
+        <form class="form-horizontal offset-sm-4" id="login_form">
             <h3 class="form-title">Create your account</h3>
-            <div class="col-sm-9 col-md-9">
+            <div class="col-sm-9">
                 <div class="form-group">
-                    <i class="fa fa-user fa-lg"></i>
+
                     <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus" maxlength="11"/>
                 </div>
                 <div class="form-group">
-                    <i class="fa fa-lock fa-lg"></i>
+
+                    <input class="form-control required" type="text" placeholder="Realname" name="realname" autofocus="autofocus" maxlength="11"/>
+                </div>
+                <div class="form-group">
+
                     <input class="form-control required" type="password" placeholder="Password" name="password1" maxlength="8"/>
                 </div>
                 <div class="form-group">
-                    <i class="fa fa-lock fa-lg"></i>
+
                     <input class="form-control required" type="password" placeholder="Confirm password" name="password2" maxlength="8"/>
                 </div>
                 <div class="form-group">
-                    <i class="fa fa-phone fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Phone number" name="phonenumber" maxlength="8"/>
+
+                    <input class="form-control required" type="text" placeholder="Phonenumber" name="phonenumber" maxlength="11"/>
                 </div>
                 <div class="form-group">
-                    <a href="#" id="register_btn" class="">Already have an account</a>
+
+                    <input class="form-control required" type="text" placeholder="Email" name="email" maxlength="20"/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-success pull-right" value="Sign in"/>
+                    <a href="customer-login.html" id="register_btn" class="">Already have an account</a>
+                </div>
+                <div class="form-group">
+<!--                    <input type="submit" class="btn btn-success pull-right" value="Sign in"/>-->
+                    <a class="btn btn-success btn-success pull-right" href="customer-login.html">Sign in</a>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<!-- JS VENDOR -->
+<script src="static/js/vendor/jquery.min.js"></script>
+<script src="static/js/vendor/bootstrap.min.js"></script>
+<script src="static/js/vendor/owl.carousel.js"></script>
+<script src="static/js/vendor/jquery.magnific-popup.min.js"></script>
+
+<!-- SENDMAIL -->
+<script src="static/js/vendor/validator.min.js"></script>
+<script src="static/js/vendor/form-scripts.js"></script>
+
+<script src="static/js/script.js"></script>
+
 </body>
 </html>

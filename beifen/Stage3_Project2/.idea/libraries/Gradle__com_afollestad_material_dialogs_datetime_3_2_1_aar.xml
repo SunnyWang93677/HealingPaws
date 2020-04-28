@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.afollestad.material-dialogs:datetime:3.2.1@aar">
+    <CLASSES>
+      <root url="file://D:/Android/.gradle/caches/transforms-1/files-1.1/datetime-3.2.1.aar/983c64fc86c24089f623d64df16002b3/res" />
+      <root url="jar://D:/Android/.gradle/caches/transforms-1/files-1.1/datetime-3.2.1.aar/983c64fc86c24089f623d64df16002b3/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/Android/.gradle/caches/modules-2/files-2.1/com.afollestad.material-dialogs/datetime/3.2.1/3db7bac351199b6ea2fb3b1cc5b87432ff4737c7/datetime-3.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
