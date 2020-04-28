@@ -1,0 +1,15 @@
+package com.example.stage3_project2.Question;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import com.example.stage3_project2.R;
+
+public class Emp_AnswerQuestion extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_emp_answer_question);
+    }
+}

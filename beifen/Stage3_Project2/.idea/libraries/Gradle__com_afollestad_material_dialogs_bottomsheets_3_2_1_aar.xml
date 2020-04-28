@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.afollestad.material-dialogs:bottomsheets:3.2.1@aar">
+    <CLASSES>
+      <root url="jar://D:/Android/.gradle/caches/transforms-1/files-1.1/bottomsheets-3.2.1.aar/c361426d99842d782f9c7f2cd3fb88e1/jars/classes.jar!/" />
+      <root url="file://D:/Android/.gradle/caches/transforms-1/files-1.1/bottomsheets-3.2.1.aar/c361426d99842d782f9c7f2cd3fb88e1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/Android/.gradle/caches/modules-2/files-2.1/com.afollestad.material-dialogs/bottomsheets/3.2.1/f8e544523b28b29bed6dedb8a500e8d8202c7aa9/bottomsheets-3.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
