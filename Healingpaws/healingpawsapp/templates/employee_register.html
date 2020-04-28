@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_register.css') }}">
-</head><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
      <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
@@ -65,8 +59,6 @@ $(document).ready(function(){
 			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
 			                </li>
 			            </ul>
-{#			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>#}
-{#                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>#}
 			        </div>
 			    </nav> <!-- -->
 
@@ -79,7 +71,6 @@ $(document).ready(function(){
 <body>
     <div class="wrap2" style="background: rgba(240,171,60,0.6)">
         <div class="container1" >
-{#        <div style="overflow:scroll">#}
             <h1 style="color: whitesmoke;  text-align: center;font-size: 40px;margin-top:-3px;">Register</h1>
             <form action="#" method="post">
 
@@ -114,7 +105,7 @@ $(document).ready(function(){
                 <input class="register-btn" type="submit" value="Register" >
                 <a href="{{ url_for('employee_login') }}">Go and login</a>
             </form>
-{#        </div>#}
+
     </div>
     <ul>
         <li></li>
@@ -131,40 +122,8 @@ $(document).ready(function(){
 </div>
 
 </body>
-{#style=" overflow:scroll"#}
 
 
 
-</html>
-<body>
 
-
-    <div class="wrap">
-    <div class="container">
-
-        <h1 style="color: whitesmoke; margin-top: 15px; text-align: center;font-size: 40px">Register</h1>
-        <form>
-        <label><input class="text" type="text" placeholder="Your employee id"/></label>
-        <label><input class="text" type="text" placeholder="Your username"/></label>
-        <label><input class="text" type="password" placeholder="password" /></label>
-        <label><input class="text" type="password" placeholder="Please confirm your password" /></label>
-        <label><input class="text" type="email" placeholder="Please check your identification" /></label>
-            <input class="register-btn" type="submit" value="Register">
-            <a href="{{ url_for('employee_login') }}">Go and login</a>
-        </form>
-    </div>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
-</body>
 </html>
