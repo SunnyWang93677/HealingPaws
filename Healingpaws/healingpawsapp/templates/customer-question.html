@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+{#需要显示的数据：问题内容，作者，时间#}
+{#需要上传的数据：问题内容，作者，时间#}
+{#操作：Questions:所有问题 My questions:该用户问题 Post:发布#}
+    <!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
+
+    <!-- ==============================================
+    Custom Stylesheet
+    =============================================== -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <style>
+        body{
+            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            background-size: 110%;
+            padding-top: 50px;
+        }
+        h1{
+            color: black;
+            padding: 20px 15px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="style/questions.css" />
+</head>
+<body>
+<!-- LOAD PAGE -->
+<div class="animationload">
+    <div class="loader"></div>
+</div>
+<!-- BACK TO TOP SECTION -->
+<a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
+<div class="header header-1">
+    <div class="navbar-main">
+        <div class="container">
+            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav navbar-right ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">user</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">log out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">English</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">中文</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav> <!-- -->
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>Questions</h3>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Questions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">My questions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu2">Post a question</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="home" class="container tab-pane active"><br>
+            <h3>HOME</h3>
+            <ul class="question-list">
+                <li>
+                    <div class="avatar-group">
+                        <img src="images/1110055.png" alt="" class="avatar">
+                    </div>
+                    <div class="question-group">
+                        <p class="question-content"><a href="{{ url_for('detail',question_id=question.id) }}"> question.content </a></p>
+                        <div class="question-info">
+                            <span class="question-author"> question.author.username </span>
+                            <span class="question-time"> question.create_time </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="menu1" class="container tab-pane fade"><br>
+            <h3>My questions</h3>
+            <ul class="question-list">
+                <li>
+                    <div class="avatar-group">
+                        <img src="images/1110055.png" alt="" class="avatar">
+                    </div>
+                    <div class="question-group">
+                        <p class="question-content"><a href="{{ url_for('detail',question_id=question.id) }}"> question.content </a></p>
+                        <div class="question-info">
+                            <span class="question-author"> question.author.username </span>
+                            <span class="question-time"> question.create_time </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="menu2" class="container tab-pane fade"><br>
+            <h3>Post a question</h3>
+            <form method="post">
+                <div class="form-group">
+                    <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
+                        <textarea class="form-control" rows="8" placeholder="Comment"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="offset-sm-10" style="padding-top: 50px">
+                        <button type="button" class="btn btn-success">Post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- JS VENDOR -->
+<script src="static/js/vendor/jquery.min.js"></script>
+<script src="static/js/vendor/bootstrap.min.js"></script>
+<script src="static/js/vendor/owl.carousel.js"></script>
+<script src="static/js/vendor/jquery.magnific-popup.min.js"></script>
+
+<!-- SENDMAIL -->
+<script src="static/js/vendor/validator.min.js"></script>
+<script src="static/js/vendor/form-scripts.js"></script>
+
+<script src="static/js/script.js"></script>
+
+</body>
+</html>

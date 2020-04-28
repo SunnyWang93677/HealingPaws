@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rg_main"
+        android:layout_alignParentTop="true" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@id/rg_main"
+        android:layout_gravity="bottom"
+        android:background="#BBBBBB" />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F7F7F7"
+        android:orientation="horizontal"
+        android:paddingTop="7dp">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/rb_home"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/main_tab_text_selector_tab"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rb_appointment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/rb_search"
+            android:gravity="center"
+            android:text="Appointment"
+            android:textColor="@color/main_tab_text_selector_tab"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rb_question"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/rb_find"
+            android:gravity="center"
+            android:text="Question"
+            android:textColor="@color/main_tab_text_selector_tab"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rb_setting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/rb_profile"
+            android:gravity="center"
+            android:text="Setting"
+            android:textColor="@color/main_tab_text_selector_tab"
+            android:textSize="10sp" />
+    </RadioGroup>
+
+</RelativeLayout>

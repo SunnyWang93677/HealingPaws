@@ -1,73 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Healing Paws</title>
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pets - HealingPaws</title>
+{#    <meta name="description" content="Pets is responsive multi-purpose HTML5 template compatible with Bootstrap 4. Take your Startup business website to the next level. it is designed for pet care, clinic, veterinary, shop, store, adopt, food, pets, businesses or any type of person or business who wants to showcase their work, services and professional way">#}
+{#    <meta name="keywords" content="animals, business, cats, dogs, ecommerce, modern, pet care, pet services, pet shop, pet sitting, pets, shelter animals, store, veterinary">#}
+{#    <meta name="author" content="rometheme.net">#}
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/css_main.css') }}">
-        <script src="{{ url_for('static', filename='js/js_main.js') }}"></script>
+	<!-- ==============================================
+	Favicons
+	=============================================== -->
+{#	<link rel="shortcut icon" href="/images/favicon.ico">#}
+{#	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">#}
+{#	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">#}
+{#	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">#}
+
+	<!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/animate.min.css">
+
+	<!-- ==============================================
+	Custom Stylesheet
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+
+{#    <script src="/static/js/vendor/modernizr.min.js"></script>#}
+
 </head>
-   
-<body style="background-color: #B6ACA3"/>
 
-<img src="static/pic/logo.png" width="230" height="228" style="position:absolute; left:0px; top:-85px; "/>
+<body>
 
+	<!-- LOAD PAGE -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
 
-    <ul id="index">
+	<!-- BACK TO TOP SECTION -->
+	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
 
-            <li><a href="about.html">About Us</a>
-                <ul>
-                     <li><a href="#">the doctor introduction</a></li>
-                    <li><a href="#">medical equipment</a></li></ul>
-            </li>
+	<!-- HEADER -->
+    <div class="header header-1">
+		<!-- NAVBAR SECTION -->
+		<div class="navbar-main">
+			<div class="container">
+			    <nav id="navbar-example" class="navbar navbar-expand-lg">
+			        <a class="navbar-brand" href="employee_main.html">
+{#						<img src='/images/logo.png' alt="" />#}
+					</a>
+			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			            <ul class="navbar-nav">
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                </li>
+			                <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                </li>
+{#                             <li class="nav-item">#}
+{#			                    <a class="nav-link" href="{{ url_for('customer_qa') }}">question</a>#}
+{#			                </li>#}
+			            </ul>
+                        <a class="nav-link" href="{{ url_for('question') }}">question</a>
+			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
+                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
+			        </div>
+			    </nav> <!-- -->
 
-            <li>
-			<a href="store.html">Store Inquiry</a>
-                <ul>
-                    <li><a href="#">Store List</a></li>
-                    <li><a href="#">Map Query</a></li>
-                </ul></li>
+			</div>
+		</div>
 
-
-            <li>
-            <a href="customer.html">Customer</a>
-                <ul>
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#">Registered</a></li>
-                </ul>
-            </li>
-
-            <li>
-            <a href="{{ url_for('employee') }}">Employee</a>
-                <ul>
-                    <li><a href="{{ url_for('employee_login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('employee_register') }}">Registered</a></li>
-                </ul>
-            </li>
-		</ul>
-    <hr/>
-
-   <div style="width:900px;padding-top:100px;margin-left:250px;overflow:hidden"> <!-- 这个最外围的容器div宽度为900px，每张图宽为300px，所以只显示3张，剩下的图超出容器隐藏起来 -->
-      <div class="imgs" style="width:50000px;"><!--这个div的作用是让所有的图片都排在同一水平上，这样子切换的时候效果会更好-->
-           <img src="../static/pic/pic1.jpg" /><!--这里的图片换上到时候自己对应的图片-->
-           <img src="../static/pic/pic2.jpg" />
-           <img src="../static/pic/pic3.jpg" />
-      </div>
-  <div>
-   <div onclick="pre()" style="float:left;cursor:pointer;position: absolute; left: 100px;top:330px">LAST</div>
-   <div onclick="nex()" style="float:right;cursor:pointer;position: absolute; right: 100px;top:330px">NEXT</div>
-
-
-  </div>
- </div>
+    </div>
 
 
 
-<img src="../static/pic/tel.png" width="60" height="60" style="position:absolute; left:1000px;top:2px"/>
+	<!-- ABOUT -->
+	<div class="section bgi-left bgi-hide-xs" >
+		<div class="content-wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-8 offset-md-4">
 
-<b><p style="position:absolute; left:1050px;top:25px">Tel:010-8093 5851 </p></b>
-<div>
-	<p align="center">Copyright &copy; 2020</p>
-</div>
+						<h2 class="section-heading text-primary no-after mb-4">
+							Welcome to HealingPaws
+						</h2>
+                        <br>
+						<p class="subheading mb-4">Your pet's health and well-being are our top priority.</p>
+
+						<div class="row mt-5">
+							<!-- Item 1 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-scissors"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">Manage An Appointment</h3>
+										Ability for employees to organize, prioritize and keep track of pets in the system
+									</div>
+								</div>
+							</div>
+							<!-- Item 2 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-home"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">Questiona And Answers</h3>
+										Ability for customers to ask questions and for employees to answer them.
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- JS VENDOR -->
+	<script src="/static/js/vendor/jquery.min.js"></script>
+	<script src="/static/js/vendor/bootstrap.min.js"></script>
+	<script src="/static/js/vendor/owl.carousel.js"></script>
+	<script src="/static/js/vendor/jquery.magnific-popup.min.js"></script>
+
+	<!-- SENDMAIL -->
+	<script src="/static/js/vendor/validator.min.js"></script>
+	<script src="/static/js/vendor/form-scripts.js"></script>
+
+	<script src="/static/js/script.js"></script>
+
 </body>
 </html>

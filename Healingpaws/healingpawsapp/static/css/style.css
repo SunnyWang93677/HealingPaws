@@ -47,7 +47,7 @@ a:hover{}
 	padding: 0 15px;
 }
 
-	
+
 .content_width{
 	max-width:100% !important;
 	padding: 0 !important;
@@ -170,15 +170,15 @@ a:hover{}
          color: #dfdfdf !important;
         font-size: 12px;
      }
-     
+
 -o-input-placeholder {
          color: #666666 !important;
         font-size: 12px;
-     }     
+     }
 -ms-input-placeholder {
          color: #666666 !important;
         font-size: 12px;
-     } 
+     }
 
 
 .person_content{
@@ -285,12 +285,12 @@ a:hover{}
 	padding-top:2px !important;
 }
 
-/*.export button{
+.export button{
 	color:#479eff;
 	background: none;
 	border: none;
 	opacity: 0.9;
-}*/
+}
 
 
 .modal_position{

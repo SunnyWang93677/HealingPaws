@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Stage3_Project2</string>
+
+    <!-- strings.xml -->
+    <string name="r">R</string>
+
+    <string name="alpha">Alpha</string>
+    <string name="scale">Scale</string>
+    <string name="slide_from_left">Slide from left</string>
+    <string name="slide_from_right">Slide from right</string>
+    <string name="slide_from_bottom">Slide from bottom</string>
+
+    <string-array name="news">
+        <item>关注</item>
+        <item>推荐</item>
+        <item>深圳</item>
+        <item>视频</item>
+        <item>热点</item>
+        <item>娱乐</item>
+        <item>科技</item>
+        <item>健康</item>
+        <item>图片</item>
+        <item>趣图</item>
+        <item>房产</item>
+        <item>情感</item>
+        <item>财经</item>
+        <item>精选</item>
+    </string-array>
+    <string-array name="titles">
+        <item>Server Check</item>
+        <item>Ten years!</item>
+        <item>Congratulations!</item>
+        <item>Good news!</item>
+    </string-array>
+    <string-array name="contents">
+        <item>Tomorrow we are going to check the server 4pm afternoon for an hour. This app cannot be used at that time.</item>
+        <item>Next week! We will have a party for celebration to Healing Paws, since we have been ten years old!</item>
+        <item>We got good reviews in magazine "Pet Weekly"!</item>
+        <item>One of our new doctors is Wang Yao, who is a famous doctor in the world.</item>
+    </string-array>
+
+    <string name="listview_header_hint_normal">pull to refresh</string>
+    <string name="listview_header_hint_release">release to start refresh</string>
+    <string name="listview_loading">loading...</string>
+    <string name="nomore_loading">no more to be loaded</string>
+    <string name="refreshing">refreshing...</string>
+    <string name="refresh_done">refresh done</string>
+    <string name="listview_header_last_time">last update：</string>
+
+
+</resources>

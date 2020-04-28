@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="myapp" uuid="bda3f0f8-f611-471c-ab5d-d6f42bbce6d4">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\myapp.db</jdbc-url>
+    </data-source>
+  </component>
+</project>
