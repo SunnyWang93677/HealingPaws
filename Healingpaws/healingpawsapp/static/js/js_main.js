@@ -1,4 +1,4 @@
-var cot=0;//设置一个计数器，初始值为0；作用是用来监听点击切换的时候哪一个图片应该隐藏或者显示
+var cot=0;
                 function nex(){
                  if(cot<=2){
                   $('.imgs img').eq(cot).animate({'margin-left':'-305px'},500);

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_qa_style.css') }}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_qa_style.css') }}">
+
+
+<!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/animate.min.css">
+
+
+	<!-- ==============================================
+	Custom Stylesheet
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+
+    <script src="/static/js/vendor/modernizr.min.js"></script>
+
+</head>
+<body>
+<!-- LOAD PAGE -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+
+	<!-- BACK TO TOP SECTION -->
+	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+	<!-- HEADER -->
+    <div class="header header-1">
+		<!-- NAVBAR SECTION -->
+		<div class="navbar-main">
+			<div class="container">
+			    <nav id="navbar-example" class="navbar navbar-expand-lg">
+			        <a class="navbar-brand" href="employee_main.html"></a>
+
+			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			            <ul class="navbar-nav">
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                </li>
+			                <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                </li>
+			            </ul>
+			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
+                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
+			        </div>
+			    </nav> <!-- -->
+
+			</div>
+		</div>
+
+    </div>
+
+             <ul id="pn">
+             <li class="list0">
+             <a class="close" href="javascript:;">X</a>
+{#             <div class="head"><img src="images/T1.jpg" alt=""/></div>#}
+             <div class="content">
+             <p class="text"><span class="name">Andy:</span>How often do I need to clean the cat?</p>
+{#             <div class="pic"><img src="images/img1.jpg" alt=""/></div>#}
+             <div class="good"><span class="date">04-15 18:00</span></div>
+             <div class="comment-list">
+             <div class="comment" user="self">
+{#              <div class="comment-left"><img src="images/T1.jpg" alt=""/></div>#}
+              <div class="comment-right">
+              <div class="comment-text"><span class="user">John:</span>Once two weeks.</div>
+              <div class="comment-date">04-16 22:00
+              <a class="comment-dele" href="javascript:;">reply</a>
+              </div>
+              </div>
+             </div>
+
+             </div>
+             <div class="hf">
+             <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">comment</textarea>
+             <button class="hf-btn">reply</button>
+             <span class="hf-nub">0/100</span>
+             </div>
+             </div>
+             </li>
+             <li class="list0">
+             <a class="close" href="javascript:;">X</a>
+             <div class="content">
+             <p class="text"><span class="name">Mark:</span>What about cat diarrhea?</p>
+             <div class="good"><span class="date">04-17 23:01</span></div>
+             <div class="comment-list">
+             <div class="comment" user="self">
+              <div class="comment-right">
+              <div class="comment-text"><span class="user">Tim:</span>The cat in the family dilute, first of all we must find out the cause of cat diarrhea, the right remedy to have a good effect.</div>
+              <div class="comment-date">04-17 24:00
+              <a class="comment-dele" href="javascript:;">delete</a>
+              </div>
+              </div>
+             </div>
+             </div>
+             <div class="hf">
+             <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">comment…</textarea>
+             <button class="hf-btn">reply</button>
+             <span class="hf-nub">0/100</span>
+             </div>
+             </div>
+             </li>
+             </ul>
+
+
+    <script src="/static/js/js_qa.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_qa_style.css') }}">
+
+
+<!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/animate.min.css">
+
+
+	<!-- ==============================================
+	Custom Stylesheet
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+
+    <script src="/static/js/vendor/modernizr.min.js"></script>
+
+</head>
+<body>
+<!-- LOAD PAGE -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+
+	<!-- BACK TO TOP SECTION -->
+	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+	<!-- HEADER -->
+    <div class="header header-1">
+		<!-- NAVBAR SECTION -->
+		<div class="navbar-main">
+			<div class="container">
+			    <nav id="navbar-example" class="navbar navbar-expand-lg">
+			        <a class="navbar-brand" href="employee_main.html"></a>
+
+			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			            <ul class="navbar-nav">
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                </li>
+			                <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                </li>
+			            </ul>
+			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
+                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
+			        </div>
+			    </nav> <!-- -->
+
+			</div>
+		</div>
+
+    </div>
+
+             <ul id="pn">
+             <li class="list0">
+             <a class="close" href="javascript:;">X</a>
+             <div class="content">
+             <p class="text"><span class="name">Andy:</span>How often do I need to clean the cat?</p>
+             <div class="good"><span class="date">04-15 18:00</span></div>
+             <div class="comment-list">
+             <div class="comment" user="self">
+              <div class="comment-right">
+              <div class="comment-text"><span class="user">John:</span>Once two weeks.</div>
+              <div class="comment-date">04-16 22:00
+              <a class="comment-dele" href="javascript:;">reply</a>
+              </div>
+              </div>
+             </div>
+
+             </div>
+             <div class="hf">
+             <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">comment</textarea>
+             <button class="hf-btn">reply</button>
+             <span class="hf-nub">0/100</span>
+             </div>
+             </div>
+             </li>
+             <li class="list0">
+             <a class="close" href="javascript:;">X</a>
+             <div class="content">
+             <p class="text"><span class="name">Mark:</span>What about cat diarrhea?</p>
+             <div class="good"><span class="date">04-17 23:01</span></div>
+             <div class="comment-list">
+             <div class="comment" user="self">
+              <div class="comment-right">
+              <div class="comment-text"><span class="user">Tim:</span>The cat in the family dilute, first of all we must find out the cause of cat diarrhea, the right remedy to have a good effect.</div>
+              <div class="comment-date">04-17 24:00
+              <a class="comment-dele" href="javascript:;">delete</a>
+              </div>
+              </div>
+             </div>
+             </div>
+             <div class="hf">
+             <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">comment…</textarea>
+             <button class="hf-btn">reply</button>
+             <span class="hf-nub">0/100</span>
+             </div>
+             </div>
+             </li>
+             </ul>
+
+
+    <script src="/static/js/js_qa.js"></script>
+
+
+
+
+</body>
+</html>
+
+</body>
+</html>
+<!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/animate.min.css">
+
+
+	<!-- ==============================================
+	Custom Stylesheet
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+
+    <script src="/static/js/vendor/modernizr.min.js"></script>
+
+</head>
+<body>
+<!-- LOAD PAGE -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+
+	<!-- BACK TO TOP SECTION -->
+	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+	<!-- HEADER -->
+    <div class="header header-1">
+		<!-- NAVBAR SECTION -->
+		<div class="navbar-main">
+			<div class="container">
+			    <nav id="navbar-example" class="navbar navbar-expand-lg">
+			        <a class="navbar-brand" href="employee_main.html"></a>
+
+			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			            <ul class="navbar-nav">
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                </li>
+			                <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                </li>
+			            </ul>
+			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
+                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
+			        </div>
+			    </nav> <!-- -->
+
+			</div>
+		</div>
+
+    </div>
+
+             <ul id="pn">
+             <li class="list0">
+             <a class="close" href="javascript:;">X</a>
+             <div class="head"><img src="images/T1.jpg" alt=""/></div>
+             <div class="content">
+             <p class="text"><span class="name">Andy:</span>How often do I need to clean the cat?</p>
+             <div class="pic"><img src="images/img1.jpg" alt=""/></div>
+             <div class="good"><span class="date">04-15 18:00</span><a class="dzan" href="javascript:;">heart</a></div>
+             <div class="people" total="2980">2980hearts</div>
+             <div class="comment-list">
+             <div class="comment" user="self">
+              <div class="comment-left"><img src="images/T1.jpg" alt=""/></div>
+              <div class="comment-right">
+              <div class="comment-text"><span class="user">John:</span>Once two weeks.</div>
+              <div class="comment-date">04-16 22:00
+              <a class="comment-zan" href="javascript:;" total="23" my="1">23 cancel heart</a>
+              <a class="comment-dele" href="javascript:;">reply</a>
+              </div>
+              </div>
+             </div>
+
+             </div>
+             <div class="hf">
+             <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">comment</textarea>
+             <button class="hf-btn">reply</button>
+             <span class="hf-nub">0/100</span>
+             </div>
+             </div>
+             </li>
+             <li class="list0">
+             <a class="close" href="javascript:;">X</a>
+             <div class="head"><img src="images/T2.jpg" alt=""/></div>
+             <div class="content">
+             <p class="text"><span class="name">MarK:</span>What about cat diarrhea?</p>
+             <div class="pic"><img src="images/img1.jpg" alt=""/></div>
+             <div class="good"><span class="date">04-17 23:01</span><a class="dzan" href="javascript:;">heart</a></div>
+             <div class="people" total="0" style="display: none;"></div>
+             <div class="comment-list">
+             <div class="comment" user="self">
+              <div class="comment-left"><img src="images/T2.jpg" alt=""/></div>
+              <div class="comment-right">
+              <div class="comment-text"><span class="user">Tim:</span>The cat in the family dilute, first of all we must find out the cause of cat diarrhea, the right remedy to have a good effect.</div>
+              <div class="comment-date">04-17 24:00
+              <a class="comment-zan" href="javascript:;" total="286" my="1">286 cancel heart</a>
+              <a class="comment-dele" href="javascript:;">delete</a>
+              </div>
+              </div>
+             </div>
+             </div>
+             <div class="hf">
+             <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">comment…</textarea>
+             <button class="hf-btn">reply</button>
+             <span class="hf-nub">0/100</span>
+             </div>
+             </div>
+             </li>
+             </ul>
+
+
+    <script src="/static/js/js_qa.js"></script>
+
+
+
+
+</body>
+</html>
