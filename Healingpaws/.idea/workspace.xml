@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +139,7 @@
       <workItem from="1587487527987" duration="2424000" />
       <workItem from="1587537087738" duration="4811000" />
       <workItem from="1587736842500" duration="5468000" />
+      <workItem from="1588048721629" duration="5346000" />
     </task>
     <servers />
   </component>
