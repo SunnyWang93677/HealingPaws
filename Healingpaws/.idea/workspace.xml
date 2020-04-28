@@ -2,17 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbc3244-b71e-488f-b193-6bb793f72e8d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/images/1110055.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/form-scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/jquery.magnific-popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/modernizr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/owl.carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/vendor/validator.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/answers.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/style/questions.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-pet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-question.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/question-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/static/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/static/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/static/style/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/static/style/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/static/style/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/static/style/mainpage_login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/static/style/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/static/style/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/base_login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -50,11 +85,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/healingpawsapp/static/images" />
+      <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Healingpaws\HealingPaws\Healingpaws\healingpawsapp" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\static" />
     </key>
   </component>
   <component name="RunManager" selected="Python.hello">
@@ -102,6 +138,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Healingpaws" />
+      <item itemvalue="Python.hello" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.hello" />
@@ -220,6 +260,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Healingpaws$Healingpaws.coverage" NAME="Healingpaws Coverage Results" MODIFIED="1586358275871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1587742325190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1587489431583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$Flask__hello_py_.coverage" NAME="Flask (hello.py) Coverage Results" MODIFIED="1587889264043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
