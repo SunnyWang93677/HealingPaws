@@ -6,14 +6,6 @@ from wtforms.validators import DataRequired, ValidationError, Regexp, EqualTo
 from flask_wtf.file import FileRequired, FileAllowed
 
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
-
-
 class cus_SignupForm(FlaskForm):
     username = StringField('username', validators=[Regexp(r".{2,20}", message='Incorrect format')])
     realname = StringField('realname', validators=[Regexp(r".{2,20}", message='Incorrect format')])

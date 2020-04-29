@@ -1,10 +1,9 @@
 from flask import render_template, flash, redirect, url_for, session, send_file, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from healingpawsapp import app, db
-from healingpawsapp.forms import LoginForm
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
-from healingpawsapp.models import Customer,Employee
+from healingpawsapp.models import Customer, Employee, Question
 import os
 import re
 
@@ -12,48 +11,40 @@ app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home',methods=['GET', 'POST'])
 def home():
-    return render_template('main.html')
-
-
-@app.route('/employee')
-def employee():
-    return render_template('employee.html')
-
-
-@app.route('/emp_homepage')
-def emp_homepage():
-    return 'hello word'
+    return render_template('base.html')
 
 
 @app.route('/employee_login', methods=['GET', 'POST'])
 def employee_login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        employee_in_db = Employee.query.filter(Employee.emp_username == form.username.data).first()
-        if not employee_in_db:
-            flash('No user found with username: {}'.format(form.username.data))
-            return redirect(url_for('employee_login'))
-        #check_password_hash(user_in_db.password_hash, form.password.data):
-        if check_password_hash(employee_in_db.emp_password_hash,form.password.data):
-            flash('Login success!')
-            session["EMPID"] = employee_in_db.emp_id
-            if form.remember_me:
-                session.permanent = True
-            flash("login success, your user name is :"+str(form.username))
-            return redirect('/emp_homepage')
+    if request.method == 'GET':
+        return render_template('employee_login.html', title='employee_login')
+    else:
+        email = request.form.get('email')
+        password = request.form.get('password')
+        employee = Employee.query.filter(Employee.email == email).first()
+        if customer:
+            if check_password_hash(employee.emp_password_hash, password):
+                session['EMPID'] = employee.emp_id
+                if request.form.get('remember') == 1:
+                    session.permanent = True
+                else:
+                    session.permanent = False
+                return redirect(url_for('employee_main'))
+            else:
+                flash('Your password is incorrect, please try again')
+                return redirect(url_for('employee_main'))
         else:
-            flash('your password is incorrect')
-            return redirect(url_for('employee_login'))
-    return render_template('employee_login.html', title='Employee Login', form=form)
+            flash('the user is not exist, please register first')
+            return redirect(url_for('employee_main'))
 
 @app.route('/version')
-def vveersion():
+def version():
     return '123'
 
-@app.route('/emp_register', methods=['GET', 'POST'])
-def emp_register():
+@app.route('/employee_register', methods=['GET', 'POST'])
+def employee_register():
     if request.method == 'GET':
         return render_template('employee_register.html', title='emp_register')
     else:
@@ -64,15 +55,15 @@ def emp_register():
         phone = request.form.get('phone')
         password = request.form.get('password')
         password2 = request.form.get('password2')
-        customer = Employee.query.filter(Employee.emp_username == emp_username).first()
+        customer = Employee.query.filter(Employee.email == email).first()
         if customer:
             flash('This username has been registered,please login')
-            return redirect(url_for('emp_register'))
+            return redirect(url_for('employee_register'))
         else:
             if password != password2:
                 print('not match')
                 flash('password has not match')
-                return redirect(url_for('emp_register'))
+                return redirect(url_for('employee_register'))
             else:
                 passw_hash = generate_password_hash(password)
                 employee = Employee(emp_username=emp_username, emp_password_hash=passw_hash, emp_real_name=emp_real_name,
@@ -81,6 +72,34 @@ def emp_register():
                 db.session.commit()
                 flash("register success")
                 return redirect(url_for('employee_login'))
+
+
+
+@app.route('/employee', methods=['GET', 'POST'])
+def employee():
+    return render_template('employee.html')
+
+
+@app.route('/employee_main', methods=['GET', 'POST'])
+def employee_main():
+    return render_template('employee_main.html')
+
+
+
+@app.route('/employee_question', methods=['GET','POST'])
+def employee_qa():
+    if request.method == 'GET':
+        if session['EMPID']:
+            questions = Question.query.all()
+            return render_template('employee_q&a.html',questions=questions)
+        if session['CUSID']:
+            flash('Limit Enter')
+            return redirect(url_for('cus_mainpage'))
+
+
+@app.route('/employee_appointment', methods=['GET','POST'])
+def employee_ap():
+    return render_template('employee_appointment')
 
 
 @app.route('/index')
@@ -93,9 +112,9 @@ def customer_login():
     if request.method == 'GET':
         return render_template('customer-login.html', title='customer_login')
     else:
-        phone = request.form.get('phonenumber')
+        email = request.form.get('email')
         password = request.form.get('password')
-        customer = Customer.query.filter(Customer.phone == phone).first()
+        customer = Customer.query.filter(Customer.email == email).first()
         if customer:
             if check_password_hash(customer.cus_password_hash, password):
                 session['CUSID'] = customer.cus_id
@@ -111,26 +130,35 @@ def customer_login():
             flash('the user is not exist, please register first')
             return redirect(url_for('customer_login'))
 
+@app.route('/ttt',methods=['GET','POST'])
+def tanchuang():
+    if request.method=='POST':
+        print(request.form.get('aa'))
+        if(request.form.get('aa')=='123456'):
+            return 'password correct'
+        else:
+            return 'the password is wrong'
+    return render_template('tanchuangchuang.html')
 
-@app.route('/cus_register', methods=['GET', 'POST'])
-def cus_register():
+@app.route('/customer_register', methods=['GET', 'POST'])
+def customer_register():
     if request.method == 'GET':
         return render_template('customer-register.html', title='cus_register')
     else:
         cus_username = request.form.get('username')
-        cus_real_name = request.form.get('cus_real_name')
+        cus_real_name = request.form.get('realname')
         email = request.form.get('email')
         phone = request.form.get('phonenumber')
         cus_password = request.form.get('password1')
         cus_password_2 = request.form.get('password2')
-        customer_db = Customer.query.filter(Customer.cus_username == cus_username).first()
+        customer_db = Customer.query.filter(Customer.email == email).first()
         if customer_db:
             print('This username has been registered')
-            return redirect(url_for('cus_register'))
+            return redirect(url_for('customer_register'))
         else:
             if cus_password != cus_password_2:
                 print('password has not match')
-                return redirect(url_for('cus_register'))
+                return redirect(url_for('customer_register'))
             else:
                 cus_password_hash = generate_password_hash(cus_password)
                 customer = Customer(cus_username=cus_username, cus_password_hash=cus_password_hash,
@@ -141,6 +169,10 @@ def cus_register():
                 db.session.commit()
                 return redirect(url_for('customer_login'))
 
+@app.route('/customer_question',methods=['GET','POST'])
+def customer_question():
+    if request.method == 'GET':
+        return render_template('customer-question.html',title='Question')
 
 def show_error(judge=False):
     if judge:

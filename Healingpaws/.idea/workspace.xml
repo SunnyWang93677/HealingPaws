@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39208d77-e0d8-4058-b854-65c58c2be29f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/tanchuangchuang.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/main.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Healingpaws\exportToHTML" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -25,6 +33,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/healingpawsapp/templates" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\templates" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="hello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -67,6 +88,12 @@
       <updated>1588059066737</updated>
       <workItem from="1588059077630" duration="4761000" />
       <workItem from="1588064156926" duration="679000" />
+      <workItem from="1588064946659" duration="197000" />
+      <workItem from="1588066115339" duration="846000" />
+      <workItem from="1588094346085" duration="7000" />
+      <workItem from="1588143057874" duration="2251000" />
+      <workItem from="1588145585783" duration="2945000" />
+      <workItem from="1588158148763" duration="15601000" />
     </task>
     <servers />
   </component>
@@ -74,24 +101,44 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="725" height="2" key="GridCell.Tab.0.bottom" timestamp="1588064835441">
+    <state x="834" y="153" key="FileChooserDialogImpl" timestamp="1588145279746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="725" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588064835441" />
-    <state width="725" height="2" key="GridCell.Tab.0.center" timestamp="1588064835440">
+    <state x="834" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588145279746" />
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1588176480114">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="725" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588064835440" />
-    <state width="725" height="2" key="GridCell.Tab.0.left" timestamp="1588064835440">
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
+    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1588176480114">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="725" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588064835440" />
-    <state width="725" height="2" key="GridCell.Tab.0.right" timestamp="1588064835441">
+    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
+    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1588176480114">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="725" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588064835441" />
+    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
+    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1588176480114">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
+    <state width="724" height="2" key="GridCell.Tab.1.bottom" timestamp="1588145310738">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="724" height="2" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588145310738" />
+    <state width="724" height="2" key="GridCell.Tab.1.center" timestamp="1588145310738">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="724" height="2" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588145310738" />
+    <state width="724" height="2" key="GridCell.Tab.1.left" timestamp="1588145310737">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="724" height="2" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588145310737" />
+    <state width="724" height="2" key="GridCell.Tab.1.right" timestamp="1588145310738">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="724" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588145310738" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1588064363445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1588175650933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

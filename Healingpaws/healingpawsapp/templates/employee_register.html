@@ -75,35 +75,34 @@ $(document).ready(function(){
             <form action="#" method="post">
 
                  <td>
-                     <input class="text" type="text" id="username" placeholder="Your Username" value="" onblur="unameTest()"/>
+                     <input class="text" name="emp_username" type="text" id="username" placeholder="Your Username" value="" onblur="unameTest()"/>
                      <span id="spanUnameId"></span>
                  </td>
                  <td>
-                     <input class="text" type="text" id="realname" placeholder="Your Realname" value="" onblur="unameTest2()"/>
+                     <input class="text" name="emp_real_name" type="text" id="realname" placeholder="Your Realname" value="" onblur="unameTest2()"/>
                      <span id="spanUnameId2"></span>
                  </td>
                 <td>
-                     <input class="text" type="text" id="telphone" placeholder="Telphone Number" value="" onblur="unameTel()" />
+                     <input class="text" name="phone" type="text" id="telphone" placeholder="Telphone Number" value="" onblur="unameTel()" />
                      <span id="spanTel"></span>
                  </td>
                 <td>
-                     <input class="text" type="password" id="pwdId" placeholder="password" value="" onblur="pwdTest()"/>
+                     <input class="text" name="password" type="password" id="pwdId" placeholder="password" value="" onblur="pwdTest()"/>
                      <span id="spanPwdId"></span>
                  </td>
                 <td>
-                     <input class="text" type="password" id="pwdId2" placeholder="Please confirm your password" value="" onblur="pwdTest2()"/>
+                     <input class="text" name="password2"type="password" id="pwdId2" placeholder="Please confirm your password" value="" onblur="pwdTest2()"/>
                      <span id="spanPwdId2"></span>
                  </td>
                 <td>
-                     <input class="text" type="text" id="useremail" placeholder="Please enter your email address" value="" onblur="emails()"/>
+                     <input class="text" name="email" type="text" id="useremail" placeholder="Please enter your email address" value="" onblur="emails()"/>
                      <span id="spanEmailSId"></span>
                  </td>
                 <td>
-                     <input class="text" type="text" id="bossemail" placeholder="Please check your identification" value="" onblur="emailb()"/>
+                     <input class="text" name="bossemail" type="text" id="bossemail" placeholder="Please check your identification" value="" onblur="emailb()"/>
                      <span id="spanEmailBId"></span>
                  </td>
-                <input class="register-btn" type="submit" value="Register" >
-                <a href="{{ url_for('employee_login') }}">Go and login</a>
+                <button class="register-btn" type="submit" value="Go and login"  ></button>
             </form>
 
     </div>

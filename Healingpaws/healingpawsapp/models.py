@@ -33,6 +33,7 @@ class Employee(db.Model):
 class Question(db.Model):
     __tablename__ = 'Question'
     que_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    que_title = db.Column(db.String(64),index=True)
     question = db.Column(db.String(128), index=True)
     que_time = db.Column(db.DateTime, index=True, default=datetime.now)
     cus_id = db.Column(db.Integer, db.ForeignKey('Customer.cus_id'))
@@ -57,8 +58,8 @@ class Appointment(db.Model):
     discription = db.Column(db.String(128), index=True)
     type = db.Column(db.Enum('0', '1'), index=True, server_default='1')
     # 0 stand for emergency, 1 stand for stander
-    place = db.Column(db.Integer)
-    # 0 not_emergency 1 emergency
+    place = db.Column(db.Enum('0','1','2'),index=True,server_default='0' )
+    # 0 beijing 1 shanghai 2 chengdu
     hos_id = db.Column(db.Integer,db.ForeignKey('Place.hos_id'))
     pet_id = db.Column(db.Integer, db.ForeignKey('Pet.pet_id'))
     status = db.Column(db.Enum('0', '1', '2', '3'), index=True, default='0')
