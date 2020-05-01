@@ -6,7 +6,7 @@
 {#需要显示的数据：问题内容，作者，时间#}
 {#需要上传的数据：问题内容，作者，时间#}
 {#操作：Questions:所有问题 My questions:该用户问题 Post:发布#}
-    <!-- ==============================================
+     <!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
@@ -16,10 +16,11 @@
     <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
 
+
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <style>
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
@@ -82,9 +83,9 @@
     <h3>Questions</h3>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home">Questions</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link active" data-toggle="tab" href="#home">Questions</a>-->
+<!--        </li>-->
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#menu1">My questions</a>
         </li>
@@ -95,38 +96,42 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div id="home" class="container tab-pane active"><br>
-            <h3>HOME</h3>
-            <ul class="question-list">
-                <li>
-                    <div class="avatar-group">
-                        <img src="images/1110055.png" alt="" class="avatar">
-                    </div>
-                    <div class="question-group">
-                        <p class="question-content"><a href="{{ url_for('detail',question_id=question.id) }}"> question.content </a></p>
-                        <div class="question-info">
-                            <span class="question-author"> question.author.username </span>
-                            <span class="question-time"> question.create_time </span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<!--        <div id="home" class="container tab-pane active"><br>-->
+<!--            <h3>HOME</h3>-->
+<!--            <ul class="question-list">-->
+<!--                <li>-->
+<!--                    <div class="avatar-group">-->
+<!--                        <img src="images/1110055.png" alt="" class="avatar">-->
+<!--                    </div>-->
+<!--                    <div class="question-group">-->
+<!--                        <p class="question-title"><a href="{{ url_for('question_detail',question_id=question.id) }}">{{ question.title }}</a></p>-->
+<!--                        <p class="question-content">{{ question.content }}</p>-->
+<!--                        <div class="question-info">-->
+<!--                            <span class="question-author">{{ question.author.username }}</span>-->
+<!--                            <span class="question-time">{{ question.create_time }}</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
         <div id="menu1" class="container tab-pane fade"><br>
             <h3>My questions</h3>
             <ul class="question-list">
+                {% for question in data %}
                 <li>
                     <div class="avatar-group">
                         <img src="images/1110055.png" alt="" class="avatar">
                     </div>
                     <div class="question-group">
-                        <p class="question-content"><a href="{{ url_for('detail',question_id=question.id) }}"> question.content </a></p>
+                        <p class="question-title"><a href="{{ url_for('question_detail',question_id=question.id) }}">{{ question.title }}</a></p>
+                        <p class="question-content">{{ question.content }}</p>
                         <div class="question-info">
-                            <span class="question-author"> question.author.username </span>
-                            <span class="question-time"> question.create_time </span>
+                            <span class="question-author">{{ question.author.username }}</span>
+                            <span class="question-time">{{ question.create_time }}</span>
                         </div>
                     </div>
                 </li>
+                {% endfor %}
             </ul>
         </div>
         <div id="menu2" class="container tab-pane fade"><br>
@@ -134,8 +139,12 @@
             <form method="post">
                 <div class="form-group">
                     <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
-                        <input name='title' class="form-control" placeholder="Title">
-                        <textarea name = 'comment' class="form-control" rows="8" placeholder="Comment"></textarea>
+                        <input class="form-control" placeholder="Title"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
+                        <textarea class="form-control" rows="8" placeholder="Comment"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -147,6 +156,7 @@
         </div>
     </div>
 </div>
+
 
 
 
