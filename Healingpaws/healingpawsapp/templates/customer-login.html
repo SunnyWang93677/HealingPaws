@@ -101,12 +101,12 @@
 <!--                    <label class="checkbox">-->
 <!--                        <input type="checkbox" name="remember" value="1"/> Remember me-->
 <!--                    </label>-->
-                    <a href="customer-register.html" id="forget_btn" class="">Forget password?</a>
+                    <a href={{ url_for('customer_register') }} id="forget_btn" class="">Forget password?</a>
                     <hr />
-                    <a href="customer-register.html" id="register_btn" class="">Create an account</a>
+                    <a href={{ url_for('customer_register') }} id="register_btn" class="">Create an account</a>
                 </div>
                 <div class="form-group">
-                    <a class="btn btn-success btn-success pull-right" href="customer-mainpage.html">Login</a>
+                    <button class="btn btn-success btn-success pull-right" type="submit" value="Login"></button>
                 </div>
             </div>
         </form>

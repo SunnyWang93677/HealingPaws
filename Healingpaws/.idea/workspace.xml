@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39208d77-e0d8-4058-b854-65c58c2be29f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/healingpawsapp/templates/tanchuangchuang.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-question.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-question.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/main.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
       <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.routes">
     <configuration name="hello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Healingpaws" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,8 +67,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="routes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Healingpaws" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/healingpawsapp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/healingpawsapp/routes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.routes" />
         <item itemvalue="Python.hello" />
       </list>
     </recent_temporary>
@@ -94,6 +114,8 @@
       <workItem from="1588143057874" duration="2251000" />
       <workItem from="1588145585783" duration="2945000" />
       <workItem from="1588158148763" duration="15601000" />
+      <workItem from="1588231170153" duration="8972000" />
+      <workItem from="1588256020182" duration="7314000" />
     </task>
     <servers />
   </component>
@@ -105,22 +127,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="834" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588145279746" />
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1588176480114">
+    <state width="724" height="2" key="GridCell.Tab.0.bottom" timestamp="1588255966563">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1588176480114">
+    <state width="724" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
+    <state width="724" height="2" key="GridCell.Tab.0.center" timestamp="1588255966563">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1588176480114">
+    <state width="724" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
+    <state width="724" height="2" key="GridCell.Tab.0.left" timestamp="1588255966563">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1588176480114">
+    <state width="724" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
+    <state width="724" height="2" key="GridCell.Tab.0.right" timestamp="1588255966563">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588176480114" />
+    <state width="724" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
     <state width="724" height="2" key="GridCell.Tab.1.bottom" timestamp="1588145310738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -139,6 +161,6 @@
     <state width="724" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588145310738" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1588175650933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1588238994687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

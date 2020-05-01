@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from healingpawsapp import app, db
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
-from healingpawsapp.models import Customer, Employee, Question
+from healingpawsapp.models import Customer, Employee, Question, Answer
 import os
 import re
 
@@ -23,8 +23,9 @@ def employee_login():
     else:
         email = request.form.get('email')
         password = request.form.get('password')
+        print(email,password)
         employee = Employee.query.filter(Employee.email == email).first()
-        if customer:
+        if employee:
             if check_password_hash(employee.emp_password_hash, password):
                 session['EMPID'] = employee.emp_id
                 if request.form.get('remember') == 1:
@@ -34,10 +35,10 @@ def employee_login():
                 return redirect(url_for('employee_main'))
             else:
                 flash('Your password is incorrect, please try again')
-                return redirect(url_for('employee_main'))
+                return redirect(url_for('employee_login'))
         else:
             flash('the user is not exist, please register first')
-            return redirect(url_for('employee_main'))
+            return redirect(url_for('employee_login'))
 
 @app.route('/version')
 def version():
@@ -95,7 +96,8 @@ def employee_qa():
         if session['CUSID']:
             flash('Limit Enter')
             return redirect(url_for('cus_mainpage'))
-
+    else:
+        return ''
 
 @app.route('/employee_appointment', methods=['GET','POST'])
 def employee_ap():
@@ -114,21 +116,25 @@ def customer_login():
     else:
         email = request.form.get('email')
         password = request.form.get('password')
-        customer = Customer.query.filter(Customer.email == email).first()
-        if customer:
-            if check_password_hash(customer.cus_password_hash, password):
-                session['CUSID'] = customer.cus_id
-                if request.form.get('remember') == 1:
-                    session.permanent = True
+        print(email,'++',password)
+        if (email is not None) and (password is not None):
+            customer = Customer.query.filter(Customer.email == email).first()
+            if customer:
+                if check_password_hash(customer.cus_password_hash, password):
+                    session['CUSID'] = customer.cus_id
+                    if request.form.get('remember') == 1:
+                        session.permanent = True
+                    else:
+                        session.permanent = False
+                    return redirect(url_for('customer_mainpage'))
                 else:
-                    session.permanent = False
-                return redirect(url_for('customer_mainpage'))
+                    flash('Your password is incorrect, please try again')
+                    return redirect(url_for('customer_login'))
             else:
-                flash('Your password is incorrect, please try again')
+                flash('the user is not exist, please register first')
                 return redirect(url_for('customer_login'))
         else:
-            flash('the user is not exist, please register first')
-            return redirect(url_for('customer_login'))
+            return ''
 
 @app.route('/ttt',methods=['GET','POST'])
 def tanchuang():
@@ -172,7 +178,34 @@ def customer_register():
 @app.route('/customer_question',methods=['GET','POST'])
 def customer_question():
     if request.method == 'GET':
-        return render_template('customer-question.html',title='Question')
+        if session.get('CUSID'):
+            data = Question.query.filter(Question.cus_id == session.get('CUSID'))
+            return render_template('customer-question.html', title='Question', questionlist=data)
+
+        else:
+            return redirect(url_for('customer_login'))
+    else:
+        if session.get('CUSID'):
+            title = request.form.get('title')
+            question = request.form.get('comment')
+
+
+
+@app.route('/customer_question/<qus_id>',methods=['GET','POST'])
+def detail(qus_id):
+    if request.method == 'GET':
+        if session.get('CUSID'):
+            question = Question.query.filter(Question.cus_id == qus_id).first()
+            answer = Answer.query.filter(Answer.que_id == qus_id)
+            employee_name={}
+            employee = Employee.query.all()
+            for a in answer:
+                for e in employee:
+                    if e.emp_id == a.emp_id:
+                        employee_name[a.emp_id]=a.emp_username
+            return render_template('question-detail.html',title='Detail',detail=question,answer=answer,employee=employee_name)
+        else:
+            return redirect(url_for('customer_login'))
 
 def show_error(judge=False):
     if judge:
@@ -199,18 +232,14 @@ def cus_appointment():
     return render_template('customer-appointment.html', title='cus_appointment')
 
 
-@app.route('/customer_mainpage',methods=['GET','POST'])
-def cus():
-    return 'helloword'
 
-
-@app.route('/customer_mainpage1', methods=['GET', 'POST'])
-def customer():
+@app.route('/customer_mainpage', methods=['GET', 'POST'])
+def customer_mainpage():
     if cus_show_error(True):
         return show_error()
     if request.method == 'GET':
         username = Customer.query.filter(Customer.cus_id == session.get('CUSID'))
-        return render_template('customer-mainpage_login.html', title='Mainpage',username= username.cus_username)
+        return render_template('customer-mainpage.html', title='Mainpage',username= username.cus_username)
 
 
 
