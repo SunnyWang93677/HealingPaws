@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from healingpawsapp import app, db
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
-from healingpawsapp.models import Customer, Employee, Question, Answer
+from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment
 import os
 import re
 
@@ -101,7 +101,29 @@ def employee_qa():
 
 @app.route('/employee_appointment', methods=['GET','POST'])
 def employee_ap():
-    return render_template('employee_appointment')
+    if request.method == "GET":
+        return render_template('employee_appointment.html')
+    else:
+        if (request.form.get("add_appointment")):
+            place = request.form.get('place')
+            pet_type = request.form.get('pet_type')
+            description = request.form.get('description')
+            status = request.form.get('status')
+            appointment = Appointment(place = place, type = pet_type, description = description, status = status)
+            db.session.add(appointment)
+            db.session.commit()
+            flash("add success")
+            return redirect(url_for('employee_appointment'))
+        if (request.form.get("edit_appointment")):
+            place = request.form.get('place')
+            pet_type = request.form.get('pet_type')
+            description = request.form.get('description')
+            status = request.form.get('status')
+            id = request.form('app_id')
+            Appointment.query.filter(id).update({'place': place, 'type': pet_type, 'description': description, 'status': status})
+            db.session.commit()
+            flash("edit success")
+            return redirect(url_for('employee_appointment'))
 
 
 @app.route('/index')
@@ -112,7 +134,7 @@ def index():
 @app.route('/customer_login', methods=['GET', 'POST'])
 def customer_login():
     if request.method == 'GET':
-        return render_template('customer-login.html', title='customer_login')
+        return render_template('customer_login.html', title='customer_login')
     else:
         email = request.form.get('email')
         password = request.form.get('password')
@@ -149,7 +171,7 @@ def tanchuang():
 @app.route('/customer_register', methods=['GET', 'POST'])
 def customer_register():
     if request.method == 'GET':
-        return render_template('customer-register.html', title='cus_register')
+        return render_template('customer_register.html', title='cus_register')
     else:
         cus_username = request.form.get('username')
         cus_real_name = request.form.get('realname')
@@ -203,7 +225,7 @@ def detail(qus_id):
                 for e in employee:
                     if e.emp_id == a.emp_id:
                         employee_name[a.emp_id]=a.emp_username
-            return render_template('question-detail.html',title='Detail',detail=question,answer=answer,employee=employee_name)
+            return render_template('question_detail.html',title='Detail',detail=question,answer=answer,employee=employee_name)
         else:
             return redirect(url_for('customer_login'))
 
@@ -224,12 +246,40 @@ def cus_mainpage():
     if show_error(True):
         return show_error()
     if request.method == 'GET':
-        return render_template('customer-mainpage.html', title='cus_register')
+        return render_template('customer_mainpage.html', title='cus_register')
 
 
-@app.route('/cus_appointment', methods=['GET','POST'])
+@app.route('/customer_appointment', methods=['GET','POST'])
 def cus_appointment():
-    return render_template('customer-appointment.html', title='cus_appointment')
+    if request.method == 'GET':
+        return render_template('customer_appointment.html', title='cus_appointment')
+    else:
+        if request.form.get("submit")=='add':
+            pet_type = request.form.get('pet_type')     #宠物类型
+            city = request.form.get('place')            #城市
+            type = request.form.get('type')            #手术类型
+            comment = request.form.get('description')  #描述
+            appointment = Appointment(place = city, type = type, description = comment)
+            db.session.add(appointment)
+            db.session.commit()
+            flash("add success")
+            return redirect(url_for('customer_appointment'))
+        if request.form.get("delete_appointment"):
+            app_id = request.form.get('app_id')
+            Appointment.query.filter(app_id=app_id).delete()
+            db.session.commit()
+            flash("delete success")
+            return redirect(url_for('customer_appointment'))
+        if request.form.get("modify_appointment"):
+            pet_type = request.form.get('pet_type')  # 宠物类型
+            city = request.form.get('place')  # 城市
+            type = request.form.get('type')  # 手术类型
+            comment = request.form.get('description')  # 描述
+            id = request.form.get('app_id')
+            Appointment.query.filter(id).update({'place': city, 'type': type, 'description': comment})
+            db.session.commit()
+            flash("modify success")
+            return redirect(url_for('customer_appointment'))
 
 
 
@@ -238,8 +288,8 @@ def customer_mainpage():
     if cus_show_error(True):
         return show_error()
     if request.method == 'GET':
-        username = Customer.query.filter(Customer.cus_id == session.get('CUSID'))
-        return render_template('customer-mainpage.html', title='Mainpage',username= username.cus_username)
+        username = Customer.query.filter(Customer.cus_id == session.get('CUSID')).first()
+        return render_template('customer_mainpage.html', title='Mainpage',username= username.cus_username)
 
 
 
