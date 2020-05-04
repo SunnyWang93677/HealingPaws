@@ -238,7 +238,7 @@ def customer_mainpage():
     if cus_show_error(True):
         return show_error()
     if request.method == 'GET':
-        username = Customer.query.filter(Customer.cus_id == session.get('CUSID'))
+        username = Customer.query.filter(Customer.cus_id == session.get('CUSID')).first()
         return render_template('customer-mainpage.html', title='Mainpage',username= username.cus_username)
 
 
