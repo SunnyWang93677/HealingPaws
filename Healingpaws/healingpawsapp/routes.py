@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from healingpawsapp import app, db
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
-from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment
+from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment, Pet
 import os
 import re
 
@@ -124,7 +124,32 @@ def employee_ap():
             db.session.commit()
             flash("edit success")
             return redirect(url_for('employee_appointment'))
+        all_appointment = getAllAppointment()
+        emp_appointment = []
+        for a in all_appointment:
+            # 自定义数组来规定传到前端的数据
+            appointment = []
+            city = a.city
+            pet_name = getPet(session.get('pet_id')).pet_name
+            tel = getCustomer(session.get('cus_id')).phone
+            des = a.description
+            sergery_time = a.sergery_time
+            release_time = a.release_time
+            status = a.status
+            appointment=[appointment,city,pet_name,tel,des,sergery_time,release_time,status]
+            emp_appointment.append(appointment)
+        print(emp_appointment)
 
+
+def getCustomer(cus_id):
+    customer = Customer.query.all()
+    for u in customer:
+        if u.cus_id == cus_id:
+            return u
+
+    return None
+def getAllAppointment():
+    return Appointment.query.all()
 
 @app.route('/index')
 def index():
@@ -254,12 +279,13 @@ def cus_appointment():
     if request.method == 'GET':
         return render_template('customer_appointment.html', title='cus_appointment')
     else:
-        if request.form.get("submit")=='add':
+        if request.form.get("add_appointment"):
             pet_type = request.form.get('pet_type')     #宠物类型
             city = request.form.get('place')            #城市
             type = request.form.get('type')            #手术类型
             comment = request.form.get('description')  #描述
-            appointment = Appointment(place = city, type = type, description = comment)
+            date = request.form.get('treatment_time')
+            appointment = Appointment(place = city, type = type, description = comment, treatment_time = date)
             db.session.add(appointment)
             db.session.commit()
             flash("add success")
@@ -275,13 +301,61 @@ def cus_appointment():
             city = request.form.get('place')  # 城市
             type = request.form.get('type')  # 手术类型
             comment = request.form.get('description')  # 描述
+            date = request.form.get('treatment_time')
             id = request.form.get('app_id')
-            Appointment.query.filter(id).update({'place': city, 'type': type, 'description': comment})
+            Appointment.query.filter(id).update({'place': city, 'type': type, 'description': comment, 'treatment_time' : date})
             db.session.commit()
             flash("modify success")
             return redirect(url_for('customer_appointment'))
+        cus_appointment = getCusAppointment(session.get('cus_id'))
+        all_appointment = []
+        for a in cus_appointment:
+            # 自定义数组来规定传到前端的数据
+            appointment = []
+            pet_name = getPet(a.pet).pet_name
+            status = a.status
+            date = a.treatment_time
+            type = a.type
+            city = a.city
+            description = a.description
+            appointment.append(pet_name)
+            appointment.append(date)
+            appointment.append(status)
+            all_appointment.append(appointment)
+        print(all_appointment)
 
 
+def getPet(pet_id):
+    pets = Pet.query.filter_by(id=pet_id).all()
+    for p in pets:
+        if p.id == pet_id:
+            return p
+    return None
+
+
+def getCusAppointment(cus_id):                          #得到顾客的订单
+    pets = getCustomerPets(cus_id)
+    result = []
+    for p in pets:
+        result += getPetsAppointment(p.id)
+    return result
+
+
+def getPetsAppointment(pet_id):                         #得到每个宠物的订单
+    return Appointment.query.filter_by(pet_id=pet_id).all()
+
+
+def getCustomerPets(cus_id):                              #得到顾客的宠物
+    cus_id = getCustomer(cus_id).id
+    return Pet.query.filter_by(customer=cus_id).all()
+
+
+def getCustomer(cus_id):
+    customer = Customer.query.filter_by(cus_id=cus_id).all()
+    for u in customer:
+        if u.cus_id==cus_id:
+            return u
+    return None
 
 @app.route('/customer_mainpage', methods=['GET', 'POST'])
 def customer_mainpage():
