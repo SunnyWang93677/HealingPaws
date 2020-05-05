@@ -106,7 +106,6 @@ def employee_ap():
         all_appointment = getAllAppointment()
         emp_appointment = []
         for a in all_appointment:
-        # 自定义数组来规定传到前端的数据
             city = a.city
             pet_name = getPet(session.get('pet_id')).pet_name
             tel = getCustomer(session.get('cus_id')).phone
