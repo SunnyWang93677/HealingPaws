@@ -89,7 +89,7 @@
             </tr>
             </thead>
             <tbody>
-            {%for a in apppointment%}
+            {% for a in appointment%}
             <tr>
 
                 <td class="text-center">{{a[0]}}</td>
@@ -155,7 +155,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close
                 </button>
-                <button type="button" name="add_appointment" class="btn btn-primary" data-dismiss="modal">
+                <button name="add_appointment" type="button"  class="btn btn-primary" data-dismiss="modal">
                     Confirm
                 </button>
             </div>
