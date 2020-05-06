@@ -90,14 +90,40 @@ def employee_main():
 @app.route('/employee_question', methods=['GET','POST'])
 def employee_qa():
     if request.method == 'GET':
-        if session['EMPID']:
+        if session.get('EMPID'):
             questions = Question.query.all()
-            return render_template('employee_q&a.html',questions=questions)
-        if session['CUSID']:
+            return render_template('employee_question.html',questions=questions)
+        if session.get('CUSID'):
             flash('Limit Enter')
             return redirect(url_for('cus_mainpage'))
     else:
         return ''
+@app.route('/employee_question/<que_id>',methods=['GET','POST'])
+def answer_detial(que_id):
+    if request.method == 'GET':
+        if session.get('EMPID'):
+            question = Question.query.filter(Question.que_id == que_id).first()
+            answer = Answer.query.filter(Answer.que_id == que_id).all()
+            customer = Customer.query.filter(Customer.cus_id == question.cus_id).first()
+            employee_name = {}
+            employee = Employee.query.all()
+            for a in answer:
+                for e in employee:
+                    if e.emp_id == a.emp_id:
+                        employee_name[a.emp_id] = a.emp_username
+            return render_template('question_detail.html', title='Detail', detail=question, answer=answer,
+                                   employee=employee_name,customer = customer)
+        else:
+            print('please login')
+            return redirect(url_for('customer_login'))
+    else:
+        if session.get('EMPID'):
+            answer = request.form.get('answer')
+            ans_detail = Answer(answer=answer,emp_id=session.get('EMPID'),que_id=que_id)
+            db.session.add(ans_detail)
+            db.session.commit()
+            print('add success')
+            return render_template(url_for('/employee_question/<que_id>'))
 
 @app.route('/employee_appointment', methods=['GET','POST'])
 def employee_ap():
@@ -176,10 +202,10 @@ def customer_login():
                         session.permanent = False
                     return redirect(url_for('customer_mainpage'))
                 else:
-                    flash('Your password is incorrect, please try again')
+                    print('Your password is incorrect, please try again')
                     return redirect(url_for('customer_login'))
             else:
-                flash('the user is not exist, please register first')
+                print('the user is not exist, please register first')
                 return redirect(url_for('customer_login'))
         else:
             return ''
@@ -226,9 +252,11 @@ def customer_register():
 @app.route('/customer_question',methods=['GET','POST'])
 def customer_question():
     if request.method == 'GET':
+        print(session.get('CUSID'))
         if session.get('CUSID'):
-            data = Question.query.filter(Question.cus_id == session.get('CUSID'))
-            return render_template('customer-question.html', title='Question', questionlist=data)
+            data = Question.query.filter(Question.cus_id == session.get('CUSID')).all()
+            print('nothing over here')
+            return render_template('customer_question.html', title='Question', questionlist=data)
 
         else:
             return redirect(url_for('customer_login'))
@@ -236,15 +264,20 @@ def customer_question():
         if session.get('CUSID'):
             title = request.form.get('title')
             question = request.form.get('comment')
+            data = Question(que_title=title,question=question,cus_id=session.get('CUSID'))
+            db.session.add(data)
+            db.session.commit()
+            return redirect(url_for('customer_question'))
+        else:
+            return redirect(url_for('customer_login'))
 
 
-
-@app.route('/customer_question/<qus_id>',methods=['GET','POST'])
-def detail(qus_id):
+@app.route('/customer_question/<que_id>',methods=['GET','POST'])
+def detail(que_id):
     if request.method == 'GET':
         if session.get('CUSID'):
-            question = Question.query.filter(Question.cus_id == qus_id).first()
-            answer = Answer.query.filter(Answer.que_id == qus_id)
+            question = Question.query.filter(Question.que_id == que_id).first()
+            answer = Answer.query.filter(Answer.que_id == que_id).all()
             employee_name={}
             employee = Employee.query.all()
             for a in answer:

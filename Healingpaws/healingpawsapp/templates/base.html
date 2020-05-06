@@ -8,16 +8,17 @@
 	CSS VENDOR
 	=============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+     <link rel="stylesheet" type="text/css" href="../static/css/announcement.css">
 
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
     <style>
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
@@ -60,7 +61,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url_for('customer_login') }}">customer</a>
-                            <a class="dropdown-item" href="pets-shop.html">employee</a>
+                            <a class="dropdown-item" href="{{ url_for('employee_login') }}">employee</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown dmenu">
@@ -69,7 +70,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url_for('customer_register') }}">customer</a>
-                            <a class="dropdown-item" href="pets-shop.html">employee</a>
+                            <a class="dropdown-item" href="{{ url_for('employee_register') }}">employee</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -86,18 +87,72 @@
     </div>
 </div>
 </div>
+<div class="announcement">
+ <h3>Announcement</h3>
+            <ul class="announcement-list">
+                {% for announcement in data %}
+                <li>
+                    <div class="announcement-group">
+                        <p class="announcement-title">{{ announcement.title }}</p>
+                        <p class="announcement-content">{{ announcement.content }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+</div>
+<div class="hospital_info" >
 
+						<h2 class="section-heading text-primary no-after mb-4">
+							Welcome to HealingPaws
+						</h2>
+                        <br>
+						<p class="subheading mb-4">Your pet's health and well-being are our top priority.</p>
+
+						<div class="row mt-5">
+							<!-- Item 1 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-scissors"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">Manage An Appointment</h3>
+										Ability for employees to organize, prioritize and keep track of pets in the system
+									</div>
+								</div>
+							</div>
+							<!-- Item 2 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-home"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">Questiona And Answers</h3>
+										Ability for customers to ask questions and for employees to answer them.
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- JS VENDOR -->
-<script src="static/js/vendor/jquery.min.js"></script>
-<script src="static/js/vendor/bootstrap.min.js"></script>
-<script src="static/js/vendor/owl.carousel.js"></script>
-<script src="static/js/vendor/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/vendor/jquery.min.js"></script>
+<script src="../static/js/vendor/bootstrap.min.js"></script>
+<script src="../static/js/vendor/owl.carousel.js"></script>
+<script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>
 
 <!-- SENDMAIL -->
-<script src="static/js/vendor/validator.min.js"></script>
-<script src="static/js/vendor/form-scripts.js"></script>
+<script src="../static/js/vendor/validator.min.js"></script>
+<script src="../static/js/vendor/form-scripts.js"></script>
 
-<script src="static/js/script.js"></script>
+<script src="../static/js/script.js"></script>
 
 </body>
 </html>
