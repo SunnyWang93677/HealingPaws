@@ -89,16 +89,18 @@
             </tr>
             </thead>
             <tbody>
+            {% for a in appointment%}
             <tr>
 
-                <td class="text-center">cat</td>
-                <td class="text-center">4.20</td>
-                <td class="text-center">waiting</td>
+                <td class="text-center">{{a[0]}}</td>
+                <td class="text-center">{{a[1]}}</td>
+                <td class="text-center">{{a[2]}}</td>
                 <td>
-                    <a href="#"> <button type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
-                    <a href="#"><button type="button" class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
+                    <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
+                    <a href="#"><button name="delete_appointment" type="button" class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
                 </td>
             </tr>
+            {%endfor%}
             </tbody>
         </table>
     </div>
@@ -153,7 +155,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close
                 </button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                <button name="add_appointment" type="button"  class="btn btn-primary" data-dismiss="modal">
                     Confirm
                 </button>
             </div>

@@ -27,7 +27,6 @@
 
 
 
-
 </head>
 <body>
 <!-- LOAD PAGE -->
@@ -127,9 +126,6 @@
 
 
 
-
-
-
                                 </tr>
                                 <tr>
                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>tel</label>
@@ -172,7 +168,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                            <button id="add_btn" type="button" class="btn btn-secondary">confirm</button>
+                            <button name="add_appointment" id="add_btn" type="button" class="btn btn-secondary">confirm</button>
                         </div>
                     </div>
                 </div>
@@ -194,15 +190,16 @@
             </tr>
             </thead>
             <tbody id="show_tbody">
+            {% for a in appointment%}
             <tr>
-                <td>Beijing</td>
-                <td>manny</td>
-                <td>18086667777</td>
-                <td>vomit</td>
-                <td>cat</td>
-                <td></td>
-                <td></td>
-                <td>waiting</td>
+                <td>{{a[0]}}</td>
+                <td>{{a[1]}}</td>
+                <td>{{a[2]}}</td>
+                <td>{{a[3]}}</td>
+                <td>{{a[4]}}</td>
+                <td>{{a[5]}}</td>
+                <td>{{a[6]}}</td>
+                <td>{{a[7]}}</td>
                 <td>
                     <a href="#" class="edit">edit</a>
                 </td>
@@ -259,6 +256,7 @@
                     <a href="#" class="edit">edit</a>
                 </td>
             </tr>
+            {%endfor%}
             </tbody>
         </table>
     </div>
