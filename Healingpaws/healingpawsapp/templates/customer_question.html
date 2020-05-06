@@ -94,40 +94,21 @@
         </li>
     </ul>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-<!--        <div id="home" class="container tab-pane active"><br>-->
-<!--            <h3>HOME</h3>-->
-<!--            <ul class="question-list">-->
-<!--                <li>-->
-<!--                    <div class="avatar-group">-->
-<!--                        <img src="images/1110055.png" alt="" class="avatar">-->
-<!--                    </div>-->
-<!--                    <div class="question-group">-->
-<!--                        <p class="question-title"><a href="{{ url_for('question_detail',question_id=question.id) }}">{{ question.title }}</a></p>-->
-<!--                        <p class="question-content">{{ question.content }}</p>-->
-<!--                        <div class="question-info">-->
-<!--                            <span class="question-author">{{ question.author.username }}</span>-->
-<!--                            <span class="question-time">{{ question.create_time }}</span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
+
         <div id="menu1" class="container tab-pane fade"><br>
             <h3>My questions</h3>
             <ul class="question-list">
-                {% for question in data %}
+                {% for question in questionlist %}
                 <li>
                     <div class="avatar-group">
                         <img src="images/1110055.png" alt="" class="avatar">
                     </div>
                     <div class="question-group">
-                        <p class="question-title"><a href="{{ url_for('question_detail',question_id=question.id) }}">{{ question.title }}</a></p>
-                        <p class="question-content">{{ question.content }}</p>
+                        <p class="question-title"><a href="customer_question/{{question.que_id}}">{{ question.title }}hhhhh</a></p>
+                        <p class="question-content">{{ question.question }}there is question</p>
                         <div class="question-info">
-                            <span class="question-author">{{ question.author.username }}</span>
-                            <span class="question-time">{{ question.create_time }}</span>
+{#                            <span class="question-author">{{ question.author.username }}</span>#}
+                            <span class="question-time">{{ question.que_time }}que_time is over here</span>
                         </div>
                     </div>
                 </li>
@@ -139,17 +120,17 @@
             <form method="post">
                 <div class="form-group">
                     <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
-                        <input class="form-control" placeholder="Title"/>
+                        <input name="title" class="form-control" placeholder="Title"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
-                        <textarea class="form-control" rows="8" placeholder="Comment"></textarea>
+                        <textarea name="comment" class="form-control" rows="8" placeholder="Comment"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="offset-sm-10" style="padding-top: 50px">
-                        <button type="button" class="btn btn-success">Post</button>
+                        <button type="submit" class="btn btn-success">Post</button>
                     </div>
                 </div>
             </form>

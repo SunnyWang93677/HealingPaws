@@ -10,7 +10,6 @@ class Customer(db.Model):
     email = db.Column(db.String(128), unique=True)
     cus_password_hash = db.Column(db.String(128))
     phone = db.Column(db.String(64), unique=True)
-
     def __repr__(self):
         return '<Customer {}>'.format(self.cus_username)
 
@@ -26,6 +25,8 @@ class Employee(db.Model):
     title = db.Column(db.Enum('0', '1', '2'), index=True, server_default='0')
     # 0 stand for normal, 1 stands for principle, 2 stands for professional
     hos_id = db.Column(db.Integer, db.ForeignKey('Place.hos_id'))
+    employee_pass = db.Column(db.Enum('0','1','2'),server_default='0')
+    # 0 waiting for pass, 1 pass, 2 not pass
     def __repr__(self):
         return '<Employ {}>'.format(self.emp_username)
 
@@ -62,8 +63,8 @@ class Appointment(db.Model):
     # 0 beijing 1 shanghai 2 chengdu
     hos_id = db.Column(db.Integer,db.ForeignKey('Place.hos_id'))
     pet_id = db.Column(db.Integer, db.ForeignKey('Pet.pet_id'))
-    status = db.Column(db.Enum('0', '1', '2', '3'), index=True, default='0')
-    # 0 waiting 1 treatment 2 surgery 3 release
+    status = db.Column(db.Enum('0', '1', '2', '3','4'), index=True, default='0')
+    # 0 waiting 1 treatment 2 surgery 3 release 4 finish
     treatment_time = db.Column(db.DateTime, index= True)
     release_time = db.Column(db.DateTime, index= True)
     sergery_time = db.Column(db.DateTime, index= True)
@@ -92,3 +93,10 @@ class Place(db.Model):
     employee = db.relationship('Employee', backref=db.backref('work_hospital'), lazy="dynamic")
     appointment = db.relationship('Appointment', backref=db.backref('appointment_place'), lazy="dynamic")
     # 0 beijing 1 shanghai 2 chengdu
+
+class Annoncement(db.Model):
+    __tablename__ = 'Annoncement'
+    ann_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    ann_title = db.Column(db.String(64), index=True)
+    annoncement = db.Column(db.String(128), index=True)
+    ann_time = db.Column(db.DateTime, index=True, default=datetime.now)

@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Answers</title>
-    {#需要显示的数据：问题内容，提问人，时间，回答内容，回答人，时间#}
-    {#需要上传的数据：回答内容，回答人，时间#}
-    <!-- ==============================================
+    <title>Questions</title>
+     <!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
@@ -15,10 +13,11 @@
     <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
 
+
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <style>
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
@@ -31,7 +30,8 @@
             text-align: center;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="../static/css/answer.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/question.css" />
+     <link rel="stylesheet" type="text/css" href="../static/css/answer.css" />
 </head>
 <body>
 <!-- LOAD PAGE -->
@@ -77,43 +77,45 @@
     </div>
 </div>
 
-<div class="main">
-    <p class="question-info">
-        <span>author： Walker </span>
-        <span>time： 2020.04.16 14:25 </span>
-    </p>
-    <hr/>
-    <p class="question-content"> what is the difference between the two appointments? </p>
-    <hr/>
-    <h4>Discussion：（2）</h4>
-    <form action="#" method="post">
-        <div class="form-group">
-            <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
-            <input type="hidden" name="question_id" value=" question.id ">
-        </div>
-        <div  class="form-group" style="text-align: right">
-            <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-    </form>
-    <ul class="answer-list">
-        <li>
-            <div class="user-info">
-                <img src="images/1110055.png" alt="" class="avatar">
-                <span class="username"> employee1 </span>
-                <span class="create-time"> 2020.04.16 14:30 </span>
-            </div>
-            <p class="answer-content"> one is standard, one is emergency </p>
-        </li>
-        <li>
-            <div class="user-info">
-                <img src="images/1110055.png" alt="" class="avatar">
-                <span class="username"> Walker </span>
-                <span class="create-time"> 2020.04.16 14:30 </span>
-            </div>
-            <p class="answer-content"> thank you </p>
+<div class="container">
+    <h3>Questions</h3>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Answers</a>
         </li>
     </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="menu1" class="container tab-pane fade"><br>
+            <h3>My questions</h3>
+            <ul class="question-list">
+                {% for question in questions %}
+                <li>
+                    <div class="avatar-group">
+                        <img src="images/1110055.png" alt="" class="avatar">
+                    </div>
+                    <div class="question-group">
+                        <p class="question-title"><a href="employee_question/{{question.que_id}}">{{ question.title }}</a></p>
+                        <p class="question-content">{{ question.question }}</p>
+                        <div class="question-info">
+{#                            <span class="question-author">{{ question.author.username }}</span>#}
+                            <span class="question-time">{{ question.que_time }}</span>
+                        </div>
+                    </div>
+
+                </li>
+
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
 </div>
+
+
+
 
 <!-- JS VENDOR -->
 <script src="../static/js/vendor/jquery.min.js"></script>
