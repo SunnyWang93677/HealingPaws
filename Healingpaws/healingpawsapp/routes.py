@@ -141,11 +141,11 @@ def answer_detial(que_id):
 @app.route('/employee_appointment', methods=['GET', 'POST'])
 def employee_ap():
     if request.method == "GET":
-        return render_template('employee_appointment.html')
+        #return render_template('employee_appointment.html')
         all_appointment = getAllAppointment()
         emp_appointment = []
         for a in all_appointment:
-            city = a.city
+            city = a.place
             pet_name = getPet(session.get('pet_id')).pet_name
             tel = getCustomer(session.get('cus_id')).phone
             des = a.description
@@ -156,6 +156,7 @@ def employee_ap():
             appointment = [city, pet_name, tel, des, pet_type, sergery_time, release_time, status]
             emp_appointment.append(appointment)
         print(emp_appointment)
+        return render_template('employee_appointment.html')
     else:
         if (request.form.get("add_appointment")):
             place = request.form.get('place')
@@ -165,7 +166,6 @@ def employee_ap():
             appointment = Appointment(place=place, type=pet_type, description=description, status=status)
             db.session.add(appointment)
             db.session.commit()
-            flash("add success")
             return redirect(url_for('employee_appointment'))
         if (request.form.get("edit_appointment")):
             place = request.form.get('place')
@@ -320,7 +320,7 @@ def get_pet_list():
     return pet
 
 def add_new_pet(cus_id):
-    p = Pet(pet_name='test name', pet_type='0', pet_gneger='0', pet_birth='2020-03-05',cus_id=cus_id)
+    p = Pet(pet_name='pet name', pet_type='0', pet_gneger='0', pet_birth='2020-03-05',cus_id=cus_id)
     db.session.add(p)
     db.session.commit()
     return p

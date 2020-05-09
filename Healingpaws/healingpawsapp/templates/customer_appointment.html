@@ -88,13 +88,22 @@
                 <th class="text-center col-sm-6">Operation</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="show_tbody">
             {% for a in appointment%}
             <tr>
 
                 <td class="text-center">{{a[0]}}</td>
                 <td class="text-center">{{a[1]}}</td>
                 <td class="text-center">{{a[2]}}</td>
+                <td>
+                    <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
+                    <a href="#"><button name="delete_appointment" type="button" class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">a</td>
+                <td class="text-center">b</td>
+                <td class="text-center">c</td>
                 <td>
                     <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
                     <a href="#"><button name="delete_appointment" type="button" class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
@@ -121,14 +130,14 @@
                 <form method="post">
                     <div style="padding-top: 20px">
                         <label for="sel1">pet</label>
-                        <select class="form-control" id="sel1">
+                        <select name= 'pet_type' class="form-control" id="sel1">
                             <option>cat</option>
                             <option>dog</option>
                         </select>
                     </div>
                     <div style="padding-top: 20px">
-                        <label for="sel1">city</label>
-                        <select class="form-control" id="sel1">
+                        <label for="sel12">city</label>
+                        <select name='place' class="form-control" id="sel12">
                             <option>Beijing</option>
                             <option>Shanghai</option>
                             <option>Chengdu</option>
@@ -137,18 +146,18 @@
                     <div style="padding-top: 20px">
                         <label class="col-sm-3">emergency</label>
                         <label class="radio-inline">
-                            <input type="radio" name="petgender" id="optionsRadios5" value="option1" checked>Normal
+                            <input name='type' type="radio" name="petgender" id="optionsRadios5" value="option1" checked>Normal
                         </label>
                         <label class="radio-inline" style="margin-left: 20px">
-                            <input type="radio" name="petgender" id="optionsRadios6"  value="option2">Urgent
+                            <input name='type' type="radio" name="petgender" id="optionsRadios6"  value="option2">Urgent
                         </label>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">date</label>
-                        <input type="date" class="form-control" placeholder="Date">
+                        <input name='treatment_time' type="date" class="form-control" placeholder="Date">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
-                        <input type="text" class="form-control" placeholder="Comment">
+                        <input name='description' type="text" class="form-control" placeholder="Comment">
                     </div>
                 </form>
             </div>
