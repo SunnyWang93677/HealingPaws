@@ -76,8 +76,11 @@
 
 <div class="main">
     <p class="question-info">
-        <span>author： Walker </span>
-        <span>time： 2020.04.16 14:25 </span>
+        <div class="user-info">
+                <img src="images/1110055.png" alt="" class="avatar">
+                <span class="username"> {{ customer.cus_username }} </span>
+                <span class="create-time"> {{ detail.que_time }} </span>
+            </div>
     </p>
     <hr/>
     <p class="question-content"> what is the difference between the two appointments? </p>
@@ -93,22 +96,19 @@
         </div>
     </form>
     <ul class="answer-list">
-        <li>
-            <div class="user-info">
-                <img src="images/1110055.png" alt="" class="avatar">
-                <span class="username"> employee1 </span>
-                <span class="create-time"> 2020.04.16 14:30 </span>
-            </div>
-            <p class="answer-content"> one is standard, one is emergency </p>
-        </li>
-        <li>
-            <div class="user-info">
-                <img src="images/1110055.png" alt="" class="avatar">
-                <span class="username"> Walker </span>
-                <span class="create-time"> 2020.04.16 14:30 </span>
-            </div>
-            <p class="answer-content"> thank you </p>
-        </li>
+        {% for a in answer %}
+            <li>
+                <div class="user-info">
+                    <img src="images/1110055.png" alt="" class="avatar">
+                    <span class="username"> {{ employee[a.emp_id] }} </span>
+                    <span class="create-time"> {{ a.answer_time }} </span>
+                </div>
+                <p class="answer-content"> {{ a.answer }}</p>
+            </li>
+
+        {% endfor %}
+
+
     </ul>
 </div>
 

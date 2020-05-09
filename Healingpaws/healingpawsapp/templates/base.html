@@ -51,7 +51,7 @@
             <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
             <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
             <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
-            <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
+            <a href="/pet" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav navbar-right ml-auto">
                     <li class="nav-item dropdown dmenu">
@@ -59,7 +59,9 @@
                             Login
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ url_for('customer_login') }}">customer</a>
+                            <a class="dropdown-item" href="/customer_login">customer</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#alert">customer_login_window</a>
+                            
                             <a class="dropdown-item" href="pets-shop.html">employee</a>
                         </div>
                     </li>
@@ -68,7 +70,7 @@
                             Register
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ url_for('customer_register') }}">customer</a>
+                            <a class="dropdown-item" href="/customer_register">customer</a>
                             <a class="dropdown-item" href="pets-shop.html">employee</a>
                         </div>
                     </li>
@@ -86,6 +88,43 @@
     </div>
 </div>
 </div>
+
+<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">
+                    Pet information
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action='/customer_login'>
+                     
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">Your Email</label>
+                        <input type="text" name="email" class="form-control email" >
+                    </div>
+
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">Your Password</label>
+                        <input type="text" name="password" class="form-control email" >
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" name='close' class="btn btn-primary">Close
+                        </button>
+                        <button type="submit"  value='1' name="login" class="btn btn-primary">
+                            Login Now!
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </div>
 
 <!-- JS VENDOR -->
 <script src="static/js/vendor/jquery.min.js"></script>
