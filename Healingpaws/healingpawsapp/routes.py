@@ -146,17 +146,17 @@ def employee_ap():
         emp_appointment = []
         for a in all_appointment:
             city = a.place
-            pet_name = getPet(session.get('pet_id')).pet_name
-            tel = getCustomer(session.get('cus_id')).phone
+            pet_name = getPet(a.pet_id).pet_name
+            tel = getCustomer(a.cus_id).phone
             des = a.description
-            pet_type = getPet(session.get('pet_id')).pet_type
+            pet_type = getPet(a.pet_id).pet_type
             sergery_time = a.sergery_time
             release_time = a.release_time
             status = a.status
             appointment = [city, pet_name, tel, des, pet_type, sergery_time, release_time, status]
             emp_appointment.append(appointment)
         print(emp_appointment)
-        return render_template('employee_appointment.html')
+        return render_template('employee_appointment.html', appointment = emp_appointment)
     else:
         if (request.form.get("add_appointment")):
             place = request.form.get('place')
@@ -181,15 +181,16 @@ def employee_ap():
 
 
 def getCustomer(cus_id):
-    customer = Customer.query.all()
-    for cus in customer:
-        if cus.cus_id == cus_id:
-            return cus
-    return None
+    return Customer.query.filter_by(cus_id = cus_id).first()
 
 
 def getAllAppointment():
-    return Appointment.query.all()
+    appointment = Appointment.query.all()
+    all = []
+    for a in appointment:
+        all.append(a)
+    return all
+
 
 
 @app.route('/index')
