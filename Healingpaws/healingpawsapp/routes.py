@@ -478,7 +478,7 @@ def request_appointment(form):
         description = form.get('description')  # 描述
         date = form.get('treatment_time')
         cus_id = "1"
-        appointment = Appointment(place=place, type=type, description=description, treatment_time=date)
+        appointment = Appointment(place=place, type=type, description=description, treatment_time=date, cus_id=cus_id)
         pet = Pet(pet_type=pet_type,cus_id=cus_id)
         db.session.add(appointment)
         db.session.add(pet)
