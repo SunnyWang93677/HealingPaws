@@ -7,8 +7,8 @@
     {#需要上传的数据：宠物名字，城市，预约类型，预约日期，备注#}
     {#操作：modify：修改 delete：删除 add：添加#}
     <<!-- ==============================================
-	CSS VENDOR
-	=============================================== -->
+    CSS VENDOR
+    =============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
@@ -32,6 +32,34 @@
             text-align: center;
         }
     </style>
+    <script>
+    $(function() {
+        let appointment = 0;
+        $(".delete_btn").click(function () {//删除按钮
+
+            appointment = $(this).parent().parent();
+        });
+
+
+        $("#delbtn").click(function () {//确认删除按钮
+            let a = appointment.children(".appointment_id");
+
+            $.ajax({
+                url: "/customer_appointment",
+                type: "POST",
+                data: {"appointment_id": a.text(), "type": "delete"},
+                success: function () {
+                    appointment.remove();
+                    appointment = 0;
+                },
+                error: function () {
+
+                }
+            })
+        });
+    })
+    </script>
+
 </head>
 <body>
 <!-- LOAD PAGE -->
@@ -82,6 +110,7 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
+                <th class="text-center col-sm-2 appointment_id" style="display: none">Appointment id</th>
                 <th class="text-center col-sm-2">Pet name</th>
                 <th class="text-center col-sm-2">Appointment date</th>
                 <th class="text-center col-sm-2">Appointment status</th>
@@ -91,13 +120,16 @@
             <tbody id="show_tbody">
             {% for a in appointment%}
             <tr>
-
+                <td class="text-center" style="display: none">{{a[3]}}</td>
                 <td class="text-center">{{a[0]}}</td>
                 <td class="text-center">{{a[1]}}</td>
                 <td class="text-center">{{a[2]}}</td>
                 <td>
                     <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
-                    <a href="#"><button name="delete_appointment" type="button" class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
+                    <form method="post" class="form-inline">
+                        <input type="hidden" name="app_id" value= {{a[3]}}>
+                        <button name="delete_appointment" value="1" class="btn btn-danger offset-1">Delete</button>
+                    </form>
                 </td>
             </tr>
             <tr>
@@ -106,7 +138,7 @@
                 <td class="text-center">c</td>
                 <td>
                     <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
-                    <a href="#"><button name="delete_appointment" type="button" class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
+                    <a href="#"><button name="delete_appointment" type="button" class="delete_btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
                 </td>
             </tr>
             {%endfor%}
@@ -127,29 +159,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <div style="padding-top: 20px">
                         <label for="sel1">pet</label>
                         <select name= 'pet_type' class="form-control" id="sel1">
-                            <option>cat</option>
-                            <option>dog</option>
+                            <option value="0">dog</option>
+                            <option value="1">cat</option>
                         </select>
                     </div>
                     <div style="padding-top: 20px">
                         <label for="sel12">city</label>
                         <select name='place' class="form-control" id="sel12">
-                            <option>Beijing</option>
-                            <option>Shanghai</option>
-                            <option>Chengdu</option>
+                            <option value="0" >Beijing</option>
+                            <option value="1" >Shanghai</option>
+                            <option value="2" >Chengdu</option>
                         </select>
                     </div>
                     <div style="padding-top: 20px">
                         <label class="col-sm-3">emergency</label>
                         <label class="radio-inline">
-                            <input name='type' type="radio" name="petgender" id="optionsRadios5" value="option1" checked>Normal
+                            <input name='type1' type="radio" id="optionsRadios5" value="option1" >Normal
                         </label>
                         <label class="radio-inline" style="margin-left: 20px">
-                            <input name='type' type="radio" name="petgender" id="optionsRadios6"  value="option2">Urgent
+                            <input name='type2' type="radio" id="optionsRadios6"  value="option2">Urgent
                         </label>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
@@ -159,14 +191,21 @@
                     <div class="form-group" style="padding-top: 20px">
                         <input name='description' type="text" class="form-control" placeholder="Comment">
                     </div>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Close
+                </button>
+                <button name="add_appointment" value="1" class="btn btn-primary" >
+                    Confirm
+                </button>
                 </form>
             </div>
             <div class="modal-footer">
+                <form method="post">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close
                 </button>
-                <button name="add_appointment" type="button"  class="btn btn-primary" data-dismiss="modal">
+                <button name="add_appointment" value="1" type="button"  class="btn btn-primary" >
                     Confirm
                 </button>
+                </form>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -185,7 +224,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close
                 </button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                <button type="button" class="btn btn-primary" id="delbtn" data-dismiss="modal">
                     Confirm
                 </button>
             </div>
