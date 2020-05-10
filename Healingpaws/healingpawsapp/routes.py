@@ -430,13 +430,23 @@ def customer_appointment():
                 print(cus_appointment[0].place)
                 print(getPet(1).pet_name)
                 print(getCustomer(1).email)
-                place = a.place
+                pet_name = getPet(a.pet_id).pet_name
                 treatment_time = a.treatment_time
-                description = a.description
+                status = a.status
+                if status == "0" :
+                    status = "waiting"
+                if status == "1":
+                    status = "treatment"
+                if status == "2":
+                    status = "surgery"
+                if status == "3":
+                    status = "release"
+                if status == "4":
+                    status = "finish"
                 app_id = a.app_id
-                appointment.append(place)
+                appointment.append(pet_name)
                 appointment.append(treatment_time)
-                appointment.append(description)
+                appointment.append(status)
                 appointment.append(app_id)
                 all_appointment.append(appointment)
             print(all_appointment)
