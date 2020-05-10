@@ -60,7 +60,7 @@
 			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
 			                </li>
 			            </ul>
-			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
+			            <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
                          <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
 			        </div>
 			    </nav> <!-- -->
@@ -120,9 +120,9 @@
 
 
 
-                                        <td><input class="city" type="text" placeholder="please enter your location"/></td>
+                                        <td><input name="place" class="city" type="text" placeholder="please enter your location"/></td>
                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>name</label>
-                                    <td><input class="userName" type="text" placeholder="please enter the name of your pets"/></td>
+                                    <td><input name="pet_name" class="userName" type="text" placeholder="please enter the name of your pets"/></td>
 
 
 
@@ -130,9 +130,9 @@
                                 <tr>
                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>tel</label>
                                         </td>
-                                    <td><input class="phoneNum" type="number" placeholder="Please write down the correct number"/></td>
+                                    <td><input name="phone" class="phoneNum" type="number" placeholder="Please write down the correct number"/></td>
                                     <td class="tb_bg"><label for="">another information</label></td>
-                                    <td><input type="text" placeholder="You can post some information"/></td>
+                                    <td><input name="description" type="text" placeholder="You can post some information"/></td>
 
                                     </td>
 
@@ -141,12 +141,12 @@
 
                                    <tr>
                                     <td class="tb_bg"><label for="">type</label></td>
-                                    <td><input class="petstype" type="text" placeholder="pet's type"/></td>
+                                    <td><input name="pet_type" class="petstype" type="text" placeholder="pet's type"/></td>
 
                                     </td>
                                       <td class="tb_bg"><label for="">Status</label></td>
                                     <td>
-                                        <select class="form-control select_down" style="font-size: 13px; color: #666;">
+                                        <select name="status" class="form-control select_down" style="font-size: 13px; color: #666;">
                                             <option>waiting</option>
                                             <option>treatment</option>
                                             <option>surgrey</option>
@@ -158,18 +158,18 @@
 
                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;"></font>date[surgery]</label>
                                         </td>
-                                            <td><input class="jobNum" type="date" placeholder="date of surgery" /></td>
+                                            <td><input name="sergery_time" class="jobNum" type="date" placeholder="date of surgery" /></td>
                                     <td class="tb_bg"><label for=""></font>date[release]</label></td>
-                                    <td><input class=date2 type="date" placeholder="date of release" /></td></tr>
+                                    <td><input name="release_time" class=date2 type="date" placeholder="date of release" /></td></tr>
                                 </tbody>
                             </table>
-                            </form>
-                        </div>
 
-                        <div class="modal-footer">
+
+
+
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                            <button name="add_appointment" id="add_btn" type="button" class="btn btn-secondary">confirm</button>
-                        </div>
+                            <button name="add_appointment" value="1" id="add_btn" type="button" class="btn btn-secondary">confirm</button>
+                        </form></div>
                     </div>
                 </div>
             </div>

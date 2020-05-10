@@ -139,31 +139,55 @@ def answer_detial(que_id):
 
 
 @app.route('/employee_appointment', methods=['GET', 'POST'])
-def employee_ap():
+def employee_appointment():
     if request.method == "GET":
         #return render_template('employee_appointment.html')
         all_appointment = getAllAppointment()
         emp_appointment = []
         for a in all_appointment:
             city = a.place
+            if city == '0':
+                city="Beijing"
+            if city == '1':
+                city="Shanghai"
+            if city == '2':
+                city="Chengdu"
             pet_name = getPet(a.pet_id).pet_name
             tel = getCustomer(a.cus_id).phone
             des = a.description
             pet_type = getPet(a.pet_id).pet_type
+            if pet_type == "0":
+                pet_type="dog"
+            if pet_type == "1":
+                pet_type="cat"
             sergery_time = a.sergery_time
             release_time = a.release_time
             status = a.status
+            if status == "0":
+                status = "waiting"
+            if status == "1":
+                status = "treatment"
+            if status == "2":
+                status = "surgery"
+            if status == "3":
+                status = "release"
+            if status == "4":
+                status = "finish"
             appointment = [city, pet_name, tel, des, pet_type, sergery_time, release_time, status]
             emp_appointment.append(appointment)
         print(emp_appointment)
         return render_template('employee_appointment.html', appointment = emp_appointment)
     else:
-        if (request.form.get("add_appointment")):
+        if request.form.get("add_appointment") == "1":
             place = request.form.get('place')
-            pet_type = request.form.get('pet_type')
+            pet_name = request.form.get('place')
+            phone = request.form.get('phone')
             description = request.form.get('description')
+            pet_type = request.form.get('pet_type')
             status = request.form.get('status')
-            appointment = Appointment(place=place, type=pet_type, description=description, status=status)
+            sergery_time = request.form.get('sergery_time')
+            release_time = request.form.get('release_time')
+            appointment = Appointment(place=place, description=description, status=status, sergery_time=sergery_time, release_time=release_time)
             db.session.add(appointment)
             db.session.commit()
             return redirect(url_for('employee_appointment'))
@@ -181,7 +205,7 @@ def employee_ap():
 
 
 def getCustomer(cus_id):
-    return Customer.query.filter_by(cus_id = cus_id).first()
+    return Customer.query.filter_by(cus_id == cus_id).first()
 
 
 def getAllAppointment():
@@ -427,10 +451,6 @@ def customer_appointment():
             all_appointment = []
             for a in cus_appointment:
                 appointment = []
-                # pet_name = getPet(session.get('pet_id')).pet_name
-                print(cus_appointment[0].place)
-                print(getPet(1).pet_name)
-                print(getCustomer(1).email)
                 pet_name = getPet(a.pet_id).pet_name
                 treatment_time = a.treatment_time
                 status = a.status
@@ -455,23 +475,8 @@ def customer_appointment():
         else:
             request.get_data()
             request_appointment(request.form)
-            if request.form.get("1111"):
-                app_id = request.form.get('app_id')
-                Appointment.query.filter(app_id=app_id).delete()
-                db.session.commit()
-                flash("delete success")
-            if request.form.get("modify_appointment"):
-                pet_type = request.form.get('pet_type')  # 宠物类型
-                city = request.form.get('place')  # 城市
-                type = request.form.get('type')  # 手术类型
-                comment = request.form.get('description')  # 描述
-                date = request.form.get('treatment_time')
-                id = request.form.get('app_id')
-                Appointment.query.filter(id).update(
-                    {'place': city, 'type': type, 'description': comment, 'treatment_time': date})
-                db.session.commit()
-                flash("modify success")
             return redirect(url_for('customer_appointment'))
+
     else:
         return redirect(url_for('customer_login'))
 
@@ -482,8 +487,8 @@ def request_appointment(form):
         print(2000)
         pet_type = form.get('pet_type')
         place = form.get('place')  # 城市
-        if form.get('type1') == "1":
-            type = "0"  # 手术类型
+        if form.get('type') == "0":
+            type = "0"
         else:
             type = "1"
         description = form.get('description')  # 描述
@@ -502,6 +507,29 @@ def request_appointment(form):
         Appointment.query.filter_by(app_id=app_id).delete()
         db.session.commit()
 
+    if form.get("modify_appointment") == "1":
+        print("ok")
+        app_id = form.get('app_id')
+
+    if form.get("update_appointment") == "1":
+        app_id = form.get('app_id')
+        print(app_id)
+        place = form.get('place')  # 城市
+        if form.get('type1') == "1":
+            type = "0"  # 手术类型
+        else:
+            type = "1"
+        description = form.get('description')  # 描述
+        date = form.get('treatment_time')
+        cus_id = "1"
+        Appointment.query.filter(app_id == app_id).update(
+            {'place': place, 'type': type, 'description': description, 'treatment_time': date})
+        db.session.commit()
+
+
+
+def getAppointment(app_id):
+    return Appointment.query.filter(app_id==app_id).first()
 
 def getPet(pet_id):
     return Pet.query.filter(pet_id == pet_id).first()

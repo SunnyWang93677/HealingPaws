@@ -125,20 +125,13 @@
                 <td class="text-center">{{a[1]}}</td>
                 <td class="text-center">{{a[2]}}</td>
                 <td>
-                    <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
+
+                    <button name="modify_appointment" onclick="window.b=this;preparewindow();" value="1" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo2">Modify</button>
+
                     <form method="post" class="form-inline">
                         <input type="hidden" name="app_id" value= {{a[3]}}>
                         <button name="delete_appointment" value="1" class="btn btn-danger offset-1">Delete</button>
                     </form>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-center">a</td>
-                <td class="text-center">b</td>
-                <td class="text-center">c</td>
-                <td>
-                    <a href="#"> <button name="modify_appointment" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify</button></a>
-                    <a href="#"><button name="delete_appointment" type="button" class="delete_btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete</button></a>
                 </td>
             </tr>
             {%endfor%}
@@ -147,6 +140,24 @@
     </div>
     <button type="button" class="btn btn-primary offset-sm-10" data-toggle="modal" data-target="#Petinfo">Add an appointment</button>
 </div>
+
+<script>
+    function preparewindow() {
+        par = window.b.parentNode.parentNode.parentNode
+
+        pet_type=par.querySelector('.pet_type').textContent
+        place=par.querySelector('.place').textContent
+        type=par.querySelector('.type').textContent
+        treatment_time=par.querySelector('.treatment_time').textContent
+        description=par.querySelector('.description').textContent
+
+        document.querySelector('#Petinfo2 .pet_type').setAttribute('checked','checked')
+        document.querySelector('#Petinfo2 .place').setAttribute('checked','checked','checked')
+        document.querySelector('#Petinfo2 .type').setAttribute('checked','checked')
+        document.querySelector('#Petinfo2 .treatment_time').value = treatment_time
+        document.querySelector('#Petinfo2 .description').value = description
+    }
+</script>
 <div class="modal fade" id="Petinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -178,10 +189,10 @@
                     <div style="padding-top: 20px">
                         <label class="col-sm-3">emergency</label>
                         <label class="radio-inline">
-                            <input name='type1' type="radio" id="optionsRadios5" value="option1" >Normal
+                            <input name='type' type="radio" id="optionsRadios5" value="0" >Normal
                         </label>
                         <label class="radio-inline" style="margin-left: 20px">
-                            <input name='type2' type="radio" id="optionsRadios6"  value="option2">Urgent
+                            <input name='type' type="radio" id="optionsRadios6"  value="1">Urgent
                         </label>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
@@ -198,13 +209,60 @@
                 </button>
                 </form>
             </div>
-            <div class="modal-footer">
-                <form method="post">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="Petinfo2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">
+                    appointment information
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
                 </button>
-                <button name="add_appointment" value="1" type="button"  class="btn btn-primary" >
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div style="padding-top: 20px">
+                        <label for="sel1">pet</label>
+                        <select name= 'pet_type' class="form-control pet_type" id="sel11">
+                            <option value="0">dog</option>
+                            <option value="1">cat</option>
+                        </select>
+                    </div>
+                    <div style="padding-top: 20px">
+                        <label for="sel12">city</label>
+                        <select name='place' class="form-control place" id="sel122">
+                            <option value="0" >Beijing</option>
+                            <option value="1" >Shanghai</option>
+                            <option value="2" >Chengdu</option>
+                        </select>
+                    </div>
+                    <div style="padding-top: 20px">
+                        <label class="col-sm-3">emergency</label>
+                        <label class="radio-inline type">
+                            <input name='type' type="radio" id="optionsRadios55" value="0" >Normal
+                        </label>
+                        <label class="radio-inline" style="margin-left: 20px">
+                            <input name='type' type="radio" id="optionsRadios66"  value="1">Urgent
+                        </label>
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">date</label>
+                        <input name='treatment_time' type="date" class="form-control treatment_time" placeholder="Date">
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <input name='description' type="text" class="form-control description" placeholder="Comment">
+                    </div>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Close
+                </button>
+                <button  name="update_appointment" value="1" class="btn btn-primary" >
                     Confirm
                 </button>
+
                 </form>
             </div>
         </div><!-- /.modal-content -->
