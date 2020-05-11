@@ -2,13 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39208d77-e0d8-4058-b854-65c58c2be29f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/babel.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/messages.pot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/images/about.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healingpawsapp/static/js/jquery.slideunlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Healingpaws.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Healingpaws.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-question.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/static/css/vendor/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/static/css/vendor/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/base_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/base_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_appointment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_mainpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-pet.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_pet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-question.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/question-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/question_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +31,14 @@
   </component>
   <component name="ExportToHTMLSettings">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Healingpaws\exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -31,6 +53,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/healingpawsapp/templates" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -43,8 +67,15 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\OneDrive\OneDrive - Pro\COMP3030J Software Engineering Project 2\Project2\HealingPaws\Healingpaws\healingpawsapp\templates" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/healingpawsapp/static/images" />
+      <recent name="$PROJECT_DIR$/healingpawsapp/static/js" />
+      <recent name="$PROJECT_DIR$/healingpawsapp/static/style" />
+      <recent name="$PROJECT_DIR$/healingpawsapp/static/css/vendor" />
+      <recent name="$PROJECT_DIR$/healingpawsapp" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.routes">
+  <component name="RunManager" selected="Flask server.Flask (hello.py)">
     <configuration name="hello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Healingpaws" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,6 +120,26 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Flask (hello.py)" type="Python.FlaskServer" nameIsGenerated="true">
+      <module name="Healingpaws" />
+      <option name="target" value="$PROJECT_DIR$/hello.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.Flask (hello.py)" />
+      <item itemvalue="Python.hello" />
+      <item itemvalue="Python.routes" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.routes" />
@@ -116,33 +167,111 @@
       <workItem from="1588158148763" duration="15601000" />
       <workItem from="1588231170153" duration="8972000" />
       <workItem from="1588256020182" duration="7314000" />
+      <workItem from="1588482286911" duration="71518000" />
+      <workItem from="1589114771236" duration="34355000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588517213481">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.823@0.23.1440.823" timestamp="1588517213481" />
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.825@0.23.1440.825" timestamp="1588482605895" />
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.826@0.23.1440.826" timestamp="1588482363007" />
+    <state x="434" y="245" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588573900255">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="434" y="244" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.823@0.23.1440.823" timestamp="1588504827989" />
+    <state x="434" y="245" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.825@0.23.1440.825" timestamp="1588559050267" />
+    <state x="434" y="245" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.826@0.23.1440.826" timestamp="1588573900255" />
+    <state x="458" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588728880990">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="458" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.828@0.23.1440.828" timestamp="1588728880990" />
     <state x="834" y="153" key="FileChooserDialogImpl" timestamp="1588145279746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="834" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588145279746" />
-    <state width="724" height="2" key="GridCell.Tab.0.bottom" timestamp="1588255966563">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom" timestamp="1589213654346">
+      <screen x="0" y="23" width="1440" height="837" />
     </state>
     <state width="724" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
-    <state width="724" height="2" key="GridCell.Tab.0.center" timestamp="1588255966563">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1440" height="213" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1588572144708" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.825@0.23.1440.825" timestamp="1588597354969" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1588728387299" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1588728687125" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1588729516084" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1588729278709" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1588593862168" />
+    <state width="1398" height="7" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1589113226829" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1589163619737" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom/0.23.1440.835@0.23.1440.835" timestamp="1589191218290" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1589191570559" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom/0.23.1440.837@0.23.1440.837" timestamp="1589213654346" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1589210315568" />
+    <state width="1260" height="153" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1589195204722" />
+    <state width="1398" height="153" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1589197315403" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center" timestamp="1589213654345">
+      <screen x="0" y="23" width="1440" height="837" />
     </state>
     <state width="724" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
-    <state width="724" height="2" key="GridCell.Tab.0.left" timestamp="1588255966563">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1440" height="213" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1588572144707" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.825@0.23.1440.825" timestamp="1588597354968" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1588728387299" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1588728687124" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1588729516084" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1588729278708" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1588593862168" />
+    <state width="1398" height="7" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1589113226829" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1589163619736" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center/0.23.1440.835@0.23.1440.835" timestamp="1589191218288" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1589191570558" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center/0.23.1440.837@0.23.1440.837" timestamp="1589213654345" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1589210315567" />
+    <state width="1260" height="153" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1589195204721" />
+    <state width="1398" height="153" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1589197315402" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left" timestamp="1589213654345">
+      <screen x="0" y="23" width="1440" height="837" />
     </state>
     <state width="724" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
-    <state width="724" height="2" key="GridCell.Tab.0.right" timestamp="1588255966563">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1440" height="213" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1588572144707" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.825@0.23.1440.825" timestamp="1588597354968" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1588728387298" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1588728687123" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1588729516083" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1588729278708" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1588593862167" />
+    <state width="1398" height="7" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1589113226828" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1589163619735" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left/0.23.1440.835@0.23.1440.835" timestamp="1589191218287" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1589191570557" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left/0.23.1440.837@0.23.1440.837" timestamp="1589213654345" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1589210315567" />
+    <state width="1260" height="153" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1589195204721" />
+    <state width="1398" height="153" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1589197315402" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right" timestamp="1589213654346">
+      <screen x="0" y="23" width="1440" height="837" />
     </state>
     <state width="724" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588255966563" />
+    <state width="1440" height="213" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1588572144708" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.825@0.23.1440.825" timestamp="1588597354968" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1588728387299" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1588728687124" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1588729516084" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1588729278709" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.830@0.23.1440.830" timestamp="1588593862168" />
+    <state width="1398" height="7" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1589113226829" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1589163619736" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right/0.23.1440.835@0.23.1440.835" timestamp="1589191218289" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right/0.23.1440.836@0.23.1440.836" timestamp="1589191570559" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right/0.23.1440.837@0.23.1440.837" timestamp="1589213654346" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1589210315568" />
+    <state width="1260" height="153" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1589195204722" />
+    <state width="1398" height="153" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1589197315403" />
     <state width="724" height="2" key="GridCell.Tab.1.bottom" timestamp="1588145310738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -159,8 +288,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="724" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588145310738" />
+    <state x="229" y="74" key="SettingsEditor" timestamp="1588581512347">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="229" y="74" key="SettingsEditor/0.23.1440.825@0.23.1440.825" timestamp="1588484225141" />
+    <state x="229" y="74" key="SettingsEditor/0.23.1440.827@0.23.1440.827" timestamp="1588521681632" />
+    <state x="229" y="74" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1588581512347" />
+    <state x="376" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1588482288139">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="376" y="270" key="com.intellij.ide.util.TipDialog/0.23.1440.826@0.23.1440.826" timestamp="1588482288139" />
+    <state x="385" y="172" width="670" height="679" key="search.everywhere.popup" timestamp="1588666406249">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="385" y="172" width="670" height="676" key="search.everywhere.popup/0.23.1440.825@0.23.1440.825" timestamp="1588483178016" />
+    <state x="385" y="172" width="670" height="677" key="search.everywhere.popup/0.23.1440.826@0.23.1440.826" timestamp="1588522300325" />
+    <state x="385" y="172" width="670" height="679" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1588666406249" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1588238994687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$Flask__hello_py_.coverage" NAME="Flask (hello.py) Coverage Results" MODIFIED="1589213654331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$Flask.coverage" NAME="Flask (hello.py) Coverage Results" MODIFIED="1589114369152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

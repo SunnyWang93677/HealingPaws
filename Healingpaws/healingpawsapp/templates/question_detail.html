@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healing Paws</title>
+    <!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+
+    <!-- ==============================================
+    Custom Stylesheet
+    =============================================== -->
+    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.min.js"></script>
+    <style>
+        body{
+            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            background-size: 110%;
+            padding-top: 50px;
+        }
+        h1{
+            color: black;
+            padding: 20px 15px;
+            text-align: center;
+        }
+    </style>
+{#    <link rel="stylesheet" type="text/css" href="style/answers.css" />#}
+</head>
+<body>
+<!-- LOAD PAGE -->
+<div class="animationload">
+    <div class="loader"></div>
+</div>
+<!-- BACK TO TOP SECTION -->
+<a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
+<div class="header header-1">
+    <div class="navbar-main">
+        <div class="container">
+            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+{#                <a class="navbar-brand" href="index.html">#}
+{#                    <img src="images/logo.png" alt="" />#}
+{#                </a>#}
+{#                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
+{#                    <span class="navbar-toggler-icon"></span>#}
+{#                </button>#}
+                <a href="{{ url_for('customer_mainpage') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
+                <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+                <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('customer_pet') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pets') }}</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav navbar-right ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                        </li>
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">English</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">中文</a>#}
+{#                        </li>#}
+                    </ul>
+
+                </div>
+            </nav> <!-- -->
+
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <p class="question-info">
+        <span>{{ _('author：') }} {{customer.cus_username}} </span>
+        <span>{{ _('time：') }} {{ detail.que_time }} </span>
+    </p>
+    <hr/>
+    <p class="question-content"> {{ detail.question }} </p>
+    <hr/>
+<!--    <h4>Discussion：（2）</h4>-->
+<!--    <form action="#" method="post">-->
+<!--        <div class="form-group">-->
+<!--            <textarea class="form-control" rows="3" placeholder="Comment"></textarea>-->
+<!--            <input type="hidden" name="question_id" value=" question.id ">-->
+<!--        </div>-->
+<!--        <div  class="form-group" style="text-align: right">-->
+<!--            <button type="submit" class="btn btn-primary">Add</button>-->
+<!--        </div>-->
+<!--    </form>-->
+    <ul class="answer-list">
+        {% for a in answer %}
+            <li>
+                <div class="user-info">
+                    <img src="../static/images/1110055.png" alt="" class="avatar">
+                    <span class="username"> {{ employee[a.emp_id] }} </span>
+                    <span class="create-time"> {{ a.answer_time }} </span>
+                </div>
+                <p class="answer-content"> {{ a.answer }}</p>
+            </li>
+
+        {% endfor %}
+
+
+    </ul>
+</div>
+</body>
+</html>

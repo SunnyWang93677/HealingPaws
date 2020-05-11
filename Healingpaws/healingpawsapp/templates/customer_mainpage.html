@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ _('Healing Paws') }}</title>
+    <!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+
+    <!-- ==============================================
+    Custom Stylesheet
+    =============================================== -->
+    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
+    <style>
+        body{
+            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            background-size: 110%;
+            {#padding-top: 50px;#}
+        }
+        h1{
+            color: black;
+            padding: 20px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- LOAD PAGE -->
+<div class="animationload">
+    <div class="loader"></div>
+</div>
+<!-- BACK TO TOP SECTION -->
+<a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
+<div class="header header-1">
+    <div class="navbar-main">
+        <div class="container">
+            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+{#                <a class="navbar-brand" href="{{ url_for('customer_mainpage') }}">#}
+{#                    <img src="../static/images/logo.png" alt="" />#}
+{#                </a>#}
+{#                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
+{#                    <span class="navbar-toggler-icon"></span>#}
+{#                </button>#}
+                <a href="{{ url_for('customer_mainpage') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
+                <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Question') }}</a>
+                <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('pet_page') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pet') }}</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav navbar-right ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                        </li>
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">English</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">中文</a>#}
+{#                        </li>#}
+                    </ul>
+
+                </div>
+            </nav> <!-- -->
+
+        </div>
+    </div>
+</div>
+
+<!-- BANNER -->
+	<div id="oc-fullslider" class="banner owl-carousel">
+        <div class="owl-slide">
+        	<div class="item">
+	            <img src="../static/images/mainpage.jpg" alt="Slider">
+	            <div class="container d-flex align-items-center">
+	            	<div class="wrap-caption">
+		                <h1 class="caption-heading">{{ _('We Provide The Best') }}<br>{{ _('Care For Your Pets') }}</h1>
+		                <p class="">{{ _('The best pets clinic at melbourne, more than 20.000+ customers happy.') }}</p>
+		                <a href="#" class="btn btn-primary">{{ _('More About Us') }}</a>
+		            </div>
+	            </div>
+        	</div>
+        </div>
+        <div class="owl-slide">
+        	<div class="item">
+	            <img src="../static/images/mainpage2.jpg" alt="Slider">
+	            <div class="container d-flex align-items-center">
+	            	<div class="wrap-caption">
+		                <h1 class="caption-heading">{{ _('Healing Paws') }}<br>{{ _('has three locations:') }}
+		                {{ _('Beijing, Shanghai and Chengdu.') }}</h1>
+		                <a href="{{ url_for('customer_register') }}" class="btn btn-primary">{{ _('Register now') }}</a>
+		            </div>
+	            </div>
+        	</div>
+        </div>
+{#        <div class="owl-slide">#}
+{#        	<div class="item">#}
+{#	            <img src="images/home03.jpg" alt="Slider">#}
+{#	            <div class="container d-flex align-items-center">#}
+{#	            	<div class="wrap-caption">#}
+{#		                <h1 class="caption-heading text-primary">We Provide The Best<br>Care For Your Pets</h1>#}
+{#		                <p class="text-black">The best pets clinic at melbourne, more than 20.000+ customers happy.</p>#}
+{#		                <a href="#" class="btn btn-primary">More About Us</a>#}
+{#		            </div>#}
+{#	            </div>#}
+{#        	</div>#}
+{#        </div>#}
+    </div>
+
+	<div class="clearfix"></div>
+
+	<!-- ABOUT -->
+	<div class="section bgi-left bgi-hide-xs" data-background="../static/images/about.jpg">
+		<div class="content-wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-8 offset-md-4">
+
+						<h2 class="section-heading text-primary no-after mb-4">
+							{{ _('Welcome to Healing Paws') }}
+						</h2>
+						<p class="subheading mb-4">{{ _('Your pet health and well-being are our top priority.') }}</p>
+
+{#						<p>Quisque ut dolor gravida, placerat libero vel, euismod. Ut enim ad minim veniam, quis nostrud exercitation. Quam temere in vitiis, legem sancimus haerentia. Pellentesque habitant morbi tristique senectus et netus.</p>#}
+
+
+						<div class="row mt-5">
+							<!-- Item 1 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-scissors"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">{{ _('Pet surgery') }}</h3>
+{#										Dolor sit amet, dolor gravida, placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.#}
+									</div>
+								</div>
+							</div>
+							<!-- Item 2 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-home"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">{{ _('Pet Hotel') }}</h3>
+{#										Dolor sit amet, dolor gravida, placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.#}
+									</div>
+								</div>
+							</div>
+							<!-- Item 3 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-shield"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">{{ _('Vaccination') }}</h3>
+{#										Dolor sit amet, dolor gravida, placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.#}
+									</div>
+								</div>
+							</div>
+							<!-- Item 4 -->
+							<div class="col-sm-6 col-md-6">
+								<div class="rs-icon-info-3 mb-5">
+									<div class="info-icon">
+										<i class="fa fa-medkit"></i>
+									</div>
+									<div class="info-text">
+										<h3 class="text-secondary">{{ _('Pet Care') }}</h3>
+{#										Dolor sit amet, dolor gravida, placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do eiusmod.#}
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- JS VENDOR -->
+<script src="../static/js/vendor/jquery.min.js"></script>
+<script src="../static/js/vendor/bootstrap.min.js"></script>
+<script src="../static/js/vendor/owl.carousel.js"></script>
+<script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>
+
+<!-- SENDMAIL -->
+<script src="../static/js/vendor/validator.min.js"></script>
+<script src="../static/js/vendor/form-scripts.js"></script>
+
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

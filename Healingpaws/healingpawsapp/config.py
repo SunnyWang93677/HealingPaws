@@ -17,3 +17,4 @@ class Config(object):
     # PHOTO_UPLOAD_DIR = os.path.join(basedir, 'uploaded_PHOTO')
 
     PHOTO_UPLOAD_DIR = os.path.join(basedir, 'static/uploaded_PHOTO')
+    # LANGUAGES = ['en_US', 'zh_Hans_CN']
