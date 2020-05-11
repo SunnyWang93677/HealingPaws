@@ -166,31 +166,55 @@ def answer_detial(que_id):
 
 
 @app.route('/employee_appointment', methods=['GET', 'POST'])
-def employee_ap():
+def employee_appointment():
     if request.method == "GET":
         #return render_template('employee_appointment.html')
         all_appointment = getAllAppointment()
         emp_appointment = []
         for a in all_appointment:
             city = a.place
-            pet_name = getPet(session.get('pet_id')).pet_name
-            tel = getCustomer(session.get('cus_id')).phone
+            if city == '0':
+                city="Beijing"
+            if city == '1':
+                city="Shanghai"
+            if city == '2':
+                city="Chengdu"
+            pet_name = getPet(a.pet_id).pet_name
+            tel = getCustomer(a.cus_id).phone
             des = a.description
-            pet_type = getPet(session.get('pet_id')).pet_type
+            pet_type = getPet(a.pet_id).pet_type
+            if pet_type == "0":
+                pet_type="dog"
+            if pet_type == "1":
+                pet_type="cat"
             sergery_time = a.sergery_time
             release_time = a.release_time
             status = a.status
+            if status == "0":
+                status = "waiting"
+            if status == "1":
+                status = "treatment"
+            if status == "2":
+                status = "surgery"
+            if status == "3":
+                status = "release"
+            if status == "4":
+                status = "finish"
             appointment = [city, pet_name, tel, des, pet_type, sergery_time, release_time, status]
             emp_appointment.append(appointment)
         print(emp_appointment)
-        return render_template('employee_appointment.html')
+        return render_template('employee_appointment.html', appointment = emp_appointment)
     else:
-        if (request.form.get("add_appointment")):
+        if request.form.get("add_appointment") == "1":
             place = request.form.get('place')
-            pet_type = request.form.get('pet_type')
+            pet_name = request.form.get('place')
+            phone = request.form.get('phone')
             description = request.form.get('description')
+            pet_type = request.form.get('pet_type')
             status = request.form.get('status')
-            appointment = Appointment(place=place, type=pet_type, description=description, status=status)
+            sergery_time = request.form.get('sergery_time')
+            release_time = request.form.get('release_time')
+            appointment = Appointment(place=place, description=description, status=status, sergery_time=sergery_time, release_time=release_time)
             db.session.add(appointment)
             db.session.commit()
             return redirect(url_for('employee_appointment'))
@@ -208,15 +232,16 @@ def employee_ap():
 
 
 def getCustomer(cus_id):
-    customer = Customer.query.all()
-    for cus in customer:
-        if cus.cus_id == cus_id:
-            return cus
-    return None
+    return Customer.query.filter_by(cus_id == cus_id).first()
 
 
 def getAllAppointment():
-    return Appointment.query.all()
+    appointment = Appointment.query.all()
+    all = []
+    for a in appointment:
+        all.append(a)
+    return all
+
 
 
 @app.route('/index')
@@ -446,77 +471,131 @@ def cus_mainpage():
 
 
 @app.route('/customer_appointment', methods=['GET', 'POST'])
-def cus_appointment():
+def customer_appointment():
     if session.get('CUSID'):
         if request.method == 'GET':
-            cus_appointment = getCusAppointment(int(session.get('CUSID')[:-3]))
-            all_appointment = {}
+            cus_appointment = getCusAppointmentById(1)
+            all_appointment = []
             for a in cus_appointment:
-                pet_name = getPet(a.app_id).pet_name
-                all_appointment[a.app_id] = pet_name
-            return render_template('customer_appointment.html', name=all_appointment, all_appointment=all_appointment,
-                                   title='cus_appointment')
+                appointment = []
+                pet_name = getPet(a.pet_id).pet_name
+                treatment_time = a.treatment_time
+                status = a.status
+                if status == "0" :
+                    status = "waiting"
+                if status == "1":
+                    status = "treatment"
+                if status == "2":
+                    status = "surgery"
+                if status == "3":
+                    status = "release"
+                if status == "4":
+                    status = "finish"
+                app_id = a.app_id
+                appointment.append(pet_name)
+                appointment.append(treatment_time)
+                appointment.append(status)
+                appointment.append(app_id)
+                all_appointment.append(appointment)
+            print(all_appointment)
+            return render_template('customer_appointment.html', appointment=all_appointment, title='cus_appointment')
         else:
             request.get_data()
-            if request.form.get("add_appointment"):
-                pet_type = request.form.get('pet_type')
-                city = request.form.get('place')  # 城市
-                type = request.form.get('type')  # 手术类型
-                comment = request.form.get('description')  # 描述
-                date = request.form.get('treatment_time')
-                status = "0"
-                appointment = Appointment(place=city, type=type, description=comment, treatment_time=date,
-                                          status=status)
-                pet = Pet(pet_type=pet_type)
-                db.session.add(appointment)
-                db.session.add(pet)
-                db.session.commit()
-                flash("add success")
-                return redirect(url_for('customer_appointment'))
-            if request.form.get("delete_appointment"):
-                app_id = request.form.get('app_id')
-                Appointment.query.filter(app_id=app_id).delete()
-                db.session.commit()
-                flash("delete success")
-                return redirect(url_for('customer_appointment'))
-            if request.form.get("modify_appointment"):
-                pet_type = request.form.get('pet_type')  # 宠物类型
-                city = request.form.get('place')  # 城市
-                type = request.form.get('type')  # 手术类型
-                comment = request.form.get('description')  # 描述
-                date = request.form.get('treatment_time')
-                id = request.form.get('app_id')
-                Appointment.query.filter(id).update(
-                    {'place': city, 'type': type, 'description': comment, 'treatment_time': date})
-                db.session.commit()
-                flash("modify success")
-                return redirect(url_for('customer_appointment'))
+            request_appointment(request.form)
+            return redirect(url_for('customer_appointment'))
 
+    else:
+        return redirect(url_for('customer_login'))
+
+def request_appointment(form):
+    print(1000)
+    print(form)
+    if form.get("add_appointment") == '1':
+        print(2000)
+        pet_type = form.get('pet_type')
+        place = form.get('place')  # 城市
+        if form.get('type') == "0":
+            type = "0"
+        else:
+            type = "1"
+        description = form.get('description')  # 描述
+        date = form.get('treatment_time')
+        cus_id = "1"
+        appointment = Appointment(place=place, type=type, description=description, treatment_time=date, cus_id=cus_id)
+        #pet = Pet(pet_type=pet_type,cus_id=cus_id)
+        db.session.add(appointment)
+        #db.session.add(pet)
+        db.session.commit()
+        flash("add success")
+
+    if form.get("delete_appointment") == "1":
+        print("yes")
+        app_id = form.get('app_id')
+        Appointment.query.filter_by(app_id=app_id).delete()
+        db.session.commit()
+
+    if form.get("modify_appointment") == "1":
+        print("ok")
+        app_id = form.get('app_id')
+
+    if form.get("update_appointment") == "1":
+        app_id = form.get('app_id')
+        print(app_id)
+        place = form.get('place')  # 城市
+        if form.get('type1') == "1":
+            type = "0"  # 手术类型
+        else:
+            type = "1"
+        description = form.get('description')  # 描述
+        date = form.get('treatment_time')
+        cus_id = "1"
+        Appointment.query.filter(app_id == app_id).update(
+            {'place': place, 'type': type, 'description': description, 'treatment_time': date})
+        db.session.commit()
+
+
+
+def getAppointment(app_id):
+    return Appointment.query.filter(app_id==app_id).first()
 
 def getPet(pet_id):
-    pet = Pet.query.filter(Pet.pet_id == pet_id).first()
-    return pet
+    return Pet.query.filter(pet_id == pet_id).first()
 
 
-def getCusAppointment(cus_id):  # 得到顾客的订单
+def getCusAppointment(cus_id):                          #得到顾客的订单
     pets = getCustomerPets(cus_id)
     all = []
     for p in pets:
-        all += getPetsAppointment(p.pet_id)
+        all.append(getPetsAppointment(p.pet_id))
+    return all
+
+def getCusAppointmentById(cus_id):
+    appointment = Appointment.query.filter_by(cus_id = cus_id).all()
+    all = []
+    for a in appointment:
+        if a.cus_id == cus_id:
+            all.append(a)
     return all
 
 
-def getPetsAppointment(pet_id):  # 得到每个宠物的订单
-    return Appointment.query.filter(Appointment.pet_id == pet_id).all()
+def getPetsAppointment(pet_id):  #得到每个宠物的订单
+    appointment = Appointment.query.filter_by(pet_id = pet_id).all()
+    for a in appointment:
+        if a.pet_id == pet_id:
+            return a
+    return None
 
-
-def getCustomerPets(cus_id):  # 得到顾客的宠物
-    return Pet.query.filter(Pet.cus_id == cus_id).all()
+def getCustomerPets(cus_id):                              #得到顾客的宠物
+    return Pet.query.filter_by(cus_id = cus_id).all()
 
 
 def getCustomer(cus_id):
-    customer = Customer.query.filter(Customer.cus_id == cus_id).first()
-    return customer
+    customer = Customer.query.filter_by(cus_id = cus_id).all()
+    for u in customer:
+        if u.cus_id==cus_id:
+            return u
+    return None
+
 
 
 @app.route('/customer_mainpage', methods=['GET', 'POST'])
