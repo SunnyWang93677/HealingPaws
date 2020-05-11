@@ -4,8 +4,7 @@ from healingpawsapp import app, db
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
 from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment, Pet
-import os
-import re
+
 
 app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 
@@ -15,12 +14,37 @@ app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 def home():
     return render_template('base.html')
 
+@app.route('/manage', methods=['GET','POST'])
+def b_employee1():
+    employee = Employee.query.filter(Employee.email == 'boss@163.com' and Employee.employee_pass == '1').first()
+    if session.get('EMPID') is not None:
+        if session.get('EMPID') == employee.emp_id:
+            return render_template('b.html')
+        else:
+            return redirect(url_for('employee_main'))
+
+
+@app.route('/manage1', methods=['GET','POST'])
+def b_employee():
+        return render_template('b.html')
+
+
+@app.route('/boss_main')
+def boss_main():
+    employee = Employee.query.filter(Employee.email == 'boss@163.com' and Employee.employee_pass == '1').first()
+    if session.get('EMPID') is not None:
+        if session.get('EMPID') == employee.emp_id:
+            return render_template('b_main.html')
+        else:
+            return redirect(url_for('employee_main'))
+
 @app.route('/logout')
 def logout():
     r=session.get('CUSID')
     if r:
         session.pop('CUSID')
-    return str(r)
+        flash('Success')
+    return redirect(url_for('employee_login'))
 
 @app.route('/employee_login', methods=['GET', 'POST'])
 def employee_login():
@@ -30,7 +54,7 @@ def employee_login():
         email = request.form.get('email')
         password = request.form.get('password')
         print(email, password)
-        employee = Employee.query.filter(Employee.email == email).first()
+        employee = Employee.query.filter(Employee.email == email and Employee.employee_pass == '1').first()
         if employee:
             if check_password_hash(employee.emp_password_hash, password):
                 session['EMPID'] = employee.emp_id
@@ -38,7 +62,10 @@ def employee_login():
                     session.permanent = True
                 else:
                     session.permanent = False
-                return redirect(url_for('employee_main'))
+                    if employee.email == 'boss@163.com':
+                        return redirect(url_for('boss_main'))
+                    else:
+                        return redirect(url_for('employee_main'))
             else:
                 flash('Your password is incorrect, please try again')
                 return redirect(url_for('employee_login'))
