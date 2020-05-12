@@ -50,13 +50,13 @@ $(document).ready(function(){
 			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
 			            <ul class="navbar-nav">
                             <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">{{ _('HOME') }}</a>
 			                </li>
 			                <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('LOGIN') }}</a>
 			                </li>
                             <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">{{ _('REGISTER') }}</a>
 			                </li>
 			            </ul>
 			        </div>
@@ -71,38 +71,38 @@ $(document).ready(function(){
 <body>
     <div class="wrap2" style="background: rgba(240,171,60,0.6)">
         <div class="container1" >
-            <h1 style="color: whitesmoke;  text-align: center;font-size: 40px;margin-top:-3px;">Register</h1>
+            <h1 style="color: whitesmoke;  text-align: center;font-size: 40px;margin-top:-3px;">{{ _('Register') }}</h1>
             <form action="#" method="post">
 
                  <td>
-                     <input required='required' class="text" name="emp_username" type="text" id="username" placeholder="Your Username" value="" onblur="unameTest()"/>
+                     <input required='required' class="text" name="emp_username" type="text" id="username" placeholder="{{ _('Your Username') }}" value="" onblur="unameTest()"/>
                      <span id="spanUnameId"></span>
                  </td>
                  <td>
-                     <input required='required' class="text" name="emp_real_name" type="text" id="realname" placeholder="Your Realname" value="" onblur="unameTest2()"/>
+                     <input required='required' class="text" name="emp_real_name" type="text" id="realname" placeholder="{{ _('Your Realname') }}" value="" onblur="unameTest2()"/>
                      <span id="spanUnameId2"></span>
                  </td>
                 <td>
-                     <input required='required' class="text" name="phone" type="text" id="telphone" placeholder="Telphone Number" value="" onblur="unameTel()" />
+                     <input required='required' class="text" name="phone" type="text" id="telphone" placeholder="{{ _('Telphone Number') }}" value="" onblur="unameTel()" />
                      <span id="spanTel"></span>
                  </td>
                 <td>
-                     <input required='required' class="text" name="password" type="password" id="pwdId" placeholder="password" value="" onblur="pwdTest()"/>
+                     <input required='required' class="text" name="password" type="password" id="pwdId" placeholder="{{ _('password') }}" value="" onblur="pwdTest()"/>
                      <span id="spanPwdId"></span>
                  </td>
                 <td>
-                     <input required='required'class="text" name="password2"type="password" id="pwdId2" placeholder="Please confirm your password" value="" onblur="pwdTest2()"/>
+                     <input required='required'class="text" name="password2"type="password" id="pwdId2" placeholder="{{ _('Please confirm your password') }}" value="" onblur="pwdTest2()"/>
                      <span id="spanPwdId2"></span>
                  </td>
                 <td>
-                     <input class="text" name="email" type="text" id="useremail" placeholder="Please enter your email address" value="" onblur="emails()"/>
+                     <input class="text" name="email" type="text" id="useremail" placeholder="{{ _('Please enter your email address') }}" value="" onblur="emails()"/>
                      <span id="spanEmailSId"></span>
                  </td>
                 <td>
-                     <input class="text" name="bossemail" type="text" id="bossemail" placeholder="Please check your identification" value="" onblur="emailb()"/>
+                     <input class="text" name="bossemail" type="text" id="bossemail" placeholder="{{ _('Please check your identification') }}" value="" onblur="emailb()"/>
                      <span id="spanEmailBId"></span>
                  </td>
-                <button class="register-btn" type="submit" value="Go and login"  >Go and login</button>
+                <button class="register-btn" type="submit" value="Go and login"  >{{ _('Go and login') }}</button>
             </form>
 
     </div>
