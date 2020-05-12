@@ -108,3 +108,4 @@ class Annoncement(db.Model):
     ann_title = db.Column(db.String(64), index=True)
     annoncement = db.Column(db.String(128), index=True)
     ann_time = db.Column(db.DateTime, index=True, default=datetime.now)
+

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>{{ _('Pets') }}</title>
 {#需要显示的数据：宠物名字，类型，性别#}
 {#需要上传的数据：宠物类型，性别，名字，生日#}
@@ -16,9 +17,11 @@
     <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
 
+
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
+
     <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <style>
         body{
@@ -27,6 +30,7 @@
             {#padding-top: 50px;#}
         }
         h1{
+
             color: black;
             padding: 20px 15px;
             text-align: center;
@@ -43,6 +47,7 @@
 <div class="header header-1">
     <div class="navbar-main">
         <div class="container">
+
             <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
 {#                <a class="navbar-brand" href="index.html">#}
 {#                    <img src="images/logo.png" alt="" />#}
@@ -68,6 +73,7 @@
 {#                        <li class="nav-item">#}
 {#                            <a class="nav-link" href="#">中文</a>#}
 {#                        </li>#}
+
                     </ul>
 
                 </div>
@@ -76,6 +82,7 @@
         </div>
     </div>
 </div>
+
     <div class="offset-sm-2 col-sm-8">
         <h1>{{ _('My Pets') }}</h1>
         <div class="table-responsive col-sm-offset-2 col-sm-12" >
@@ -90,6 +97,7 @@
                 </tr>
                 </thead>
                 <tbody>
+
             {% for p in pets %}
                 <tr>
                     <td class="text-center pid" hidden="hidden">{{ p.pet_id }}</td>
@@ -100,12 +108,16 @@
                     <td>
                         <a href="#">
                             <button name='modify' onclick="window.b=this;preparewindow();"
+
                                     class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">{{ _('Modify') }}
+
                             </button>
                         </a>
                         <a href="#">
                             <button name='delete' onclick="window.b=this;prepareDelete();" type="submit"
+
                                     class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">{{ _('Delete') }}
+
                             </button>
                         </a>
                     </td>
@@ -135,6 +147,7 @@
 
     </div>
     <form method="post" action="/pet">
+
         <button type="submit" name="add_pet" value='1' class="btn btn-primary offset-sm-10">{{ _('Add a pet') }}
         </button>
     </form>
@@ -142,7 +155,6 @@
 <script>
     function preparewindow() {
         par = window.b.parentNode.parentNode.parentNode
-
         pid=par.querySelector('.pid').textContent
         pna=par.querySelector('.pna').textContent
         pty=par.querySelector('.pty').textContent
@@ -173,6 +185,7 @@
             <div class="modal-header">
                 <h4 class="modal-title ">
                     {{ _('Pet information') }}
+
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
@@ -185,6 +198,7 @@
                         <label class="col-sm-3" hidden="hidden">Pet ID</label>
                         <input type="text" name="pid" class="form-control pid" hidden="hidden" >
                     </div>
+
 
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Pet Kind') }}</label>
@@ -225,7 +239,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title ">
+
                     {{ _('Pet information') }}
+
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
@@ -234,16 +250,20 @@
             <div class="modal-body">
                 <form method="post" action='/pet'>
 
+
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Are you sure ?') }}</label>
+
                         <input type="text" name="pid" class="form-control pid" hidden="hidden">
                     </div>
 
                     <div class="modal-footer">
+
                         <button type="button" name='close' class="btn btn-primary">{{ _('Close') }}
                         </button>
                         <button type="submit"  value='1' name="delete" class="btn btn-primary">
                             {{ _('Confirm Delete') }}
+
                         </button>
                     </div>
                 </form>

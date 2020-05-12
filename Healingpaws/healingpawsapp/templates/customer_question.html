@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ _('Questions') }}</title>
+    <title>Questions</title>
 {#需要显示的数据：问题内容，作者，时间#}
 {#需要上传的数据：问题内容，作者，时间#}
 {#操作：Questions:所有问题 My questions:该用户问题 Post:发布#}
@@ -10,22 +10,22 @@
 	CSS VENDOR
 	=============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
 
 
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <style>
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
             background-size: 110%;
-            {#padding-top: 50px;#}
+            padding-top: 50px;
         }
         h1{
             color: black;
@@ -33,7 +33,7 @@
             text-align: center;
         }
     </style>
-{#    <link rel="stylesheet" type="text/css" href="style/questions.css" />#}
+    <link rel="stylesheet" type="text/css" href="style/questions.css" />
 </head>
 <body>
 <!-- LOAD PAGE -->
@@ -46,30 +46,30 @@
     <div class="navbar-main">
         <div class="container">
             <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
-{#                <a class="navbar-brand" href="index.html">#}
-{#                    <img src="images/logo.png" alt="" />#}
-{#                </a>#}
-{#                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
-{#                    <span class="navbar-toggler-icon"></span>#}
-{#                </button>#}
-                <a href="{{ url_for('customer_mainpage') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
-                <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Question') }}</a>
-                <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
-                <a href="{{ url_for('pet_page') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pet') }}</a>
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
+                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ username }}</a>
+                            <a class="nav-link" href="#">user</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href="#">log out</a>
                         </li>
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="#">English</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="#">中文</a>#}
-{#                        </li>#}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">English</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">中文</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -83,43 +83,20 @@
     <h3>Questions</h3>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link active" data-toggle="tab" href="#home">Questions</a>-->
+<!--        </li>-->
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home">{{ _('Questions') }}</a>
+            <a class="nav-link" data-toggle="tab" href="#menu1">My questions</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu1">{{ _('My questions') }}</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu2">{{ _('Post a question') }}</a>
+            <a class="nav-link" data-toggle="tab" href="#menu2">Post a question</a>
         </li>
     </ul>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <div id="home" class="container tab-pane active"><br>
-{#            {%if question_all%}#}
-            <h3>{{ _('Questions') }}</h3>
-            <ul class="question-list">
-                {% for question in questionlist %}
-                <li>
-                    <div class="avatar-group">
-                        <img src="images/1110055.png" alt="" class="avatar">
-                    </div>
-                    <div class="question-group">
-                        <p class="question-title"><a href="{{ url_for('question_detail',question_id=question.id) }}">{{ question.title }}</a></p>
-                        <p class="question-content">{{ question.content }}</p>
-                        <div class="question-info">
-                            <span class="question-author">{{ question.author.username }}</span>
-                            <span class="question-time">{{ question.create_time }}</span>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-{#        {%endif%}#}
+
         <div id="menu1" class="container tab-pane fade"><br>
-            <h3>{{ _('My questions') }}</h3>
+            <h3>My questions</h3>
             <ul class="question-list">
                 {% for question in questionlist %}
                 <li>
@@ -127,45 +104,32 @@
                         <img src="images/1110055.png" alt="" class="avatar">
                     </div>
                     <div class="question-group">
-                        <p class="question-title"><a href="{{ url_for('question_detail',question_id=question.id) }}">{{ question.title }}</a></p>
-                        <p class="question-content">{{ question.content }}</p>
+                        <p class="question-title"><a href="customer_question/{{question.que_id}}">{{ question.que_title }}</a></p>
                         <div class="question-info">
-                            <span class="question-author">{{ question.author.username }}</span>
-                            <span class="question-time">{{ question.create_time }}</span>
-                            <span class="question-id" style="display: none">{{ question.id }}</span>
+{#                            <span class="question-author">{{ question.author.username }}</span>#}
+                            <span class="question-time">{{ question.que_time }}que_time is over here</span>
                         </div>
-                    </div>
-                    <form action="{{url_for('delete_question')}}" method="post">
-                        <div class="form-group">
-                            <input type="hidden" name="question_id" value="{{question.id}}">
-                        </div>
-                        <div class="form-group" style="text-align:right;position:relative;">
-                            <button class="btn btn-danger">{{ _("Delete") }}</button>
-                        </div>
-                    </form>
-                    <div style="text-align:right;position:relative;">
-                        <button type="button" class="btn btn-danger offset-1 delete_btn" data-toggle="modal" data-target="#alert">{{ _('Delete') }}</button>
                     </div>
                 </li>
                 {% endfor %}
             </ul>
         </div>
         <div id="menu2" class="container tab-pane fade"><br>
-            <h3>{{ _('Post a question') }}</h3>
+            <h3>Post a question</h3>
             <form method="post">
                 <div class="form-group">
                     <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
-                        <input class="form-control" placeholder="{{ _('Title') }}"/>
+                        <input name="title" class="form-control" placeholder="Title"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6 offset-sm-3" style="padding-top: 20px">
-                        <textarea class="form-control" rows="8" placeholder="{{ _('Comment') }}"></textarea>
+                        <textarea name="comment" class="form-control" rows="8" placeholder="Comment"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="offset-sm-10" style="padding-top: 50px">
-                        <button type="button" class="btn btn-success">{{ _('Post') }}</button>
+                        <button type="submit" class="btn btn-success">Post</button>
                     </div>
                 </div>
             </form>
@@ -173,39 +137,20 @@
     </div>
 </div>
 
-<div class="modal fade" id="alert">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">{{ _('Warning') }}</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                {{ _('Are you sure to delete？') }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
-                </button>
-                <button id="delbtn" type="button" class="btn btn-primary" data-dismiss="modal">
-                    {{ _('Confirm') }}
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <!-- JS VENDOR -->
-<script src="../static/js/vendor/jquery.min.js"></script>
-<script src="../static/js/vendor/bootstrap.min.js"></script>
-<script src="../static/js/vendor/owl.carousel.js"></script>
-<script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>
+<script src="static/js/vendor/jquery.min.js"></script>
+<script src="static/js/vendor/bootstrap.min.js"></script>
+<script src="static/js/vendor/owl.carousel.js"></script>
+<script src="static/js/vendor/jquery.magnific-popup.min.js"></script>
 
 <!-- SENDMAIL -->
-<script src="../static/js/vendor/validator.min.js"></script>
-<script src="../static/js/vendor/form-scripts.js"></script>
+<script src="static/js/vendor/validator.min.js"></script>
+<script src="static/js/vendor/form-scripts.js"></script>
 
-<script src="../static/js/script.js"></script>
+<script src="static/js/script.js"></script>
 
 </body>
 </html>

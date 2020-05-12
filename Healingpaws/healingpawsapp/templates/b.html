@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>appointment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootbox.min.js') }}"></script>
+
+	<!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/vendor/animate.min.css">
+
+	<!-- ==============================================
+	Custom Stylesheet
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+
+
+
+
+</head>
+<body>
+<!-- LOAD PAGE -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+
+	<!-- BACK TO TOP SECTION -->
+	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+	<!-- HEADER -->
+    <div class="header header-1">
+		<!-- NAVBAR SECTION -->
+		<div class="navbar-main">
+			<div class="container">
+			    <nav id="navbar-example" class="navbar navbar-expand-lg">
+			        <a class="navbar-brand" href="employee_main.html">
+					</a>
+			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			            <ul class="navbar-nav">
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
+			                </li>
+			                <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                </li>
+			            </ul>
+                        <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE EMPLOYEES</a>
+                        <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">ANNOUNCEMENT</a>
+			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
+                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
+			        </div>
+			    </nav> <!-- -->
+
+			</div>
+		</div>
+
+    </div>
+<div class="box">
+    <div class="title">MANAGE EMPLOYEE</div>
+    <div class="content" >
+
+        <div class="container content_width">
+            <div class="person_search">
+                <div class="search_input">
+
+
+                    <div class="input-group mb-3">
+                        <span>Name:</span>
+                        <input id="Ktext" type="text" class="form-control" placeholder="please enter the name of employee">
+                    </div>
+                </div>
+                <div class="search_input">
+                    <button class="btn btn-primary search_btn" type="button" id="search_btn">inquiry</button>
+                    <button class="btn btn-primary search_btn" type="button" id="back_btn">resetting </button>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="export">
+            <div class="modal fade" id="renyuan">
+                <div class="modal-dialog modal-lg modal_position">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">ADD</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+                            <table id="xztb" class="table">
+
+                                <tbody>
+                                <tr>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>name</label>
+                                    <td><input class="userName" type="text" placeholder="please enter the name of your employee."/></td>
+                                    <td class="tb_bg"><label for="">city</label></td>
+                                    <td>
+                                        <select class="form-control select_down" style="font-size: 13px; color: #666;">
+                                            <option>Beijing</option>
+                                            <option>Chengdu</option>
+                                            <option>Shanghai</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>tel</label>
+                                        </td>
+                                    <td><input class="phoneNum" type="number" placeholder="Please write down the correct number"/></td>
+                                    <td class="tb_bg"><label for="">status</label></td>
+                                    <td><input class="petstype" type="text" placeholder="employee's status"/></td>
+
+                                    </td>
+
+                                    </td>
+
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                            <button id="add_btn" type="button" class="btn btn-secondary">confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table id="tb" class="table">
+            <thead>
+            <tr>
+
+                <th>name</th>
+                <th>tel</th>
+                <th>status</th>
+                <th>city</th>
+                <th>operation</th>
+            </tr>
+            </thead>
+            <tbody id="show_tbody">
+            <tr>
+
+                <td>a</td>
+                <td>18086667777</td>
+                <td>pass</td>
+                <td>Beijing</td>
+
+
+                <td>
+                    <a href="#" class="edit">edit</a>
+                    <a href="#" class="del">delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>b</td>
+
+                <td>18086668888</td>
+                <td>pass</td>
+                <td>Chengdu</td>
+
+                <td>
+                    <a href="#" class="edit">edit</a>
+                    <a href="#" class="del">delete</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>bc</td>
+
+                <td>18086668888</td>
+                <td>pass</td>
+                <td>Shanghai</td>
+                <td>
+                    <a href="#" class="edit">edit</a>
+                    <a href="#" class="del">delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+
+</script>
+<script src="{{ url_for('static', filename='js/mejs2.js') }}"></script>
+    <script src="/static/js/vendor/jquery.min.js"></script>
+	<script src="/static/js/vendor/bootstrap.min.js"></script>
+	<script src="/static/js/vendor/owl.carousel.js"></script>
+	<script src="/static/js/vendor/jquery.magnific-popup.min.js"></script>
+
+	<!-- SENDMAIL -->
+	<script src="/static/js/vendor/validator.min.js"></script>
+	<script src="/static/js/vendor/form-scripts.js"></script>
+
+	<script src="/static/js/script.js"></script>
+</body>
+</html>

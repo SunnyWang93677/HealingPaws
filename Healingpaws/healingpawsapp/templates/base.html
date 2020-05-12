@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +73,7 @@
 <div class="navbar-main">
     <div class="container">
         <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+
 {#            <a class="navbar-brand" href="#">#}
 {#                <img src="../static/images/logo.png" alt=""/>#}
 {#            </a>#}
@@ -89,8 +91,11 @@
                             {{ _('Login') }}
                         </a>
                         <div class="dropdown-menu">
+
                             <a class="dropdown-item" href="{{ url_for('customer_login') }}">{{ _('customer') }}</a>
                             <a class="dropdown-item" href="{{ url_for('employee_login') }}">{{ _('employee') }}</a>
+                            <!-- <a class="dropdown-item" data-toggle="modal" data-target="#alert">customer_login_window</a> -->
+
                         </div>
                     </li>
                     <li class="nav-item dropdown dmenu">
@@ -98,6 +103,7 @@
                             {{ _('Register') }}
                         </a>
                         <div class="dropdown-menu">
+
                             <a class="dropdown-item" href="{{ url_for('customer_register') }}">{{ _('customer') }}</a>
                             <a class="dropdown-item" href="{{ url_for('employee_register') }}">{{ _('employee') }}</a>
                         </div>
@@ -112,13 +118,14 @@
 {#                        <a class="nav-link" id="zh">中文</a>#}
                     </li>
                 </ul>
-
+    
             </div>
         </nav> <!-- -->
-
+    
     </div>
 </div>
 </div>
+
 
 <!-- BANNER -->
 	<div id="oc-fullslider" class="banner owl-carousel">
@@ -838,6 +845,7 @@
 
 {#	</div>#}
 
+
 <!-- JS VENDOR -->
 <script src="../static/js/vendor/jquery.min.js"></script>
 <script src="../static/js/vendor/bootstrap.min.js"></script>
@@ -851,4 +859,5 @@
 <script src="../static/js/script.js"></script>
 
 </body>
+
 </html>

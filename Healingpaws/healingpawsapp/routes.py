@@ -6,6 +6,7 @@ from healingpawsapp import app, db
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
 from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment, Pet
+
 from flask_babel import Babel,gettext as _
 from flask import request
 # from healingpawsapp.config import LANGUAGES
@@ -622,4 +623,3 @@ def customer_mainpage():
     if request.method == 'GET':
         username = Customer.query.filter(Customer.cus_id == int(session.get('CUSID')[:-3])).first()
         return render_template('customer_mainpage.html', title='Mainpage', username=username.cus_username)
-
