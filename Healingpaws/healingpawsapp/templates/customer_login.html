@@ -2,34 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>{{ _('Login') }}</title>
     <!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.mockjax.js"></script>
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
 
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <style>
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
             background-size: 110%;
-            padding-top: 50px;
+            {#padding-top: 50px;#}
         }
         h1{
             color: black;
             padding: 20px 15px;
             text-align: center;
         }
+        .error{
+            color: red;
+        }
+        #slider {
+            width: 300px;
+            height: 40px;
+            position: relative;
+            border-radius: 20px;
+            background-color: #dae2d0;
+            overflow: hidden;
+            text-align: center;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #slider_bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background-color: #7AC23C;
+            z-index: 1;
+        }
+
+        #label {
+            width: 46px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            line-height: 38px;
+            border: 1px solid #cccccc;
+            background: #fff;
+            z-index: 3;
+            cursor: move;
+            color: #ff9e77;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        #labelTip {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 13px;
+            font-family: 'Microsoft Yahei', serif;
+            color: #787878;
+            line-height: 38px;
+            text-align: center;
+            z-index: 2;
+
+        }
     </style>
-    <link rel="stylesheet" type="text/css" href="static/style/login.css" />
+{#    <link rel="stylesheet" type="text/css" href="static/style/login.css" />#}
 </head>
 <body>
 <!-- LOAD PAGE -->
@@ -39,74 +97,82 @@
 <!-- BACK TO TOP SECTION -->
 <a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
 <div class="header header-1">
-    <div class="navbar-main">
-        <div class="container">
-            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.png" alt="" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav navbar-right ml-auto">
-                        <li class="nav-item dropdown dmenu">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Login
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="index.html">customer</a>
-                                <a class="dropdown-item" href="pets-shop.html">employee</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown dmenu">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Register
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="index.html">customer</a>
-                                <a class="dropdown-item" href="pets-shop.html">employee</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">English</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">中文</a>
-                        </li>
-                    </ul>
+<div class="navbar-main">
+    <div class="container">
+        <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+{#            <a class="navbar-brand" href="#">#}
+{#                <img src="../static/images/logo.png" alt=""/>#}
+{#            </a>#}
+{#            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
+{#                <span class="navbar-toggler-icon"></span>#}
+{#            </button>#}
+            <a href="{{ url_for('home') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
+            <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Question') }}</a>
+            <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+            <a href="{{ url_for('pet_page') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pet') }}</a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav navbar-right ml-auto">
+                    <li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ _('Login') }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ url_for('customer_login') }}">{{ _('customer') }}</a>
+                            <a class="dropdown-item" href="{{ url_for('employee_login') }}">{{ _('employee') }}</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ _('Register') }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ url_for('customer_register') }}">{{ _('customer') }}</a>
+                            <a class="dropdown-item" href="{{ url_for('employee_register') }}">{{ _('employee') }}</a>
+                        </div>
+                    </li>
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="{{ url_for('set_locale', locale='en_US') }}">English</a>#}
+{#                        <a class="nav-link" href="{{ url_for('set_locale', locale='en_US') }}">English</a>#}
+{#                        <a class="nav-link" id="en">English</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="{{ url_for('set_locale', locale='zh_Hans_CN') }}">中文</a>#}
+{#                        <a class="nav-link" id="zh">中文</a>#}
+{#                    </li>#}
+                </ul>
+            </div>
+        </nav> <!-- -->
 
-                </div>
-            </nav> <!-- -->
-
-        </div>
     </div>
 </div>
-<div class="container">
+</div>
+<div class="container" style="padding-top: 80px">
     <div class="panel offset-sm-3 col-sm-6">
-        <form class="form-horizontal offset-sm-4" id="login_form" method="post">
-            <h3 class="form-title">Login to your account</h3>
-            <div class="col-sm-9">
+        <form class="cmxform" id="login_form" method="post">
+            <h3 class="form-title  offset-sm-3">{{ _('Login to your account') }}</h3>
+            <div class="col-sm-8 offset-sm-2">
                 <div class="form-group">
-                    <input class="form-control required" type="text" placeholder="Email" name="email" autofocus="autofocus" maxlength="11"/>
+                    <input class="form-control required" type="text" placeholder="{{ _('Email') }}" name="email" autofocus="autofocus" maxlength="11"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control required" type="password" placeholder="Password" name="password" maxlength="8"/>
+                    <input class="form-control required" type="password" placeholder="{{ _('Password') }}" name="password" maxlength="8"/>
                 </div>
-                <div class="form-group">
+                <div id="demo">
+                    <div id="slider">
+                        <div id="slider_bg"></div>
+                        <span id="label">>></span> <span id="labelTip">{{ _('Drag the slider to verify') }}</span>
+                    </div>
+                </div>
+                <div class="form-group" style="padding-top: 50px">
 <!--                    <label class="checkbox">-->
 <!--                        <input type="checkbox" name="remember" value="1"/> Remember me-->
 <!--                    </label>-->
-                    <a href="{{ url_for('customer_register') }}" id="forget_btn" class="">Forget password?</a>
+                    <a href="{{ url_for('customer_register') }}" id="forget_btn" class="">{{ _('Forget password?') }}</a>
                     <hr />
-                    <a href="{{ url_for('customer_register') }}" id="register_btn" class="">Create an account</a>
+                    <a href="{{ url_for('customer_register') }}" id="register_btn" class="">{{ _('Create an account') }}</a>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success btn-success pull-right" type="submit" value="Login"></button>
+                    <button class="btn btn-success btn-success pull-right" type="submit" value="Login">{{ _('Login') }}</button>
                 </div>
             </div>
         </form>
@@ -114,16 +180,32 @@
 </div>
 
 <!-- JS VENDOR -->
-<script src="static/js/vendor/jquery.min.js"></script>
-<script src="static/js/vendor/bootstrap.min.js"></script>
-<script src="static/js/vendor/owl.carousel.js"></script>
-<script src="static/js/vendor/jquery.magnific-popup.min.js"></script>
+{#<script src="../static/js/vendor/jquery.min.js"></script>#}
+{#<script src="../static/js/vendor/bootstrap.min.js"></script>#}
+{#<script src="../static/js/vendor/owl.carousel.js"></script>#}
+{#<script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>#}
 
 <!-- SENDMAIL -->
-<script src="static/js/vendor/validator.min.js"></script>
-<script src="static/js/vendor/form-scripts.js"></script>
+{#<script src="../static/js/vendor/validator.min.js"></script>#}
+{#<script src="../static/js/vendor/form-scripts.js"></script>#}
+{##}
+{#<script src="../static/js/script.js"></script>#}
+<script type="text/javascript" src="../static/js/jquery.slideunlock.js"></script>
+<script>
+    // $(function () {
+    //     var slider = new SliderUnlock("#slider",{
+    //         successLabelTip : "Successful validation"
+    //     });
+    //     slider.init();
+    // })
+    $(function () {
+        var slider = new SliderUnlock("#slider",{
+            successLabelTip : {{ _('"Successful validation"') }}
+        },function(){
 
-<script src="static/js/script.js"></script>
-
+        });
+        slider.init();
+    })
+</script>
 </body>
 </html>
