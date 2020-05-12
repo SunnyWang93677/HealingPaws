@@ -61,7 +61,7 @@ def logout():
     r=session.get('CUSID')
     if r:
         session.pop('CUSID')
-        flash('Success')
+        flash(_('Success'))
     return redirect(url_for('employee_login'))
 
 @app.route('/employee_login', methods=['GET', 'POST'])
@@ -85,10 +85,10 @@ def employee_login():
                     else:
                         return redirect(url_for('employee_main'))
             else:
-                flash('Your password is incorrect, please try again')
+                flash(_('Your password is incorrect, please try again'))
                 return redirect(url_for('employee_login'))
         else:
-            flash('the user is not exist, please register first')
+            flash(_('the user is not exist, please register first'))
             return redirect(url_for('employee_login'))
 
 
@@ -111,12 +111,12 @@ def employee_register():
         password2 = request.form.get('password2')
         customer = Employee.query.filter(Employee.email == email).first()
         if customer:
-            flash('This username has been registered,please login')
+            flash(_('This username has been registered,please login'))
             return redirect(url_for('employee_register'))
         else:
             if password != password2:
                 print('not match')
-                flash('password has not match')
+                flash(_('password has not match'))
                 return redirect(url_for('employee_register'))
             else:
                 passw_hash = generate_password_hash(password)
@@ -125,7 +125,7 @@ def employee_register():
                                     email=email, phone=phone)
                 db.session.add(employee)
                 db.session.commit()
-                flash("register success")
+                flash(_("register success"))
                 return redirect(url_for('employee_login'))
 
 
@@ -146,7 +146,7 @@ def employee_qa():
             questions = Question.query.all()
             return render_template('employee_question.html', questions=questions)
         if session.get('CUSID'):
-            flash('Limit Enter')
+            flash(_('Limit Enter'))
             return redirect(url_for('cus_mainpage'))
     else:
         return ''
@@ -179,7 +179,7 @@ def answer_detial(que_id):
                 db.session.commit()
                 flash('add success')
             else:
-                flash('please enter something')
+                flash(_('please enter something'))
             return redirect(url_for('answer_detial', que_id=que_id))
 
 
@@ -245,7 +245,7 @@ def employee_appointment():
             Appointment.query.filter(id).update(
                 {'place': place, 'type': pet_type, 'description': description, 'status': status})
             db.session.commit()
-            flash("edit success")
+            flash(_("edit success"))
             return redirect(url_for('employee_appointment'))
 
 

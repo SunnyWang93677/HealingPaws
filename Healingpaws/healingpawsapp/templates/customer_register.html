@@ -96,11 +96,7 @@
             var mobile = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
             return this.optional(element) || (length === 11 && mobile.test(value));
         }, "Please fill in the correct mobile phone number");
-        $.validator.setDefaults({
-            submitHandler: function() {
-                alert("Submit the event!!");
-            }
-        });
+
         $().ready(function() {
 
             $("#login_form").validate({
@@ -130,26 +126,36 @@
                         required: true,
                         email: true
                     },
+                    question: {
+                        required: true,
+                    }
                 },
                 messages: {
                     username: {
-                        required: "Please enter a username",
-                        minlength: "The user name must consist of at least two letters"
+                        required: {{ _('"Please enter a username"') }},
+                        minlength: {{ _('"The user name must consist of at least two letters"') }}
                     },
                     realname: {
-                        required: "Please enter a name",
-                        minlength: "The name must consist of at least two letters"
+                        required: {{ _('"Please enter a name"') }},
+                        minlength: {{ _('"The name must consist of at least two letters"') }}
                     },
                     password1: {
-                        required: "Please enter your password",
-                        minlength: "Password length must not be less than 6 letters"
+                        required: {{ _('"Please enter your password"') }},
+                        minlength: {{ _('"Password length must not be less than 6 letters"') }}
                     },
                     password2: {
-                        required: "Please enter your password",
-                        minlength: "Password length must not be less than 6 letters",
-                        equalTo: "The two passwords do not match"
+                        required: {{ _('"Please enter your password"') }},
+                        minlength: {{ _('"Password length must not be less than 6 letters"') }},
+                        equalTo: {{ _('"The two passwords do not match"') }}
                     },
-                    email: "Please enter a correct email address",
+                    phonenumber: {
+                        required: {{ _('"Please enter a phone number"') }}
+                    },
+                    email: {
+                        required: {{ _('"Please enter a email address"') }},
+                        email: {{ _('"Please enter a correct email address"') }}
+                    },
+                    question: {{ _('"Please enter an animal"') }}
                 }
             });
         });
