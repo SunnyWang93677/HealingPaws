@@ -7,17 +7,6 @@
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pets - HealingPaws</title>
-{#    <meta name="description" content="Pets is responsive multi-purpose HTML5 template compatible with Bootstrap 4. Take your Startup business website to the next level. it is designed for pet care, clinic, veterinary, shop, store, adopt, food, pets, businesses or any type of person or business who wants to showcase their work, services and professional way">#}
-{#    <meta name="keywords" content="animals, business, cats, dogs, ecommerce, modern, pet care, pet services, pet shop, pet sitting, pets, shelter animals, store, veterinary">#}
-{#    <meta name="author" content="rometheme.net">#}
-
-	<!-- ==============================================
-	Favicons
-	=============================================== -->
-{#	<link rel="shortcut icon" href="/images/favicon.ico">#}
-{#	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">#}
-{#	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">#}
-{#	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">#}
 
 	<!-- ==============================================
 	CSS VENDOR
@@ -32,57 +21,58 @@
 	<!-- ==============================================
 	Custom Stylesheet
 	=============================================== -->
-	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
+      <style>
+        body{
+            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            background-size: 110%;
+            padding-top: 50px;
+        }
+        h1{
+            color: black;
+            padding: 20px 15px;
+            text-align: center;
+        }
+    </style>
 
-{#    <script src="/static/js/vendor/modernizr.min.js"></script>#}
+    <script src="/static/js/vendor/modernizr.min.js"></script>
 
 </head>
 
 <body>
+<div class="animationload">
+    <div class="loader"></div>
+</div>
+<a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
+<div class="header header-1">
+    <div class="navbar-main">
+        <div class="container">
+            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
+                <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+                <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav navbar-right ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ _('employee') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                        </li>
+                    </ul>
 
-	<!-- LOAD PAGE -->
-	<div class="animationload">
-		<div class="loader"></div>
-	</div>
+                </div>
+            </nav> <!-- -->
 
-	<!-- BACK TO TOP SECTION -->
-	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
-
-	<!-- HEADER -->
-    <div class="header header-1">
-		<!-- NAVBAR SECTION -->
-		<div class="navbar-main">
-			<div class="container">
-			    <nav id="navbar-example" class="navbar navbar-expand-lg">
-			        <a class="navbar-brand" href="employee_main.html">
-{#						<img src='/images/logo.png' alt="" />#}
-					</a>
-			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			            <span class="navbar-toggler-icon"></span>
-			        </button>
-			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			            <ul class="navbar-nav">
-                            <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
-			                </li>
-			                <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
-			                </li>
-                            <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
-			                </li>
-			            </ul>
-			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
-                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
-			        </div>
-			    </nav> <!-- -->
-
-			</div>
-		</div>
-
+        </div>
     </div>
-
-
+</div>
 
 	<!-- ABOUT -->
 	<div class="section bgi-left bgi-hide-xs" >
@@ -92,10 +82,11 @@
 					<div class="col-sm-12 col-md-8 offset-md-4">
 
 						<h2 class="section-heading text-primary no-after mb-4">
-							Welcome to HealingPaws
+                            {{ _('Welcome to HealingPaws') }}
+
 						</h2>
                         <br>
-						<p class="subheading mb-4">Your pet's health and well-being are our top priority.</p>
+						<p class="subheading mb-4">{{ _('Your pets health and well-being are our top priority.') }}</p>
 
 						<div class="row mt-5">
 							<!-- Item 1 -->
@@ -105,8 +96,8 @@
 										<i class="fa fa-scissors"></i>
 									</div>
 									<div class="info-text">
-										<h3 class="text-secondary">Manage An Appointment</h3>
-										Ability for employees to organize, prioritize and keep track of pets in the system
+										<h3 class="text-secondary">{{ _('Manage An Appointment') }}</h3>
+										{{ _('Ability for employees to organize, prioritize and keep track of pets in the system') }}
 									</div>
 								</div>
 							</div>
@@ -117,8 +108,8 @@
 										<i class="fa fa-home"></i>
 									</div>
 									<div class="info-text">
-										<h3 class="text-secondary">Questiona And Answers</h3>
-										Ability for customers to ask questions and for employees to answer them.
+										<h3 class="text-secondary">{{ _('Questiona And Answers') }}</h3>
+										{{ _('Ability for customers to ask questions and for employees to answer them.') }}
 									</div>
 								</div>
 							</div>

@@ -14,7 +14,8 @@
 	<!-- ==============================================
 	Custom Stylesheet
 	=============================================== -->
-	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
+
 
 {#    <script src="/static/js/vendor/modernizr.min.js"></script>#}
 </head>
@@ -43,17 +44,15 @@
 			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
 			            <ul class="navbar-nav">
                             <li class="nav-item">
-			                    <a class="nav-link" href="#">HOME</a>
+			                    <a class="nav-link" href="#">{{ _('HOME') }}</a>
 			                </li>
 			                <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
+			                    <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('LOGIN') }}</a>
 			                </li>
                             <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
+			                    <a class="nav-link" href="{{ url_for('employee_register') }}">{{ _('REGISTER') }}</a>
 			                </li>
 			            </ul>
-{#			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>#}
-{#                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>#}
 			        </div>
 			    </nav> <!-- -->
 
@@ -64,16 +63,16 @@
     <div class="wrapl"  style="background: rgba(240,171,60,0.6);height:100%;overflow: hidden;" >
      <div class="sign-div" style="height:100%">
         <form class=""  method="post">
-            <h1 style="color: whitesmoke">Login</h1>
-            <input class="sign-text"  name="email" id='employee_lem' type="email" placeholder="EmployeeEmail" >
-            <input class="sign-text" name="password" id='employee_lp' type="password" placeholder="password">
+            <h1 style="color: whitesmoke">{{ _('Login') }}</h1>
+            <input class="sign-text"  name="email" id='employee_lem' type="email" placeholder="{{ _('EmployeeEmail') }}" >
+            <input class="sign-text" name="password" id='employee_lp' type="password" placeholder="{{ _('password') }}">
             <td>
-                <button class="sign-btn" type="submit" value="Sign In" >Sign in</button>>
+                <button class="sign-btn" type="submit" value="Sign In" >{{ _('Sign in') }}</button>>
 
             </td>
 
             <td>
-                 <a href="{{ url_for('employee_register') }}">You didn't register?</a>
+                 <a href="{{ url_for('employee_register') }}">{{ _('You didnt register') }}</a>
             </td>
 
 
