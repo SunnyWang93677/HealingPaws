@@ -2,32 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pets</title>
-    {#需要显示的数据：宠物名字，类型，性别#}
-    {#需要上传的数据：宠物类型，性别，名字，生日#}
-    {#操作：modify：修改 delete：删除 add：添加#}
+
+    <title>{{ _('Pets') }}</title>
+{#需要显示的数据：宠物名字，类型，性别#}
+{#需要上传的数据：宠物类型，性别，名字，生日#}
+{#操作：modify：修改 delete：删除 add：添加#}
     <<!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
-    <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" type="text/css" href="static/css/vendor/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+
 
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <style>
-        body {
+        body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
             background-size: 110%;
-            padding-top: 50px;
+            {#padding-top: 50px;#}
         }
+        h1{
 
-        h1 {
             color: black;
             padding: 20px 15px;
             text-align: center;
@@ -44,33 +47,33 @@
 <div class="header header-1">
     <div class="navbar-main">
         <div class="container">
-            <nav id="navbar-example" class="navbar navbar-expand-lg bg-primary">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.png" alt=""/>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a href="customer-mainpage.html" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
-                <a href="customer-question.html" class="btn btn-secondary btn-nav btn-rect ml-auto"
-                   style="margin-left: 20px">Questions</a>
-                <a href="customer-appointment.html" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
-                <a href="customer-pet.html" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
+
+            <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
+{#                <a class="navbar-brand" href="index.html">#}
+{#                    <img src="images/logo.png" alt="" />#}
+{#                </a>#}
+{#                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
+{#                    <span class="navbar-toggler-icon"></span>#}
+{#                </button>#}
+                <a href="{{ url_for('customer_mainpage') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
+                <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Question') }}</a>
+                <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('pet_page') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pet') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">user</a>
+                            <a class="nav-link" href="#">{{ username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">log out</a>
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">English</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">中文</a>
-                        </li>
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">English</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">中文</a>#}
+{#                        </li>#}
+
                     </ul>
 
                 </div>
@@ -79,21 +82,22 @@
         </div>
     </div>
 </div>
-<div class="offset-sm-2 col-sm-8">
-    <h1>My Pets</h1>
-    <div class="table-responsive col-sm-offset-2 col-sm-12">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th class="text-center col-sm-2"hidden="hidden">Pet id</th>
-                <th class="text-center col-sm-2">Pet name</th>
-                <th class="text-center col-sm-2">Pet type</th>
-                <th class="text-center col-sm-2">Pet Gender</th>
-                <th class="text-center col-sm-6">Birthday</th>
-                <th class="text-center col-sm-6">Option</th>
-            </tr>
-            </thead>
-            <tbody>
+
+    <div class="offset-sm-2 col-sm-8">
+        <h1>{{ _('My Pets') }}</h1>
+        <div class="table-responsive col-sm-offset-2 col-sm-12" >
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="text-center">{{ _('Pet name') }}</th>
+                    <th class="text-center">{{ _('Pet type') }}</th>
+                    <th class="text-center">{{ _('Pet Gender') }}</th>
+                    <th class="text-center">{{ _('Birthday') }}</th>
+                    <th class="text-center">{{ _('Operation') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+
             {% for p in pets %}
                 <tr>
                     <td class="text-center pid" hidden="hidden">{{ p.pet_id }}</td>
@@ -104,12 +108,16 @@
                     <td>
                         <a href="#">
                             <button name='modify' onclick="window.b=this;preparewindow();"
-                                    class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">Modify
+
+                                    class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo">{{ _('Modify') }}
+
                             </button>
                         </a>
                         <a href="#">
                             <button name='delete' onclick="window.b=this;prepareDelete();" type="submit"
-                                    class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">Delete
+
+                                    class="btn btn-danger offset-1" data-toggle="modal" data-target="#alert">{{ _('Delete') }}
+
                             </button>
                         </a>
                     </td>
@@ -139,20 +147,20 @@
 
     </div>
     <form method="post" action="/pet">
-        <button type="submit" name="add_pet" value='1' class="btn btn-primary offset-sm-10">Add a pet
+
+        <button type="submit" name="add_pet" value='1' class="btn btn-primary offset-sm-10">{{ _('Add a pet') }}
         </button>
     </form>
 </div>
 <script>
     function preparewindow() {
         par = window.b.parentNode.parentNode.parentNode
-           
         pid=par.querySelector('.pid').textContent
         pna=par.querySelector('.pna').textContent
         pty=par.querySelector('.pty').textContent
         pgen=par.querySelector('.pgen').textContent
         pbir=par.querySelector('.pbir').textContent
-        
+
         document.querySelector('#Petinfo .pid').value = pid
         document.querySelector('#Petinfo .kind'+pty).setAttribute('checked','checked')
         document.querySelector('#Petinfo .gender'+pgen).setAttribute('checked','checked')
@@ -161,13 +169,13 @@
     }
     function prepareDelete() {
         par = window.b.parentNode.parentNode.parentNode
-           
+
         pid=par.querySelector('.pid').textContent
         pna=par.querySelector('.pna').textContent
         pty=par.querySelector('.pty').textContent
         pgen=par.querySelector('.pgen').textContent
         pbir=par.querySelector('.pbir').textContent
-        
+
         document.querySelector('#alert .pid').value = pid
     }
 </script>
@@ -176,7 +184,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title ">
-                    Pet information
+                    {{ _('Pet information') }}
+
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
@@ -184,39 +193,40 @@
             </div>
             <div class="modal-body">
                 <form method="post" action='/pet'>
-                     
+
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3" hidden="hidden">Pet ID</label>
                         <input type="text" name="pid" class="form-control pid" hidden="hidden" >
                     </div>
-                     
+
+
                     <div class="form-group" style="padding-top: 20px">
-                        <label class="col-sm-3">Pet Kind</label>
+                        <label class="col-sm-3">{{ _('Pet Kind') }}</label>
 {#                        <input type="text" name="pkind" class="form-control pkd" >#}
-                        <label>Dog</label><input class="kind0" type="radio" name="pkind" value="0">
-                        <label>Cat</label><input class="kind1" type="radio" name="pkind" value="1">
+                        <label>{{ _('Dog') }}</label><input class="kind0" type="radio" name="pkind" value="0">
+                        <label>{{ _('Cat') }}Cat</label><input class="kind1" type="radio" name="pkind" value="1">
                     </div>
-                    
+
                     <div class="form-group" style="padding-top: 20px">
-                        <label class="col-sm-3">Pet Gender</label>
+                        <label class="col-sm-3">{{ _('Pet Gender') }}</label>
 {#                        <input type="text" name="pgender" class="form-control pgen" >#}
-                        <label>male</label><input class="gender0" type="radio" name="pgender" value="0">
-                        <label>female</label><input class="gender1" type="radio" name="pgender" value="1">
+                        <label>{{ _('male') }}</label><input class="gender0" type="radio" name="pgender" value="0">
+                        <label>{{ _('female') }}</label><input class="gender1" type="radio" name="pgender" value="1">
                     </div>
-                    
+
                     <div class="form-group" style="padding-top: 20px">
-                        <label class="col-sm-3">Name</label>
-                        <input type="text" name="petname" class="form-control petname" placeholder="Name">
+                        <label class="col-sm-3">{{ _('Name') }}</label>
+                        <input type="text" name="petname" class="form-control petname" placeholder="{{ _('Name') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
-                        <label class="col-sm-3">Birthday</label>
+                        <label class="col-sm-3">{{ _('Birthday') }}</label>
                         <input type="date" name="birthday" class="form-control pbir" placeholder="Date">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" name='close' class="btn btn-primary">Close
+                        <button type="button" name='close' class="btn btn-primary">{{ _('Close') }}
                         </button>
                         <button type="submit"  value='1' name="update" class="btn btn-primary">
-                            Confirm
+                            {{ _('Confirm') }}
                         </button>
                     </div>
                 </form>
@@ -229,7 +239,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title ">
-                    Pet information
+
+                    {{ _('Pet information') }}
+
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
@@ -237,17 +249,21 @@
             </div>
             <div class="modal-body">
                 <form method="post" action='/pet'>
-                     
+
+
                     <div class="form-group" style="padding-top: 20px">
-                        <label class="col-sm-3">Are you sure ?</label>
+                        <label class="col-sm-3">{{ _('Are you sure ?') }}</label>
+
                         <input type="text" name="pid" class="form-control pid" hidden="hidden">
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" name='close' class="btn btn-primary">Close
+
+                        <button type="button" name='close' class="btn btn-primary">{{ _('Close') }}
                         </button>
                         <button type="submit"  value='1' name="delete" class="btn btn-primary">
-                            Confirm Delete
+                            {{ _('Confirm Delete') }}
+
                         </button>
                     </div>
                 </form>

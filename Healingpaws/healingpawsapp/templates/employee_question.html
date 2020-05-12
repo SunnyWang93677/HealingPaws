@@ -50,23 +50,16 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
+                <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
+                <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+                <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">user</a>
+                            <a class="nav-link" href="#">{{ _('employee') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">log out</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">English</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">中文</a>
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -78,18 +71,18 @@
 </div>
 
 <div class="container">
-    <h3>Questions</h3>
+    <h3>{{ _('Questions & Answers') }}</h3>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu1">Answers</a>
+            <a class="nav-link" data-toggle="tab" href="#menu1">{{ _('Answers') }}</a>
         </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <div id="menu1" class="container tab-pane fade"><br>
-            <h3>My questions</h3>
+            <h3>{{ _('My questions') }}</h3>
             <ul class="question-list">
                 {% for question in questions %}
                 <li>

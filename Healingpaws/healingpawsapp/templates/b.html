@@ -23,57 +23,65 @@
 	<!-- ==============================================
 	Custom Stylesheet
 	=============================================== -->
-	<link rel="stylesheet" type="text/css" href="/static/css/astyle.css" />
-
+	<link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
+<style>
+        body{
+            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            background-size: 110%;
+            padding-top: 50px;
+        }
+        h1{
+            color: black;
+            padding: 20px 15px;
+            text-align: center;
+        }
+    </style>
 
 
 
 </head>
 <body>
 <!-- LOAD PAGE -->
-	<div class="animationload">
+    <div class="animationload">
 		<div class="loader"></div>
 	</div>
 
 	<!-- BACK TO TOP SECTION -->
-	<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+	<a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
+<div class="header header-1">
+    <div class="navbar-main">
+        <div class="container">
+            <nav id="navbar-example" class="navbar navbar-expand-lg bg-primary">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt=""/>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+               <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Manage Employees') }}</a>
+                        <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Announcement') }}</a>
+			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointment') }}</a>
+                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Questions') }}</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ _('boss') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                        </li>
+                    </ul>
 
-	<!-- HEADER -->
-    <div class="header header-1">
-		<!-- NAVBAR SECTION -->
-		<div class="navbar-main">
-			<div class="container">
-			    <nav id="navbar-example" class="navbar navbar-expand-lg">
-			        <a class="navbar-brand" href="employee_main.html">
-					</a>
-			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			            <span class="navbar-toggler-icon"></span>
-			        </button>
-			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			            <ul class="navbar-nav">
-                            <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_main') }}">HOME</a>
-			                </li>
-			                <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_login') }}">LOGIN</a>
-			                </li>
-                            <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_register') }}">REGISTER</a>
-			                </li>
-			            </ul>
-                        <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE EMPLOYEES</a>
-                        <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">ANNOUNCEMENT</a>
-			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">MANAGE AN APPOINTMENT</a>
-                         <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">Q & A</a>
-			        </div>
-			    </nav> <!-- -->
+                </div>
+            </nav> <!-- -->
 
-			</div>
-		</div>
-
+        </div>
     </div>
+</div>
+
 <div class="box">
-    <div class="title">MANAGE EMPLOYEE</div>
+    <div class="title">{{ _('MANAGE EMPLOYEE') }}</div>
     <div class="content" >
 
         <div class="container content_width">
@@ -82,13 +90,13 @@
 
 
                     <div class="input-group mb-3">
-                        <span>Name:</span>
-                        <input id="Ktext" type="text" class="form-control" placeholder="please enter the name of employee">
+                        <span>{{ _('Name:') }}</span>
+                        <input id="Ktext" type="text" class="form-control" placeholder="{{ _('please enter the name of employee') }}">
                     </div>
                 </div>
                 <div class="search_input">
-                    <button class="btn btn-primary search_btn" type="button" id="search_btn">inquiry</button>
-                    <button class="btn btn-primary search_btn" type="button" id="back_btn">resetting </button>
+                    <button class="btn btn-primary search_btn" type="button" id="search_btn">{{ _('inquiry') }}</button>
+                    <button class="btn btn-primary search_btn" type="button" id="back_btn">{{ _('resetting') }} </button>
                 </div>
             </div>
             <div class="line"></div>
@@ -99,7 +107,7 @@
                 <div class="modal-dialog modal-lg modal_position">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">ADD</h4>
+                            <h4 class="modal-title">{{ _('Eidt') }}</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -108,24 +116,24 @@
 
                                 <tbody>
                                 <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>name</label>
-                                    <td><input class="userName" type="text" placeholder="please enter the name of your employee."/></td>
-                                    <td class="tb_bg"><label for="">city</label></td>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>{{ _('name') }}</label>
+                                    <td><input class="userName" type="text" placeholder="{{ _('please enter the name of your employee.') }}"/></td>
+                                    <td class="tb_bg"><label for="">{{ _('city') }}</label></td>
                                     <td>
                                         <select class="form-control select_down" style="font-size: 13px; color: #666;">
-                                            <option>Beijing</option>
-                                            <option>Chengdu</option>
-                                            <option>Shanghai</option>
+                                            <option>{{ _('Beijing') }}</option>
+                                            <option>{{ _('Chengdu') }}</option>
+                                            <option>{{ _('Shanghai') }}</option>
                                         </select>
                                     </td>
 
                                 </tr>
                                 <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>tel</label>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>{{ _('tel') }}</label>
                                         </td>
-                                    <td><input class="phoneNum" type="number" placeholder="Please write down the correct number"/></td>
-                                    <td class="tb_bg"><label for="">status</label></td>
-                                    <td><input class="petstype" type="text" placeholder="employee's status"/></td>
+                                    <td><input class="phoneNum" type="number" placeholder="{{ _('Please write down the correct number') }}"/></td>
+                                    <td class="tb_bg"><label for="">{{ _('status') }}</label></td>
+                                    <td><input class="petstype" type="text" placeholder="{{ _('employee status') }}"/></td>
 
                                     </td>
 
@@ -140,8 +148,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                            <button id="add_btn" type="button" class="btn btn-secondary">confirm</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('cancel') }}</button>
+                            <button id="add_btn" type="button" class="btn btn-secondary">{{ _('confirm') }}</button>
                         </div>
                     </div>
                 </div>

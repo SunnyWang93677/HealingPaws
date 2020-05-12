@@ -1,13 +1,31 @@
-from flask import render_template, flash, redirect, url_for, session, send_file, request, jsonify
+from flask import render_template, flash, redirect, url_for, session, send_file, request, jsonify, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
+from healingpawsapp import babel
+import healingpawsapp
 from healingpawsapp import app, db
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
 from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment, Pet
 
+from flask_babel import Babel,gettext as _
+from flask import request
+# from healingpawsapp.config import LANGUAGES
+
+import os
+import re
 
 app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
+# app.config['LANGUAGES'] = 'en_US'
+Language = "en_US"
+@babel.localeselector
+def get_locale():
+    return session.get('lang', 'en_US')
 
+
+@app.route('/set-locale/<locale>')
+def set_locale(locale):
+    session['lang'] = locale
+    return render_template('base.html')
 
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])

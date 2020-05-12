@@ -66,10 +66,8 @@ class Appointment(db.Model):
     hos_id = db.Column(db.Integer, db.ForeignKey('Place.hos_id'))
     pet_id = db.Column(db.Integer, db.ForeignKey('Pet.pet_id'))
     pets = db.relationship('Pet',backref=db.backref('petid'),foreign_keys=[pet_id])
-
-    cus_id = db.Column(db.Integer,db.ForeignKey('Customer.cus_id'))
+    cus_id=db.Column(db.Integer,db.ForeignKey('Customer.cus_id'))
     customer = db.relationship('Customer',backref=db.backref('customer_appointments'),foreign_keys=[cus_id])
-
     status = db.Column(db.Enum('0', '1', '2', '3', '4'), index=True, default='0')
     # 0 waiting 1 treatment 2 surgery 3 release 4 finish
     treatment_time = db.Column(db.DateTime, index=True)
@@ -110,3 +108,4 @@ class Annoncement(db.Model):
     ann_title = db.Column(db.String(64), index=True)
     annoncement = db.Column(db.String(128), index=True)
     ann_time = db.Column(db.DateTime, index=True, default=datetime.now)
+

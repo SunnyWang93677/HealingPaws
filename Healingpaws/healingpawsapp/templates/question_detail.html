@@ -7,16 +7,19 @@
 	CSS VENDOR
 	=============================================== -->
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/magnific-popup.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
+
 
     <!-- ==============================================
     Custom Stylesheet
     =============================================== -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.min.js"></script>
@@ -32,7 +35,9 @@
             text-align: center;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="style/answers.css" />
+
+{#    <link rel="stylesheet" type="text/css" href="style/answers.css" />#}
+
 </head>
 <body>
 <!-- LOAD PAGE -->
@@ -45,30 +50,32 @@
     <div class="navbar-main">
         <div class="container">
             <nav id="navbar-example" class="navbar navbar-expand-sm bg-primary">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.png" alt="" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">About us</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">Questions</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Appointments</a>
-                <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">Pets</a>
+
+{#                <a class="navbar-brand" href="index.html">#}
+{#                    <img src="images/logo.png" alt="" />#}
+{#                </a>#}
+{#                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
+{#                    <span class="navbar-toggler-icon"></span>#}
+{#                </button>#}
+                <a href="{{ url_for('customer_mainpage') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
+                <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+                <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('customer_pet') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pets') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">user</a>
+                            <a class="nav-link" href="#">{{ username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">log out</a>
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">English</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">中文</a>
-                        </li>
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">English</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" href="#">中文</a>#}
+{#                        </li>#}
+
                     </ul>
 
                 </div>
@@ -80,8 +87,10 @@
 
 <div class="main">
     <p class="question-info">
-        <span>author： {{customer.cus_username}} </span>
-        <span>time： {{ detail.que_time }} </span>
+
+        <span>{{ _('author：') }} {{customer.cus_username}} </span>
+        <span>{{ _('time：') }} {{ detail.que_time }} </span>
+
     </p>
     <hr/>
     <p class="question-content"> {{ detail.question }} </p>
@@ -100,7 +109,7 @@
         {% for a in answer %}
             <li>
                 <div class="user-info">
-                    <img src="images/1110055.png" alt="" class="avatar">
+                    <img src="../static/images/1110055.png" alt="" class="avatar">
                     <span class="username"> {{ employee[a.emp_id] }} </span>
                     <span class="create-time"> {{ a.answer_time }} </span>
                 </div>
