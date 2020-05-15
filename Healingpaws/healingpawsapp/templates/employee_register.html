@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/vendor/magnific-popup.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/vendor/animate.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/css_employee_register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css_employee_register.css') }}">
     <script src="{{ url_for('static', filename='js/js_er.js') }}"></script>
     <script src="{{ url_for('static', filename='js/js_alert.js') }}"></script>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -102,7 +102,7 @@ $(document).ready(function(){
                      <input class="text" name="bossemail" type="text" id="bossemail" placeholder="{{ _('Please check your identification') }}" value="" onblur="emailb()"/>
                      <span id="spanEmailBId"></span>
                  </td>
-                <button class="register-btn" type="submit" value="Go and login"  >{{ _('Go and login') }}</button>
+                <button style="margin-left: 625px" class="register-btn"  type="submit" value="Go and login "   >{{ _('Go and login') }}</button>
             </form>
 
     </div>

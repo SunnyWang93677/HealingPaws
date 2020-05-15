@@ -60,14 +60,14 @@
                 <a href="{{ url_for('customer_mainpage') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Abou us') }}</a>
                 <a href="{{ url_for('customer_question') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
                 <a href="{{ url_for('customer_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
-                <a href="{{ url_for('customer_pet') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pets') }}</a>
+                <a href="{{ url_for('pet_page') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Pets') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href={{ url_for('logout') }}>{{ _('log out') }}</a>
                         </li>
 {#                        <li class="nav-item">#}
 {#                            <a class="nav-link" href="#">English</a>#}
@@ -88,7 +88,7 @@
 <div class="main">
     <p class="question-info">
 
-        <span>{{ _('author：') }} {{customer.cus_username}} </span>
+        <span>{{ _('author：') }} {{customer.cus_username}} </span><br>
         <span>{{ _('time：') }} {{ detail.que_time }} </span>
 
     </p>

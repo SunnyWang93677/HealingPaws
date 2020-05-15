@@ -39,6 +39,7 @@ class Question(db.Model):
     que_title = db.Column(db.String(64), index=True)
     question = db.Column(db.String(128), index=True)
     que_time = db.Column(db.DateTime, index=True, default=datetime.now)
+    que_status = db.Column(db.Enum('0','1'), server_default='0') # 0 exist, 1 not
     cus_id = db.Column(db.Integer, db.ForeignKey('Customer.cus_id'))
     customer = db.relationship('Customer', backref=db.backref('questions'), foreign_keys=[cus_id])
 
@@ -52,7 +53,6 @@ class Answer(db.Model):
     que_id = db.Column(db.Integer, db.ForeignKey('Question.que_id'))
     employee = db.relationship('Employee', backref=db.backref('emp_answers'), foreign_keys=[emp_id])
     question = db.relationship('Question', backref=db.backref('qus_answers'), foreign_keys=[que_id])
-
 
 class Appointment(db.Model):
     __tablename__ = 'Appointment'
@@ -68,11 +68,11 @@ class Appointment(db.Model):
     pets = db.relationship('Pet',backref=db.backref('petid'),foreign_keys=[pet_id])
     cus_id=db.Column(db.Integer,db.ForeignKey('Customer.cus_id'))
     customer = db.relationship('Customer',backref=db.backref('customer_appointments'),foreign_keys=[cus_id])
-    status = db.Column(db.Enum('0', '1', '2', '3', '4'), index=True, default='0')
+    status = db.Column(db.Enum('0', '1', '2', '3', '4','5'), index=True, default='0')
     # 0 waiting 1 treatment 2 surgery 3 release 4 finish
-    treatment_time = db.Column(db.DateTime, index=True)
-    release_time = db.Column(db.DateTime, index=True)
-    sergery_time = db.Column(db.DateTime, index=True)
+    treatment_time = db.Column(db.String(10), index=True)
+    release_time = db.Column(db.String(10), index=True)
+    sergery_time = db.Column(db.String(10), index=True)
 
 
 class Pet(db.Model):

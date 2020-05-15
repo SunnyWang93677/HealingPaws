@@ -61,7 +61,7 @@
                 </button>
                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Manage Employees') }}</a>
                         <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Announcement') }}</a>
-			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointment') }}</a>
+			            <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointment') }}</a>
                          <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Questions') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
@@ -69,7 +69,7 @@
                             <a class="nav-link" href="#">{{ _('boss') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href={{ url_for('employee_main') }}>{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -91,8 +91,24 @@
 
                     <div class="input-group mb-3">
                         <span>{{ _('Name:') }}</span>
-                        <input id="Ktext" type="text" class="form-control" placeholder="{{ _('please enter the name of employee') }}">
+                        <input id="Ktext" oninput="refresh_list(this.value)" type="text" class="form-control" placeholder="{{ _('please enter the name of employee') }}">
                     </div>
+                    <script>
+                        var alllist
+                        function refresh_list(value){
+                            alllist=document.querySelectorAll('.testrow')
+                            if(typeof value == "string"){
+                                for(var i=0;i<alllist.length;i++){
+                                    tc=alllist[i].querySelector('.ena')
+                                    if(tc.textContent.includes(value)){
+                                        alllist[i].removeAttribute('hidden')
+                                    }else{
+                                        alllist[i].setAttribute('hidden','hidden')
+                                    }
+                                }
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="search_input">
                     <button class="btn btn-primary search_btn" type="button" id="search_btn">{{ _('inquiry') }}</button>
@@ -163,56 +179,141 @@
                 <th>name</th>
                 <th>tel</th>
                 <th>status</th>
-                <th>city</th>
+                <th>email</th>
                 <th>operation</th>
             </tr>
             </thead>
             <tbody id="show_tbody">
-            <tr>
-
-                <td>a</td>
-                <td>18086667777</td>
-                <td>pass</td>
-                <td>Beijing</td>
-
-
-                <td>
-                    <a href="#" class="edit">edit</a>
-                    <a href="#" class="del">delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>b</td>
-
-                <td>18086668888</td>
-                <td>pass</td>
-                <td>Chengdu</td>
+            {% for l in list %}
+            <tr class="testrow">
+                <td class="ena">{{l.emp_username}}</td>
+                <td>{{l.phone}}</td>
+                <td style="color:{{{'1':'green','0':'red'}[l.employee_pass] }}">{{{'1':'pass','0':'fail'}[l.employee_pass]}}</td>
+                <td>{{l.email}}</td>
 
                 <td>
-                    <a href="#" class="edit">edit</a>
-                    <a href="#" class="del">delete</a>
+                    <a href="#" onclick="o=this;window.p=o.parentNode.parentNode;
+                    document.querySelector('#mapp .en').value=window.p.children[0].textContent;
+                    document.querySelector('#mapp .et').value=window.p.children[1].textContent;
+                    document.querySelector('#mapp .es').value=window.p.children[2].textContent;
+                    document.querySelector('#mapp .em').value=window.p.children[3].textContent;
+" class="edit" data-toggle="modal" data-target="#mapp" >edit</a>
+                    <a href="#" onclick="o=this;window.p=o.parentNode.parentNode;
+                    document.querySelector('#dapp .en').value=window.p.children[0].textContent;
+                    document.querySelector('#dapp .et').value=window.p.children[1].textContent;
+                    document.querySelector('#dapp .es').value==window.p.children[2].textContent;
+                    document.querySelector('#dapp .em').value=window.p.children[3].textContent;
+" class="edit" data-toggle="modal" data-target="#dapp" >delete</a>
                 </td>
             </tr>
+                {% endfor %}
 
-            <tr>
-                <td>bc</td>
-
-                <td>18086668888</td>
-                <td>pass</td>
-                <td>Shanghai</td>
-                <td>
-                    <a href="#" class="edit">edit</a>
-                    <a href="#" class="del">delete</a>
-                </td>
-            </tr>
             </tbody>
         </table>
     </div>
 </div>
+<div class="modal fade" id="mapp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">
+
+                    {{ _('Pet information') }}
+
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+
+
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">name</label>
+                        <input type="text" name="0" class="form-control en" >
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">telphone</label>
+                        <input type="text" name="1" class="form-control et" >
+                    </div>
+
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">status</label>
+                        <input type="text" name="2" class="form-control es" >
+                    </div>
+
+                    <div class="form-group" style="padding-top: 20px;display: none">
+                        <label class="col-sm-3">email</label>
+                        <input type="text" name="3" class="form-control em" >
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" name='close' class="btn btn-primary" data-dismiss="modal" aria-hidden="true">{{ _('Close') }}
+                        </button>
+                        <button type="submit"  value='1' name="modify" class="btn btn-primary">
+                            save
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </div>
+<div class="modal fade" id="dapp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">
+
+                    {{ _('Pet information') }}
+
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+
+
+                    <div class="form-group" style="padding-top: 20px;display: none">
+                        <label class="col-sm-3" >name</label>
+                        <input type="text" name="0" class="form-control en" >
+                    </div>
+                    <div class="form-group" style="padding-top: 20px;display: none">
+                        <label class="col-sm-3">telphone</label>
+                        <input type="text" name="1" class="form-control et" >
+                    </div>
+
+                    <div class="form-group" style="padding-top: 20px;display: none">
+                        <label class="col-sm-3">status</label>
+                        <input type="text" name="2" class="form-control es" value="fail" >
+                    </div>
+
+                    <div class="form-group" style="padding-top: 20px;display: none">
+                        <label class="col-sm-3">email</label>
+                        <input type="text" name="3" class="form-control em" >
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" name='close' class="btn btn-primary" data-dismiss="modal" aria-hidden="true">{{ _('Close') }}
+                        </button>
+                        <button type="submit"  value='1' name="modify" class="btn btn-primary">
+                            save
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </div>
+
 <script language="javascript" type="text/javascript">
 
 </script>
-<script src="{{ url_for('static', filename='js/mejs2.js') }}"></script>
     <script src="/static/js/vendor/jquery.min.js"></script>
 	<script src="/static/js/vendor/bootstrap.min.js"></script>
 	<script src="/static/js/vendor/owl.carousel.js"></script>

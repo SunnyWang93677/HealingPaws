@@ -61,7 +61,7 @@
                 </button>
                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Manage Employees') }}</a>
                         <a href="#" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Announcement') }}</a>
-			            <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointment') }}</a>
+			            <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointment') }}</a>
                          <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Questions') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
@@ -69,7 +69,7 @@
                             <a class="nav-link" href="#">{{ _('boss') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href={{ url_for('employee_main') }}>{{ _('log out') }}</a>
                         </li>
                     </ul>
 

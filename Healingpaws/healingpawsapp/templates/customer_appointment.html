@@ -112,25 +112,33 @@
             <tr>
                 <th class="text-center appointment_id" style="display: none">{{ _('Appointment id') }}</th>
                 <th class="text-center">{{ _('Pet name') }}</th>
+                <th class="text-center">{{ _('Pet status') }}</th>
                 <th class="text-center">{{ _('Appointment date') }}</th>
                 <th class="text-center">{{ _('Appointment status') }}</th>
+                <th class="text-center">{{ _('release time') }}</th>
+                <th class="text-center">{{ _('surgery time') }}</th>
+                <th class="text-center">City</th>
                 <th class="text-center">{{ _('Operation') }}</th>
             </tr>
             </thead>
             <tbody id="show_tbody">
             {% for a in appointment%}
             <tr>
-                <td class="text-center" style="display: none">{{a[3]}}</td>
-                <td class="text-center">{{a[0]}}</td>
-                <td class="text-center">{{a[1]}}</td>
-                <td class="text-center">{{a[2]}}</td>
+                <td class='text-center pid'hidden="hidden" name="app_id" value= {{ a.app_id }}>
+                <td class="text-center">{{appointment_pet[a.pet_id]}}</td>
+                <td class="text-center">{{ {'0':'Normal','1':'Urgent'}[a.type] }}</td>
+                <td class="text-center">{{a.treatment_time}}</td>
+                <td class="text-center">{{{'0':'waiting','1': 'treatment', '2':'surgery', '3':'release', '4':'finish','5':'cancel'}[a.status]}}</td>
+                <td class="text-center">{{a.release_time}}</td>
+                <td class="text-center">{{a.surgery_time}}</td>
+                <td class="text-center">{{ {'0':'beijing','1':'shanghai','2':'chengdu'}[a.place] }}</td>
                 <td>
 
-                    <button name="modify_appointment" onclick="window.b=this;preparewindow();" value="1" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo2">{{ _('Modify') }}</button>
+                    <button name="modify_appointment" onclick="window.b=this;console.log(window.b);preparewindow();" value="1" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo2">{{ _('Modify') }}</button>
 
                     <form method="post" class="form-inline">
-                        <input type="hidden" name="app_id" value= {{a[3]}}>
-                        <button name="delete_appointment" value="1" class="btn btn-danger offset-1">{{ _('Delete') }}</button>
+                        <input hidden="hidden" name="app_id" value={{a.app_id}}>
+                        <button type="submit" name="delete_appointment" value="1" class="btn btn-danger offset-1" onclick="window.b=this;deletefunction();">{{ _('Delete') }}</button>
                     </form>
                 </td>
             </tr>
@@ -142,20 +150,55 @@
 </div>
 
 <script>
+    function deletefunction() {
+        t=window.b.parentNode.parentNode
+        a = t.children[0].getAttribute('value')
+        b=t.children[1].textContent//
+        c=t.children[2].textContent//
+        d=t.children[3].textContent.substring(0,10)
+        e=t.children[4].textContent
+        f=t.children[7].textContent
+
+        document.querySelector('#Petinfo123 .pid').value = a
+
+    }
     function preparewindow() {
-        par = window.b.parentNode.parentNode.parentNode
 
-        pet_type=par.querySelector('.pet_type').textContent
-        place=par.querySelector('.place').textContent
-        type=par.querySelector('.type').textContent
-        treatment_time=par.querySelector('.treatment_time').textContent
-        description=par.querySelector('.description').textContent
+		console.log(window.b)
+		console.log('hello')
+		b=window.b
+		console.log('b=',b)
+		t=window.b.parentNode.parentNode
+		console.log('t=',t)
+        a = t.children[0].getAttribute('value')
+        b=t.children[1].textContent//
+        c=t.children[2].textContent//
+        d=t.children[3].textContent.substring(0,10)
+        e=t.children[4].textContent
+        f=t.children[7].textContent
 
-        document.querySelector('#Petinfo2 .pet_type').setAttribute('checked','checked')
-        document.querySelector('#Petinfo2 .place').setAttribute('checked','checked','checked')
-        document.querySelector('#Petinfo2 .type').setAttribute('checked','checked')
-        document.querySelector('#Petinfo2 .treatment_time').value = treatment_time
-        document.querySelector('#Petinfo2 .description').value = description
+		console.log('success172')
+        for(var i=0;i<8;i++){
+		if(t[1])
+            console.log(t[i].textContent)
+        }
+		console.log('success175')
+		console.log('a',a,'b',b,'c',c,'d',d,'e',e,'f',f)
+
+
+		arr=document.querySelectorAll('#Petinfo2 .dlr')
+		for(var i=0;i<arr.length;i++){
+			arr[i].removeAttribute('checked')
+			arr[i].removeAttribute('selected')
+		}
+
+
+        document.querySelector('#Petinfo2 .define_select'+c).setAttribute('checked','checked')
+
+        document.querySelector('#Petinfo2 .define_select'+f).setAttribute('selected','selected')
+
+        document.querySelector('#Petinfo2 .apid').value = a
+        document.querySelector('#Petinfo2 .define_selectdt').value = d
     }
 </script>
 <div class="modal fade" id="Petinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -173,10 +216,14 @@
                 <form method="post" enctype="multipart/form-data">
                     <div style="padding-top: 20px">
                         <label for="sel1">{{ _('pet') }}</label>
-                        <select name= 'pet_type' class="form-control" id="sel1">
-                            <option value="0">{{ _('dog') }}</option>
-                            <option value="1">{{ _('cat') }}</option>
+                        <select name= 'petid' class="form-control" id="sel1">
+                            {% for p in pet %}
+{#                            no endfor 233333333333#}
+                            <option value={{ p.pet_id }}>{{ p.pet_name }}(type:{{ {'0':'dog','1':'cat'}[p.pet_type] }})</option>
+                            {% endfor %}
                         </select>
+
+
                     </div>
                     <div style="padding-top: 20px">
                         <label for="sel12">{{ _('city') }}</label>
@@ -189,7 +236,7 @@
                     <div style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('emergency') }}</label>
                         <label class="radio-inline">
-                            <input name='type' type="radio" id="optionsRadios5" value="0" >{{ _('Normal') }}
+                            <input name='type' type="radio" checked="checked" id="optionsRadios5" value="0" >{{ _('Normal') }}
                         </label>
                         <label class="radio-inline" style="margin-left: 20px">
                             <input name='type' type="radio" id="optionsRadios6"  value="1">{{ _('Urgent') }}
@@ -204,7 +251,7 @@
                     </div>
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
                 </button>
-                <button name="add_appointment" value="1" class="btn btn-primary" >
+                <button type="submit" name="add_appointment" value="1" class="btn btn-primary" >
                     {{ _('Confirm') }}
                 </button>
                 </form>
@@ -226,40 +273,42 @@
             </div>
             <div class="modal-body">
                 <form method="post" enctype="multipart/form-data">
-                    <div style="padding-top: 20px">
+                    <input hidden="hidden" class='apid' name="pid" >
+                    <div hidden='hidden' style="padding-top: 20px">
                         <label for="sel1">{{ _('pet') }}</label>
                         <select name= 'pet_type' class="form-control pet_type" id="sel11">
-                            <option value="0">{{ _('dog') }}</option>
-                            <option value="1">{{ _('cat') }}</option>
+                            <option value="0" class="define_select0">{{ _('dog') }}</option>
+                            <option value="1"  class="define_select1">{{ _('cat') }}</option>
                         </select>
                     </div>
                     <div style="padding-top: 20px">
+                        <input hidden="hidden">
                         <label for="sel12">{{ _('city') }}</label>
                         <select name='place' class="form-control place" id="sel122">
-                            <option value="0" >{{ _('Beijing') }}</option>
-                            <option value="1" >{{ _('Shanghai') }}</option>
-                            <option value="2" >{{ _('Chengdu') }}</option>
+                            <option  name='1' value="0"  class="define_selectbeijing dlr">{{ _('Beijing') }}</option>
+                            <option name='1' value="1"  class="define_selectshanghai dlr">{{ _('Shanghai') }}</option>
+                            <option name='1' value="2"  class="define_selectchengdu  dlr">{{ _('Chengdu') }}</option>
                         </select>
                     </div>
                     <div style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('emergency') }}</label>
                         <label class="radio-inline type">
-                            <input name='type' type="radio" id="optionsRadios55" value="0" >{{ _('Normal') }}
+                            <input name='eon' type="radio" id="optionsRadios55"  class="define_selectNormal  dlr" value="0" >{{ _('Normal') }}
                         </label>
                         <label class="radio-inline" style="margin-left: 20px">
-                            <input name='type' type="radio" id="optionsRadios66"  value="1">{{ _('Urgent') }}
+                            <input  name='eon'  name='type' type="radio" id="optionsRadios66"  class="define_selectUrgent dlr"  value="1">{{ _('Urgent') }}
                         </label>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date') }}</label>
-                        <input name='treatment_time' type="date" class="form-control treatment_time" placeholder="{{ _('Date') }}">
+                        <input name='treatment_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
-                        <input name='description' type="text" class="form-control description" placeholder="{{ _('Comment') }}">
+                        <input name='description' type="text" class="form-control description define_select" placeholder="{{ _('Comment') }}">
                     </div>
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
                 </button>
-                <button  name="update_appointment" value="1" class="btn btn-primary" >
+                <button  name="update_appointment" type="submit" value="1" class="btn btn-primary" >
                     {{ _('Confirm') }}
                 </button>
 

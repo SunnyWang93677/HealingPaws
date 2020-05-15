@@ -97,9 +97,7 @@
             return this.optional(element) || (length === 11 && mobile.test(value));
         }, "Please fill in the correct mobile phone number");
         $.validator.setDefaults({
-            submitHandler: function() {
-                alert("Submit the event!!");
-            }
+
         });
         $().ready(function() {
 

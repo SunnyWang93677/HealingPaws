@@ -58,14 +58,14 @@
                 </button>
                 <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
                 <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
-                <a href="{{ url_for('employee_ap') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ _('employee') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href={{ url_for('logout') }}>{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -86,8 +86,24 @@
 
                     <div class="input-group mb-3">
                         <span>{{ _('City:') }}</span>
-                        <input id="Ktext" type="text" class="form-control" placeholder="{{ _('please enter your location') }}">
+                        <input id="Ktext" type="text" oninput="refresh_list(this.value)" class="form-control" placeholder="{{ _('please enter your location') }}">
                     </div>
+                    <script>
+                        var alllist
+                        function refresh_list(value){
+                            alllist=document.querySelectorAll('.testrow')
+                            if(typeof value == "string"){
+                                for(var i=0;i<alllist.length;i++){
+                                    tc=alllist[i].querySelector('.ena')
+                                    if(tc.textContent.includes(value)){
+                                        alllist[i].removeAttribute('hidden')
+                                    }else{
+                                        alllist[i].setAttribute('hidden','hidden')
+                                    }
+                                }
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="search_input">
                     <button class="btn btn-primary search_btn" type="button" id="search_btn">{{ _('inquiry') }}</button>
@@ -121,7 +137,7 @@
                             <table id="xztb" class="table">
 
                                 <tbody>
-                                <tr>
+                                <tr class="testrow">
                                     <td class="tb_bg"><label for="">{{ _('city') }}</label></td>
 
 
@@ -198,7 +214,7 @@
             <tbody id="show_tbody">
             {% for a in appointment%}
             <tr>
-                <td>{{a[0]}}</td>
+                <td class="ena">{{a[0]}}</td>
                 <td>{{a[1]}}</td>
                 <td>{{a[2]}}</td>
                 <td>{{a[3]}}</td>
@@ -218,7 +234,7 @@
 <script language="javascript" type="text/javascript">
 
 </script>
-<script src="{{ url_for('static', filename='js/mejs.js') }}"></script>
+<script src="{{ url_for('static', filename='/js/vendor/mejs.js') }}"></script>
     <script src="/static/js/vendor/jquery.min.js"></script>
 	<script src="/static/js/vendor/bootstrap.min.js"></script>
 	<script src="/static/js/vendor/owl.carousel.js"></script>
