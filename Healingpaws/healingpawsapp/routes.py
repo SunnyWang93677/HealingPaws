@@ -163,11 +163,15 @@ def employee_qa():
         if session.get('EMPID'):
             questions = Question.query.all()
             return render_template('employee_question.html', questions=questions)
-        if session.get('CUSID'):
+        elif session.get('EMPID') is None:
+            return redirect(url_for('employee_login'))
+
+        elif session.get('CUSID'):
             flash(_('Limit Enter'))
             return redirect(url_for('cus_mainpage'))
-    else:
-        return ''
+        else:
+            return redirect(url_for('customer_login'))
+
 
 
 @app.route('/employee_question/<que_id>', methods=['GET', 'POST'])
@@ -298,21 +302,20 @@ def customer_login():
             if customer:
                 if check_password_hash(customer.cus_password_hash, password):
                     session['CUSID'] = str(customer.cus_id) + 'CUS'
-                    print("Session['CUSID']", session.get('CUSID'))
-                    print("SESSION['CUSID'][:-3]", session.get('CUSID')[:-3])
                     if request.form.get('remember') == 1:
                         session.permanent = True
                     else:
                         session.permanent = False
                     return redirect(url_for('customer_mainpage'))
                 else:
-                    print('Your password is incorrect, please try again')
+                    flash('Your password is incorrect, please try again')
                     return redirect(url_for('customer_login'))
             else:
-                print('the user is not exist, please register first')
+                flash('the user is not exist, please register first')
                 return redirect(url_for('customer_login'))
         else:
-            return ''
+            flash('password or email empty')
+            return redirect(url_for('customer_login'))
 
 
 @app.route('/ttt', methods=['GET', 'POST'])
@@ -339,11 +342,11 @@ def customer_register():
         cus_password_2 = request.form.get('password2')
         customer_db = Customer.query.filter(Customer.email == email).first()
         if customer_db:
-            print('This username has been registered')
+            flash('This username has been registered')
             return redirect(url_for('customer_register'))
         else:
             if cus_password != cus_password_2:
-                print('password has not match')
+                flash('password has not match')
                 return redirect(url_for('customer_register'))
             else:
                 cus_password_hash = generate_password_hash(cus_password)
@@ -359,13 +362,13 @@ def customer_register():
 @app.route('/customer_question', methods=['GET', 'POST'])
 def customer_question():
     if request.method == 'GET':
-        print(session.get('CUSID')[:-3])
         if session.get('CUSID'):
             cusid = int(session.get('CUSID')[:-3])
             data = Question.query.filter(Question.cus_id == cusid and Question.que_status == '0').all()
             question = Question.query.all()
             print('nothing over here')
-            return render_template('customer_question.html', title='Question', questionlist=data, question=question)
+            customer = Customer.query.filter(Customer.cus_id == cusid).first()
+            return render_template('customer_question.html', title='Question', questionlist=data, question=question,username=customer.cus_username)
 
         else:
             return redirect(url_for('customer_login'))
@@ -387,8 +390,10 @@ def customer_question():
                 Question.query.filter_by(que_id=id).update(
                     {'que_status': '1'})
                 db.session.commit()
+                flash('success')
             return redirect(url_for('customer_question'))
         else:
+            flash('please login first')
             return redirect(url_for('customer_login'))
 
 
@@ -406,8 +411,9 @@ def detail(que_id):
                     if e.emp_id == a.emp_id:
                         employee_name[a.emp_id] = e.emp_username
             return render_template('question_detail.html', title='Detail', customer=customer, detail=question,
-                                   answer=answer, employee=employee_name)
+                                   answer=answer, employee=employee_name,username = customer.cus_username)
         else:
+            flash('Please login first')
             return redirect(url_for('customer_login'))
 
 
@@ -445,13 +451,17 @@ def pet_page():
             print(request.form)
             if request.form.get('update'):
                 update_pet_db(g('pid'), g('petname'), g('pkind'), g('pgender'), g('birthday'))
+                flash('Success')
             if request.form.get('delete'):
                 delete_pet(g('pid'))
+                flash('Success')
             if request.form.get('add_pet'):
                 add_new_pet(int(session.get('CUSID')[:-3]))
         petsList = get_pet_list(int(session.get('CUSID')[:-3]))
-        return render_template('customer_pet.html', pet=[], pets=petsList)
+        customer = Customer.query.filter(Customer.cus_id == int(session.get('CUSID')[:-3])).first()
+        return render_template('customer_pet.html', pet=[], pets=petsList,username=customer.cus_username)
     else:
+        flash('Please login first')
         return redirect('/customer_login')
 
 
@@ -546,6 +556,7 @@ def get_dl(id):
 def customer_appointment():
     if session.get('CUSID'):
         if request.method == 'GET':
+            customer=Customer.query.filter(Customer.cus_id == int(session.get('CUSID')[:-3])).first()
             appointment = Appointment.query.filter(Appointment.cus_id == int(session.get('CUSID')[:-3])).all()
             # this one is empty
             pet = Pet.query.filter(Pet.cus_id == int(session.get('CUSID')[:-3])).all()
@@ -555,7 +566,7 @@ def customer_appointment():
                     if p.pet_id == a.pet_id:
                         appointment_pet[p.pet_id] = p.pet_name
             return render_template('customer_appointment.html', appointment=appointment, title='cus_appointment',
-                                   appointment_pet=appointment_pet, pet=pet)
+                                   appointment_pet=appointment_pet, pet=pet,username=customer.cus_username)
         else:
             print(request.form)
             if request.form.get('update_appointment'):
@@ -563,11 +574,12 @@ def customer_appointment():
                 myid = int(request.form.get('pid'))
                 update_appoint(myid, request.form.get('eon'), request.form.get('place'),
                                request.form.get('treatment_time'), request.form.get('description'))
+                flash('Modify success')
             elif request.form.get('delete_appointment'):
                 id = int(request.form.get('app_id'))
                 Appointment.query.filter_by(app_id=id).update({'status': '5'})
                 db.session.commit()
-
+                flash('Delete success')
             else:
                 a = Appointment(description=request.form.get('description'), type=request.form.get('type'),
                                 place=request.form.get('place'), pet_id=request.form.get('petid'),
@@ -575,11 +587,12 @@ def customer_appointment():
                                 treatment_time=request.form.get('treatment_time'))
                 db.session.add(a)
                 db.session.commit()
-
+                flash('Add success')
             # request_appointment(request.form)
             return redirect(url_for('customer_appointment'))
 
     else:
+        flash('Please login first')
         return redirect(url_for('customer_login'))
 
 
