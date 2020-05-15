@@ -58,7 +58,7 @@
             background-color: #7AC23C;
             z-index: 1;
         }
-
+    
         #label {
             width: 46px;
             position: absolute;
@@ -74,7 +74,7 @@
             font-size: 16px;
             font-weight: 900;
         }
-
+    
         #labelTip {
             position: absolute;
             left: 0;
@@ -86,7 +86,7 @@
             line-height: 38px;
             text-align: center;
             z-index: 2;
-
+    
         }
     </style>
 <!--    <link rel="stylesheet" type="text/css" href="style/register.css" />-->
@@ -96,9 +96,7 @@
             var mobile = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
             return this.optional(element) || (length === 11 && mobile.test(value));
         }, "Please fill in the correct mobile phone number");
-        $.validator.setDefaults({
 
-        });
         $().ready(function() {
 
             $("#login_form").validate({
@@ -128,26 +126,36 @@
                         required: true,
                         email: true
                     },
+                    question: {
+                        required: true,
+                    }
                 },
                 messages: {
                     username: {
-                        required: "Please enter a username",
-                        minlength: "The user name must consist of at least two letters"
+                        required: {{ _('"Please enter a username"') }},
+                        minlength: {{ _('"The user name must consist of at least two letters"') }}
                     },
                     realname: {
-                        required: "Please enter a name",
-                        minlength: "The name must consist of at least two letters"
+                        required: {{ _('"Please enter a name"') }},
+                        minlength: {{ _('"The name must consist of at least two letters"') }}
                     },
                     password1: {
-                        required: "Please enter your password",
-                        minlength: "Password length must not be less than 6 letters"
+                        required: {{ _('"Please enter your password"') }},
+                        minlength: {{ _('"Password length must not be less than 6 letters"') }}
                     },
                     password2: {
-                        required: "Please enter your password",
-                        minlength: "Password length must not be less than 6 letters",
-                        equalTo: "The two passwords do not match"
+                        required: {{ _('"Please enter your password"') }},
+                        minlength: {{ _('"Password length must not be less than 6 letters"') }},
+                        equalTo: {{ _('"The two passwords do not match"') }}
                     },
-                    email: "Please enter a correct email address",
+                    phonenumber: {
+                        required: {{ _('"Please enter a phone number"') }}
+                    },
+                    email: {
+                        required: {{ _('"Please enter a email address"') }},
+                        email: {{ _('"Please enter a correct email address"') }}
+                    },
+                    question: {{ _('"Please enter an animal"') }}
                 }
             });
         });
@@ -219,27 +227,27 @@
                     <input class="form-control required" type="text" placeholder="{{ _('Username') }}" name="username" id="username" autofocus="autofocus" maxlength="11"/>
                 </div>
                 <div class="form-group">
-
+    
                     <input class="form-control required" type="text" placeholder="{{ _('Realname') }}" name="realname" id="realname" autofocus="autofocus" maxlength="11"/>
                 </div>
                 <div class="form-group">
-
+    
                     <input class="form-control required" type="password" placeholder="{{ _('Password') }}" name="password1" id="password1" maxlength="8"/>
                 </div>
                 <div class="form-group">
-
+    
                     <input class="form-control required" type="password" placeholder="{{ _('Confirm password') }}" name="password2" id="password2" maxlength="8"/>
                 </div>
                 <div class="form-group">
-
+    
                     <input class="form-control required" placeholder="{{ _('Phonenumber') }}" name="phonenumber" id="phonenumber" maxlength="11"/>
                 </div>
                 <div class="form-group">
-
+    
                     <input class="form-control required" type="email" placeholder="{{ _('Email') }}" name="email" id="email" maxlength="20"/>
                 </div>
                 <div class="form-group">
-
+    
                     <input class="form-control required" type="text" placeholder="{{ _('What is your favorite pet') }}" name="question" id="question" maxlength="20"/>
                 </div>
                 <div id="demo">
