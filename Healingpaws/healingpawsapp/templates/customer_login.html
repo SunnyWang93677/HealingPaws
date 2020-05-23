@@ -146,6 +146,10 @@
     </div>
 </div>
 </div>
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning" align="center">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 <div class="container" style="padding-top: 80px">
     <div class="panel offset-sm-3 col-sm-6">
         <form class="cmxform" id="login_form" method="post">
@@ -178,6 +182,29 @@
         </form>
     </div>
 </div>
+{#<hr>#}
+{#    {% with messages = get_flashed_messages() %}#}
+{#    {% if messages %}#}
+{#    <ul>#}
+{#        {% for message in messages %}#}
+{#        <li>{{ message }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#    {% endif %}#}
+{#    {% endwith %}#}
+{#    {% block content %}{% endblock %}#}
+
+
+
+{#    {% with messages = get_flashed_messages() %}#}
+{#    {% if messages %}#}
+{#        {% for message in messages %}#}
+{#            <div class="alert">{{ message }}</div>#}
+{#        {% endfor %}#}
+{#    {% endif %}#}
+{#    {% endwith %}#}
+{#    {% block content %}{% endblock %}#}
+
 
 <!-- JS VENDOR -->
 {#<script src="../static/js/vendor/jquery.min.js"></script>#}

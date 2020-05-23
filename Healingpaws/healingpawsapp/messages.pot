@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 16:43+0800\n"
+"POT-Creation-Date: 2020-05-23 22:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: routes.py:64
+#: routes.py:87
 msgid "Success"
 msgstr ""
 
-#: routes.py:88
+#: routes.py:112
 msgid "Your password is incorrect, please try again"
 msgstr ""
 
-#: routes.py:91
+#: routes.py:115
 msgid "the user is not exist, please register first"
 msgstr ""
 
-#: routes.py:114
+#: routes.py:138
 msgid "This username has been registered,please login"
 msgstr ""
 
-#: routes.py:119
+#: routes.py:143
 msgid "password has not match"
 msgstr ""
 
-#: routes.py:128
+#: routes.py:152
 msgid "register success"
 msgstr ""
 
-#: routes.py:149
+#: routes.py:176
 msgid "Limit Enter"
 msgstr ""
 
-#: routes.py:182
+#: routes.py:210
 msgid "please enter something"
 msgstr ""
 
-#: routes.py:248
+#: routes.py:277
 msgid "edit success"
 msgstr ""
 
@@ -67,10 +67,10 @@ msgstr ""
 
 #: templates/announcement.html:54 templates/answer_detail.html:52
 #: templates/b.html:65 templates/b_main.html:65
-#: templates/customer_question.html:5 templates/customer_question.html:87
-#: templates/customer_question.html:101 templates/employee_appointment.html:60
-#: templates/employee_main.html:58 templates/employee_question.html:54
-#: templates/question_detail.html:61
+#: templates/customer_question.html:5 templates/customer_question.html:86
+#: templates/customer_question.html:90 templates/customer_question.html:104
+#: templates/employee_appointment.html:60 templates/employee_main.html:58
+#: templates/employee_question.html:54 templates/question_detail.html:61
 msgid "Questions"
 msgstr ""
 
@@ -80,10 +80,10 @@ msgstr ""
 
 #: templates/announcement.html:61 templates/answer_detail.html:60
 #: templates/b.html:72 templates/b_main.html:72 templates/base_login.html:62
-#: templates/customer_mainpage.html:60 templates/customer_pet.html:68
-#: templates/customer_question.html:65 templates/employee_appointment.html:68
-#: templates/employee_main.html:66 templates/employee_question.html:62
-#: templates/question_detail.html:70
+#: templates/customer_appointment.html:99 templates/customer_mainpage.html:60
+#: templates/customer_pet.html:75 templates/customer_question.html:65
+#: templates/employee_appointment.html:68 templates/employee_main.html:66
+#: templates/employee_question.html:62 templates/question_detail.html:70
 msgid "log out"
 msgstr ""
 
@@ -109,9 +109,9 @@ msgid "Home"
 msgstr ""
 
 #: templates/answer_detail.html:53 templates/base.html:85
-#: templates/base_login.html:54 templates/customer_appointment.html:83
+#: templates/base_login.html:54 templates/customer_appointment.html:91
 #: templates/customer_login.html:111 templates/customer_mainpage.html:52
-#: templates/customer_pet.html:60 templates/customer_question.html:57
+#: templates/customer_pet.html:67 templates/customer_question.html:57
 #: templates/customer_register.html:183 templates/employee_appointment.html:61
 #: templates/employee_main.html:59 templates/employee_question.html:55
 #: templates/question_detail.html:62
@@ -126,6 +126,14 @@ msgstr ""
 msgid "employee"
 msgstr ""
 
+#: templates/answer_detail.html:89
+msgid "comment"
+msgstr ""
+
+#: templates/answer_detail.html:91
+msgid "back"
+msgstr ""
+
 #: templates/b.html:84
 msgid "MANAGE EMPLOYEE"
 msgstr ""
@@ -138,72 +146,85 @@ msgstr ""
 msgid "please enter the name of employee"
 msgstr ""
 
-#: templates/b.html:98 templates/employee_appointment.html:93
+#: templates/b.html:114 templates/employee_appointment.html:109
 msgid "inquiry"
 msgstr ""
 
-#: templates/b.html:99 templates/employee_appointment.html:94
+#: templates/b.html:115 templates/employee_appointment.html:110
 msgid "resetting"
 msgstr ""
 
-#: templates/b.html:110
+#: templates/b.html:126
 msgid "Eidt"
 msgstr ""
 
-#: templates/b.html:119 templates/employee_appointment.html:130
-#: templates/employee_appointment.html:188
+#: templates/b.html:135 templates/employee_appointment.html:146
+#: templates/employee_appointment.html:204
 msgid "name"
 msgstr ""
 
-#: templates/b.html:120
+#: templates/b.html:136
 msgid "please enter the name of your employee."
 msgstr ""
 
-#: templates/b.html:121 templates/customer_appointment.html:182
-#: templates/customer_appointment.html:237
-#: templates/employee_appointment.html:125
-#: templates/employee_appointment.html:187
+#: templates/b.html:137 templates/customer_appointment.html:241
+#: templates/customer_appointment.html:298
+#: templates/employee_appointment.html:141
+#: templates/employee_appointment.html:203
 msgid "city"
 msgstr ""
 
-#: templates/b.html:124 templates/customer_appointment.html:184
-#: templates/customer_appointment.html:239
+#: templates/b.html:140 templates/customer_appointment.html:243
+#: templates/customer_appointment.html:300
 msgid "Beijing"
 msgstr ""
 
-#: templates/b.html:125 templates/customer_appointment.html:186
-#: templates/customer_appointment.html:241
+#: templates/b.html:141 templates/customer_appointment.html:245
+#: templates/customer_appointment.html:302
 msgid "Chengdu"
 msgstr ""
 
-#: templates/b.html:126 templates/customer_appointment.html:185
-#: templates/customer_appointment.html:240
+#: templates/b.html:142 templates/customer_appointment.html:244
+#: templates/customer_appointment.html:301
 msgid "Shanghai"
 msgstr ""
 
-#: templates/b.html:132 templates/employee_appointment.html:137
-#: templates/employee_appointment.html:189
+#: templates/b.html:148 templates/employee_appointment.html:153
+#: templates/employee_appointment.html:205
 msgid "tel"
 msgstr ""
 
-#: templates/b.html:134 templates/employee_appointment.html:139
+#: templates/b.html:150 templates/employee_appointment.html:155
 msgid "Please write down the correct number"
 msgstr ""
 
-#: templates/b.html:135 templates/employee_appointment.html:194
+#: templates/b.html:151 templates/employee_appointment.html:210
 msgid "status"
 msgstr ""
 
-#: templates/b.html:136
+#: templates/b.html:152
 msgid "employee status"
 msgstr ""
 
-#: templates/b.html:151 templates/employee_appointment.html:176
+#: templates/b.html:167 templates/employee_appointment.html:192
 msgid "cancel"
 msgstr ""
 
-#: templates/b.html:152 templates/employee_appointment.html:177
+#: templates/b.html:168 templates/employee_appointment.html:193
 msgid "confirm"
+msgstr ""
+
+#: templates/b.html:221 templates/b.html:270 templates/customer_pet.html:197
+#: templates/customer_pet.html:253
+msgid "Pet information"
+msgstr ""
+
+#: templates/b.html:253 templates/b.html:302
+#: templates/customer_appointment.html:264
+#: templates/customer_appointment.html:321
+#: templates/customer_appointment.html:344 templates/customer_pet.html:236
+#: templates/customer_pet.html:272 templates/customer_question.html:187
+msgid "Close"
 msgstr ""
 
 #: templates/b_main.html:94 templates/employee_main.html:85
@@ -238,29 +259,29 @@ msgid "Healing Paws"
 msgstr ""
 
 #: templates/base.html:83 templates/base_login.html:52
-#: templates/customer_appointment.html:81 templates/customer_login.html:109
-#: templates/customer_mainpage.html:50 templates/customer_pet.html:58
+#: templates/customer_appointment.html:89 templates/customer_login.html:109
+#: templates/customer_mainpage.html:50 templates/customer_pet.html:65
 #: templates/customer_question.html:55 templates/customer_register.html:181
 #: templates/question_detail.html:60
 msgid "Abou us"
 msgstr ""
 
 #: templates/base.html:84 templates/base_login.html:53
-#: templates/customer_appointment.html:82 templates/customer_login.html:110
-#: templates/customer_mainpage.html:51 templates/customer_pet.html:59
+#: templates/customer_appointment.html:90 templates/customer_login.html:110
+#: templates/customer_mainpage.html:51 templates/customer_pet.html:66
 #: templates/customer_question.html:56 templates/customer_register.html:182
 msgid "Question"
 msgstr ""
 
 #: templates/base.html:86 templates/base_login.html:55
-#: templates/customer_appointment.html:84 templates/customer_login.html:112
-#: templates/customer_mainpage.html:53 templates/customer_pet.html:61
+#: templates/customer_appointment.html:92 templates/customer_login.html:112
+#: templates/customer_mainpage.html:53 templates/customer_pet.html:68
 #: templates/customer_question.html:58 templates/customer_register.html:184
 msgid "Pet"
 msgstr ""
 
 #: templates/base.html:91 templates/customer_login.html:5
-#: templates/customer_login.html:117 templates/customer_login.html:175
+#: templates/customer_login.html:117 templates/customer_login.html:179
 #: templates/customer_register.html:189 templates/employee_login.html:66
 msgid "Login"
 msgstr ""
@@ -332,140 +353,147 @@ msgstr ""
 msgid "Apponitment"
 msgstr ""
 
-#: templates/customer_appointment.html:108
+#: templates/customer_appointment.html:120
 msgid "My Appointment"
 msgstr ""
 
-#: templates/customer_appointment.html:113
+#: templates/customer_appointment.html:125
 msgid "Appointment id"
 msgstr ""
 
-#: templates/customer_appointment.html:114 templates/customer_pet.html:92
+#: templates/customer_appointment.html:126 templates/customer_pet.html:102
 msgid "Pet name"
 msgstr ""
 
-#: templates/customer_appointment.html:115
+#: templates/customer_appointment.html:127
+msgid "Pet status"
+msgstr ""
+
+#: templates/customer_appointment.html:128
 msgid "Appointment date"
 msgstr ""
 
-#: templates/customer_appointment.html:116
+#: templates/customer_appointment.html:129
 msgid "Appointment status"
 msgstr ""
 
-#: templates/customer_appointment.html:117 templates/customer_pet.html:96
+#: templates/customer_appointment.html:130
+msgid "release time"
+msgstr ""
+
+#: templates/customer_appointment.html:131
+msgid "surgery time"
+msgstr ""
+
+#: templates/customer_appointment.html:132
+msgid "City"
+msgstr ""
+
+#: templates/customer_appointment.html:133 templates/customer_pet.html:106
 msgid "Operation"
 msgstr ""
 
-#: templates/customer_appointment.html:129 templates/customer_pet.html:112
+#: templates/customer_appointment.html:149 templates/customer_pet.html:122
 msgid "Modify"
 msgstr ""
 
-#: templates/customer_appointment.html:133 templates/customer_pet.html:119
-#: templates/customer_question.html:143 templates/customer_question.html:147
+#: templates/customer_appointment.html:153 templates/customer_pet.html:129
+#: templates/customer_question.html:147
 msgid "Delete"
 msgstr ""
 
-#: templates/customer_appointment.html:141
+#: templates/customer_appointment.html:161
 msgid "Add an appointment"
 msgstr ""
 
-#: templates/customer_appointment.html:166
 #: templates/customer_appointment.html:221
+#: templates/customer_appointment.html:280
 msgid "appointment information"
 msgstr ""
 
-#: templates/customer_appointment.html:175
 #: templates/customer_appointment.html:230
+#: templates/customer_appointment.html:290
 msgid "pet"
 msgstr ""
 
-#: templates/customer_appointment.html:177
-#: templates/customer_appointment.html:232
-msgid "dog"
-msgstr ""
-
-#: templates/customer_appointment.html:178
-#: templates/customer_appointment.html:233
-msgid "cat"
-msgstr ""
-
-#: templates/customer_appointment.html:190
-#: templates/customer_appointment.html:245
+#: templates/customer_appointment.html:249
+#: templates/customer_appointment.html:306
 msgid "emergency"
 msgstr ""
 
-#: templates/customer_appointment.html:192
-#: templates/customer_appointment.html:247
+#: templates/customer_appointment.html:251
+#: templates/customer_appointment.html:308
 msgid "Normal"
 msgstr ""
 
-#: templates/customer_appointment.html:195
-#: templates/customer_appointment.html:250
+#: templates/customer_appointment.html:254
+#: templates/customer_appointment.html:311
 msgid "Urgent"
 msgstr ""
 
-#: templates/customer_appointment.html:199
-#: templates/customer_appointment.html:254
+#: templates/customer_appointment.html:258
+#: templates/customer_appointment.html:315
 msgid "date"
 msgstr ""
 
-#: templates/customer_appointment.html:200
-#: templates/customer_appointment.html:255
+#: templates/customer_appointment.html:259
+#: templates/customer_appointment.html:316
 msgid "Date"
 msgstr ""
 
-#: templates/customer_appointment.html:203
-#: templates/customer_appointment.html:258 templates/customer_question.html:163
+#: templates/customer_appointment.html:262
+#: templates/customer_appointment.html:319 templates/customer_question.html:163
 msgid "Comment"
 msgstr ""
 
-#: templates/customer_appointment.html:205
-#: templates/customer_appointment.html:260
-#: templates/customer_appointment.html:283 templates/customer_pet.html:226
-#: templates/customer_pet.html:262 templates/customer_question.html:187
-msgid "Close"
-msgstr ""
-
-#: templates/customer_appointment.html:208
-#: templates/customer_appointment.html:263
-#: templates/customer_appointment.html:286 templates/customer_pet.html:229
-#: templates/customer_question.html:190
+#: templates/customer_appointment.html:267
+#: templates/customer_appointment.html:324
+#: templates/customer_appointment.html:347 templates/customer_pet.html:239
+#: templates/customer_question.html:192
 msgid "Confirm"
 msgstr ""
 
-#: templates/customer_appointment.html:276 templates/customer_question.html:180
+#: templates/customer_appointment.html:292
+msgid "dog"
+msgstr ""
+
+#: templates/customer_appointment.html:293
+msgid "cat"
+msgstr ""
+
+#: templates/customer_appointment.html:337 templates/customer_question.html:180
 msgid "Warning"
 msgstr ""
 
-#: templates/customer_appointment.html:280 templates/customer_question.html:184
+#: templates/customer_appointment.html:341 templates/customer_question.html:184
 msgid "Are you sure to delete？"
 msgstr ""
 
-#: templates/customer_login.html:152
+#: templates/customer_login.html:156
 msgid "Login to your account"
 msgstr ""
 
-#: templates/customer_login.html:155 templates/customer_register.html:247
+#: templates/customer_login.html:159 templates/customer_register.html:251
 msgid "Email"
 msgstr ""
 
-#: templates/customer_login.html:158 templates/customer_register.html:235
+#: templates/customer_login.html:162 templates/customer_register.html:239
 msgid "Password"
 msgstr ""
 
-#: templates/customer_login.html:163 templates/customer_register.html:256
+#: templates/customer_login.html:167 templates/customer_register.html:260
 msgid "Drag the slider to verify"
 msgstr ""
 
-#: templates/customer_login.html:170
+#: templates/customer_login.html:174
 msgid "Forget password?"
 msgstr ""
 
-#: templates/customer_login.html:172
+#: templates/customer_login.html:176
 msgid "Create an account"
 msgstr ""
 
-#: templates/customer_login.html:203 templates/customer_register.html:291
+#: templates/customer_login.html:230 templates/customer_register.html:295
 msgid "\"Successful validation\""
 msgstr ""
 
@@ -473,68 +501,64 @@ msgstr ""
 msgid "Pets"
 msgstr ""
 
-#: templates/customer_pet.html:87
+#: templates/customer_pet.html:97
 msgid "My Pets"
 msgstr ""
 
-#: templates/customer_pet.html:93
+#: templates/customer_pet.html:103
 msgid "Pet type"
 msgstr ""
 
-#: templates/customer_pet.html:94 templates/customer_pet.html:211
+#: templates/customer_pet.html:104 templates/customer_pet.html:221
 msgid "Pet Gender"
 msgstr ""
 
-#: templates/customer_pet.html:95 templates/customer_pet.html:222
+#: templates/customer_pet.html:105 templates/customer_pet.html:232
 msgid "Birthday"
 msgstr ""
 
-#: templates/customer_pet.html:151
+#: templates/customer_pet.html:161
 msgid "Add a pet"
 msgstr ""
 
-#: templates/customer_pet.html:187 templates/customer_pet.html:243
-msgid "Pet information"
-msgstr ""
-
-#: templates/customer_pet.html:204
+#: templates/customer_pet.html:214
 msgid "Pet Kind"
 msgstr ""
 
-#: templates/customer_pet.html:206
+#: templates/customer_pet.html:216
 msgid "Dog"
 msgstr ""
 
-#: templates/customer_pet.html:207
+#: templates/customer_pet.html:217
 msgid "Cat"
 msgstr ""
 
-#: templates/customer_pet.html:213
+#: templates/customer_pet.html:223
 msgid "male"
 msgstr ""
 
-#: templates/customer_pet.html:214
+#: templates/customer_pet.html:224
 msgid "female"
 msgstr ""
 
-#: templates/customer_pet.html:218 templates/customer_pet.html:219
+#: templates/customer_pet.html:228 templates/customer_pet.html:229
 msgid "Name"
 msgstr ""
 
-#: templates/customer_pet.html:255
+#: templates/customer_pet.html:265
 msgid "Are you sure ?"
 msgstr ""
 
-#: templates/customer_pet.html:265
+#: templates/customer_pet.html:275
 msgid "Confirm Delete"
 msgstr ""
 
-#: templates/customer_question.html:90 templates/customer_question.html:122
+#: templates/customer_question.html:93 templates/customer_question.html:124
 #: templates/employee_question.html:85
 msgid "My questions"
 msgstr ""
 
-#: templates/customer_question.html:93 templates/customer_question.html:154
+#: templates/customer_question.html:96 templates/customer_question.html:154
 msgid "Post a question"
 msgstr ""
 
@@ -586,35 +610,35 @@ msgstr ""
 msgid "\"Please enter an animal\""
 msgstr ""
 
-#: templates/customer_register.html:223
+#: templates/customer_register.html:227
 msgid "Create your account"
 msgstr ""
 
-#: templates/customer_register.html:227
+#: templates/customer_register.html:231
 msgid "Username"
 msgstr ""
 
-#: templates/customer_register.html:231
+#: templates/customer_register.html:235
 msgid "Realname"
 msgstr ""
 
-#: templates/customer_register.html:239
+#: templates/customer_register.html:243
 msgid "Confirm password"
 msgstr ""
 
-#: templates/customer_register.html:243
+#: templates/customer_register.html:247
 msgid "Phonenumber"
 msgstr ""
 
-#: templates/customer_register.html:251
+#: templates/customer_register.html:255
 msgid "What is your favorite pet"
 msgstr ""
 
-#: templates/customer_register.html:260
+#: templates/customer_register.html:264
 msgid "Already have an account"
 msgstr ""
 
-#: templates/customer_register.html:264 templates/employee_login.html:70
+#: templates/customer_register.html:268 templates/employee_login.html:70
 msgid "Sign in"
 msgstr ""
 
@@ -627,90 +651,90 @@ msgid "City:"
 msgstr ""
 
 #: templates/employee_appointment.html:89
-#: templates/employee_appointment.html:129
+#: templates/employee_appointment.html:145
 msgid "please enter your location"
 msgstr ""
 
-#: templates/employee_appointment.html:97
+#: templates/employee_appointment.html:113
 msgid "all"
 msgstr ""
 
-#: templates/employee_appointment.html:98
-#: templates/employee_appointment.html:156
+#: templates/employee_appointment.html:114
+#: templates/employee_appointment.html:172
 msgid "waiting"
 msgstr ""
 
-#: templates/employee_appointment.html:99
-#: templates/employee_appointment.html:157
+#: templates/employee_appointment.html:115
+#: templates/employee_appointment.html:173
 msgid "treatment"
 msgstr ""
 
-#: templates/employee_appointment.html:100
+#: templates/employee_appointment.html:116
 msgid "surgery"
 msgstr ""
 
-#: templates/employee_appointment.html:101
-#: templates/employee_appointment.html:159
+#: templates/employee_appointment.html:117
+#: templates/employee_appointment.html:175
 msgid "release"
 msgstr ""
 
-#: templates/employee_appointment.html:110
+#: templates/employee_appointment.html:126
 msgid "ADD"
 msgstr ""
 
-#: templates/employee_appointment.html:116
+#: templates/employee_appointment.html:132
 msgid "Process appointment information"
 msgstr ""
 
-#: templates/employee_appointment.html:131
+#: templates/employee_appointment.html:147
 msgid "please enter the name of your pets"
 msgstr ""
 
-#: templates/employee_appointment.html:140
-#: templates/employee_appointment.html:190
+#: templates/employee_appointment.html:156
+#: templates/employee_appointment.html:206
 msgid "another information"
 msgstr ""
 
-#: templates/employee_appointment.html:141
+#: templates/employee_appointment.html:157
 msgid "You can post some information"
 msgstr ""
 
-#: templates/employee_appointment.html:149
-#: templates/employee_appointment.html:191
+#: templates/employee_appointment.html:165
+#: templates/employee_appointment.html:207
 msgid "type"
 msgstr ""
 
-#: templates/employee_appointment.html:150
+#: templates/employee_appointment.html:166
 msgid "pets type"
 msgstr ""
 
-#: templates/employee_appointment.html:153
+#: templates/employee_appointment.html:169
 msgid "Status"
 msgstr ""
 
-#: templates/employee_appointment.html:158
+#: templates/employee_appointment.html:174
 msgid "surgrey"
 msgstr ""
 
-#: templates/employee_appointment.html:165
-#: templates/employee_appointment.html:192
+#: templates/employee_appointment.html:181
+#: templates/employee_appointment.html:208
 msgid "date[surgery]"
 msgstr ""
 
-#: templates/employee_appointment.html:167
+#: templates/employee_appointment.html:183
 msgid "date of surgery"
 msgstr ""
 
-#: templates/employee_appointment.html:168
-#: templates/employee_appointment.html:193
+#: templates/employee_appointment.html:184
+#: templates/employee_appointment.html:209
 msgid "date[release]"
 msgstr ""
 
-#: templates/employee_appointment.html:169
+#: templates/employee_appointment.html:185
 msgid "date of release"
 msgstr ""
 
-#: templates/employee_appointment.html:195
+#: templates/employee_appointment.html:211
 msgid "edit"
 msgstr ""
 
@@ -774,11 +798,11 @@ msgstr ""
 msgid "Go and login"
 msgstr ""
 
-#: templates/question_detail.html:91
+#: templates/question_detail.html:95
 msgid "author："
 msgstr ""
 
-#: templates/question_detail.html:92
+#: templates/question_detail.html:96
 msgid "time："
 msgstr ""
 

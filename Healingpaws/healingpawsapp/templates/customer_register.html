@@ -217,6 +217,10 @@
     </div>
 </div>
 </div>
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 <div class="container">
     <div class="panel offset-sm-3 col-sm-6">
         <form class="cmxform" id="login_form" method="post">
@@ -295,5 +299,7 @@
         slider.init();
     })
 </script>
+
+
 </body>
 </html>
