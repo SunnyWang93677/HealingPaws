@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 16:43+0800\n"
+"POT-Creation-Date: 2020-05-23 22:49+0800\n"
 "PO-Revision-Date: 2020-05-02 23:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans_CN\n"
@@ -18,39 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: routes.py:64
+#: routes.py:87
 msgid "Success"
 msgstr "成功"
 
-#: routes.py:88
+#: routes.py:112
 msgid "Your password is incorrect, please try again"
 msgstr "您的密码不正确，请重试"
 
-#: routes.py:91
+#: routes.py:115
 msgid "the user is not exist, please register first"
 msgstr "用户不存在，请先注册"
 
-#: routes.py:114
+#: routes.py:138
 msgid "This username has been registered,please login"
 msgstr "此用户名已注册，请登录"
 
-#: routes.py:119
+#: routes.py:143
 msgid "password has not match"
 msgstr "密码不匹配"
 
-#: routes.py:128
+#: routes.py:152
 msgid "register success"
 msgstr "注册成功"
 
-#: routes.py:149
+#: routes.py:176
 msgid "Limit Enter"
 msgstr "限制进入"
 
-#: routes.py:182
+#: routes.py:210
 msgid "please enter something"
 msgstr "请输入"
 
-#: routes.py:248
+#: routes.py:277
 msgid "edit success"
 msgstr "编辑成功"
 
@@ -68,10 +68,10 @@ msgstr "预约"
 
 #: templates/announcement.html:54 templates/answer_detail.html:52
 #: templates/b.html:65 templates/b_main.html:65
-#: templates/customer_question.html:5 templates/customer_question.html:87
-#: templates/customer_question.html:101 templates/employee_appointment.html:60
-#: templates/employee_main.html:58 templates/employee_question.html:54
-#: templates/question_detail.html:61
+#: templates/customer_question.html:5 templates/customer_question.html:86
+#: templates/customer_question.html:90 templates/customer_question.html:104
+#: templates/employee_appointment.html:60 templates/employee_main.html:58
+#: templates/employee_question.html:54 templates/question_detail.html:61
 msgid "Questions"
 msgstr "问题"
 
@@ -81,10 +81,10 @@ msgstr "老板"
 
 #: templates/announcement.html:61 templates/answer_detail.html:60
 #: templates/b.html:72 templates/b_main.html:72 templates/base_login.html:62
-#: templates/customer_mainpage.html:60 templates/customer_pet.html:68
-#: templates/customer_question.html:65 templates/employee_appointment.html:68
-#: templates/employee_main.html:66 templates/employee_question.html:62
-#: templates/question_detail.html:70
+#: templates/customer_appointment.html:99 templates/customer_mainpage.html:60
+#: templates/customer_pet.html:75 templates/customer_question.html:65
+#: templates/employee_appointment.html:68 templates/employee_main.html:66
+#: templates/employee_question.html:62 templates/question_detail.html:70
 msgid "log out"
 msgstr "登出"
 
@@ -110,9 +110,9 @@ msgid "Home"
 msgstr "主页"
 
 #: templates/answer_detail.html:53 templates/base.html:85
-#: templates/base_login.html:54 templates/customer_appointment.html:83
+#: templates/base_login.html:54 templates/customer_appointment.html:91
 #: templates/customer_login.html:111 templates/customer_mainpage.html:52
-#: templates/customer_pet.html:60 templates/customer_question.html:57
+#: templates/customer_pet.html:67 templates/customer_question.html:57
 #: templates/customer_register.html:183 templates/employee_appointment.html:61
 #: templates/employee_main.html:59 templates/employee_question.html:55
 #: templates/question_detail.html:62
@@ -127,6 +127,14 @@ msgstr "预约"
 msgid "employee"
 msgstr "员工"
 
+#: templates/answer_detail.html:89
+msgid "comment"
+msgstr "内容"
+
+#: templates/answer_detail.html:91
+msgid "back"
+msgstr "返回"
+
 #: templates/b.html:84
 msgid "MANAGE EMPLOYEE"
 msgstr "管理员工"
@@ -139,73 +147,86 @@ msgstr "姓名"
 msgid "please enter the name of employee"
 msgstr "请输入员工姓名"
 
-#: templates/b.html:98 templates/employee_appointment.html:93
+#: templates/b.html:114 templates/employee_appointment.html:109
 msgid "inquiry"
 msgstr "搜索"
 
-#: templates/b.html:99 templates/employee_appointment.html:94
+#: templates/b.html:115 templates/employee_appointment.html:110
 msgid "resetting"
 msgstr "重置"
 
-#: templates/b.html:110
+#: templates/b.html:126
 msgid "Eidt"
 msgstr "编辑"
 
-#: templates/b.html:119 templates/employee_appointment.html:130
-#: templates/employee_appointment.html:188
+#: templates/b.html:135 templates/employee_appointment.html:146
+#: templates/employee_appointment.html:204
 msgid "name"
 msgstr "姓名"
 
-#: templates/b.html:120
+#: templates/b.html:136
 msgid "please enter the name of your employee."
 msgstr "请输入你的员工姓名"
 
-#: templates/b.html:121 templates/customer_appointment.html:182
-#: templates/customer_appointment.html:237
-#: templates/employee_appointment.html:125
-#: templates/employee_appointment.html:187
+#: templates/b.html:137 templates/customer_appointment.html:241
+#: templates/customer_appointment.html:298
+#: templates/employee_appointment.html:141
+#: templates/employee_appointment.html:203
 msgid "city"
 msgstr "城市"
 
-#: templates/b.html:124 templates/customer_appointment.html:184
-#: templates/customer_appointment.html:239
+#: templates/b.html:140 templates/customer_appointment.html:243
+#: templates/customer_appointment.html:300
 msgid "Beijing"
 msgstr "北京"
 
-#: templates/b.html:125 templates/customer_appointment.html:186
-#: templates/customer_appointment.html:241
+#: templates/b.html:141 templates/customer_appointment.html:245
+#: templates/customer_appointment.html:302
 msgid "Chengdu"
 msgstr "成都"
 
-#: templates/b.html:126 templates/customer_appointment.html:185
-#: templates/customer_appointment.html:240
+#: templates/b.html:142 templates/customer_appointment.html:244
+#: templates/customer_appointment.html:301
 msgid "Shanghai"
 msgstr "上海"
 
-#: templates/b.html:132 templates/employee_appointment.html:137
-#: templates/employee_appointment.html:189
+#: templates/b.html:148 templates/employee_appointment.html:153
+#: templates/employee_appointment.html:205
 msgid "tel"
 msgstr "电话"
 
-#: templates/b.html:134 templates/employee_appointment.html:139
+#: templates/b.html:150 templates/employee_appointment.html:155
 msgid "Please write down the correct number"
 msgstr "请输入正确的号码"
 
-#: templates/b.html:135 templates/employee_appointment.html:194
+#: templates/b.html:151 templates/employee_appointment.html:210
 msgid "status"
 msgstr "状态"
 
-#: templates/b.html:136
+#: templates/b.html:152
 msgid "employee status"
 msgstr "员工状态"
 
-#: templates/b.html:151 templates/employee_appointment.html:176
+#: templates/b.html:167 templates/employee_appointment.html:192
 msgid "cancel"
 msgstr "取消"
 
-#: templates/b.html:152 templates/employee_appointment.html:177
+#: templates/b.html:168 templates/employee_appointment.html:193
 msgid "confirm"
 msgstr "确认"
+
+#: templates/b.html:221 templates/b.html:270 templates/customer_pet.html:197
+#: templates/customer_pet.html:253
+msgid "Pet information"
+msgstr "宠物信息"
+
+#: templates/b.html:253 templates/b.html:302
+#: templates/customer_appointment.html:264
+#: templates/customer_appointment.html:321
+#: templates/customer_appointment.html:344 templates/customer_pet.html:236
+#: templates/customer_pet.html:272 templates/customer_question.html:187
+msgid "Close"
+msgstr "关闭"
 
 #: templates/b_main.html:94 templates/employee_main.html:85
 msgid "Welcome to HealingPaws"
@@ -239,29 +260,29 @@ msgid "Healing Paws"
 msgstr "Healing Paws"
 
 #: templates/base.html:83 templates/base_login.html:52
-#: templates/customer_appointment.html:81 templates/customer_login.html:109
-#: templates/customer_mainpage.html:50 templates/customer_pet.html:58
+#: templates/customer_appointment.html:89 templates/customer_login.html:109
+#: templates/customer_mainpage.html:50 templates/customer_pet.html:65
 #: templates/customer_question.html:55 templates/customer_register.html:181
 #: templates/question_detail.html:60
 msgid "Abou us"
 msgstr "关于我们"
 
 #: templates/base.html:84 templates/base_login.html:53
-#: templates/customer_appointment.html:82 templates/customer_login.html:110
-#: templates/customer_mainpage.html:51 templates/customer_pet.html:59
+#: templates/customer_appointment.html:90 templates/customer_login.html:110
+#: templates/customer_mainpage.html:51 templates/customer_pet.html:66
 #: templates/customer_question.html:56 templates/customer_register.html:182
 msgid "Question"
 msgstr "问题"
 
 #: templates/base.html:86 templates/base_login.html:55
-#: templates/customer_appointment.html:84 templates/customer_login.html:112
-#: templates/customer_mainpage.html:53 templates/customer_pet.html:61
+#: templates/customer_appointment.html:92 templates/customer_login.html:112
+#: templates/customer_mainpage.html:53 templates/customer_pet.html:68
 #: templates/customer_question.html:58 templates/customer_register.html:184
 msgid "Pet"
 msgstr "宠物"
 
 #: templates/base.html:91 templates/customer_login.html:5
-#: templates/customer_login.html:117 templates/customer_login.html:175
+#: templates/customer_login.html:117 templates/customer_login.html:179
 #: templates/customer_register.html:189 templates/employee_login.html:66
 msgid "Login"
 msgstr "登录"
@@ -333,140 +354,147 @@ msgstr "宠物护理"
 msgid "Apponitment"
 msgstr "预约"
 
-#: templates/customer_appointment.html:108
+#: templates/customer_appointment.html:120
 msgid "My Appointment"
 msgstr "我的预约"
 
-#: templates/customer_appointment.html:113
+#: templates/customer_appointment.html:125
 msgid "Appointment id"
 msgstr "预约id"
 
-#: templates/customer_appointment.html:114 templates/customer_pet.html:92
+#: templates/customer_appointment.html:126 templates/customer_pet.html:102
 msgid "Pet name"
 msgstr "宠物名字"
 
-#: templates/customer_appointment.html:115
+#: templates/customer_appointment.html:127
+msgid "Pet status"
+msgstr "宠物状态"
+
+#: templates/customer_appointment.html:128
 msgid "Appointment date"
 msgstr "预约日期"
 
-#: templates/customer_appointment.html:116
+#: templates/customer_appointment.html:129
 msgid "Appointment status"
 msgstr "预约状态"
 
-#: templates/customer_appointment.html:117 templates/customer_pet.html:96
+#: templates/customer_appointment.html:130
+msgid "release time"
+msgstr "释放时间"
+
+#: templates/customer_appointment.html:131
+msgid "surgery time"
+msgstr "手术时间"
+
+#: templates/customer_appointment.html:132
+msgid "City"
+msgstr "城市"
+
+#: templates/customer_appointment.html:133 templates/customer_pet.html:106
 msgid "Operation"
 msgstr "操作"
 
-#: templates/customer_appointment.html:129 templates/customer_pet.html:112
+#: templates/customer_appointment.html:149 templates/customer_pet.html:122
 msgid "Modify"
 msgstr "修改"
 
-#: templates/customer_appointment.html:133 templates/customer_pet.html:119
-#: templates/customer_question.html:143 templates/customer_question.html:147
+#: templates/customer_appointment.html:153 templates/customer_pet.html:129
+#: templates/customer_question.html:147
 msgid "Delete"
 msgstr "删除"
 
-#: templates/customer_appointment.html:141
+#: templates/customer_appointment.html:161
 msgid "Add an appointment"
 msgstr "添加预约"
 
-#: templates/customer_appointment.html:166
 #: templates/customer_appointment.html:221
+#: templates/customer_appointment.html:280
 msgid "appointment information"
 msgstr "预约信息"
 
-#: templates/customer_appointment.html:175
 #: templates/customer_appointment.html:230
+#: templates/customer_appointment.html:290
 msgid "pet"
 msgstr "宠物类别"
 
-#: templates/customer_appointment.html:177
-#: templates/customer_appointment.html:232
-msgid "dog"
-msgstr "狗"
-
-#: templates/customer_appointment.html:178
-#: templates/customer_appointment.html:233
-msgid "cat"
-msgstr "猫"
-
-#: templates/customer_appointment.html:190
-#: templates/customer_appointment.html:245
+#: templates/customer_appointment.html:249
+#: templates/customer_appointment.html:306
 msgid "emergency"
 msgstr "紧急程度"
 
-#: templates/customer_appointment.html:192
-#: templates/customer_appointment.html:247
+#: templates/customer_appointment.html:251
+#: templates/customer_appointment.html:308
 msgid "Normal"
 msgstr "正常"
 
-#: templates/customer_appointment.html:195
-#: templates/customer_appointment.html:250
+#: templates/customer_appointment.html:254
+#: templates/customer_appointment.html:311
 msgid "Urgent"
 msgstr "紧急"
 
-#: templates/customer_appointment.html:199
-#: templates/customer_appointment.html:254
+#: templates/customer_appointment.html:258
+#: templates/customer_appointment.html:315
 msgid "date"
 msgstr "日期"
 
-#: templates/customer_appointment.html:200
-#: templates/customer_appointment.html:255
+#: templates/customer_appointment.html:259
+#: templates/customer_appointment.html:316
 msgid "Date"
 msgstr "日期"
 
-#: templates/customer_appointment.html:203
-#: templates/customer_appointment.html:258 templates/customer_question.html:163
+#: templates/customer_appointment.html:262
+#: templates/customer_appointment.html:319 templates/customer_question.html:163
 msgid "Comment"
 msgstr "备注"
 
-#: templates/customer_appointment.html:205
-#: templates/customer_appointment.html:260
-#: templates/customer_appointment.html:283 templates/customer_pet.html:226
-#: templates/customer_pet.html:262 templates/customer_question.html:187
-msgid "Close"
-msgstr "关闭"
-
-#: templates/customer_appointment.html:208
-#: templates/customer_appointment.html:263
-#: templates/customer_appointment.html:286 templates/customer_pet.html:229
-#: templates/customer_question.html:190
+#: templates/customer_appointment.html:267
+#: templates/customer_appointment.html:324
+#: templates/customer_appointment.html:347 templates/customer_pet.html:239
+#: templates/customer_question.html:192
 msgid "Confirm"
 msgstr "确认"
 
-#: templates/customer_appointment.html:276 templates/customer_question.html:180
+#: templates/customer_appointment.html:292
+msgid "dog"
+msgstr "狗"
+
+#: templates/customer_appointment.html:293
+msgid "cat"
+msgstr "猫"
+
+#: templates/customer_appointment.html:337 templates/customer_question.html:180
 msgid "Warning"
 msgstr "警告"
 
-#: templates/customer_appointment.html:280 templates/customer_question.html:184
+#: templates/customer_appointment.html:341 templates/customer_question.html:184
 msgid "Are you sure to delete？"
 msgstr "确定删除吗"
 
-#: templates/customer_login.html:152
+#: templates/customer_login.html:156
 msgid "Login to your account"
 msgstr "登录你的账户"
 
-#: templates/customer_login.html:155 templates/customer_register.html:247
+#: templates/customer_login.html:159 templates/customer_register.html:251
 msgid "Email"
 msgstr "邮箱"
 
-#: templates/customer_login.html:158 templates/customer_register.html:235
+#: templates/customer_login.html:162 templates/customer_register.html:239
 msgid "Password"
 msgstr "密码"
 
-#: templates/customer_login.html:163 templates/customer_register.html:256
+#: templates/customer_login.html:167 templates/customer_register.html:260
 msgid "Drag the slider to verify"
 msgstr "拖动滑块进行验证"
 
-#: templates/customer_login.html:170
+#: templates/customer_login.html:174
 msgid "Forget password?"
 msgstr "忘记密码"
 
-#: templates/customer_login.html:172
+#: templates/customer_login.html:176
 msgid "Create an account"
 msgstr "创建账户"
 
-#: templates/customer_login.html:203 templates/customer_register.html:291
+#: templates/customer_login.html:230 templates/customer_register.html:295
 msgid "\"Successful validation\""
 msgstr "验证成功"
 
@@ -474,68 +502,64 @@ msgstr "验证成功"
 msgid "Pets"
 msgstr "宠物"
 
-#: templates/customer_pet.html:87
+#: templates/customer_pet.html:97
 msgid "My Pets"
 msgstr "我的宠物"
 
-#: templates/customer_pet.html:93
+#: templates/customer_pet.html:103
 msgid "Pet type"
 msgstr "宠物类别"
 
-#: templates/customer_pet.html:94 templates/customer_pet.html:211
+#: templates/customer_pet.html:104 templates/customer_pet.html:221
 msgid "Pet Gender"
 msgstr "宠物性别"
 
-#: templates/customer_pet.html:95 templates/customer_pet.html:222
+#: templates/customer_pet.html:105 templates/customer_pet.html:232
 msgid "Birthday"
 msgstr "生日"
 
-#: templates/customer_pet.html:151
+#: templates/customer_pet.html:161
 msgid "Add a pet"
 msgstr "添加宠物"
 
-#: templates/customer_pet.html:187 templates/customer_pet.html:243
-msgid "Pet information"
-msgstr "宠物信息"
-
-#: templates/customer_pet.html:204
+#: templates/customer_pet.html:214
 msgid "Pet Kind"
 msgstr "宠物类别"
 
-#: templates/customer_pet.html:206
+#: templates/customer_pet.html:216
 msgid "Dog"
 msgstr "狗"
 
-#: templates/customer_pet.html:207
+#: templates/customer_pet.html:217
 msgid "Cat"
 msgstr "猫"
 
-#: templates/customer_pet.html:213
+#: templates/customer_pet.html:223
 msgid "male"
 msgstr "雄性"
 
-#: templates/customer_pet.html:214
+#: templates/customer_pet.html:224
 msgid "female"
 msgstr "雌性"
 
-#: templates/customer_pet.html:218 templates/customer_pet.html:219
+#: templates/customer_pet.html:228 templates/customer_pet.html:229
 msgid "Name"
 msgstr "名字"
 
-#: templates/customer_pet.html:255
+#: templates/customer_pet.html:265
 msgid "Are you sure ?"
 msgstr "确定删除吗"
 
-#: templates/customer_pet.html:265
+#: templates/customer_pet.html:275
 msgid "Confirm Delete"
 msgstr "确认"
 
-#: templates/customer_question.html:90 templates/customer_question.html:122
+#: templates/customer_question.html:93 templates/customer_question.html:124
 #: templates/employee_question.html:85
 msgid "My questions"
 msgstr "我的问题"
 
-#: templates/customer_question.html:93 templates/customer_question.html:154
+#: templates/customer_question.html:96 templates/customer_question.html:154
 msgid "Post a question"
 msgstr "发布问题"
 
@@ -587,35 +611,35 @@ msgstr "\"请输入正确的电子邮箱地址\""
 msgid "\"Please enter an animal\""
 msgstr "\"请输入一个动物\""
 
-#: templates/customer_register.html:223
+#: templates/customer_register.html:227
 msgid "Create your account"
 msgstr "创建你的账户"
 
-#: templates/customer_register.html:227
+#: templates/customer_register.html:231
 msgid "Username"
 msgstr "用户名"
 
-#: templates/customer_register.html:231
+#: templates/customer_register.html:235
 msgid "Realname"
 msgstr "真实姓名"
 
-#: templates/customer_register.html:239
+#: templates/customer_register.html:243
 msgid "Confirm password"
 msgstr "确认密码"
 
-#: templates/customer_register.html:243
+#: templates/customer_register.html:247
 msgid "Phonenumber"
 msgstr "电话号码"
 
-#: templates/customer_register.html:251
+#: templates/customer_register.html:255
 msgid "What is your favorite pet"
 msgstr "你最喜欢的宠物是什么"
 
-#: templates/customer_register.html:260
+#: templates/customer_register.html:264
 msgid "Already have an account"
 msgstr "已有账户"
 
-#: templates/customer_register.html:264 templates/employee_login.html:70
+#: templates/customer_register.html:268 templates/employee_login.html:70
 msgid "Sign in"
 msgstr "登录"
 
@@ -628,90 +652,90 @@ msgid "City:"
 msgstr "城市："
 
 #: templates/employee_appointment.html:89
-#: templates/employee_appointment.html:129
+#: templates/employee_appointment.html:145
 msgid "please enter your location"
 msgstr "请输入你的位置"
 
-#: templates/employee_appointment.html:97
+#: templates/employee_appointment.html:113
 msgid "all"
 msgstr "所有"
 
-#: templates/employee_appointment.html:98
-#: templates/employee_appointment.html:156
+#: templates/employee_appointment.html:114
+#: templates/employee_appointment.html:172
 msgid "waiting"
 msgstr "等待"
 
-#: templates/employee_appointment.html:99
-#: templates/employee_appointment.html:157
+#: templates/employee_appointment.html:115
+#: templates/employee_appointment.html:173
 msgid "treatment"
 msgstr "治疗"
 
-#: templates/employee_appointment.html:100
+#: templates/employee_appointment.html:116
 msgid "surgery"
 msgstr "手术"
 
-#: templates/employee_appointment.html:101
-#: templates/employee_appointment.html:159
+#: templates/employee_appointment.html:117
+#: templates/employee_appointment.html:175
 msgid "release"
 msgstr "释放"
 
-#: templates/employee_appointment.html:110
+#: templates/employee_appointment.html:126
 msgid "ADD"
 msgstr "添加"
 
-#: templates/employee_appointment.html:116
+#: templates/employee_appointment.html:132
 msgid "Process appointment information"
 msgstr "处理预约信息"
 
-#: templates/employee_appointment.html:131
+#: templates/employee_appointment.html:147
 msgid "please enter the name of your pets"
 msgstr "请输入你的宠物的名字"
 
-#: templates/employee_appointment.html:140
-#: templates/employee_appointment.html:190
+#: templates/employee_appointment.html:156
+#: templates/employee_appointment.html:206
 msgid "another information"
 msgstr "另一个信息"
 
-#: templates/employee_appointment.html:141
+#: templates/employee_appointment.html:157
 msgid "You can post some information"
 msgstr "你可以发布一些信息"
 
-#: templates/employee_appointment.html:149
-#: templates/employee_appointment.html:191
+#: templates/employee_appointment.html:165
+#: templates/employee_appointment.html:207
 msgid "type"
 msgstr "类别"
 
-#: templates/employee_appointment.html:150
+#: templates/employee_appointment.html:166
 msgid "pets type"
 msgstr "宠物类别"
 
-#: templates/employee_appointment.html:153
+#: templates/employee_appointment.html:169
 msgid "Status"
 msgstr "状态"
 
-#: templates/employee_appointment.html:158
+#: templates/employee_appointment.html:174
 msgid "surgrey"
 msgstr "手术"
 
-#: templates/employee_appointment.html:165
-#: templates/employee_appointment.html:192
+#: templates/employee_appointment.html:181
+#: templates/employee_appointment.html:208
 msgid "date[surgery]"
 msgstr "日期【手术】"
 
-#: templates/employee_appointment.html:167
+#: templates/employee_appointment.html:183
 msgid "date of surgery"
 msgstr "手术日期"
 
-#: templates/employee_appointment.html:168
-#: templates/employee_appointment.html:193
+#: templates/employee_appointment.html:184
+#: templates/employee_appointment.html:209
 msgid "date[release]"
 msgstr "日期【释放】"
 
-#: templates/employee_appointment.html:169
+#: templates/employee_appointment.html:185
 msgid "date of release"
 msgstr "释放日期"
 
-#: templates/employee_appointment.html:195
+#: templates/employee_appointment.html:211
 msgid "edit"
 msgstr "编辑"
 
@@ -775,11 +799,11 @@ msgstr "请检查您的验证"
 msgid "Go and login"
 msgstr "去登录"
 
-#: templates/question_detail.html:91
+#: templates/question_detail.html:95
 msgid "author："
 msgstr "作者："
 
-#: templates/question_detail.html:92
+#: templates/question_detail.html:96
 msgid "time："
 msgstr "时间："
 

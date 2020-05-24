@@ -31,11 +31,17 @@ def set_locale(locale):
     session['lang'] = locale
     return render_template('base.html')
 
+# @app.route('/Set-locale/<locale>')
+# def set_locale(locale):
+#     print(request.path)
+#     session['lang'] = locale
+#     return render_template('customer_mainpage.html')
+
 
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('base.html')
+    return render_template('customer_mainpage.html')
 
 
 @app.route('/manage', methods=['GET', 'POST'])

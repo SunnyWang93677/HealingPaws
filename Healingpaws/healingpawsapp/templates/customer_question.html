@@ -78,9 +78,12 @@
         </div>
     </div>
 </div>
-
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 <div class="container">
-    <h3>Questions</h3>
+    <h3>{{ _('Questions') }}</h3>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -206,6 +209,8 @@
 <script src="../static/js/vendor/form-scripts.js"></script>
 
 <script src="../static/js/script.js"></script>
+
+
 
 </body>
 </html>
