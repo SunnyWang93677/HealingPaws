@@ -201,10 +201,12 @@
             <thead>
             <tr>
                 <th>{{ _('city') }}</th>
-                <th>{{ _('name') }}</th>
+                <th>{{ 'customer name' }}</th>
                 <th>{{ _('tel') }}</th>
+                <th>{{ 'type & birth' }}</th>
                 <th>{{ _('another information') }}</th>
-                <th>{{ _('type') }}</th>
+                <th> treatment type </th>
+                <th> date[treatment]</th>
                 <th>{{ _('date[surgery]') }}</th>
                 <th>{{ _('date[release]') }}</th>
                 <th>{{ _('status') }}</th>
@@ -214,21 +216,122 @@
             <tbody id="show_tbody">
             {% for a in appointment%}
             <tr>
-                <td class="ena">{{a[0]}}</td>
-                <td>{{a[1]}}</td>
-                <td>{{a[2]}}</td>
-                <td>{{a[3]}}</td>
-                <td>{{a[4]}}</td>
-                <td>{{a[5]}}</td>
-                <td>{{a[6]}}</td>
-                <td>{{a[7]}}</td>
+{#                <td>{{ hello_world() }}</td>#}
+                <td hidden="hidden" class="ena">{{a.app_id}}</td>
+                <td>{{a.place}}</td>
+                <td>{{customer[a.cus_id].cus_real_name}}</td>
+                <td>{{customer[a.cus_id].phone}}</td>
+                <td>{{pet_name_list[a.pet_id].pet_type }}({{ pet_name_list[a.pet_id].pet_gneger }})&{{ pet_name_list[a.pet_id].pet_birth }}</td>
+                <td>{{a.description}}</td>
+                <td>{{a.type}}</td>
+                <td>{{a.treatment_time}}</td>
+                <td>{{a.sergery_time}}</td>
+                <td>{{a.release_time}}</td>
+                <td>{{a.status}}</td>
+                {% if a.status != '5' and a.status != '4'%}
                 <td>
-                    <a href="#" class="edit">edit</a>
+                    <button name="modify_appointment" onclick="window.b=this;preparewindow()" data-toggle="modal" data-target="#Petinfo2" class="edit">edit</button>
                 </td>
+                    {% else %}
+                    <td>
+                    <a class="edit">edit</a>
+                </td>
+                {% endif %}
             </tr>
             {%endfor%}
             </tbody>
         </table>
+    </div>
+</div>
+<script>
+    function preparewindow() {
+        console.log(window.b)
+        console.log('here~~~~~~~~~~~~')
+
+        app_id=window.b.parentNode.parentNode.children[0].textContent
+        status=window.b.parentNode.parentNode.children[10].textContent
+        treatment_date=window.b.parentNode.parentNode.children[7].textContent
+        date_surgery=window.b.parentNode.parentNode.children[8].textContent
+        date_release=window.b.parentNode.parentNode.children[9].textContent
+        arr=document.querySelectorAll('#Petinfo2 .sel122')
+		for(var i=0;i<arr.length;i++){
+			arr[i].removeAttribute('checked')
+			arr[i].removeAttribute('selected')
+		}
+        console.debug(app_id,status,treatment_date,date_surgery,date_release)
+        document.querySelector('#Petinfo2 #app_id').setAttribute('value',app_id)
+        document.querySelector('#Petinfo2 .define_select'+status).setAttribute('selected','selected')
+        document.querySelector('#Petinfo2 #treatment_time').setAttribute('value',treatment_date)
+        document.querySelector('#Petinfo2 #surgery_time').setAttribute('value',date_surgery)
+        document.querySelector('#Petinfo2 #release_time').setAttribute('value',date_release)
+    }
+</script>
+<div class="modal fade" id="Petinfo2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">
+                    {{ _('appointment information') }}
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <input hidden="hidden" class='apid' name="pid" id="app_id">
+                    <label for="sel12">{{ _('status') }}</label>
+                        <select name='place' class="form-control place" id="sel122">
+                            <option  name='1' value="0"  class="define_select0 dlr">{{ _('Waiting') }}</option>
+                            <option name='1' value="1"  class="define_select1 dlr">{{ _('Treatment') }}</option>
+                            <option name='1' value="2"  class="define_select2  dlr">{{ _('Surgery') }}</option>
+                            <option  name='1' value="3"  class="define_select3 dlr">{{ _('Release') }}</option>
+                            <option name='1' value="4"  class="define_select4 dlr">{{ _('Finish') }}</option>
+                        </select>
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">{{ _('date[treatment]') }}</label>
+                        <input id='treatment_time' name='treatment_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">{{ _('date[surgery]') }}</label>
+                        <input id='surgery_time' name='surgery_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <label class="col-sm-3">{{ _('date[release]') }}</label>
+                        <input id='release_time' name='release_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                    </div>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
+                </button>
+                <button  name="update_appointment" type="submit" value="1" class="btn btn-primary" >
+                    {{ _('Confirm') }}
+                </button>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="alert">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ _('Warning') }}</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                Are you sure to change? You can not revoke if you choose status is finish!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
+                </button>
+                <form>
+                <button type="button" class="btn btn-primary" id="delbtn" data-dismiss="modal">
+                    {{ _('Confirm') }}
+                </button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <script language="javascript" type="text/javascript">

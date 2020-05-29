@@ -52,6 +52,9 @@
                             <li class="nav-item">
 			                    <a class="nav-link" href="{{ url_for('employee_register') }}">{{ _('REGISTER') }}</a>
 			                </li>
+                            <li class="nav-item">
+			                    <a class="nav-link" href="{{ url_for('employee_password') }}">{{ _('PASSWORD') }}</a>
+			                </li>
 			            </ul>
 			        </div>
 			    </nav> <!-- -->
@@ -67,12 +70,15 @@
             <input class="sign-text"  name="email" id='employee_lem' type="email" placeholder="{{ _('EmployeeEmail') }}" >
             <input class="sign-text" name="password" id='employee_lp' type="password" placeholder="{{ _('password') }}">
             <td>
-                <button class="sign-btn" type="submit" style="margin-left: 650px" value="Sign In" >{{ _('Sign in') }}</button>
+                <button class="sign-btn" type="submit" value="Sign In" >{{ _('Sign in') }}</button>>
 
             </td>
 
             <td>
                  <a href="{{ url_for('employee_register') }}">{{ _('You didnt register') }}</a>
+            </td>
+            <td>
+                 <a href="{{ url_for('employee_password') }}">{{ _('You cannot remember your password.') }}</a>
             </td>
 
 

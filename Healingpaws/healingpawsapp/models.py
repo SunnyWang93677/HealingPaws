@@ -10,6 +10,7 @@ class Customer(db.Model):
     email = db.Column(db.String(128), unique=True)
     cus_password_hash = db.Column(db.String(128))
     phone = db.Column(db.String(64), unique=True)
+    verified_cus = db.Column(db.String(128))
 
     def __repr__(self):
         return '<Customer {}>'.format(self.cus_username)
@@ -27,8 +28,8 @@ class Employee(db.Model):
     # 0 stand for normal, 1 stands for principle, 2 stands for professional
     hos_id = db.Column(db.Integer, db.ForeignKey('Place.hos_id'))
     employee_pass = db.Column(db.Enum('0', '1', '2'), server_default='0')
-
     # 0 waiting for pass, 1 pass, 2 not pass
+    verified_emp = db.Column(db.String(128))
     def __repr__(self):
         return '<Employ {}>'.format(self.emp_username)
 
@@ -69,7 +70,7 @@ class Appointment(db.Model):
     cus_id=db.Column(db.Integer,db.ForeignKey('Customer.cus_id'))
     customer = db.relationship('Customer',backref=db.backref('customer_appointments'),foreign_keys=[cus_id])
     status = db.Column(db.Enum('0', '1', '2', '3', '4','5'), index=True, default='0')
-    # 0 waiting 1 treatment 2 surgery 3 release 4 finish
+    # 0 waiting 1 treatment 2 surgery 3 release 4 finish 5 cancel
     treatment_time = db.Column(db.String(10), index=True)
     release_time = db.Column(db.String(10), index=True)
     sergery_time = db.Column(db.String(10), index=True)

@@ -6,7 +6,7 @@ from healingpawsapp import app, db
 from sqlalchemy import and_, or_
 # from appdir.models import User, Post, Profile
 from healingpawsapp.config import Config
-from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment, Pet
+from healingpawsapp.models import Customer, Employee, Question, Answer, Appointment, Pet, Annoncement
 
 from flask_babel import Babel, gettext as _
 from flask import request
@@ -15,10 +15,16 @@ from flask import request
 import os
 import re
 
+aes_encrypt = healingpawsapp.AES_ENCRYPT()
 app.config['UPLOAD_PHOTO'] = Config.PHOTO_UPLOAD_DIR
 # app.config['LANGUAGES'] = 'en_US'
 Language = "en_US"
 
+
+def hello_world():
+    print('hello world')
+    return '你好 世界！'
+app.add_template_global(hello_world,'hello_world')
 
 @babel.localeselector
 def get_locale():
@@ -95,10 +101,9 @@ def employee_login():
     else:
         email = request.form.get('email')
         password = request.form.get('password')
-        print(email, password)
         employee = Employee.query.filter(Employee.email == email and Employee.employee_pass == '1').first()
         if employee:
-            if check_password_hash(employee.emp_password_hash, password):
+            if str(aes_encrypt.decrypt(employee.emp_password_hash))[2:-1] == password:
                 session['EMPID'] = employee.emp_id
                 if request.form.get('remember') == 1:
                     session.permanent = True
@@ -112,7 +117,7 @@ def employee_login():
                 flash(_('Your password is incorrect, please try again'))
                 return redirect(url_for('employee_login'))
         else:
-            flash(_('the user is not exist, please register first'))
+            flash('the user is not exist, please register first OR the boss not pass your apply')
             return redirect(url_for('employee_login'))
 
 
@@ -133,24 +138,58 @@ def employee_register():
         phone = request.form.get('phone')
         password = request.form.get('password')
         password2 = request.form.get('password2')
+        boss_email = request.form.get('bossemail')
+        verified = request.form.get('pets')
         customer = Employee.query.filter(Employee.email == email).first()
         if customer:
             flash(_('This username has been registered,please login'))
             return redirect(url_for('employee_register'))
         else:
             if password != password2:
-                print('not match')
                 flash(_('password has not match'))
                 return redirect(url_for('employee_register'))
             else:
-                passw_hash = generate_password_hash(password)
-                employee = Employee(emp_username=emp_username, emp_password_hash=passw_hash,
-                                    emp_real_name=emp_real_name,
-                                    email=email, phone=phone)
-                db.session.add(employee)
+                if boss_email != 'boss@163.com':
+                    flash('your verified email (boss email) is not correct')
+                    return redirect(url_for('employee_register'))
+                else:
+                    passw_hash = str(aes_encrypt.encrypt(password))[2:-1]
+                    verified = str(aes_encrypt.encrypt(verified))[2:-1]
+                    employee = Employee(emp_username=emp_username, emp_password_hash=passw_hash,
+                                        emp_real_name=emp_real_name,
+                                        email=email, phone=phone,verified_emp=verified)
+                    db.session.add(employee)
+                    db.session.commit()
+                    flash(_("register success"))
+                    return redirect(url_for('employee_login'))
+
+
+
+@app.route('/employee_password', methods=['GET', 'POST'])
+def employee_password():
+    if request.method == 'GET':
+        return render_template('employee_password.html')
+    else:
+        email = request.form.get('email')
+        pet = request.form.get('pets')
+        password = request.form.get('password')
+        employee = Employee.query.filter(Employee.email == email).first()
+        emp_verified = str(aes_encrypt.decrypt(employee.verified_emp))[2:-1]
+        password_hash = str(aes_encrypt.encrypt(password))[2:-1]
+        if employee:
+            if emp_verified == pet:
+                Employee.query.filter(email).update(
+                    {'emp_password_hash': password_hash})
                 db.session.commit()
-                flash(_("register success"))
+                flash('update success')
                 return redirect(url_for('employee_login'))
+            else:
+                flash('verify information is not correct')
+                return redirect(url_for('employee_password'))
+        else:
+            flash('the email is not exist, please register first')
+            return redirect(url_for('employee_password'))
+
 
 
 @app.route('/employee', methods=['GET', 'POST'])
@@ -170,6 +209,7 @@ def employee_qa():
             questions = Question.query.all()
             return render_template('employee_question.html', questions=questions)
         elif session.get('EMPID') is None:
+            flash('please login first')
             return redirect(url_for('employee_login'))
 
         elif session.get('CUSID'):
@@ -196,8 +236,8 @@ def answer_detial(que_id):
             return render_template('answer_detail.html', title='Detail', detail=question, answer=answer,
                                    employee=employee_name, customer=customer)
         else:
-            print('please login')
-            return redirect(url_for('customer_login'))
+            flash('please login')
+            return redirect(url_for('employee_login'))
     else:
         if session.get('EMPID'):
             answer = request.form.get('answer')
@@ -214,80 +254,60 @@ def answer_detial(que_id):
 @app.route('/employee_appointment', methods=['GET', 'POST'])
 def employee_appointment():
     if request.method == "GET":
-        # return render_template('employee_appointment.html')
-        all_appointment = getAllAppointment()
-        emp_appointment = []
-        for a in all_appointment:
-            city = a.place
-            if city == '0':
-                city = "Beijing"
-            if city == '1':
-                city = "Shanghai"
-            if city == '2':
-                city = "Chengdu"
-            pet_name = getPet(a.pet_id).pet_name
-            tel = getCustomer(a.cus_id).phone
-            des = a.description
-            pet_type = getPet(a.pet_id).pet_type
-            if pet_type == "0":
-                pet_type = "dog"
-            if pet_type == "1":
-                pet_type = "cat"
-            sergery_time = a.sergery_time
-            release_time = a.release_time
-            status = a.status
-            if status == "0":
-                status = "waiting"
-            if status == "1":
-                status = "treatment"
-            if status == "2":
-                status = "surgery"
-            if status == "3":
-                status = "release"
-            if status == "4":
-                status = "finish"
-            appointment = [city, pet_name, tel, des, pet_type, sergery_time, release_time, status]
-            emp_appointment.append(appointment)
-        print(emp_appointment)
-        return render_template('employee_appointment.html', appointment=emp_appointment)
+        if session.get('EMPID'):
+            appointment = Appointment.query.all()
+            pets = Pet.query.all()
+            customers = Customer.query.all()
+            customer={}
+            pet={}
+            for a in appointment:
+                for c in customers:
+                    if a.cus_id == c.cus_id:
+                        customer[c.cus_id]=c
+                for p in pets:
+                    if a.pet_id == p.pet_id:
+                        pet[p.pet_id]=p
+            return render_template('employee_appointment.html', appointment=appointment,pet_name_list=pet,customer=customer)
+        else:
+            flash('Please login as Employee first')
+            return redirect(url_for('employee_login'))
     else:
         if request.form.get("add_appointment") == "1":
-            place = request.form.get('place')
-            pet_name = request.form.get('place')
-            phone = request.form.get('phone')
-            description = request.form.get('description')
-            pet_type = request.form.get('pet_type')
-            status = request.form.get('status')
-            sergery_time = request.form.get('sergery_time')
+            app_id=request.form.get('pid')
+            status = request.form.get('place')
+            treatment_time = request.form.get('treatment_time')
+            surgery_time = request.form.get('surgery_time')
             release_time = request.form.get('release_time')
-            appointment = Appointment(place=place, description=description, status=status, sergery_time=sergery_time,
-                                      release_time=release_time)
-            db.session.add(appointment)
-            db.session.commit()
-            return redirect(url_for('employee_appointment'))
-        if (request.form.get("edit_appointment")):
-            place = request.form.get('place')
-            pet_type = request.form.get('pet_type')
-            description = request.form.get('description')
-            status = request.form.get('status')
-            id = request.form.get('app_id')
-            Appointment.query.filter(id).update(
-                {'place': place, 'type': pet_type, 'description': description, 'status': status})
+
+            Appointment.query.filter(app_id).update(
+                {'status': status, 'treatment_time': treatment_time, 'surgery_time': surgery_time, 'release_time': release_time})
             db.session.commit()
             flash(_("edit success"))
             return redirect(url_for('employee_appointment'))
 
 
-def getCustomer(cus_id):
-    return Customer.query.filter_by(cus_id == cus_id).first()
-
-
-def getAllAppointment():
-    appointment = Appointment.query.all()
-    all = []
-    for a in appointment:
-        all.append(a)
-    return all
+@app.route('/announcement', methods=['GET','POST'])
+def announcement():
+    employee = Employee.query.filter(Employee.email == 'boss@163.com' and Employee.employee_pass == '1').first()
+    if request.method == 'GET':
+        if session.get('EMPID') is not None:
+            if session.get('EMPID') == employee.emp_id:
+                flash('success')
+                return render_template('announcement.html')
+            else:
+                flash('forbidden enter')
+                return redirect(url_for('employee_main'))
+        else:
+            flash('Please login first')
+            return redirect(url_for('employee_login'))
+    else:
+        title = request.form.get('a_title')
+        conntent = request.form.get('a_conntent')
+        announcement = Annoncement(ann_title=title,annoncement=conntent)
+        db.session.add(announcement)
+        db.session.commit()
+        flash('add success')
+    return render_template('announcement.html')
 
 
 @app.route('/index')
@@ -302,11 +322,10 @@ def customer_login():
     else:
         email = request.form.get('email')
         password = request.form.get('password')
-        print(email, '++', password)
         if (email is not None) and (password is not None):
             customer = Customer.query.filter(Customer.email == email).first()
             if customer:
-                if check_password_hash(customer.cus_password_hash, password):
+                if str(aes_encrypt.decrypt(customer.cus_password_hash))[2:-1] == password:
                     session['CUSID'] = str(customer.cus_id) + 'CUS'
                     if request.form.get('remember') == 1:
                         session.permanent = True
@@ -346,6 +365,7 @@ def customer_register():
         phone = request.form.get('phonenumber')
         cus_password = request.form.get('password1')
         cus_password_2 = request.form.get('password2')
+        verified = request.form.get('question')
         customer_db = Customer.query.filter(Customer.email == email).first()
         if customer_db:
             flash('This username has been registered')
@@ -355,14 +375,43 @@ def customer_register():
                 flash('password has not match')
                 return redirect(url_for('customer_register'))
             else:
-                cus_password_hash = generate_password_hash(cus_password)
+                cus_password_hash = str(aes_encrypt.encrypt(cus_password))[2:-1]
+                verified = str(aes_encrypt.encrypt(verified))[2:-1]
                 customer = Customer(cus_username=cus_username, cus_password_hash=cus_password_hash,
                                     cus_real_name=cus_real_name,
-                                    email=email, phone=phone)
-                print(customer)
+                                    email=email, phone=phone,verified_cus=verified)
                 db.session.add(customer)
                 db.session.commit()
+                flash('scuess')
                 return redirect(url_for('customer_login'))
+
+
+
+@app.route('/customer_password', methods=['GET', 'POST'])
+def customer_password():
+    if request.method == 'GET':
+        return render_template('customer_resetpsw.html')
+    else:
+        email = request.form.get('email')
+        pet = request.form.get('answer')
+        password = request.form.get('question')
+        customer = Customer.query.filter(Customer.email == email).first()
+        cus_verified = str(aes_encrypt.decrypt(customer.verified_cus))[2:-1]
+        password_hash = str(aes_encrypt.encrypt(password))[2:-1]
+        if employee:
+            if cus_verified == pet:
+                Customer.query.filter(email).update(
+                    {'emp_password_hash': password_hash})
+                db.session.commit()
+                flash('update success')
+                return redirect(url_for('customer_login'))
+            else:
+                flash('verify information is not correct')
+                return redirect(url_for('customer_password'))
+        else:
+            flash('the email is not exist, please register first')
+            return redirect(url_for('customer_password'))
+
 
 
 @app.route('/customer_question', methods=['GET', 'POST'])
@@ -372,7 +421,7 @@ def customer_question():
             cusid = int(session.get('CUSID')[:-3])
             data = Question.query.filter(Question.cus_id == cusid and Question.que_status == '0').all()
             question = Question.query.all()
-            print('nothing over here')
+            flash('nothing over here')
             customer = Customer.query.filter(Customer.cus_id == cusid).first()
             return render_template('customer_question.html', title='Question', questionlist=data, question=question,username=customer.cus_username)
 
@@ -382,7 +431,6 @@ def customer_question():
         if session.get('CUSID'):
             title = request.form.get('title')
             question = request.form.get('comment')
-            print(title, ',', question)
             if (title and question) is not None:
                 data = Question(que_title=title, question=question, cus_id=int(session.get('CUSID')[:-3]))
                 db.session.add(data)
@@ -535,27 +583,6 @@ def cus_mainpage():
         return show_error()
     if request.method == 'GET':
         return render_template('customer_mainpage.html', title='cus_register')
-
-
-random_num = 19990126
-
-
-def generate_random():
-    global random_num
-    random_num = ((random_num + 1) * 12345) % 7
-    return random_num
-
-
-def test_dl(id):
-    rand = generate_random() % 2
-    print('now update appoint:', id, ' set type to: ', str(rand))
-    Appointment.query.filter_by(app_id=id).update({'type': str(rand)})
-    db.session.commit()
-
-
-def get_dl(id):
-    print('appointment id is : ', id, ' type is: ', end='')
-    print(Appointment.query.filter_by(app_id=id).all()[0].type)
 
 
 @app.route('/customer_appointment', methods=['GET', 'POST'])
