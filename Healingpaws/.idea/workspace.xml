@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f02345d6-0dac-4644-8c61-1cd44a9f0490" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_appointment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_question.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +76,8 @@
       <workItem from="1590388658976" duration="10000" />
       <workItem from="1590389209607" duration="619000" />
       <workItem from="1590745437018" duration="8340000" />
+      <workItem from="1590761473423" duration="139000" />
+      <workItem from="1590821821339" duration="1207000" />
     </task>
     <servers />
   </component>

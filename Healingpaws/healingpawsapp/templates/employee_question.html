@@ -85,6 +85,7 @@
             <h3>{{ _('My questions') }}</h3>
             <ul class="question-list">
                 {% for question in questions %}
+                    {% if question.que_status == '0' %}
                 <li>
                     <div class="avatar-group">
                         <img src="images/1110055.png" alt="" class="avatar">
@@ -98,7 +99,7 @@
                     </div>
 
                 </li>
-
+                    {% endif %}
                 {% endfor %}
             </ul>
 

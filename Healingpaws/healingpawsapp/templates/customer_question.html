@@ -124,6 +124,7 @@
             <h3>{{ _('My questions') }}</h3>
             <ul class="question-list">
                 {% for question in questionlist %}
+                    {% if question.que_status == '0' %}
                 <li>
                     <div class="avatar-group">
                         <img src="images/1110055.png" alt="" class="avatar">
@@ -147,6 +148,7 @@
                         <button type="button" class="btn btn-danger offset-1 delete_btn" data-toggle="modal" data-target="#alert">{{ _('Delete') }}</button>
                     </div>
                 </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>

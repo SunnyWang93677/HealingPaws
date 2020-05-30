@@ -471,6 +471,7 @@ def detail(que_id):
             return redirect(url_for('customer_login'))
 
 
+
 def get_pet_list(id):
     # return a list of all the pets. This function will send request to MySQL database
     pet = Pet.query.filter(and_(Pet.pet_status == '0', Pet.cus_id == id)).all()
