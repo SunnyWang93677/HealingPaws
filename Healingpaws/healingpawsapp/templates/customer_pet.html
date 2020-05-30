@@ -133,25 +133,25 @@
                     </td>
                 </tr>
             {% endfor %}
-            <tr>
-                <td>19990126</td>
+{#            <tr>#}
+{#                <td>19990126</td>#}
                 {#                    相当于{#                    假设这个猫猫的id是123#}
-                <td class="text-center">cat</td>
-                <td class="text-center">cat</td>
-                <td class="text-center">cat</td>
-                <td>
-                    <a>
-                        <button name='modify' onclick="window.b=this;preparewindow();" value=1 type="submit"
-                                class="btn btn-success offset-2" data-toggle="modal" data-target="#Petinfo">Modify
-                        </button>
-                    </a>
-                    <a>
-                        <button name='delete' value=2 type="submit" class="btn btn-danger offset-1" data-toggle="modal"
-                                data-target="#alert">Delete
-                        </button>
-                    </a>
-                </td>
-            </tr>
+{#                <td class="text-center">cat</td>#}
+{#                <td class="text-center">cat</td>#}
+{#                <td class="text-center">cat</td>#}
+{#                <td>#}
+{#                    <a>#}
+{#                        <button name='modify' onclick="window.b=this;preparewindow();" value=1 type="submit"#}
+{#                                class="btn btn-success offset-2" data-toggle="modal" data-target="#Petinfo">Modify#}
+{#                        </button>#}
+{#                    </a>#}
+{#                    <a>#}
+{#                        <button name='delete' value=2 type="submit" class="btn btn-danger offset-1" data-toggle="modal"#}
+{#                                data-target="#alert">Delete#}
+{#                        </button>#}
+{#                    </a>#}
+{#                </td>#}
+{#            </tr>#}
             </tbody>
         </table>
 
@@ -213,24 +213,24 @@
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Pet Kind') }}</label>
 {#                        <input type="text" name="pkind" class="form-control pkd" >#}
-                        <label>{{ _('Dog') }}</label><input class="kind0" type="radio" name="pkind" value="0">
+                        <label>{{ _('Dog') }}</label><input class="kind0" type="radio" name="pkind" value="0" required>
                         <label>{{ _('Cat') }}Cat</label><input class="kind1" type="radio" name="pkind" value="1">
                     </div>
 
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Pet Gender') }}</label>
 {#                        <input type="text" name="pgender" class="form-control pgen" >#}
-                        <label>{{ _('male') }}</label><input class="gender0" type="radio" name="pgender" value="0">
+                        <label>{{ _('male') }}</label><input class="gender0" type="radio" name="pgender" value="0" required>
                         <label>{{ _('female') }}</label><input class="gender1" type="radio" name="pgender" value="1">
                     </div>
 
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Name') }}</label>
-                        <input type="text" name="petname" class="form-control petname" placeholder="{{ _('Name') }}">
+                        <input type="text" name="petname" class="form-control petname" placeholder="{{ _('Name') }}" required>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Birthday') }}</label>
-                        <input type="text" id="birthday" name="birthday" class="form-control pbir" placeholder="Date">
+                        <input type="text" id="birthday" name="birthday" class="form-control pbir" placeholder="Date" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" name='close' class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}

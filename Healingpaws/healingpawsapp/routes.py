@@ -47,7 +47,7 @@ def set_locale(locale):
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('customer_mainpage.html')
+    return render_template('base.html')
 
 
 @app.route('/manage', methods=['GET', 'POST'])
@@ -91,7 +91,7 @@ def logout():
     if r:
         session.pop('CUSID')
         flash(_('Success'))
-    return redirect(url_for('employee_login'))
+    return redirect(url_for('home'))
 
 
 @app.route('/employee_login', methods=['GET', 'POST'])
@@ -421,7 +421,7 @@ def customer_question():
             cusid = int(session.get('CUSID')[:-3])
             data = Question.query.filter(Question.cus_id == cusid and Question.que_status == '0').all()
             question = Question.query.all()
-            flash('nothing over here')
+            # flash('nothing over here')
             customer = Customer.query.filter(Customer.cus_id == cusid).first()
             return render_template('customer_question.html', title='Question', questionlist=data, question=question,username=customer.cus_username)
 
@@ -455,6 +455,7 @@ def customer_question():
 def detail(que_id):
     if request.method == 'GET':
         if session.get('CUSID'):
+            Username = Customer.query.filter(Customer.cus_id == int(session.get('CUSID')[:-3])).first()
             question = Question.query.filter(Question.que_id == que_id).first()
             answer = Answer.query.filter(Answer.que_id == que_id).all()
             customer = Customer.query.filter(Customer.cus_id == question.cus_id).first()
@@ -465,7 +466,7 @@ def detail(que_id):
                     if e.emp_id == a.emp_id:
                         employee_name[a.emp_id] = e.emp_username
             return render_template('question_detail.html', title='Detail', customer=customer, detail=question,
-                                   answer=answer, employee=employee_name,username = customer.cus_username)
+                                   answer=answer, employee=employee_name,username = customer.cus_username,Username=Username.cus_username)
         else:
             flash('Please login first')
             return redirect(url_for('customer_login'))

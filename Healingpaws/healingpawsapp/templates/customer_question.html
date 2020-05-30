@@ -106,7 +106,7 @@
                 {% for q in question %}
                 <li>
                     <div class="avatar-group">
-                        <img src="images/1110055.png" alt="" class="avatar">
+                        <img src="../static/images/1110055.png" alt="" class="avatar" height="32">
                     </div>
                     <div class="question-group">
                         <p class="question-title"><a href="customer_question/{{q.que_id}}">{{ q.que_title }}>{{ q.title }}</a></p>
@@ -127,7 +127,7 @@
                     {% if question.que_status == '0' %}
                 <li>
                     <div class="avatar-group">
-                        <img src="images/1110055.png" alt="" class="avatar">
+                        <img src="../static/images/1110055.png" alt="" class="avatar" height="32">
                     </div>
                     <div class="question-group">
                         <p class="question-title" ><a href="customer_question/{{question.que_id}}">{{ question.que_title }}>{{ question.title }}</a></p>
