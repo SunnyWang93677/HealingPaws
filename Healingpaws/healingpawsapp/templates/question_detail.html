@@ -27,7 +27,7 @@
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
             background-size: 110%;
-            padding-top: 50px;
+            {#padding-top: 50px;#}
         }
         h1{
             color: black;
@@ -64,7 +64,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ username }}</a>
+                            <a class="nav-link" href="#">{{ Username }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href={{ url_for('logout') }}>{{ _('log out') }}</a>
@@ -89,7 +89,7 @@
 {% endfor %}
 {% block content %}{% endblock %}
 
-<div class="main">
+<div class="main" style="margin-left: 150px;margin-right: 150px;margin-top: 50px">
     <p class="question-info">
 
         <span>{{ _('author：') }} {{customer.cus_username}} </span><br>
@@ -113,7 +113,7 @@
         {% for a in answer %}
             <li>
                 <div class="user-info">
-                    <img src="../static/images/1110055.png" alt="" class="avatar">
+                    <img src="../static/images/1110055.png" alt="" class="avatar" height="32">
                     <span class="username"> {{ employee[a.emp_id] }} </span>
                     <span class="create-time"> {{ a.answer_time }} </span>
                 </div>
