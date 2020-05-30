@@ -88,7 +88,7 @@
         <a  class="form-group" style="text-align: right">
             <button type="submit" class="btn btn-primary">{{ _('comment') }}</button>
         </a>
-        <a href="{{ url_for('employee_qa') }}"> <button type="submit" class="btn btn-primary" style="margin-left: 250px">{{ _('back') }}</button></a>
+        <a href="{{ url_for('employee_qa') }}"> <button class="btn btn-primary" style="margin-left: 250px">{{ _('back') }}</button></a>
     </form>
     <ul class="answer-list">
         {% for a in answer %}
