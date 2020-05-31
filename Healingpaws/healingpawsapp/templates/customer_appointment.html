@@ -135,6 +135,7 @@
             </thead>
             <tbody id="show_tbody">
             {% for a in appointment%}
+                {% if a.status != '5' %}
             <tr>
                 <td class='text-center pid'hidden="hidden" name="app_id" value= {{ a.app_id }}>
                 <td class="text-center">{{appointment_pet[a.pet_id]}}</td>
@@ -145,7 +146,6 @@
                 <td class="text-center">{{a.surgery_time}}</td>
                 <td class="text-center">{{ {'0':'beijing','1':'shanghai','2':'chengdu'}[a.place] }}</td>
                 <td>
-
                     <button name="modify_appointment" onclick="window.b=this;console.log(window.b);preparewindow();" value="1" type="button" class="btn btn-success offset-1" data-toggle="modal" data-target="#Petinfo2">{{ _('Modify') }}</button>
 
                     <form method="post" class="form-inline">
@@ -154,6 +154,7 @@
                     </form>
                 </td>
             </tr>
+                {% endif %}
             {%endfor%}
             </tbody>
         </table>
