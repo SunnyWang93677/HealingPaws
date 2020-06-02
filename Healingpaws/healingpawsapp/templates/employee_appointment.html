@@ -290,15 +290,15 @@
                         </select>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[treatment]') }}</label>
-                        <input id='treatment_time' name='treatment_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='treatment_time' name='treatment_time' type="date" class="form-control treatment_time define_selectdt" min="" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[surgery]') }}</label>
-                        <input id='surgery_time' name='surgery_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='surgery_time' name='surgery_time' type="date" class="form-control treatment_time define_selectdt" min="" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[release]') }}</label>
-                        <input id='release_time' name='release_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='release_time' name='release_time' type="date" class="form-control treatment_time define_selectdt" min="" placeholder="{{ _('Date') }}">
                     </div>
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
                 </button>
@@ -336,6 +336,15 @@
 </div>
 <script language="javascript" type="text/javascript">
 
+</script>
+<script>
+    $(function(){
+	var date_now = new Date();
+	var year = date_now.getFullYear();
+	var month = date_now.getMonth()+1 < 10 ? "0"+(date_now.getMonth()+1) : (date_now.getMonth()+1);
+	var date = date_now.getDate() < 10 ? "0"+date_now.getDate() : date_now.getDate();
+	$("#birthday").attr("min",year+"-"+month+"-"+date);
+})
 </script>
 <script src="{{ url_for('static', filename='/js/vendor/mejs.js') }}"></script>
     <script src="/static/js/vendor/jquery.min.js"></script>
