@@ -26,16 +26,24 @@ def hello_world():
     return '你好 世界！'
 app.add_template_global(hello_world,'hello_world')
 
+
+# @babel.localeselector
+# def get_locale():
+#     locale = request.cookies.get('locale')
+#     if locale is not None:
+#         return locale
+#     return 'en_US'
 @babel.localeselector
 def get_locale():
     return session.get('lang', 'en_US')
-
-
 @app.route('/set-locale/<locale>')
 def set_locale(locale):
-    print(request.path)
     session['lang'] = locale
     return render_template('base.html')
+# def set_locale(locale):
+#     response = make_response(jsonify(message=_('Setting updated.')))
+#     response.set_cookie('locale', locale, max_age=60 * 60 * 24 * 30)
+#     return response
 
 # @app.route('/Set-locale/<locale>')
 # def set_locale(locale):

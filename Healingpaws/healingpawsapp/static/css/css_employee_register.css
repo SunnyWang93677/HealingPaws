@@ -200,13 +200,13 @@
             border-radius: 6px;
             height: 46px;
         }
-        .register-btn{
+        .e_register-btn{
             background: #ff8140;
             color: #fff;
             border-radius:44px;
 
         }
-        .register-btn:hover{
+        .e_register-btn:hover{
             transform:scale(0.85);
         }
         .container1 a{
