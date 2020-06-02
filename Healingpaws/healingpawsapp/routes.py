@@ -60,7 +60,7 @@ def home():
 
 @app.route('/manage', methods=['GET', 'POST'])
 def b_employee():
-    employee = Employee.query.filter(Employee.email == 'boss@163.com' and Employee.employee_pass == '1').first()
+    employee = Employee.query.filter(and_(Employee.email == 'boss@163.com', Employee.employee_pass == '1')).first()
     if session.get('EMPID') is not None:
         if session.get('EMPID') == employee.emp_id:
             return render_template('b.html')
@@ -85,7 +85,7 @@ def b_employee1():
 
 @app.route('/boss_main')
 def boss_main():
-    employee = Employee.query.filter(Employee.email == 'boss@163.com' and Employee.employee_pass == '1').first()
+    employee = Employee.query.filter(and_(Employee.email == 'boss@163.com', Employee.employee_pass == '1')).first()
     if session.get('EMPID') is not None:
         if session.get('EMPID') == employee.emp_id:
             return render_template('b_main.html')
@@ -109,7 +109,7 @@ def employee_login():
     else:
         email = request.form.get('email')
         password = request.form.get('password')
-        employee = Employee.query.filter(Employee.email == email and Employee.employee_pass == '1').first()
+        employee = Employee.query.filter(and_(Employee.email == email, Employee.employee_pass == '1')).first()
         if employee:
             if str(aes_encrypt.decrypt(employee.emp_password_hash))[2:-1] == password:
                 session['EMPID'] = employee.emp_id
@@ -296,7 +296,7 @@ def employee_appointment():
 
 @app.route('/announcement', methods=['GET','POST'])
 def announcement():
-    employee = Employee.query.filter(Employee.email == 'boss@163.com' and Employee.employee_pass == '1').first()
+    employee = Employee.query.filter(and_(Employee.email == 'boss@163.com', Employee.employee_pass == '1')).first()
     if request.method == 'GET':
         if session.get('EMPID') is not None:
             if session.get('EMPID') == employee.emp_id:
@@ -427,7 +427,7 @@ def customer_question():
     if request.method == 'GET':
         if session.get('CUSID'):
             cusid = int(session.get('CUSID')[:-3])
-            data = Question.query.filter(Question.cus_id == cusid and Question.que_status == '0').all()
+            data = Question.query.filter(and_(Question.cus_id == cusid, Question.que_status == '0')).all()
             question = Question.query.all()
             # flash('nothing over here')
             customer = Customer.query.filter(Customer.cus_id == cusid).first()
