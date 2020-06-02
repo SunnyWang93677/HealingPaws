@@ -72,13 +72,11 @@
     <p class="question-info">
         <div class="user-info">
                 <img src="images/1110055.png" alt="" class="avatar">
-                <span class="username"> {{ customer.cus_username }} </span>
-                <span class="create-time"> {{ detail.que_time }} </span>
+                <span class="username"> User Name:{{ customer.cus_username }} </span>
+                <span class="create-time"> Publish Time:{{ detail.que_time }} </span>
+                <span class="create-time"> Question Detail:{{ detail.question }} </span>
             </div>
     </p>
-    <hr/>
-    <p class="question-content"> what is the difference between the two appointments? </p>
-    <hr/>
     <h4>Discussion：（2）</h4>
     <form action="#" method="post">
         <div class="form-group">
@@ -90,6 +88,7 @@
         </a>
         <a href="{{ url_for('employee_qa') }}"> <button class="btn btn-primary" style="margin-left: 250px">{{ _('back') }}</button></a>
     </form>
+    <h4> Content:</h4>>
     <ul class="answer-list">
         {% for a in answer %}
             <li>
