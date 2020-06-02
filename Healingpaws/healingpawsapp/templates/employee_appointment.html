@@ -218,12 +218,12 @@
             <tr>
 {#                <td>{{ hello_world() }}</td>#}
                 <td hidden="hidden" class="ena">{{a.app_id}}</td>
-                <td>{{a.place}}</td>
+                <td>{{{'0':'Beijing','1':'Shanghai','2':'Chenngdu'}[a.place]}}</td>
                 <td>{{customer[a.cus_id].cus_real_name}}</td>
                 <td>{{customer[a.cus_id].phone}}</td>
-                <td>{{pet_name_list[a.pet_id].pet_type }}({{ pet_name_list[a.pet_id].pet_gneger }})&{{ pet_name_list[a.pet_id].pet_birth }}</td>
+                <td>{{ {'0':'Dog','1':'Cat'}[pet_name_list[a.pet_id].pet_type] }}({{ {'0':'mail','1':'female'}[pet_name_list[a.pet_id].pet_gneger] }})&{{ pet_name_list[a.pet_id].pet_birth }}</td>
                 <td>{{a.description}}</td>
-                <td>{{a.type}}</td>
+                <td>{{ {'0':'waiting', '1':'treatment', '2':'surgery', '3':'release', '4':'finish','5':'cancel'}[a.type]}}</td>
                 <td>{{a.treatment_time}}</td>
                 <td>{{a.sergery_time}}</td>
                 <td>{{a.release_time}}</td>
@@ -290,15 +290,15 @@
                         </select>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[treatment]') }}</label>
-                        <input id='treatment_time' name='treatment_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='treatment_time' name='treatment_time1' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[surgery]') }}</label>
-                        <input id='surgery_time' name='surgery_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='surgery_time' name='surgery_time1' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[release]') }}</label>
-                        <input id='release_time' name='release_time' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='release_time' name='release_time1' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
                     </div>
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
                 </button>

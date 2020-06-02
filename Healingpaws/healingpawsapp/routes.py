@@ -272,15 +272,15 @@ def employee_appointment():
             flash('Please login as Employee first')
             return redirect(url_for('employee_login'))
     else:
-        if request.form.get("add_appointment") == "1":
+        if request.form.get("update_appointment") == "1":
             app_id=request.form.get('pid')
             status = request.form.get('place')
-            treatment_time = request.form.get('treatment_time')
-            surgery_time = request.form.get('surgery_time')
-            release_time = request.form.get('release_time')
+            treatment_time = request.form.get('treatment_time1')
+            surgery_time = request.form.get('surgery_time1')
+            release_time = request.form.get('release_time1')
 
-            Appointment.query.filter(app_id).update(
-                {'status': status, 'treatment_time': treatment_time, 'surgery_time': surgery_time, 'release_time': release_time})
+            Appointment.query.filter(Appointment.app_id == app_id).update(
+                {'status': status, 'treatment_time': treatment_time, 'sergery_time': surgery_time, 'release_time': release_time})
             db.session.commit()
             flash(_("edit success"))
             return redirect(url_for('employee_appointment'))
