@@ -1,126 +1,123 @@
-function getCode(){
-                varRand = parseInt(Math.random()*9000+1000);
-                $("#spanCodeId").html(varRand);
-            }
+function nameTest(obj){
+    var myreg = /^[A-Za-z]{1,8}$/;
+    if(myreg.test(obj))
+    {
+        alert('Your username is ' + obj + '.');
+        return true
+    }else if(obj.length == 0){
+        alert('Username cannot be empty.');
+        return false
+    }else{
+        alert('Only enter English characters between one and eight characters.');
+        document.getElementById("username").value = "";
+        return false
+    }
+}
+function nameTest2(obj){
+    var myreg = /^[A-Za-z]{3,10}$/;
+    if(myreg.test(obj))
+    {
+        alert('Your realname is ' + obj + '.');
+        return true
+    }else if(obj.length == 0){
+        alert('Real name cannot be empty.');
+        return false
+    }else{
+        alert('Only enter English characters between three and ten characters.');
+         document.getElementById("realname").value = "";
+        return false
+    }
+}
+function Tel(mobile) {
+    if(mobile.length == 0) {
+        alert('The phone number cannot be empty.');
+        document.getElementById("telphone").value = "";
+        return false
+    }
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+    if(!myreg.test(mobile))
+    {
+        alert('Please enter a valid cell phone number!');
+        document.getElementById("telphone").value = "";
+        return false
+    }else{
+        alert('Your Telphone is' + mobile+'.');
+        return true
+    }
 
-            var varRand = 0;
-
-            var varPwd;
-            $(function(){
-                getCode();
-            })
-            function unameTest(){
-
-                var varUname = $("#username").val();
-
-                var varReg = /^[\u4e00-\u9fa5]{1,8}$/;
-                if(varUname.length == 0){
-
-                    $("#spanUnameId").html("<span style='color: red;font-size: 18px;margin-left: 530px'>× username cannot be empty</span>");
-                    return false;
-                }else{
-                    $("#spanUnameId").html("<span style='color: green;font-size: 18px;margin-left: 530px'>√</span>");
-                    return true&&unameTest();
-                }
-
-            }
-            function unameTest2(){
-
-                var varUname = $("#realname").val();
-
-                var varReg = /^[\u4e00-\u9fa5]{1,16}$/;
-                if(varUname.length == 0){
-
-                    $("#spanUnameId2").html("<span style='color: red;font-size: 18px;margin-left: 530px;'>× real name cannot be empty</span>");
-                    return false;
-                }else {
-                    $("#spanUnameId2").html("<span style='color: green;font-size: 18px;margin-left: 530px'>√</span>");
-                    return true&&unameTest2();
-                }
-
-            }
-            function unameTel(){
-
-                var varUname = $("#telphone").val();
-
-
-                if(varUname.length == 0){
-
-                    $("#spanTel").html("<span style='color: red;font-size: 18px;margin-left: 530px;'>× TEL cannot be empty</span>");
-                    return false;
-                }else {
-                    $("#spanTel").html("<span style='color: green;font-size: 18px;margin-left: 530px;'>√</span>");
-                    return true;
-                }
-
-            }
-
-
-            function pwdTest(){
-
-                varPwd = $("#pwdId").val();
-
-                var varReg = /^[A-Za-z0-9]{4,40}$/;
-                if(varPwd.length == 0){
-
-                    $("#spanPwdId").html("<span style='color: red;font-size: 18px;margin-left: 530px'>× password cannot be empty</span>");
-                    return false;
-                }else if(varReg.test(varPwd)){
-                    $("#spanPwdId").html("<span style='color: green;font-size: 18px;margin-left: 530px'>√</span>");
-                    return true&&pwdTest2();
-                }else{
-                    $("#spanPwdId").html("<span style='color: #1159dd;font-size: 18px;margin-left: 530px'> Password must be a combination of 4-40 numbers and letters</span>");
-                    return false;
-                }
-            }
-
-            function pwdTest2(){
-
-                var varPwd2 = $("#pwdId2").val();
-                if(varPwd2.length == 0){
-
-                    $("#spanPwdId2").html("<span style='color: red;font-size: 18px;margin-left: 530px'>× password cannot be empty</span>");
-                    return false;
-                }else if(varPwd2 === varPwd){
-                    $("#spanPwdId2").html("<span style='color: green;font-size: 18px;margin-left: 530px'>√</span>");
-                    return true;
-                }else{
-                    $("#spanPwdId2").html("<span style='color: red;font-size: 18px;margin-left: 530px'>×  Password input error</span>");
-                    return false;
-                }
-            }
-            function emails() {
-                varSemail = $("#useremail").val();
-
-                var varRegE =  /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-                if(varSemail.length == 0){
-
-                    $("#spanEmailSId").html("<span style='color: red;font-size: 18px;margin-left: 530px'>× email cannot be empty</span>");
-                    return false;
-                }else if(varRegE.test(varSemail)){
-                    $("#spanEmailSId").html("<span style='color: green;font-size: 18px;margin-left: 530px'>√</span>");
-                }else{
-                    $("#spanEmailSId").html("<span style='color: #205ddd;font-size: 18px;margin-left: 530px'> format error</span>");
-                    return false;
-                }
-            }
-            function emailb() {
-                varBemail = $("#bossemail").val();
-
-                var varRegB = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-                if(varBemail.length == 0){
-
-                    $("#spanEmailBId").html("<span style='color: red;font-size: 18px;margin-left: 530px'>× email cannot be empty</span>");
-                    return false;
-                }else if(varRegB.test(varBemail)){
-                    $("#spanEmailBId").html("<span style='color: green;font-size: 18px;margin-left: 530px'>√</span>");
-                }else{
-                    $("#spanEmailBId").html("<span style='color: #3151dd;font-size: 18px;margin-left: 530px'> format error</span>");
-                    return false;
-                }
-            }
-            $(document).ready(function(){
-              $("form").submit(function(){
-                alert("sumbit");
-              });
-            });
+}
+function emails(obj){
+    var myreg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    if(myreg.test(obj))
+    {
+        alert('Your email is ' + obj + '.');
+        return true
+    }else if(obj.length == 0){
+        alert('Input information cannot be empty.');
+        return false
+    }
+    else{
+        alert('Incorrect email format.');
+        document.getElementById("useremail").value = "";
+        return false
+    }
+}
+function pwdTest(pwd){
+    var reg = /^[A-Za-z0-9]{4,40}$/;
+    if(pwd.length == 0){
+        alert('Password cannot be empty.');
+        return false
+    }else if(reg.test(pwd)){
+        alert('Password set successfully.');
+        return true
+    }else {
+        alert('Password must be a combination of 4-40 numbers and letters.');
+        document.getElementById("pwd").value = "";
+        return false
+    }
+}
+function pwdTest2(pwd2){
+    varPwd = $("#pwd").val();
+    if(pwd2.length == 0){
+        alert('Password cannot be empty.');
+        return false
+    }else if(pwd2 == varPwd){
+        alert('Password consistency.');
+        return true
+    }else if(pwd2 != varPwd){
+        alert('Password inconsistency.');
+        document.getElementById("pwd2").value = "";
+        return false
+    }
+    else{
+        alert('Password must be a combination of 4-40 numbers and letters.');
+        document.getElementById("pwd2").value = "";
+        return false
+    }
+}
+function emailb(obj){
+    var myreg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    var bossemail = 'boss@163.com';
+    if(obj == bossemail)
+    {
+        alert('Correct information.');
+        return true
+    }else if(obj.length == 0){
+        alert('Input information cannot be empty.');
+        return false
+    }
+    else{
+        alert('Failure to certify information.');
+        document.getElementById("bossemail").value = "";
+        return false
+    }
+}
+function pets(pet) {
+    if(pet.length == 0){
+        alert('Input information cannot be empty.');
+        return false
+    }else{
+        alert('Your enter is '+pet +'.');
+        return true
+    }
+}
