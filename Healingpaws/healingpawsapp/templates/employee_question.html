@@ -35,10 +35,9 @@
 </head>
 <body>
 <!-- LOAD PAGE -->
-<div class="animationload">
+ <div class="animationload">
     <div class="loader"></div>
 </div>
-<!-- BACK TO TOP SECTION -->
 <a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
 <div class="header header-1">
     <div class="navbar-main">
@@ -51,15 +50,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
-                <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+                <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
+                <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+
+
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ _('employee') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ url_for('logout') }}>{{ _('log out') }}</a>
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -69,6 +72,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="container">
     <h3>{{ _('Questions & Answers') }}</h3>

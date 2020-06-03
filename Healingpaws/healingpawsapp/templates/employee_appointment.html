@@ -41,10 +41,9 @@
 </head>
 <body>
 <!-- LOAD PAGE -->
-<div class="animationload">
+ <div class="animationload">
     <div class="loader"></div>
 </div>
-<!-- BACK TO TOP SECTION -->
 <a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
 <div class="header header-1">
     <div class="navbar-main">
@@ -57,15 +56,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
-                <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+                <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
+                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
+                <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
+
+
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ _('employee') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ url_for('logout') }}>{{ _('log out') }}</a>
+                            <a class="nav-link" href="#">{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -75,6 +78,7 @@
         </div>
     </div>
 </div>
+
 <div class="box">
     <div class="title">{{ _('appointment') }}</div>
     <div class="content" >
@@ -109,22 +113,22 @@
                     <button class="btn btn-primary search_btn" type="button" id="search_btn">{{ _('inquiry') }}</button>
                     <button class="btn btn-primary search_btn" type="button" id="back_btn">{{ _('resetting') }} </button>
                 </div>
-                <select name="" id="exit" style="width: 100px" class="select">
-                            <option value="all">{{ _('all') }}</option>
-                            <option value="waiting">{{ _('waiting') }}</option>
-                            <option value="treatment">{{ _('treatment') }}</option>
-                            <option value="surgery">{{ _('surgery') }}</option>
-                            <option value="release">{{ _('release') }}</option>
-                        </select>
+{#                <select name="" id="exit" style="width: 100px" class="select">#}
+{#                            <option value="all">{{ _('all') }}</option>#}
+{#                            <option value="waiting">{{ _('waiting') }}</option>#}
+{#                            <option value="treatment">{{ _('treatment') }}</option>#}
+{#                            <option value="surgery">{{ _('surgery') }}</option>#}
+{#                            <option value="release">{{ _('release') }}</option>#}
+{#                        </select>#}
             </div>
             <div class="line"></div>
         </div>
 
         <div class="export">
-            <button id="new_add" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#renyuan">
-                <img src="../static/pic/add_two.png"/>
-                <span>{{ _('ADD') }}</span>
-            </button>
+{#            <button id="new_add" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#renyuan">#}
+{#                <img src="../static/pic/add_two.png"/>#}
+{#                <span>{{ _('ADD') }}</span>#}
+{#            </button>#}
             <div class="modal fade" id="renyuan">
                 <div class="modal-dialog modal-lg modal_position">
                     <div class="modal-content">
@@ -142,7 +146,7 @@
 
 
 
-                                        <td><input name="place" class="city" type="text" placeholder="{{ _('please enter your location') }}"/></td>
+                                    <td><input name="place" class="city" type="text" placeholder="{{ _('please enter your location') }}"/></td>
                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>{{ _('name') }}</label>
                                     <td><input name="pet_name" class="userName" type="text" placeholder="{{ _('please enter the name of your pets') }}"/></td>
 
@@ -182,7 +186,7 @@
                                         </td>
                                             <td><input name="sergery_time" class="jobNum" type="date" placeholder="{{ _('date of surgery') }}" /></td>
                                     <td class="tb_bg"><label for=""></font>{{ _('date[release]') }}</label></td>
-                                    <td><input name="release_time" class=date2 type="date" placeholder="{{ _('date of release') }}" /></td></tr>
+                                    <td><input name="release_time" class=date2 type="date" placeholder="{{ _('date of release') }}" min=""/></td></tr>
                                 </tbody>
                             </table>
 
@@ -290,15 +294,15 @@
                         </select>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[treatment]') }}</label>
-                        <input id='treatment_time' name='treatment_time1' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='treatment_time' name='treatment_time1' type="date" class="form-control treatment_time define_selectdt"  min="" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[surgery]') }}</label>
-                        <input id='surgery_time' name='surgery_time1' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='surgery_time' name='surgery_time1' type="date" class="form-control treatment_time define_selectdt"  min="" placeholder="{{ _('Date') }}">
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('date[release]') }}</label>
-                        <input id='release_time' name='release_time1' type="date" class="form-control treatment_time define_selectdt" placeholder="{{ _('Date') }}">
+                        <input id='release_time' name='release_time1' type="date" class="form-control treatment_time define_selectdt"  min="" placeholder="{{ _('Date') }}">
                     </div>
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
                 </button>
@@ -337,16 +341,28 @@
 <script language="javascript" type="text/javascript">
 
 </script>
+<script>
+    $(function(){
+	var date_now = new Date();
+	var year = date_now.getFullYear();
+	var month = date_now.getMonth()+1 < 10 ? "0"+(date_now.getMonth()+1) : (date_now.getMonth()+1);
+	var date = date_now.getDate() < 10 ? "0"+date_now.getDate() : date_now.getDate();
+	$("#treatment_time").attr("min",year+"-"+month+"-"+date);
+	$("#surgery_time").attr("min",year+"-"+month+"-"+date);
+	$("#release_time").attr("min",year+"-"+month+"-"+date);
+    })
+</script>
+
 <script src="{{ url_for('static', filename='/js/vendor/mejs.js') }}"></script>
-    <script src="/static/js/vendor/jquery.min.js"></script>
-	<script src="/static/js/vendor/bootstrap.min.js"></script>
-	<script src="/static/js/vendor/owl.carousel.js"></script>
-	<script src="/static/js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="../static/js/vendor/jquery.min.js"></script>
+	<script src="../static/js/vendor/bootstrap.min.js"></script>
+	<script src="../static/js/vendor/owl.carousel.js"></script>
+	<script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>
 
 	<!-- SENDMAIL -->
-	<script src="/static/js/vendor/validator.min.js"></script>
-	<script src="/static/js/vendor/form-scripts.js"></script>
+	<script src="../static/js/vendor/validator.min.js"></script>
+	<script src="../static/js/vendor/form-scripts.js"></script>
 
-	<script src="/static/js/script.js"></script>
+	<script src="../static/js/script.js"></script>
 </body>
 </html>
