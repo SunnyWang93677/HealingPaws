@@ -79,35 +79,35 @@ $(document).ready(function(){
             <form action="#" method="post" id="er">
 
                  <td>
-                     <input class="text" type="text" id="username" placeholder="{{ _('Your Username') }}" value="" onblur="nameTest(this.value)"/>
+                     <input class="text" name="emp_username" type="text" id="username" placeholder="{{ _('Your Username') }}" value="" onblur="nameTest(this.value)"/>
 
                  </td>
                  <td>
-                     <input class="text" type="text" id="realname" placeholder="{{ _('Your Realname') }}" value="" onblur="nameTest2(this.value)"/>
+                     <input class="text" name="emp_real_name" type="text" id="realname" placeholder="{{ _('Your Realname') }}" value="" onblur="nameTest2(this.value)"/>
 
                  </td>
                 <td>
-                     <input class="text" type="text" id="telphone" placeholder="{{ _('Telphone Number') }}" value="" onblur="Tel(this.value)" />
+                     <input class="text" name="phone" type="text" id="telphone" placeholder="{{ _('Telphone Number') }}" value="" onblur="Tel(this.value)" />
 
                  </td>
                 <td>
-                     <input class="text" type="password" id="pwd" placeholder="{{ _('password') }}" value="" onblur="pwdTest(this.value)"/>
+                     <input class="text" name="password" type="password" id="pwd" placeholder="{{ _('password') }}" value="" onblur="pwdTest(this.value)"/>
 
                  </td>
                 <td>
-                     <input class="text" type="password" id="pwd2" placeholder="{{ _('Please confirm your password') }}" value="" onblur="pwdTest2(this.value)"/>
+                     <input class="text" name="password2" type="password" id="pwd2" placeholder="{{ _('Please confirm your password') }}" value="" onblur="pwdTest2(this.value)"/>
 
                  </td>
                 <td>
-                     <input class="text" type="text" id="useremail" placeholder="{{ _('Please enter your email address') }}" value="" onblur="emails(this.value)"/>
+                     <input class="text" name="email" type="text" id="useremail" placeholder="{{ _('Please enter your email address') }}" value="" onblur="emails(this.value)"/>
 
                  </td>
                 <td>
-                     <input class="text" type="text" id="bossemail" placeholder="{{ _('Please check your identification') }}" value="" onblur="emailb(this.value)"/>
+                     <input class="text" name="bossemail" type="text" id="bossemail" placeholder="{{ _('Please check your identification') }}" value="" onblur="emailb(this.value)"/>
 
                  </td>
                  <td>
-                     <input class="text"  type="text" id="employee_pets" placeholder="{{ _('what is your favorite pet?') }}" value="" onblur="pets(this.value)"/>
+                     <input class="text" name="pets" type="text" id="employee_pets" placeholder="{{ _('what is your favorite pet?') }}" value="" onblur="pets(this.value)"/>
                  </td>
                 <input class="e_register-btn" type="submit" value={{ _('Register') }}>
                 <a href="{{ url_for('employee_login') }}">{{ _('Go and login') }}</a>

@@ -162,7 +162,7 @@ def employee_register():
         password2 = request.form.get('password2')
         boss_email = request.form.get('bossemail')
         verified = request.form.get('pets')
-        customer = Employee.query.filter(Employee.email == email).first()
+        customer = Employee.query.filter(or_(Employee.email == email,Employee.phone == phone)).first()
         if customer:
             flash(_('This username has been registered,please login'))
             return redirect(url_for('employee_register'))
@@ -193,14 +193,15 @@ def employee_password():
         return render_template('employee_password.html')
     else:
         email = request.form.get('email')
-        pet = request.form.get('pets')
+        pet = request.form.get('text')
         password = request.form.get('password')
+        print(pet,password,email)
         employee = Employee.query.filter(Employee.email == email).first()
         if employee:
             emp_verified = str(aes_encrypt.decrypt(employee.verified_emp))[2:-1]
             password_hash = str(aes_encrypt.encrypt(password))[2:-1]
             if emp_verified == pet:
-                Employee.query.filter(email).update(
+                Employee.query.filter(Employee.email == email).update(
                     {'emp_password_hash': password_hash})
                 db.session.commit()
                 flash(_('update success'))
@@ -403,7 +404,7 @@ def customer_register():
         cus_password = request.form.get('password1')
         cus_password_2 = request.form.get('password2')
         verified = request.form.get('question')
-        customer_db = Customer.query.filter(Customer.email == email or Customer.phone == phone).first()
+        customer_db = Customer.query.filter(or_(Customer.email == email, Customer.phone == phone)).first()
         if customer_db:
             flash(_('This email or phone has been registered'))
             return redirect(url_for('customer_register'))
@@ -437,8 +438,8 @@ def customer_password():
             cus_verified = str(aes_encrypt.decrypt(customer.verified_cus))[2:-1]
             password_hash = str(aes_encrypt.encrypt(password))[2:-1]
             if cus_verified == pet:
-                Customer.query.filter(email).update(
-                    {'emp_password_hash': password_hash})
+                Customer.query.filter(Customer.email == email).update(
+                    {'cus_password_hash': password_hash})
                 db.session.commit()
                 flash(_('update success'))
                 return redirect(url_for('customer_login'))
