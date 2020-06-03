@@ -57,21 +57,31 @@ def set_locale(locale):
 def home():
     return render_template('base.html')
 
+def updateemp(name, tel, stat, email):
+    Employee.query.filter(Employee.email == email).update(
+        {'emp_username': name, 'employee_pass': '1' if stat == 'pass' else '0', 'phone': tel})
+    db.session.commit()
+
 
 @app.route('/manage', methods=['GET', 'POST'])
 def b_employee():
     employee = Employee.query.filter(and_(Employee.email == 'boss@163.com', Employee.employee_pass == '1')).first()
     if session.get('EMPID') is not None:
         if session.get('EMPID') == employee.emp_id:
-            return render_template('b.html')
+            if request.form.get('modify'):
+                f = request.form
+                updateemp(f.get('0'), f.get('1'), f.get('2'), f.get('3'))
+                flash('success')
+            return render_template('b.html',list=Employee.query.all())
         else:
+            flash('you are not allowed')
             return redirect(url_for('employee_main'))
+    else:
+        flash('please login first')
+        return redirect(url_for('employee_login'))
 
 
-def updateemp(name, tel, stat, email):
-    Employee.query.filter(Employee.email == email).update(
-        {'emp_username': name, 'employee_pass': '1' if stat == 'pass' else '0', 'phone': tel})
-    db.session.commit()
+
 
 
 @app.route('/manage1', methods=['GET', 'POST'])
@@ -88,9 +98,13 @@ def boss_main():
     employee = Employee.query.filter(and_(Employee.email == 'boss@163.com', Employee.employee_pass == '1')).first()
     if session.get('EMPID') is not None:
         if session.get('EMPID') == employee.emp_id:
-            return render_template('b_main.html')
+            return render_template('b_main.html',username=employee.emp_username)
         else:
+            flash('you are not allowed')
             return redirect(url_for('employee_main'))
+    else:
+        flash('please login first')
+        return redirect(url_for('employee_login'))
 
 
 @app.route('/logout')
@@ -182,9 +196,9 @@ def employee_password():
         pet = request.form.get('pets')
         password = request.form.get('password')
         employee = Employee.query.filter(Employee.email == email).first()
-        emp_verified = str(aes_encrypt.decrypt(employee.verified_emp))[2:-1]
-        password_hash = str(aes_encrypt.encrypt(password))[2:-1]
         if employee:
+            emp_verified = str(aes_encrypt.decrypt(employee.verified_emp))[2:-1]
+            password_hash = str(aes_encrypt.encrypt(password))[2:-1]
             if emp_verified == pet:
                 Employee.query.filter(email).update(
                     {'emp_password_hash': password_hash})
@@ -207,15 +221,22 @@ def employee():
 
 @app.route('/employee_main', methods=['GET', 'POST'])
 def employee_main():
-    return render_template('employee_main.html')
+    if session.get('EMPID'):
+        announcemnet = Annoncement.query.first()
+        employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
+        return render_template('employee_main.html',username=employee.emp_username,announcement_title=announcemnet.ann_title,announcement_connect=announcemnet.annoncement,announcement_time=announcemnet.ann_time )
+    else:
+        flash('please login first')
+        return redirect(url_for('employee_login'))
 
 
 @app.route('/employee_question', methods=['GET', 'POST'])
 def employee_qa():
     if request.method == 'GET':
         if session.get('EMPID'):
+            employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
             questions = Question.query.all()
-            return render_template('employee_question.html', questions=questions)
+            return render_template('employee_question.html', questions=questions,username=employee.emp_username)
         elif session.get('EMPID') is None:
             flash('please login first')
             return redirect(url_for('employee_login'))
@@ -232,6 +253,7 @@ def employee_qa():
 def answer_detial(que_id):
     if request.method == 'GET':
         if session.get('EMPID'):
+            employee_username = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
             question = Question.query.filter(Question.que_id == que_id).first()
             answer = Answer.query.filter(Answer.que_id == que_id).all()
             customer = Customer.query.filter(Customer.cus_id == question.cus_id).first()
@@ -242,7 +264,7 @@ def answer_detial(que_id):
                     if e.emp_id == a.emp_id:
                         employee_name[a.emp_id] = e.emp_username
             return render_template('answer_detail.html', title='Detail', detail=question, answer=answer,
-                                   employee=employee_name, customer=customer)
+                                   employee=employee_name, customer=customer,username=employee_username)
         else:
             flash('please login')
             return redirect(url_for('employee_login'))
@@ -263,6 +285,7 @@ def answer_detial(que_id):
 def employee_appointment():
     if request.method == "GET":
         if session.get('EMPID'):
+            employee_username = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
             appointment = Appointment.query.all()
             pets = Pet.query.all()
             customers = Customer.query.all()
@@ -275,7 +298,7 @@ def employee_appointment():
                 for p in pets:
                     if a.pet_id == p.pet_id:
                         pet[p.pet_id]=p
-            return render_template('employee_appointment.html', appointment=appointment,pet_name_list=pet,customer=customer)
+            return render_template('employee_appointment.html', appointment=appointment,pet_name_list=pet,customer=customer,username=employee_username)
         else:
             flash('Please login as Employee first')
             return redirect(url_for('employee_login'))
@@ -339,6 +362,7 @@ def customer_login():
                         session.permanent = True
                     else:
                         session.permanent = False
+                    flash('success')
                     return redirect(url_for('customer_mainpage'))
                 else:
                     flash('Your password is incorrect, please try again')
@@ -404,9 +428,9 @@ def customer_password():
         pet = request.form.get('answer')
         password = request.form.get('question')
         customer = Customer.query.filter(Customer.email == email).first()
-        cus_verified = str(aes_encrypt.decrypt(customer.verified_cus))[2:-1]
-        password_hash = str(aes_encrypt.encrypt(password))[2:-1]
         if employee:
+            cus_verified = str(aes_encrypt.decrypt(customer.verified_cus))[2:-1]
+            password_hash = str(aes_encrypt.encrypt(password))[2:-1]
             if cus_verified == pet:
                 Customer.query.filter(email).update(
                     {'emp_password_hash': password_hash})
@@ -602,7 +626,7 @@ def customer_appointment():
             customer=Customer.query.filter(Customer.cus_id == int(session.get('CUSID')[:-3])).first()
             appointment = Appointment.query.filter(Appointment.cus_id == int(session.get('CUSID')[:-3])).all()
             # this one is empty
-            pet = Pet.query.filter(Pet.cus_id == int(session.get('CUSID')[:-3])).all()
+            pet = Pet.query.filter(and_(Pet.cus_id == int(session.get('CUSID')[:-3]),Pet.pet_status == '0')).all()
             appointment_pet = {}
             for p in pet:
                 for a in appointment:

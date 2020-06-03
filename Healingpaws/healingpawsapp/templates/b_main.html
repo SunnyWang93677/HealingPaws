@@ -65,10 +65,10 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('boss') }}</a>
+                            <a class="nav-link" href="#">{{ username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href="{{ url_for('logout')}}">{{ _('log out') }}</a>
                         </li>
                     </ul>
 
