@@ -54,7 +54,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
+                <a href="{{ url_for('boss_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
                 <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
                 <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
@@ -69,6 +69,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}">{{ _('log out') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('log') }}</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -78,19 +81,16 @@
     </div>
 </div>
 {% for message in get_flashed_messages() %}
-    <div class="alert-warning">{{ message }}</div>
+    <div class="alert-warning" align="center">{{ message }}</div>
 {% endfor %}
 {% block content %}{% endblock %}
 
 <div class="box" style="overflow: auto">
     <div class="title">{{ _('appointment') }}</div>
-    <div class="content" >
-
+    <div class="content">
         <div class="container content_width">
             <div class="person_search">
                 <div class="search_input">
-
-
                     <div class="input-group mb-3">
                         <span>{{ _('City:') }}</span>
                         <input id="Ktext" type="text" oninput="refresh_list(this.value)" class="form-control" placeholder="{{ _('please enter your location') }}">
@@ -103,20 +103,47 @@
                                 for(var i=0;i<alllist.length;i++){
                                     tc=alllist[i].querySelector('.city');
                                     if(tc.textContent.includes(value)){
-                                        alllist[i].removeAttribute('hidden')
+                                        alllist[i].removeAttribute('hidden');
                                     }else{
-                                        alllist[i].setAttribute('hidden','hidden')
+                                        alllist[i].setAttribute('hidden','hidden');
                                     }
                                 }
                             }
                         }
                     </script>
+
                 </div>
 
             </div>
+            <div class="person_search">
+                <div class="search_input">
+                    <div class="input-group mb-3">
+                        <span>{{ _('Status:') }}</span>
+                        <input id="Ktext" type="text" oninput="refresh_list2(this.value)" class="form-control" placeholder="{{ _('please enter your status') }}">
+                    </div>
+                    <script>
+                        var alllist;
+                        function refresh_list2(value){
+                            alllist=document.querySelectorAll('.testrow');
+                            if(typeof value == "string"){
+                                for(var i=0;i<alllist.length;i++){
+                                    tc=alllist[i].querySelector('.status');
+                                    if(tc.textContent.includes(value)){
+                                        alllist[i].removeAttribute('hidden');
+                                    }else{
+                                        alllist[i].setAttribute('hidden','hidden');
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+
+                </div>
+
+            </div>
+
             <div class="line"></div>
         </div>
-
 
         <table id="tb" class="table">
             <thead>
@@ -126,11 +153,12 @@
                 <th>{{ _('tel') }}</th>
                 <th>{{ _('type & birth') }}</th>
                 <th>{{ _('another information') }}</th>
-                <th> {{ _('treatment type') }} </th>
-                <th> {{ _('date[treatment]') }}</th>
+                <th>{{ _('treatment type') }} </th>
+                <th>{{ _('treatment status') }} </th>
+                <th>{{ _('date[treatment]') }}</th>
                 <th>{{ _('date[surgery]') }}</th>
                 <th>{{ _('date[release]') }}</th>
-                <th>{{ _('status') }}</th>
+{#                <th>{{ _('status') }}</th>#}
                 <th>{{ _('edit') }}</th>
             </tr>
             </thead>
@@ -144,17 +172,15 @@
                 <td>{{customer[a.cus_id].phone}}</td>
                 <td>{{ {'0':'Dog','1':'Cat'}[pet_name_list[a.pet_id].pet_type] }}({{ {'0':'mail','1':'female'}[pet_name_list[a.pet_id].pet_gneger] }})&{{ pet_name_list[a.pet_id].pet_birth }}</td>
                 <td>{{a.description}}</td>
-                <td>{{{'0':'waiting', '1':'treatment', '2':'surgery', '3':'release', '4':'finish','5':'cancel'}[a.type]}}</td>
+                <td class="type">{{{'0':'waiting', '1':'treatment', '2':'surgery', '3':'release', '4':'finish','5':'cancel'}[a.status]}}</td>
+                <td class="status">{{{'1':'urgent', '0':'standard'}[a.type]}}</td>
                 <td>{{a.treatment_time}}</td>
                 <td>{{a.sergery_time}}</td>
                 <td>{{a.release_time}}</td>
-                <td>{{a.status}}</td>
+{#                <td>{{a.status}}</td>#}
                 <td>
                     <button name="modify_appointment" onclick="window.b=this;preparewindow()" data-toggle="modal" data-target="#Petinfo2" class="edit">edit</button>
                 </td>
-{#                    <td>#}
-{#                    <a class="edit">edit</a>#}
-{#                </td>#}
             </tr>
                 {% endif %}
             {% endfor %}
@@ -164,25 +190,25 @@
 </div>
 <script>
     function preparewindow() {
-        console.log(window.b)
-        console.log('here~~~~~~~~~~~~')
+        console.log(window.b);
+        console.log('here~~~~~~~~~~~~');
 
-        app_id=window.b.parentNode.parentNode.children[0].textContent
-        status=window.b.parentNode.parentNode.children[10].textContent
-        treatment_date=window.b.parentNode.parentNode.children[7].textContent
-        date_surgery=window.b.parentNode.parentNode.children[8].textContent
-        date_release=window.b.parentNode.parentNode.children[9].textContent
-        arr=document.querySelectorAll('#Petinfo2 .sel122')
+        app_id=window.b.parentNode.parentNode.children[0].textContent;
+        status=window.b.parentNode.parentNode.children[10].textContent;
+        treatment_date=window.b.parentNode.parentNode.children[7].textContent;
+        date_surgery=window.b.parentNode.parentNode.children[8].textContent;
+        date_release=window.b.parentNode.parentNode.children[9].textContent;
+        arr=document.querySelectorAll('#Petinfo2 .sel122');
 		for(var i=0;i<arr.length;i++){
-			arr[i].removeAttribute('checked')
-			arr[i].removeAttribute('selected')
+			arr[i].removeAttribute('checked');
+			arr[i].removeAttribute('selected');
 		}
-        console.debug(app_id,status,treatment_date,date_surgery,date_release)
-        document.querySelector('#Petinfo2 #app_id').setAttribute('value',app_id)
-        document.querySelector('#Petinfo2 .define_select'+status).setAttribute('selected','selected')
-        document.querySelector('#Petinfo2 #treatment_time').setAttribute('value',treatment_date)
-        document.querySelector('#Petinfo2 #surgery_time').setAttribute('value',date_surgery)
-        document.querySelector('#Petinfo2 #release_time').setAttribute('value',date_release)
+        console.debug(app_id,status,treatment_date,date_surgery,date_release);
+        document.querySelector('#Petinfo2 #app_id').setAttribute('value',app_id);
+        document.querySelector('#Petinfo2 .define_select'+status).setAttribute('selected','selected');
+        document.querySelector('#Petinfo2 #treatment_time').setAttribute('value',treatment_date);
+        document.querySelector('#Petinfo2 #surgery_time').setAttribute('value',date_surgery);
+        document.querySelector('#Petinfo2 #release_time').setAttribute('value',date_release);
     }
 </script>
 <div class="modal fade" id="Petinfo2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

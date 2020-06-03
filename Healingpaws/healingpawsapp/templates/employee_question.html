@@ -72,7 +72,10 @@
         </div>
     </div>
 </div>
-
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning" align="center">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 
 <div class="container">
     <h3>{{ _('Questions & Answers') }}</h3>

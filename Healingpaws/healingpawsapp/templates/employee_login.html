@@ -22,6 +22,10 @@
 
 
 <body>
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning" align="center">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 <!-- LOAD PAGE -->
 	<div class="animationload">
 		<div class="loader"></div>
@@ -44,7 +48,7 @@
 			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
 			            <ul class="navbar-nav">
                             <li class="nav-item">
-			                    <a class="nav-link" href="{{ url_for('employee_main') }}">{{ _('HOME') }}</a>
+			                    <a class="nav-link" href="{{ url_for('home') }}">{{ _('HOME') }}</a>
 			                </li>
 			                <li class="nav-item">
 			                    <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('LOGIN') }}</a>

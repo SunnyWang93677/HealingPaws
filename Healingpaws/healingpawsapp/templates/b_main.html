@@ -55,7 +55,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
+                <a href="{{ url_for('boss_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
                 <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
                 <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
@@ -69,6 +69,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout')}}">{{ _('log out') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('log') }}</a>
                         </li>
                     </ul>
 
