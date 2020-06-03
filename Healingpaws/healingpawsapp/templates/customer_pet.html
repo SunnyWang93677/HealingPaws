@@ -30,6 +30,17 @@
             $( "#birthday" ).datepicker({ maxDate: 0 });
     });
     </script>
+{#    <script>#}
+{#    $(function(){#}
+{#	var date_now = new Date();#}
+{#	var year = date_now.getFullYear();#}
+{#	var month = date_now.getMonth()+1 < 10 ? "0"+(date_now.getMonth()+1) : (date_now.getMonth()+1);#}
+{#	var date = date_now.getDate() < 10 ? "0"+date_now.getDate() : date_now.getDate();#}
+{#	$("#treatment_time").attr("min",year+"-"+month+"-"+date);#}
+{#	$("#surgery_time").attr("min",year+"-"+month+"-"+date);#}
+{#	$("#release_time").attr("min",year+"-"+month+"-"+date);#}
+{#    })#}
+{#    </script>#}
     <style>
         body{
             /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
