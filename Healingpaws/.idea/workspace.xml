@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d367c19-1919-4c89-995c-857ac3fb6a68" name="Default Changelist" comment="">
+    <list default="true" id="e1e6f71e-03a8-4e49-bc2d-51afd652164a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/announcement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer_appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_appointment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer_pet.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_pet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/question_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/question_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,83 +15,89 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1cncG3QBV0JV3MuvYPb93XeQLYr" />
+  <component name="ProjectId" id="1cnlnPOgQ46X40zhsK7YNXn2n6v" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="hello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Flask (hello.py)" type="Python.FlaskServer" nameIsGenerated="true">
       <module name="Healingpaws" />
+      <option name="target" value="$PROJECT_DIR$/hello.py" />
+      <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hello.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.hello" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9d367c19-1919-4c89-995c-857ac3fb6a68" name="Default Changelist" comment="" />
-      <created>1591167698768</created>
+      <changelist id="e1e6f71e-03a8-4e49-bc2d-51afd652164a" name="Default Changelist" comment="" />
+      <created>1591172404046</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591167698768</updated>
-      <workItem from="1591167700077" duration="2000" />
-      <workItem from="1591175636502" duration="7679000" />
-      <workItem from="1591183637524" duration="403000" />
+      <updated>1591172404046</updated>
+      <workItem from="1591172405165" duration="7588000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1490" height="2" key="GridCell.Tab.0.bottom" timestamp="1591183500827">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="184" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591172444274">
+      <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1490" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591183500827" />
-    <state width="1490" height="2" key="GridCell.Tab.0.center" timestamp="1591183500827">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="184" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.826@0.23.1440.826" timestamp="1591172444274" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom" timestamp="1591182226321">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state width="1490" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591183500827" />
-    <state width="1490" height="2" key="GridCell.Tab.0.left" timestamp="1591183500827">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.23.1440.825@0.23.1440.825" timestamp="1591172589520" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1591173333067" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1591179065182" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1591182039525" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1591182226321" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center" timestamp="1591182226320">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state width="1490" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591183500827" />
-    <state width="1490" height="2" key="GridCell.Tab.0.right" timestamp="1591183500827">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.23.1440.825@0.23.1440.825" timestamp="1591172589519" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1591173333066" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1591179065181" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1591182039524" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1591182226320" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left" timestamp="1591182226319">
+      <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state width="1490" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591183500827" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.23.1440.825@0.23.1440.825" timestamp="1591172589519" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1591173333065" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1591179065181" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1591182039524" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1591182226319" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right" timestamp="1591182226320">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.23.1440.825@0.23.1440.825" timestamp="1591172589520" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.23.1440.830@0.23.1440.830" timestamp="1591173333066" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1591179065181" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1591182039525" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1591182226320" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Healingpaws$hello.coverage" NAME="hello Coverage Results" MODIFIED="1591183021293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Healingpaws$Flask__hello_py_.coverage" NAME="Flask (hello.py) Coverage Results" MODIFIED="1591182226298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
