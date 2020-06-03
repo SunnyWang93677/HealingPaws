@@ -222,7 +222,7 @@ def employee():
 @app.route('/employee_main', methods=['GET', 'POST'])
 def employee_main():
     if session.get('EMPID'):
-        announcemnet = Annoncement.query.first()
+        announcemnet = Annoncement.query.order_by(Annoncement.ann_id.desc()).first()
         print(announcemnet.ann_title)
         employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
         if announcemnet:
