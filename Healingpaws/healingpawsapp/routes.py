@@ -224,7 +224,10 @@ def employee_main():
     if session.get('EMPID'):
         announcemnet = Annoncement.query.first()
         employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
-        return render_template('employee_main.html',username=employee.emp_username,announcement_title=announcemnet.ann_title,announcement_connect=announcemnet.annoncement,announcement_time=announcemnet.ann_time )
+        if announcemnet:
+            return render_template('employee_main.html',username=employee.emp_username,announcement_title=announcemnet.ann_title,announcement_connect=announcemnet.annoncement,announcement_time=announcemnet.ann_time )
+        else:
+            return render_template('employee_main.html',username=employee.emp_username )
     else:
         flash('please login first')
         return redirect(url_for('employee_login'))
@@ -332,8 +335,8 @@ def announcement():
             flash(_('Please login first'))
             return redirect(url_for('employee_login'))
     else:
-        title = request.form.get('a_title')
-        conntent = request.form.get('a_conntent')
+        title = request.form.get('title')
+        conntent = request.form.get('conntent')
         announcement = Annoncement(ann_title=title,annoncement=conntent)
         db.session.add(announcement)
         db.session.commit()
@@ -428,7 +431,7 @@ def customer_password():
         pet = request.form.get('answer')
         password = request.form.get('question')
         customer = Customer.query.filter(Customer.email == email).first()
-        if employee:
+        if customer:
             cus_verified = str(aes_encrypt.decrypt(customer.verified_cus))[2:-1]
             password_hash = str(aes_encrypt.encrypt(password))[2:-1]
             if cus_verified == pet:
