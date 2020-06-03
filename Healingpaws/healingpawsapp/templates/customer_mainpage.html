@@ -73,7 +73,10 @@
         </div>
     </div>
 </div>
-
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 <!-- BANNER -->
 	<div id="oc-fullslider" class="banner owl-carousel">
         <div class="owl-slide">

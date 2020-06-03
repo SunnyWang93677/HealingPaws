@@ -25,11 +25,11 @@
     =============================================== -->
 
     <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
-    <script>
-        $(function() {
-            $( "#birthday" ).datepicker({ maxDate: 0 });
-    });
-    </script>
+{#    <script>#}
+{#        $(function() {#}
+{#            $( "#birthday" ).datepicker({ maxDate: 0 });#}
+{#    });#}
+{#    </script>#}
 {#    <script>#}
 {#    $(function(){#}
 {#	var date_now = new Date();#}
@@ -241,7 +241,7 @@
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">{{ _('Birthday') }}</label>
-                        <input type="text" id="birthday" name="birthday" class="form-control pbir" placeholder="Date" required>
+                        <input type="date" id="birthday" name="birthday" class="form-control pbir" max="" placeholder="Date" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" name='close' class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
@@ -292,6 +292,18 @@
         </div><!-- /.modal -->
     </div>
     </div>
+<script>
+    $(function(){
+	var date_now = new Date();
+	var year = date_now.getFullYear();
+	var month = date_now.getMonth()+1 < 10 ? "0"+(date_now.getMonth()+1) : (date_now.getMonth()+1);
+	var date = date_now.getDate() < 10 ? "0"+date_now.getDate() : date_now.getDate();
+	$("#birthday").attr("max",year+"-"+month+"-"+date);
+	{#$("#surgery_time").attr("min",year+"-"+month+"-"+date);#}
+	{#$("#release_time").attr("min",year+"-"+month+"-"+date);#}
+    })
+</script>
+
     <!-- JS VENDOR -->
     <script src="../static/js/vendor/jquery.min.js"></script>
     <script src="../static/js/vendor/bootstrap.min.js"></script>

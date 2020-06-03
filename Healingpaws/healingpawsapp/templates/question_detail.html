@@ -34,6 +34,60 @@
             padding: 20px 15px;
             text-align: center;
         }
+        .main{
+            background: #fff;
+            width: 730px;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .question-info{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .answer-info{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .answer-list{
+            padding-left: 0;
+        }
+        .answer-list li{
+            list-style: none;
+            border-bottom: 1px solid #eee;
+        }
+        .avatar{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .user-info{
+            font-size: 16px;
+            color: #9b9b9b;
+            line-height: 40px;
+        }
+        .user-info .username{
+            margin-left: 15px;
+        }
+        .user-info .create-time{
+            float: right;
+        }
+        .answer-content{
+            margin-left: 60px;
+        }
+        .username{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .create-time{
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .q_details{
+            font-size: 25px;
+            font-weight: 800;
+
+        }
     </style>
 
 {#    <link rel="stylesheet" type="text/css" href="style/answers.css" />#}
@@ -89,12 +143,10 @@
 {% endfor %}
 {% block content %}{% endblock %}
 
-<div class="main" style="margin-left: 150px;margin-right: 150px;margin-top: 50px">
+<div class="main" style="margin-left: 350px;margin-right: 150px;margin-top: 50px">
     <p class="question-info">
-
         <span>{{ _('author：') }} {{customer.cus_username}} </span><br>
         <span>{{ _('time：') }} {{ detail.que_time }} </span>
-
     </p>
     <hr/>
     <p class="question-content"> {{ detail.question }} </p>
