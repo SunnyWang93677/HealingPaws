@@ -477,7 +477,7 @@ def customer_question():
             print('delete_confirm', request.form.get('delete_confirm'))
             if request.form.get('delete_confirm'):
                 id = request.form.get('question_id')
-                print(id)
+                print('id',id)
                 # data = Question.query.filter(Question.que_id == id).first()
                 Question.query.filter_by(que_id=id).update(
                     {'que_status': '1'})
