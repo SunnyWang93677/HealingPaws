@@ -139,7 +139,7 @@ def employee_login():
                 flash(_('Your password is incorrect, please try again'))
                 return redirect(url_for('employee_login'))
         else:
-            flash('the user is not exist, please register first OR the boss not pass your apply')
+            flash(_('the user is not exist, please register first OR the boss not pass your apply'))
             return redirect(url_for('employee_login'))
 
 
@@ -172,7 +172,7 @@ def employee_register():
                 return redirect(url_for('employee_register'))
             else:
                 if boss_email != 'boss@163.com':
-                    flash('your verified email (boss email) is not correct')
+                    flash(_('your verified email (boss email) is not correct'))
                     return redirect(url_for('employee_register'))
                 else:
                     passw_hash = str(aes_encrypt.encrypt(password))[2:-1]
@@ -203,13 +203,13 @@ def employee_password():
                 Employee.query.filter(email).update(
                     {'emp_password_hash': password_hash})
                 db.session.commit()
-                flash('update success')
+                flash(_('update success'))
                 return redirect(url_for('employee_login'))
             else:
-                flash('verify information is not correct')
+                flash(_('verify information is not correct'))
                 return redirect(url_for('employee_password'))
         else:
-            flash('the email is not exist, please register first')
+            flash(_('the email is not exist, please register first'))
             return redirect(url_for('employee_password'))
 
 
@@ -238,7 +238,7 @@ def employee_qa():
             questions = Question.query.all()
             return render_template('employee_question.html', questions=questions,username=employee.emp_username)
         elif session.get('EMPID') is None:
-            flash('please login first')
+            flash(_('please login first'))
             return redirect(url_for('employee_login'))
 
         elif session.get('CUSID'):
@@ -266,7 +266,7 @@ def answer_detial(que_id):
             return render_template('answer_detail.html', title='Detail', detail=question, answer=answer,
                                    employee=employee_name, customer=customer,username=employee_username)
         else:
-            flash('please login')
+            flash(_('please login'))
             return redirect(url_for('employee_login'))
     else:
         if session.get('EMPID'):
@@ -275,7 +275,7 @@ def answer_detial(que_id):
                 ans_detail = Answer(answer=answer, emp_id=session.get('EMPID'), que_id=que_id)
                 db.session.add(ans_detail)
                 db.session.commit()
-                flash('add success')
+                flash(_('add success'))
             else:
                 flash(_('please enter something'))
             return redirect(url_for('answer_detial', que_id=que_id))
@@ -300,7 +300,7 @@ def employee_appointment():
                         pet[p.pet_id]=p
             return render_template('employee_appointment.html', appointment=appointment,pet_name_list=pet,customer=customer,username=employee_username)
         else:
-            flash('Please login as Employee first')
+            flash(_('Please login as Employee first'))
             return redirect(url_for('employee_login'))
     else:
         if request.form.get("update_appointment") == "1":
@@ -323,13 +323,13 @@ def announcement():
     if request.method == 'GET':
         if session.get('EMPID') is not None:
             if session.get('EMPID') == employee.emp_id:
-                flash('success')
+                flash(_('success'))
                 return render_template('announcement.html')
             else:
-                flash('forbidden enter')
+                flash(_('forbidden enter'))
                 return redirect(url_for('employee_main'))
         else:
-            flash('Please login first')
+            flash(_('Please login first'))
             return redirect(url_for('employee_login'))
     else:
         title = request.form.get('a_title')
@@ -337,7 +337,7 @@ def announcement():
         announcement = Annoncement(ann_title=title,annoncement=conntent)
         db.session.add(announcement)
         db.session.commit()
-        flash('add success')
+        flash(_('add success'))
     return render_template('announcement.html')
 
 
@@ -365,13 +365,13 @@ def customer_login():
                     flash('success')
                     return redirect(url_for('customer_mainpage'))
                 else:
-                    flash('Your password is incorrect, please try again')
+                    flash(_('Your password is incorrect, please try again'))
                     return redirect(url_for('customer_login'))
             else:
-                flash('the user is not exist, please register first')
+                flash(_('the user is not exist, please register first'))
                 return redirect(url_for('customer_login'))
         else:
-            flash('password or email empty')
+            flash(_('password or email empty'))
             return redirect(url_for('customer_login'))
 
 
@@ -398,13 +398,13 @@ def customer_register():
         cus_password = request.form.get('password1')
         cus_password_2 = request.form.get('password2')
         verified = request.form.get('question')
-        customer_db = Customer.query.filter(Customer.email == email).first()
+        customer_db = Customer.query.filter(Customer.email == email or Customer.phone == phone).first()
         if customer_db:
-            flash('This username has been registered')
+            flash(_('This email or phone has been registered'))
             return redirect(url_for('customer_register'))
         else:
             if cus_password != cus_password_2:
-                flash('password has not match')
+                flash(_('password has not match'))
                 return redirect(url_for('customer_register'))
             else:
                 cus_password_hash = str(aes_encrypt.encrypt(cus_password))[2:-1]
@@ -414,7 +414,7 @@ def customer_register():
                                     email=email, phone=phone,verified_cus=verified)
                 db.session.add(customer)
                 db.session.commit()
-                flash('scuess')
+                flash(_('scuess'))
                 return redirect(url_for('customer_login'))
 
 
@@ -435,13 +435,13 @@ def customer_password():
                 Customer.query.filter(email).update(
                     {'emp_password_hash': password_hash})
                 db.session.commit()
-                flash('update success')
+                flash(_('update success'))
                 return redirect(url_for('customer_login'))
             else:
-                flash('verify information is not correct')
+                flash(_('verify information is not correct'))
                 return redirect(url_for('customer_password'))
         else:
-            flash('the email is not exist, please register first')
+            flash(_('the email is not exist, please register first'))
             return redirect(url_for('customer_password'))
 
 
@@ -468,7 +468,7 @@ def customer_question():
                 db.session.add(data)
                 db.session.commit()
             else:
-                flash('please enter something')
+                flash(_('please enter something'))
             print('delete_confirm', request.form.get('delete_confirm'))
             if request.form.get('delete_confirm'):
                 id = request.form.get('question_id')
@@ -476,10 +476,10 @@ def customer_question():
                 Question.query.filter_by(que_id=id).update(
                     {'que_status': '1'})
                 db.session.commit()
-                flash('success')
+                flash(_('success'))
             return redirect(url_for('customer_question'))
         else:
-            flash('please login first')
+            flash(_('please login first'))
             return redirect(url_for('customer_login'))
 
 
@@ -500,7 +500,7 @@ def detail(que_id):
             return render_template('question_detail.html', title='Detail', customer=customer, detail=question,
                                    answer=answer, employee=employee_name,username = customer.cus_username,Username=Username.cus_username)
         else:
-            flash('Please login first')
+            flash(_('Please login first'))
             return redirect(url_for('customer_login'))
 
 
@@ -539,17 +539,17 @@ def pet_page():
             print(request.form)
             if request.form.get('update'):
                 update_pet_db(g('pid'), g('petname'), g('pkind'), g('pgender'), g('birthday'))
-                flash('Success')
+                flash(_('Success'))
             if request.form.get('delete'):
                 delete_pet(g('pid'))
-                flash('Success')
+                flash(_('Success'))
             if request.form.get('add_pet'):
                 add_new_pet(int(session.get('CUSID')[:-3]))
         petsList = get_pet_list(int(session.get('CUSID')[:-3]))
         customer = Customer.query.filter(Customer.cus_id == int(session.get('CUSID')[:-3])).first()
         return render_template('customer_pet.html', pet=[], pets=petsList,username=customer.cus_username)
     else:
-        flash('Please login first')
+        flash(_('Please login first'))
         return redirect('/customer_login')
 
 
@@ -576,7 +576,7 @@ def pet_bad():
                     })
                     db.session.commit()
                 else:
-                    flash('pets not exist')
+                    flash(_('pets not exist'))
             if request.form.get('delete_confirm') is not None:
                 petid = request.form.get('petid_delete')
                 Pet.query.filter_by(pet_id=petid).update({
@@ -595,7 +595,7 @@ def pet_bad():
             pets = Pet.query.filter(Pet.cus_id == int(session.get('CUSID')[:-3]))
             return render_template('customer_pet.html', pet=pets)
     else:
-        flash('please login first')
+        flash(_('please login first'))
         redirect(url_for('customer_login'))
 
 
@@ -641,12 +641,12 @@ def customer_appointment():
                 myid = int(request.form.get('pid'))
                 update_appoint(myid, request.form.get('eon'), request.form.get('place'),
                                request.form.get('treatment_time'), request.form.get('description'))
-                flash('Modify success')
+                flash(_('Modify success'))
             elif request.form.get('delete_appointment'):
                 id = int(request.form.get('app_id'))
                 Appointment.query.filter_by(app_id=id).update({'status': '5'})
                 db.session.commit()
-                flash('Delete success')
+                flash(_('Delete success'))
             else:
                 a = Appointment(description=request.form.get('description'), type=request.form.get('type'),
                                 place=request.form.get('place'), pet_id=request.form.get('petid'),
@@ -654,12 +654,12 @@ def customer_appointment():
                                 treatment_time=request.form.get('treatment_time'))
                 db.session.add(a)
                 db.session.commit()
-                flash('Add success')
+                flash(_('Add success'))
             # request_appointment(request.form)
             return redirect(url_for('customer_appointment'))
 
     else:
-        flash('Please login first')
+        flash(_('Please login first'))
         return redirect(url_for('customer_login'))
 
 
@@ -692,7 +692,7 @@ def request_appointment(form):
         db.session.add(appointment)
         # db.session.add(pet)
         db.session.commit()
-        flash("add success")
+        flash(_("add success"))
 
     if form.get("delete_appointment") == "1":
         print("yes")
