@@ -223,8 +223,10 @@ def employee():
 def employee_main():
     if session.get('EMPID'):
         announcemnet = Annoncement.query.first()
+        print(announcemnet.ann_title)
         employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
         if announcemnet:
+            print('hello word announcement')
             return render_template('employee_main.html',username=employee.emp_username,announcement_title=announcemnet.ann_title,announcement_connect=announcemnet.annoncement,announcement_time=announcemnet.ann_time )
         else:
             return render_template('employee_main.html',username=employee.emp_username )
@@ -475,6 +477,7 @@ def customer_question():
             print('delete_confirm', request.form.get('delete_confirm'))
             if request.form.get('delete_confirm'):
                 id = request.form.get('question_id')
+                print(id)
                 # data = Question.query.filter(Question.que_id == id).first()
                 Question.query.filter_by(que_id=id).update(
                     {'que_status': '1'})

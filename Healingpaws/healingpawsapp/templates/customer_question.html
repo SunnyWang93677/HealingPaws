@@ -82,6 +82,7 @@
     <div class="alert-warning">{{ message }}</div>
 {% endfor %}
 {% block content %}{% endblock %}
+
 <div class="container">
     <h3>{{ _('Questions') }}</h3>
     <!-- Nav tabs -->
@@ -120,6 +121,11 @@
             </ul>
         </div>
 {#        {%endif%}#}
+    <script>
+        id = window.b.parentNode.parentNode.children[2].children[0].children[0].value
+        document.querySelector('#question_id122').value = id
+        document.querySelector("#quesiton_id122").textContent = id
+    </script>
         <div id="menu1" class="container tab-pane fade"><br>
             <h3>{{ _('My questions') }}</h3>
             <ul class="question-list">
@@ -138,14 +144,14 @@
                     </div>
                     <form action="#" method="post">
                         <div class="form-group">
-                            <input type="hidden" name="question_id" value="{{question.id}}">
+                            <input name="question_id" value="{{question.que_id}}">
                         </div>
                         <div class="form-group" style="text-align:right;position:relative;">
 {#                            <button class="btn btn-danger">{{ _("Delete") }}</button>#}
                         </div>
                     </form>
                     <div style="text-align:right;position:relative;">
-                        <button type="button" class="btn btn-danger offset-1 delete_btn" data-toggle="modal" data-target="#alert">{{ _('Delete') }}</button>
+                        <button type="submit" class="btn btn-danger offset-1 delete_btn" data-toggle="modal" data-target="#alert" onclick="window.b=this">{{ _('Delete') }}</button>
                     </div>
                 </li>
                     {% endif %}
@@ -189,7 +195,7 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal">{{ _('Close') }}
                 </button>
                 <form method="post">
-                    <input type="hidden" name="question_id" value="{{question.id}}">
+                    <input name="question_id" id="quesiton_id122">
                 <button name="delete_confirm" id="delbtn" type="submit" class="btn btn-primary" data-dismiss="modal">
                     {{ _('Confirm') }}
                 </button>
