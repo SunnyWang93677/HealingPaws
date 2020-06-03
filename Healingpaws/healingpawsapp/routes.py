@@ -222,9 +222,14 @@ def employee():
 @app.route('/employee_main', methods=['GET', 'POST'])
 def employee_main():
     if session.get('EMPID'):
-        announcemnet = Annoncement.query.first()
+        announcemnet = Annoncement.query.order_by(Annoncement.ann_id.desc()).first()
+        print(announcemnet.ann_title)
         employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
-        return render_template('employee_main.html',username=employee.emp_username,announcement_title=announcemnet.ann_title,announcement_connect=announcemnet.annoncement,announcement_time=announcemnet.ann_time )
+        if announcemnet:
+            print('hello word announcement')
+            return render_template('employee_main.html',username=employee.emp_username,announcement_title=announcemnet.ann_title,announcement_connect=announcemnet.annoncement,announcement_time=announcemnet.ann_time )
+        else:
+            return render_template('employee_main.html',username=employee.emp_username )
     else:
         flash('please login first')
         return redirect(url_for('employee_login'))
@@ -332,8 +337,8 @@ def announcement():
             flash(_('Please login first'))
             return redirect(url_for('employee_login'))
     else:
-        title = request.form.get('a_title')
-        conntent = request.form.get('a_conntent')
+        title = request.form.get('title')
+        conntent = request.form.get('conntent')
         announcement = Annoncement(ann_title=title,annoncement=conntent)
         db.session.add(announcement)
         db.session.commit()
@@ -428,7 +433,7 @@ def customer_password():
         pet = request.form.get('answer')
         password = request.form.get('question')
         customer = Customer.query.filter(Customer.email == email).first()
-        if employee:
+        if customer:
             cus_verified = str(aes_encrypt.decrypt(customer.verified_cus))[2:-1]
             password_hash = str(aes_encrypt.encrypt(password))[2:-1]
             if cus_verified == pet:
@@ -472,6 +477,7 @@ def customer_question():
             print('delete_confirm', request.form.get('delete_confirm'))
             if request.form.get('delete_confirm'):
                 id = request.form.get('question_id')
+                print(id)
                 # data = Question.query.filter(Question.que_id == id).first()
                 Question.query.filter_by(que_id=id).update(
                     {'que_status': '1'})

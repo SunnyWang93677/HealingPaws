@@ -122,10 +122,10 @@
             {% for p in pets %}
                 <tr>
                     <td name='pid' class="text-center pid" hidden="hidden">{{ p.pet_id }}</td>
-                    <td class="text-center pna" name="petname" >{{ p.pet_name }}</td>
-                    <td class="text-center pty" name="pkind">{{{'0':'dog','1':'cat'}[ p.pet_type ]}}</td>
-                    <td class="text-center pgen" name="pgender">{{{'0':'male','1':'female'}[ p.pet_gneger ]}}</td>
-                    <td class="text-center pbir" name="birthday">{{ p.pet_birth }}</td>
+                    <td class="text-center pna" >{{ p.pet_name }}</td>
+                    <td class="text-center pty">{{{'0':'dog','1':'cat'}[ p.pet_type ]}}</td>
+                    <td class="text-center pgen" >{{{'0':'male','1':'female'}[ p.pet_gneger ]}}</td>
+                    <td class="text-center pbir">{{ p.pet_birth }}</td>
                     <td>
                         <a href="#">
                             <button name='modify' onclick="window.b=this;preparewindow();"
@@ -305,7 +305,7 @@
 </script>
 
     <!-- JS VENDOR -->
-{#    <script src="../static/js/vendor/jquery.min.js"></script>#}
+    <script src="../static/js/vendor/jquery.min.js"></script>
     <script src="../static/js/vendor/bootstrap.min.js"></script>
     <script src="../static/js/vendor/owl.carousel.js"></script>
     <script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>

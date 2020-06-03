@@ -26,7 +26,6 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <style>
         body{
-            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
             background-size: 110%;
             padding-top: 50px;
         }
@@ -68,7 +67,7 @@
                             <a class="nav-link" href="#">{{ username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
+                            <a class="nav-link" href="{{ url_for('logout') }}">{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -78,8 +77,12 @@
         </div>
     </div>
 </div>
+{% for message in get_flashed_messages() %}
+    <div class="alert-warning">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
 
-<div class="box">
+<div class="box" style="overflow: auto">
     <div class="title">{{ _('appointment') }}</div>
     <div class="content" >
 
@@ -93,12 +96,12 @@
                         <input id="Ktext" type="text" oninput="refresh_list(this.value)" class="form-control" placeholder="{{ _('please enter your location') }}">
                     </div>
                     <script>
-                        var alllist
+                        var alllist;
                         function refresh_list(value){
-                            alllist=document.querySelectorAll('.testrow')
+                            alllist=document.querySelectorAll('.testrow');
                             if(typeof value == "string"){
                                 for(var i=0;i<alllist.length;i++){
-                                    tc=alllist[i].querySelector('.ena')
+                                    tc=alllist[i].querySelector('.city');
                                     if(tc.textContent.includes(value)){
                                         alllist[i].removeAttribute('hidden')
                                     }else{
@@ -109,108 +112,22 @@
                         }
                     </script>
                 </div>
-                <div class="search_input">
-                    <button class="btn btn-primary search_btn" type="button" id="search_btn">{{ _('inquiry') }}</button>
-                    <button class="btn btn-primary search_btn" type="button" id="back_btn">{{ _('resetting') }} </button>
-                </div>
-{#                <select name="" id="exit" style="width: 100px" class="select">#}
-{#                            <option value="all">{{ _('all') }}</option>#}
-{#                            <option value="waiting">{{ _('waiting') }}</option>#}
-{#                            <option value="treatment">{{ _('treatment') }}</option>#}
-{#                            <option value="surgery">{{ _('surgery') }}</option>#}
-{#                            <option value="release">{{ _('release') }}</option>#}
-{#                        </select>#}
+
             </div>
             <div class="line"></div>
         </div>
 
-        <div class="export">
-{#            <button id="new_add" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#renyuan">#}
-{#                <img src="../static/pic/add_two.png"/>#}
-{#                <span>{{ _('ADD') }}</span>#}
-{#            </button>#}
-            <div class="modal fade" id="renyuan">
-                <div class="modal-dialog modal-lg modal_position">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">{{ _('Process appointment information') }}</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post">
-                            <table id="xztb" class="table">
-
-                                <tbody>
-                                <tr class="testrow">
-                                    <td class="tb_bg"><label for="">{{ _('city') }}</label></td>
-
-
-
-                                    <td><input name="place" class="city" type="text" placeholder="{{ _('please enter your location') }}"/></td>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>{{ _('name') }}</label>
-                                    <td><input name="pet_name" class="userName" type="text" placeholder="{{ _('please enter the name of your pets') }}"/></td>
-
-
-
-                                </tr>
-                                <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>{{ _('tel') }}</label>
-                                        </td>
-                                    <td><input name="phone" class="phoneNum" type="number" placeholder="{{ _('Please write down the correct number') }}"/></td>
-                                    <td class="tb_bg"><label for="">{{ _('another information') }}</label></td>
-                                    <td><input name="description" type="text" placeholder="{{ _('You can post some information') }}"/></td>
-
-                                    </td>
-
-
-                                </tr>
-
-                                   <tr>
-                                    <td class="tb_bg"><label for="">{{ _('type') }}</label></td>
-                                    <td><input name="pet_type" class="petstype" type="text" placeholder="{{ _('pets type') }}"/></td>
-
-                                    </td>
-                                      <td class="tb_bg"><label for="">{{ _('Status') }}</label></td>
-                                    <td>
-                                        <select name="status" class="form-control select_down" style="font-size: 13px; color: #666;">
-                                            <option>{{ _('waiting') }}</option>
-                                            <option>{{ _('treatment') }}</option>
-                                            <option>{{ _('surgrey') }}</option>
-                                            <option>{{ _('release') }}</option>
-                                        </select>
-                                    </td>
-                                   </tr>
-                                <tr>
-
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;"></font>{{ _('date[surgery]') }}</label>
-                                        </td>
-                                            <td><input name="sergery_time" class="jobNum" type="date" placeholder="{{ _('date of surgery') }}" /></td>
-                                    <td class="tb_bg"><label for=""></font>{{ _('date[release]') }}</label></td>
-                                    <td><input name="release_time" class=date2 type="date" placeholder="{{ _('date of release') }}" min=""/></td></tr>
-                                </tbody>
-                            </table>
-
-
-
-
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('cancel') }}</button>
-                            <button name="add_appointment" value="1" id="add_btn" type="button" class="btn btn-secondary">{{ _('confirm') }}</button>
-                        </form></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <table id="tb" class="table">
             <thead>
             <tr>
                 <th>{{ _('city') }}</th>
-                <th>{{ 'customer name' }}</th>
+                <th>{{ _('customer name') }}</th>
                 <th>{{ _('tel') }}</th>
-                <th>{{ 'type & birth' }}</th>
+                <th>{{ _('type & birth') }}</th>
                 <th>{{ _('another information') }}</th>
-                <th> treatment type </th>
-                <th> date[treatment]</th>
+                <th> {{ _('treatment type') }} </th>
+                <th> {{ _('date[treatment]') }}</th>
                 <th>{{ _('date[surgery]') }}</th>
                 <th>{{ _('date[release]') }}</th>
                 <th>{{ _('status') }}</th>
@@ -219,30 +136,28 @@
             </thead>
             <tbody id="show_tbody">
             {% for a in appointment%}
-            <tr>
-{#                <td>{{ hello_world() }}</td>#}
+                {% if a.status != '5' and a.status != '4' %}
+            <tr class="testrow">
                 <td hidden="hidden" class="ena">{{a.app_id}}</td>
-                <td>{{{'0':'Beijing','1':'Shanghai','2':'Chenngdu'}[a.place]}}</td>
+                <td class="city">{{{'0':'Beijing','1':'Shanghai','2':'Chengdu'}[a.place]}}</td>
                 <td>{{customer[a.cus_id].cus_real_name}}</td>
                 <td>{{customer[a.cus_id].phone}}</td>
                 <td>{{ {'0':'Dog','1':'Cat'}[pet_name_list[a.pet_id].pet_type] }}({{ {'0':'mail','1':'female'}[pet_name_list[a.pet_id].pet_gneger] }})&{{ pet_name_list[a.pet_id].pet_birth }}</td>
                 <td>{{a.description}}</td>
-                <td>{{ {'0':'waiting', '1':'treatment', '2':'surgery', '3':'release', '4':'finish','5':'cancel'}[a.type]}}</td>
+                <td>{{{'0':'waiting', '1':'treatment', '2':'surgery', '3':'release', '4':'finish','5':'cancel'}[a.type]}}</td>
                 <td>{{a.treatment_time}}</td>
                 <td>{{a.sergery_time}}</td>
                 <td>{{a.release_time}}</td>
                 <td>{{a.status}}</td>
-                {% if a.status != '5' and a.status != '4'%}
                 <td>
                     <button name="modify_appointment" onclick="window.b=this;preparewindow()" data-toggle="modal" data-target="#Petinfo2" class="edit">edit</button>
                 </td>
-                    {% else %}
-                    <td>
-                    <a class="edit">edit</a>
-                </td>
-                {% endif %}
+{#                    <td>#}
+{#                    <a class="edit">edit</a>#}
+{#                </td>#}
             </tr>
-            {%endfor%}
+                {% endif %}
+            {% endfor %}
             </tbody>
         </table>
     </div>
