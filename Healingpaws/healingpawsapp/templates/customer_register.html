@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/astyle.css" />
     <style>
         body{
-            /*background: url(../images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);*/
+            {#background: url(../static/images/mainpage.jpg) no-repeat rgba(255,255,255,0.2);#}
             background-size: 110%;
             {#padding-top: 70px;#}
         }
@@ -254,12 +254,6 @@
     
                     <input class="form-control required" type="text" placeholder="{{ _('What is your favorite pet') }}" name="question" id="question" maxlength="20"/>
                 </div>
-                <div id="demo">
-                    <div id="slider">
-                        <div id="slider_bg"></div>
-                        <span id="label">>></span> <span id="labelTip">{{ _('Drag the slider to verify') }}</span>
-                    </div>
-                </div>
                 <div class="form-group" style="padding-top: 20px">
                     <a href="{{ url_for('customer_login') }}" id="register_btn" class="">{{ _('Already have an account') }}</a>
                 </div>
@@ -283,22 +277,7 @@
 {##}
 {#<script src="static/js/script.js"></script>#}
 <script type="text/javascript" src="../static/js/jquery.slideunlock.js"></script>
-<script>
-    // $(function () {
-    //     var slider = new SliderUnlock("#slider",{
-    //         successLabelTip : "Successful validation"
-    //     });
-    //     slider.init();
-    // })
-    $(function () {
-        var slider = new SliderUnlock("#slider",{
-            successLabelTip : {{ _('"Successful validation"') }}
-        },function(){
 
-        });
-        slider.init();
-    })
-</script>
 
 
 </body>
