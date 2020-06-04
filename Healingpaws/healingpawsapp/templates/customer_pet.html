@@ -119,7 +119,7 @@
                 </thead>
                 <tbody>
 
-            {% for p in pets %}
+            {% for p in pets[::-1] %}
                 <tr>
                     <td name='pid' class="text-center pid" hidden="hidden">{{ p.pet_id }}</td>
                     <td class="text-center pna" >{{ p.pet_name }}</td>

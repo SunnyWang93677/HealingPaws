@@ -103,7 +103,7 @@
 {#            {%if question_all%}#}
             <h3>{{ _('Questions') }}</h3>
             <ul class="question-list">
-                {% for q in question %}
+                {% for q in question[::-1] %}
                 <li>
                     <div class="avatar-group">
                         <img src="../static/images/1110055.png" alt="" class="avatar" height="32">
@@ -123,7 +123,7 @@
         <div id="menu1" class="container tab-pane fade" style="margin-left: 50px"><br>
             <h3>{{ _('My questions') }}</h3>
             <ul class="question-list">
-                {% for question in questionlist %}
+                {% for question in questionlist[::-1] %}
                     {% if question.que_status == '0' %}
                 <li>
                     <div class="avatar-group">

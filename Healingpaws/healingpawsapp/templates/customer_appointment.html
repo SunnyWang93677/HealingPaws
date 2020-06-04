@@ -134,7 +134,7 @@
             </tr>
             </thead>
             <tbody id="show_tbody">
-            {% for a in appointment%}
+            {% for a in appointment[::-1] %}
                 {% if a.status != '5' %}
             <tr>
                 <td class='text-center pid'hidden="hidden" name="app_id" value= {{ a.app_id }}>
