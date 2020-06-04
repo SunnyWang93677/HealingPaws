@@ -56,7 +56,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a href="{{ url_for('boss_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
+                <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
                 <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
                 <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
@@ -69,10 +69,7 @@
                             <a class="nav-link" href="#">{{ _('boss') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('log out') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('log') }}</a>
+                            <a class="nav-link" href="{{ url_for('logout') }}">{{ _('log out') }}</a>
                         </li>
                     </ul>
 
@@ -117,6 +114,10 @@
                         }
                     </script>
                 </div>
+{#                <div class="search_input">#}
+{#                    <button class="btn btn-primary search_btn" type="button" id="search_btn">{{ _('inquiry') }}</button>#}
+{#                    <button class="btn btn-primary search_btn" type="button" id="back_btn">{{ _('resetting') }} </button>#}
+{#                </div>#}
             </div>
             <div class="line"></div>
         </div>
@@ -200,14 +201,12 @@
                     document.querySelector('#mapp .et').value=window.p.children[1].textContent;
                     document.querySelector('#mapp .es').value=window.p.children[2].textContent;
                     document.querySelector('#mapp .em').value=window.p.children[3].textContent;
-                    document.querySelectorAll('#mapp .sel122');
 " class="edit" data-toggle="modal" data-target="#mapp" >edit</a>
                     <a href="#" onclick="o=this;window.p=o.parentNode.parentNode;
                     document.querySelector('#dapp .en').value=window.p.children[0].textContent;
                     document.querySelector('#dapp .et').value=window.p.children[1].textContent;
                     document.querySelector('#dapp .es').value==window.p.children[2].textContent;
                     document.querySelector('#dapp .em').value=window.p.children[3].textContent;
-                    document.querySelectorAll('#dapp .sel122');
 " class="edit" data-toggle="modal" data-target="#dapp" >delete</a>
                 </td>
             </tr>
@@ -245,10 +244,11 @@
 
                     <div class="form-group" style="padding-top: 20px">
                         <label class="col-sm-3">status</label>
-                        <select name='place' class="form-control place" id="sel122">
-                            <option  name='2' value="0"  class="form-control es">{{ _('fail') }}</option>
-                            <option name='2' value="1"  class="form-control es">{{ _('pass') }}</option>
-                        </select>
+{#                        <select name='2' class="form-control es" id="sel122">#}
+{#                            <option  name='1' value="0"  class="define_select0 dlr">{{ _('fail') }}</option>#}
+{#                            <option name='1' value="1"  class="define_select1 dlr">{{ _('pass') }}</option>#}
+{#                        </select>#}
+                        <input type="text" name="2" class="form-control es" >
                     </div>
 
                     <div class="form-group" style="padding-top: 20px;display: none">
@@ -257,7 +257,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" value="1" name="modify" style="margin-left: 20px;color: black" >{{ _('Close') }}
+
+                        <button type="button" name='close' class="btn btn-primary" data-dismiss="modal" aria-hidden="true" style="color: black">{{ _('Close') }}
                         </button>
                         <button type="submit"  value='1' name="modify" class="btn btn-primary" style="color: black">{{ _('Save') }}
                         </button>
@@ -295,6 +296,11 @@
 
                     <div class="form-group" style="padding-top: 20px;display: none">
                         <label class="col-sm-3">status</label>
+{#                        <select name='2' class="form-control es" id="sel122">#}
+{#                            <option  name='1' value="0"  class="define_select0 dlr">{{ _('fail') }}</option>#}
+{#                            <option name='1' value="1"  class="define_select1 dlr">{{ _('pass') }}</option>#}
+{#                        </select>#}
+
                         <input type="text" name="2" class="form-control es" value="fail" >
                     </div>
 
@@ -305,7 +311,7 @@
 
                     <div class="modal-footer">
 
-                        <button type="submit" class="btn btn-primary" style="color: black">{{ _('Close') }}
+                        <button type="button" name='close' class="btn btn-primary" data-dismiss="modal" aria-hidden="true" style="color: black">{{ _('Close') }}
                         </button>
                         <button type="submit"  value='1' name="modify" class="btn btn-primary" style="color: black">{{ _('Save') }}
                         </button>
