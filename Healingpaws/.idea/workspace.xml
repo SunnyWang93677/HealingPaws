@@ -4,7 +4,11 @@
     <list default="true" id="e1e6f71e-03a8-4e49-bc2d-51afd652164a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/healingpawsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/employee_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/announcement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/answer_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/answer_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer_appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_appointment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healingpawsapp/templates/customer_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/healingpawsapp/templates/customer_question.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +91,8 @@
       <workItem from="1591186824952" duration="81000" />
       <workItem from="1591192125835" duration="1979000" />
       <workItem from="1591194335035" duration="4947000" />
+      <workItem from="1591200576815" duration="181000" />
+      <workItem from="1591244786828" duration="412000" />
     </task>
     <servers />
   </component>

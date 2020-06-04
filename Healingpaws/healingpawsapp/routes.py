@@ -424,7 +424,6 @@ def customer_register():
                 return redirect(url_for('customer_login'))
 
 
-
 @app.route('/customer_password', methods=['GET', 'POST'])
 def customer_password():
     if request.method == 'GET':
