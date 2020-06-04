@@ -40,9 +40,10 @@ function pwdTest2(pwd2){
     }
 }
 function emailb(obj){
+    obj = $("#bossemail").val();
     var myreg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     var bossemail = 'boss@163.com';
-    if (myreg != bossemail){
+    if (obj != bossemail){
         alert('Failure to certify information.');
         document.getElementById("bossemail").value = "";
         return false

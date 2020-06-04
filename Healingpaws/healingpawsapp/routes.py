@@ -223,7 +223,7 @@ def employee():
 @app.route('/employee_main', methods=['GET', 'POST'])
 def employee_main():
     if session.get('EMPID'):
-        announcemnet = Annoncement.query.order_by(Annoncement.ann_id.desc()).first()
+        announcemnet = Annoncement.query.order_by(Annoncement.ann_time.desc()).first()
         print(announcemnet.ann_title)
         employee = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
         if announcemnet:
@@ -422,7 +422,6 @@ def customer_register():
                 db.session.commit()
                 flash(_('scuess'))
                 return redirect(url_for('customer_login'))
-
 
 
 @app.route('/customer_password', methods=['GET', 'POST'])
