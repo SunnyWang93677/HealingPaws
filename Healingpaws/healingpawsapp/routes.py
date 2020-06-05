@@ -72,7 +72,7 @@ def b_employee():
                 f = request.form
                 updateemp(f.get('0'), f.get('1'), f.get('2'), f.get('3'))
                 flash('success')
-            return render_template('b.html',list=Employee.query.all())
+            return render_template('b.html',list=Employee.query.all(),username=employee.emp_username)
         else:
             flash('you are not allowed')
             return redirect(url_for('employee_main'))
@@ -90,7 +90,7 @@ def b_employee1():
         if request.form.get('modify'):
             f = request.form
             updateemp(f.get('0'), f.get('1'), f.get('2'), f.get('3'))
-    return render_template('b.html', list=Employee.query.all())
+    return render_template('b.html', list=Employee.query.all(),username=employee.emp_username)
 
 
 @app.route('/boss_main')
@@ -326,11 +326,12 @@ def employee_appointment():
 @app.route('/announcement', methods=['GET','POST'])
 def announcement():
     employee = Employee.query.filter(and_(Employee.email == 'boss@163.com', Employee.employee_pass == '1')).first()
+    employee_username = Employee.query.filter(Employee.emp_id == int(session.get('EMPID'))).first()
     if request.method == 'GET':
         if session.get('EMPID') is not None:
             if session.get('EMPID') == employee.emp_id:
                 flash(_('success'))
-                return render_template('announcement.html')
+                return render_template('announcement.html',username=employee.emp_username)
             else:
                 flash(_('forbidden enter'))
                 return redirect(url_for('employee_main'))
@@ -344,7 +345,7 @@ def announcement():
         db.session.add(announcement)
         db.session.commit()
         flash(_('add success'))
-    return render_template('announcement.html')
+    return render_template('announcement.html',username=employee.emp_username)
 
 
 @app.route('/index')
