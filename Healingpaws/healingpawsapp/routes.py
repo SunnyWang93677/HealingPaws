@@ -404,9 +404,9 @@ def customer_register():
         cus_password = request.form.get('password1')
         cus_password_2 = request.form.get('password2')
         verified = request.form.get('question')
-        customer_db = Customer.query.filter(or_(Customer.email == email, Customer.phone == phone)).first()
+        customer_db = Customer.query.filter(or_(Customer.email == email, Customer.phone == phone, Customer.cus_username == cus_username)).first()
         if customer_db:
-            flash(_('This email or phone has been registered'))
+            flash(_('This user has been registered'))
             return redirect(url_for('customer_register'))
         else:
             if cus_password != cus_password_2:
