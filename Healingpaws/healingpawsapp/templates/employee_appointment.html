@@ -40,7 +40,7 @@
 </head>
 <body>
 <!-- LOAD PAGE -->
- <div class="animationload">
+   <div class="animationload" >
     <div class="loader"></div>
 </div>
 <a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
@@ -54,10 +54,10 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a href="{{ url_for('boss_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
+                <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
                 <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
-                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
+                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('ManageEmployees') }}</a>
                 <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
 
 
@@ -70,7 +70,7 @@
                             <a class="nav-link" href="{{ url_for('logout') }}">{{ _('log out') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('log') }}</a>
+                            <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('log in') }}</a>
                         </li>
                     </ul>
 
@@ -85,7 +85,7 @@
 {% endfor %}
 {% block content %}{% endblock %}
 
-<div class="box" style="overflow: auto">
+<div class="box" style=overflow-y:auto;>
     <div class="title">{{ _('appointment') }}</div>
     <div class="content">
         <div class="container content_width">
@@ -115,7 +115,7 @@
                 </div>
 
             </div>
-            <div class="person_search">
+            <div class="person_search" >
                 <div class="search_input">
                     <div class="input-group mb-3">
                         <span>{{ _('Status:') }}</span>
@@ -162,7 +162,7 @@
                 <th>{{ _('edit') }}</th>
             </tr>
             </thead>
-            <tbody id="show_tbody">
+            <tbody id="show_tbody" scrolling="yes">
             {% for a in appointment%}
                 {% if a.status != '5' and a.status != '4' %}
             <tr class="testrow">

@@ -42,7 +42,7 @@
 </head>
 <body>
 <!-- LOAD PAGE -->
-   <div class="animationload">
+   <div class="animationload" >
     <div class="loader"></div>
 </div>
 <a href="#" class="cd-top cd-is-visible cd-fade-out">Top</a>
@@ -59,17 +59,20 @@
                 <a href="{{ url_for('employee_main') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Home') }}</a>
                 <a href="{{ url_for('announcement') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Announcements') }}</a>
                 <a href="{{ url_for('employee_appointment') }}" class="btn btn-secondary btn-nav btn-rect ml-auto">{{ _('Appointments') }}</a>
-                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Manage Employees') }}</a>
+                <a href="{{ url_for('b_employee') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('ManageEmployees') }}</a>
                 <a href="{{ url_for('employee_qa') }}" class="btn btn-secondary btn-nav btn-rect ml-auto" style="margin-left: 20px">{{ _('Questions') }}</a>
 
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ _('boss') }}</a>
+                            <a class="nav-link" href="#">{{ username }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}">{{ _('log out') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('employee_login') }}">{{ _('log in') }}</a>
                         </li>
                     </ul>
 
@@ -84,7 +87,7 @@
 {% endfor %}
 {% block content %}{% endblock %}
 
-<div class="box">
+<div class="box" style=overflow-y:auto;>
     <div class="title">{{ _('MANAGE EMPLOYEE') }}</div>
     <div class="content" >
 
