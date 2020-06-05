@@ -162,7 +162,7 @@ def employee_register():
         password2 = request.form.get('password2')
         boss_email = request.form.get('bossemail')
         verified = request.form.get('pets')
-        customer = Employee.query.filter(or_(Employee.email == email,Employee.phone == phone)).first()
+        customer = Employee.query.filter(or_(Employee.email == email,Employee.phone == phone,Employee.emp_username == emp_username)).first()
         if customer:
             flash(_('This username has been registered,please login'))
             return redirect(url_for('employee_register'))
